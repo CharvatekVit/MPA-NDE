@@ -10,7 +10,8 @@ Team members
 > The component list will have been completed by February 25.
 
 ## Requirements
-
+2. Wireless control
+3. Battery supply
 
 ## Task lisk
 - [ ] System

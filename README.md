@@ -31,7 +31,7 @@ Team members
    * [ ]  Valve
    * [ ]  T-hub
    * [ ]  Tube
-   * [ ]  Pressure regulator
+   * [ ]  Nozzle
 - [ ] Software
    * [ ] MCU choice
    * [ ] UART communication

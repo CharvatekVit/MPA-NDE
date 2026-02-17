@@ -7,17 +7,27 @@ Team members
 4. Antonín Putala (responsible for ...)
 
 > [!WARNING]
-> The shopping list will have been completed by February 25.
+> The component list will have been completed by February 25.
+
+## Requirements
+
 
 ## Task lisk
 - [ ] System
    * [x] Conceptual diagram
+   * [ ] Requirements
    * [ ] Component list
-   * [ ] Shopping list
-- [ ]  Hardware
+- [ ]  Electronics
    * [ ] 
-   * [ ]
+   * [ ] 
+- [ ]  Pneumatics
+   * [ ]  Gas bottle
+   * [ ]  Valve
+   * [ ]  Tube
+   * [ ]  Preasure regulator
 - [ ] Software
    * [ ] MCU choice
 - [ ] Structure
+
+
 ## Reference

@@ -8,13 +8,13 @@ Team members
 
 ## Task lisk
 
-[ ]  Hardware
+- [ ]  Hardware
  - [ ] 
  - [ ] Component list
-[ ] Software
+- [ ] Software
  - [ ] 
  - [ ]
  - [ ]
-[ ] Structure
+- [ ] Structure
  - [ ] 
 ## Reference

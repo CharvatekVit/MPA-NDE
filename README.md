@@ -6,6 +6,9 @@ Team members
 2. Vít Janoš (responsible for ...)
 4. Antonín Putala (responsible for ...)
 
+ [!WARNING]
+> The shopping list will have been completed by February 25.
+
 ## Task lisk
 - [ ] System
    * [x] Conceptual diagram

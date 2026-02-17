@@ -2,9 +2,9 @@
 
 Team members
 
-1. Vít Charvátek (responsible for ...)
-2. Vít Janoš (responsible for ...)
-4. Antonín Putala (responsible for ...)
+1. Vít Charvátek (responsible for Pneumatics)
+2. Vít Janoš (responsible for Electronics)
+4. Antonín Putala (responsible for Software)
 
 > [!WARNING]
 > The component list will have been completed by February 25.
@@ -17,18 +17,26 @@ Team members
 - [ ] System
    * [x] Conceptual diagram
    * [ ] Requirements
+   * [ ] Energy budget
    * [ ] Component list
 - [ ]  Electronics
-   * [ ] 
-   * [ ] 
+   * [ ] Battery
+   * [ ] Battery control
+   * [ ] Voltage regulators
+   * [ ] Accelerometer
+   * [ ] Switching circuit
+   * [ ] LED indicator
 - [ ]  Pneumatics
    * [ ]  Gas bottle
    * [ ]  Valve
+   * [ ]  T-hub
    * [ ]  Tube
-   * [ ]  Preasure regulator
+   * [ ]  Pressure regulator
 - [ ] Software
    * [ ] MCU choice
+   * [ ] UART communication
+   * [ ] Wireless module
 - [ ] Structure
-
+   * [ ] Size estimation
 
 ## Reference

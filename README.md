@@ -25,17 +25,17 @@ Team members
    * [ ] Voltage regulator 5V
    * [ ] Accelerometer
    * [ ] Switching circuit
-   * [ ] LED indicator
+   * [x] LED indicator
 - [ ]  Pneumatics
    * [ ]  Gas bottle
-   * [ ]  Valve
-   * [ ]  T-hub
-   * [ ]  Tube
+   * [x]  Valve
+   * [x]  T-hub
+   * [x]  Tube
    * [ ]  Nozzle
 - [ ] Software
    * [x] MCU choice
    * [ ] UART communication
-   * [ ] Wireless module
+   * [x] Wireless module
 - [ ] Structure
    * [ ] Size estimation
 

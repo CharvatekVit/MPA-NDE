@@ -7,14 +7,14 @@ Team members
 4. Antonín Putala (responsible for ...)
 
 ## Task lisk
-
+- [ ] System
+   * [x] Conceptual diagram
+   * [ ] Component list
+   * [ ] **Shopping list**
 - [ ]  Hardware
- - [ ] 
- - [ ] Component list
+   * [ ] 
+   * [ ]
 - [ ] Software
- - [ ] 
- - [ ]
- - [ ]
+   * [ ] MCU choice
 - [ ] Structure
- - [ ] 
 ## Reference

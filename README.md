@@ -10,7 +10,7 @@ Team members
 - [ ] System
    * [x] Conceptual diagram
    * [ ] Component list
-   * [ ] **Shopping list**
+   * [ ] **SHOPPING LIST!!!**
 - [ ]  Hardware
    * [ ] 
    * [ ]

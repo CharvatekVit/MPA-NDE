@@ -20,9 +20,9 @@ Team members
    * [ ] Energy budget
    * [ ] Component list
 - [ ]  Electronics
-   * [ ] Battery
-   * [ ] Battery control
-   * [ ] Voltage regulators
+   * [x] Battery
+   * [x] Battery control
+   * [ ] Voltage regulator 5V
    * [ ] Accelerometer
    * [ ] Switching circuit
    * [ ] LED indicator
@@ -33,14 +33,14 @@ Team members
    * [ ]  Tube
    * [ ]  Nozzle
 - [ ] Software
-   * [ ] MCU choice
+   * [x] MCU choice
    * [ ] UART communication
    * [ ] Wireless module
 - [ ] Structure
    * [ ] Size estimation
 
-## Part List
-https://vutbr-my.sharepoint.com/:x:/r/personal/246858_vutbr_cz/Documents/MPA-NDE%20Part%20List.xlsx?d=wf46451cfd72a41359eeacaa9987770c3&csf=1&web=1&e=Fm6BbQ
+## Sharepoint
+[Part list](https://vutbr-my.sharepoint.com/:x:/r/personal/246858_vutbr_cz/Documents/MPA-NDE%20Part%20List.xlsx?d=wf46451cfd72a41359eeacaa9987770c3&csf=1&web=1&e=Fm6BbQ)
 
 ## Reference
 1. [Arduino HC-05](https://arduinogetstarted.com/tutorials/arduino-bluetooth#google_vignette)

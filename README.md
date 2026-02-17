@@ -39,4 +39,6 @@ Team members
 - [ ] Structure
    * [ ] Size estimation
 
+## Part List
+https://vutbr-my.sharepoint.com/:x:/r/personal/246858_vutbr_cz/Documents/MPA-NDE%20Part%20List.xlsx?d=wf46451cfd72a41359eeacaa9987770c3&csf=1&web=1&e=Fm6BbQ
 ## Reference

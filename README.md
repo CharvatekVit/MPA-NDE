@@ -22,8 +22,8 @@ Team members
 - [ ]  Electronics
    * [x] Battery
    * [x] Battery control
-   * [ ] Voltage regulator 5V
-   * [ ] Accelerometer
+   * [x] Voltage regulator 5V
+   * [x] Accelerometer
    * [ ] Switching circuit
    * [x] LED indicator
 - [ ]  Pneumatics

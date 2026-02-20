@@ -32,6 +32,7 @@ Team members
       - [x] LED indicator
       - [ ] Switching circuit
    * [ ] PCB design
+   * [ ] Soldering
 - [ ]  Pneumatics
    * [x] Component choice 
       - [x] Valve
@@ -45,6 +46,7 @@ Team members
    * [ ] UART communication
        - [ ] Sensor data
        - [ ] Valve control
+       - [ ] Command implementation
    * [ ] Wireless communication
 - [ ] Structure
    * [ ] Size estimation

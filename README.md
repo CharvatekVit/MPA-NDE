@@ -10,8 +10,12 @@ Team members
 > The component list will have been completed by February 25.
 
 ## Requirements
-1. Wireless control
-3. Battery supply
+1. Determining position using a sensor
+2. Compressed air drive
+3. Maintaining a constant position on one axis
+4. Instruction for rotation of 90°
+5. Battery supply
+6. Wireless control
 
 ## Task list
 - [ ] System

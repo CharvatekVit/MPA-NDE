@@ -20,24 +20,31 @@ Team members
    * [ ] Energy budget
    * [ ] Component list
 - [ ]  Electronics
-   * [x] Battery
-   * [x] Battery control
-   * [x] Voltage regulator 5V
-   * [x] Accelerometer
-   * [ ] Switching circuit
-   * [x] LED indicator
+   * [x] Component choice 
+      - [x] Battery
+      - [x] Step-down
+      - [x] Accelerometer
+   * [ ] Circuit design
+      - [x] LED indicator
+      - [ ] Switching circuit
+   * [ ] PCB design
 - [ ]  Pneumatics
-   * [ ]  Gas bottle
-   * [x]  Valve
-   * [x]  T-hub
-   * [x]  Tube
-   * [ ]  Nozzle
+   * [x] Component choice 
+      - [x] Valve
+      - [x] T-hub
+      - [x] Tube
+   * [ ]  Gas bottle construction
 - [ ] Software
-   * [x] MCU choice
+   * [x] Component choice 
+       - [x] MCU
+       - [x] Wireless module
    * [ ] UART communication
-   * [x] Wireless module
+       - [ ] Sensor data
+       - [ ] Valve control
+   * [ ] Wireless communication
 - [ ] Structure
    * [ ] Size estimation
+   * [ ] Structural design
 
 ## Sharepoint
 [Part list](https://vutbr-my.sharepoint.com/:x:/r/personal/246858_vutbr_cz/Documents/MPA-NDE%20Part%20List.xlsx?d=wf46451cfd72a41359eeacaa9987770c3&csf=1&web=1&e=Fm6BbQ)

@@ -28,9 +28,9 @@ Team members
       - [x] Battery
       - [x] Step-down
       - [x] Accelerometer
-   * [ ] Circuit design
+   * [x] Circuit design
       - [x] LED indicator
-      - [ ] Switching circuit
+      - [x] Switching circuit
    * [ ] PCB design
    * [ ] Soldering
 - [ ]  Pneumatics

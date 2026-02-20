@@ -13,7 +13,7 @@ Team members
 1. Wireless control
 3. Battery supply
 
-## Task lisk
+## Task list
 - [ ] System
    * [x] Conceptual diagram
    * [ ] Requirements

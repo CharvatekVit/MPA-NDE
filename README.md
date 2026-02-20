@@ -20,7 +20,7 @@ Team members
 ## Task list
 - [ ] System
    * [x] Conceptual diagram
-   * [ ] Requirements
+   * [x] Requirements
    * [ ] Energy budget
    * [ ] Component list
 - [ ]  Electronics

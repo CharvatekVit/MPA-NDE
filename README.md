@@ -22,7 +22,7 @@ Team members
    * [x] Conceptual diagram
    * [x] Requirements
    * [ ] Energy budget
-   * [ ] Component list
+   * [x] Component list
 - [ ]  Electronics
    * [x] Component choice 
       - [x] Battery

@@ -50,7 +50,7 @@ Team members
        - [ ] Command implementation
    * [ ] Wireless communication
 - [ ] Structure
-   * [ ] Size estimation
+   * [x] Size estimation
    * [ ] Structural design
 
 ## Sharepoint

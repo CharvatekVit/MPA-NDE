@@ -23,7 +23,7 @@ Team members
    * [x] Requirements
    * [ ] Energy budget
    * [x] Component list
-   * [ ] Physical description
+   * [x] Physical description
 - [ ]  Electronics
    * [x] Component choice 
       - [x] Battery

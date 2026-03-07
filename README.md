@@ -4,7 +4,7 @@ Team members
 
 1. Vít Charvátek (responsible for Pneumatics)
 2. Vít Janoš (responsible for Electronics)
-4. Antonín Putala (responsible for Software)
+4. Antonín Putala (responsible for Software, Structure)
 
 ## Requirements
 1. Determining position using a sensor

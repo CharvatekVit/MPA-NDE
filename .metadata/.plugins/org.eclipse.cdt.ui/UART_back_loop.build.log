@@ -1,0 +1,10 @@
+22:38:47 **** Incremental Build of configuration Debug for project UART_back_loop ****
+make -j4 all 
+arm-none-eabi-size  UART_back_loop.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10316	     12	   1716	  12044	   2f0c	UART_back_loop.elf
+Finished building: default.size.stdout
+ 
+
+22:38:48 Build Finished. 0 errors, 0 warnings. (took 442ms)
+

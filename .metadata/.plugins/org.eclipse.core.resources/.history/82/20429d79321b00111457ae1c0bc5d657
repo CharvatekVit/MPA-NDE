@@ -1,0 +1,26 @@
+
+/* Includes */
+#include "cmd_processing.h"
+#include <stdio.h>
+#include <string.h>
+
+/* Function */
+void uart_byte_available(uint8_t c)
+{
+    static uint16_t cnt;
+    static char data[CMD_BUFFER_LEN];
+
+    if (cnt < CMD_BUFFER_LEN && c >= 32 && c <= 126)
+    {
+    	data[cnt++] = c;
+    }
+
+    if ((c == '\n' || c == '\r') && cnt > 0)
+    {
+        data[cnt] = '\0';
+        uart_process_command(data);
+        cnt = 0;
+    }
+}
+
+

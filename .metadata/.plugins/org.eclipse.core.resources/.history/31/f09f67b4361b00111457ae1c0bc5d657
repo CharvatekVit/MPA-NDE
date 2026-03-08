@@ -1,0 +1,129 @@
+
+/* Includes */
+#include "cmd_processing.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/* Defines */
+#define PULSE_LEN_MIN 10
+#define PULSE_LEN_MAX 100
+
+/* Static functions declaration */
+static void process_command(char *);
+static void process_command_turn(char *);
+
+
+/* Global functions */
+void uart_byte_available(uint8_t c)
+{
+    static uint16_t cnt;
+    static char data[CMD_BUFFER_LEN];
+
+    if (cnt < CMD_BUFFER_LEN && c >= 32 && c <= 126)
+    {
+    	data[cnt++] = c;
+    }
+
+    if ((c == '\n' || c == '\r') && cnt > 0)
+    {
+        data[cnt] = '\0';
+        process_command(data);
+        cnt = 0;
+    }
+}
+
+/* Static functions */
+static void process_cmd(char * cmd)
+{
+	char *token;
+	token = strtok(cmd, " ");
+
+	/* Communication test */
+	if (strcasecmp(token, "HELLO") == 0)
+	{
+	    printf("Communication OK\n");
+	}
+	/* Set default position */
+	else if (strcasecmp(token, "HOME") == 0)
+	{
+		printf("Home\n");
+	}
+	/* Perform 1 step */
+	else if (strcasecmp(token, "TURN") == 0)
+	{
+	    token = strtok(NULL, " ");
+	    if (strcasecmp(token, "RIGHT") == 0)
+	    {
+	    	printf("Right\n");
+	    }
+	    else if (strcasecmp(token, "LEFT") == 0)
+	    {
+	    	printf("Left\n");
+	    }
+	}
+	/* Perform 1 pulse */
+	else if (strcasecmp(token, "PULSE") == 0)
+	{
+		uint8_t pulse_len;
+	    token = strtok(NULL, " ");
+
+	    if (strcasecmp(token, "RIGHT") == 0)
+	    {
+	    	printf("Right\n");
+	    }
+	    else if (strcasecmp(token, "LEFT") == 0)
+	    {
+	    	printf("Left\n");
+	    }
+
+	    token = strtok(NULL, " ");
+
+	    pulse_len = atoi(token);
+
+	    if ((pulse_len >= PULSE_LEN_MIN) && (pulse_len <= PULSE_LEN_MAX))
+	    {
+	    	printf("%s ms\n",token);
+	    }
+	    else
+	    {
+	    	printf("Invalid time\n");
+	    }
+
+
+	}
+	/* Once read data from sensor */
+	else if (strcasecmp(token, "READ") == 0)
+	{
+	    token = strtok(NULL, " ");
+	    if (strcasecmp(token, "MAG") == 0)
+	    {
+	    	printf("M: data\n");
+	    }
+	    else if (strcasecmp(token, "GYR") == 0)
+	    {
+	    	printf("G: data\n");
+	    }
+	    else if (strcasecmp(token, "ACC") == 0)
+	    {
+	    	printf("A: data\n");
+	    }
+	    else if (strcasecmp(token, "ALL") == 0)
+	    {
+	    	printf("M: data\n");
+	    	printf("G: data\n");
+	    	printf("A: data\n");
+	    }
+	    else
+	    {
+	    	printf("Unknown\n");
+	    }
+	}
+}
+
+static void process_command_turn(char *)
+{
+
+}
+
+

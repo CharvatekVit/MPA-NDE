@@ -14,8 +14,6 @@ static void process_cmd(char *);
 static void process_cmd_turn(char *);
 static void process_cmd_read(char *);
 static void process_cmd_pulse(char *);
-static void process_cmd_ncmd(char *);
-
 
 /* Global functions */
 void uart_byte_available(uint8_t c)
@@ -68,9 +66,9 @@ static void process_cmd(char * cmd)
 		process_cmd_read(token);
 	}
 	/* Once read data from sensor */
-	else if (strcasecmp(token, "CMD") == 0)
+	else if (strcasecmp(token, "READ") == 0)
 	{
-		process_cmd_ncmd(token);
+		process_cmd_read(token);
 	}
 }
 
@@ -143,34 +141,6 @@ static void process_cmd_pulse(char * token)
 	else
 	{
 	  	printf("Invalid time\n");
-	}
-}
-
-/* Reserve commands */
-static void process_cmd_ncmd(char * token)
-{
-	uint8_t ncmd;
-
-	token = strtok(NULL, " ");
-	ncmd = atoi(token);
-
-	switch (ncmd)
-	{
-		case 0:
-			printf("Reserve 0\n");
-			break;
-		case 1:
-			printf("Reserve 1\n");
-			break;
-		case 2:
-			printf("Reserve 2\n");
-			break;
-		case 3:
-			printf("Reserve 3\n");
-			break;
-		default:
-			printf("Invalid command\n");
-			break;
 	}
 }
 

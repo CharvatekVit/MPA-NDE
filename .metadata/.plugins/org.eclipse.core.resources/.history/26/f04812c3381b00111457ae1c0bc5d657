@@ -147,31 +147,9 @@ static void process_cmd_pulse(char * token)
 }
 
 /* Reserve commands */
-static void process_cmd_ncmd(char * token)
+static void process_cmd_ncmd(char *)
 {
-	uint8_t ncmd;
 
-	token = strtok(NULL, " ");
-	ncmd = atoi(token);
-
-	switch (ncmd)
-	{
-		case 0:
-			printf("Reserve 0\n");
-			break;
-		case 1:
-			printf("Reserve 1\n");
-			break;
-		case 2:
-			printf("Reserve 2\n");
-			break;
-		case 3:
-			printf("Reserve 3\n");
-			break;
-		default:
-			printf("Invalid command\n");
-			break;
-	}
 }
 
 

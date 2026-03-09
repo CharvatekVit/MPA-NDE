@@ -49,6 +49,8 @@ DMA_HandleTypeDef hdma_usart2_rx;
 /* USER CODE BEGIN PV */
 static uint8_t uart_rx_buf[RX_BUFFER_LEN];
 static volatile uint16_t uart_rx_read_ptr = 0;
+
+sensor_data_t measured_data;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -109,6 +111,18 @@ int main(void)
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
+
+	/* Demo data */
+	// Do not forgot remove
+ 	//
+	for (uint8_t i = 0; i < 3; i++)
+	{
+		measured_data.acc[i] = i + 10;
+		measured_data.gyr[i] = i - 100;
+		measured_data.mag[i] = i + 50;
+	}
+	//
+
 	while (1)
 	{
 		while (uart_rx_read_ptr != uart_rx_write_ptr)

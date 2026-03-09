@@ -36,7 +36,11 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+typedef struct {
+    int16_t acc[3]; // Accelerometer X, Y, Z
+	int16_t gyr[3]; // Gyroscope X, Y, Z
+	int16_t mag[3]; // Magnetometer X, Y, Z
+} sensor_data_t;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -46,7 +50,10 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
+#define _read_BV(reg, bit) reg & (1 << bit)
+#define _set_BV(reg, bit)  reg = reg | (1 << bit)
+#define _clr_BV(reg, bit)  reg = reg & ~(1 << bit)
+#define _tog_BV(reg, bit)  reg = reg ^ (1 << bit)
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
@@ -67,7 +74,20 @@ void Error_Handler(void);
 #define TCK_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
-
+#define RUN_BIT           0 // movement was required
+#define DIR_BIT           1 // 0 - left, 1 - right
+#define PULSE_BIT         2 // only one pulse
+#define TURN_BIT          3 // change attitude, 2 pulses
+#define HOME_BIT          7 // return to home position
+#define AUTOREAD_BIT     24 // periodic sending messages through serial
+#define AUTOREAD_ACC_BIT 25 // autoread includes accelerometer data
+#define AUTOREAD_GYR_BIT 26 // autoread includes gyroscope data
+#define AUTOREAD_MAG_BIT 27 // autoread includes magnetometer data
+/* Reserved */
+#define CMD1_BIT         28
+#define CMD2_BIT         29
+#define CMD3_BIT         30
+#define CMD4_BIT         31
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

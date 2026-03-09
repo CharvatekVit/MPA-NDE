@@ -366,3 +366,55 @@ Finished building: default.size.stdout
  
 Finished building: UART_console.list
  
+21:15:45 **** Incremental Build of configuration Debug for project UART_console ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/cmd_processing.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G070xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/cmd_processing.d" -MT"Core/Src/cmd_processing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/cmd_processing.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G070xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g0xx_hal_msp.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G070xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g0xx_hal_msp.d" -MT"Core/Src/stm32g0xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32g0xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32g0xx_it.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G070xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g0xx_it.d" -MT"Core/Src/stm32g0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32g0xx_it.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:27: warning: 'i' is used uninitialized [-Wuninitialized]
+  116 |         for (uint8_t i; i < 3; i++)
+      |                         ~~^~~
+../Core/Src/main.c:116:22: note: 'i' was declared here
+  116 |         for (uint8_t i; i < 3; i++)
+      |                      ^
+arm-none-eabi-gcc -o "UART_console.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\Dokumenty\VUT FEKT\NDE\Project\MPA-NDE\UART_console\STM32G070RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_console.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_console.elf
+ 
+arm-none-eabi-size  UART_console.elf 
+arm-none-eabi-objdump -h -S UART_console.elf  > "UART_console.list"
+   text	   data	    bss	    dec	    hex	filename
+  19732	    104	   2496	  22332	   573c	UART_console.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_console.list
+ 
+21:16:19 **** Incremental Build of configuration Debug for project UART_console ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G070xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "UART_console.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\Dokumenty\VUT FEKT\NDE\Project\MPA-NDE\UART_console\STM32G070RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_console.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_console.elf
+ 
+arm-none-eabi-size  UART_console.elf 
+arm-none-eabi-objdump -h -S UART_console.elf  > "UART_console.list"
+   text	   data	    bss	    dec	    hex	filename
+  19740	    104	   2496	  22340	   5744	UART_console.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_console.list
+ 
+21:17:38 **** Incremental Build of configuration Debug for project UART_console ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G070xx -c -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "UART_console.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\Dokumenty\VUT FEKT\NDE\Project\MPA-NDE\UART_console\STM32G070RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_console.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_console.elf
+ 
+arm-none-eabi-size  UART_console.elf 
+arm-none-eabi-objdump -h -S UART_console.elf  > "UART_console.list"
+   text	   data	    bss	    dec	    hex	filename
+  19740	    104	   2496	  22340	   5744	UART_console.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_console.list
+ 

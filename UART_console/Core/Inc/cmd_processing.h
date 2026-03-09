@@ -9,6 +9,9 @@
 /* Defines */
 #define CMD_BUFFER_LEN 256
 
+/* Extern global variables */
+extern sensor_data_t measured_data;
+
 /* Function prototypes */
 
 void uart_byte_available(uint8_t);

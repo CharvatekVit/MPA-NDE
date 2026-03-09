@@ -95,21 +95,21 @@ static void process_cmd_read(char * token)
 
     if (strcasecmp(token, "MAG") == 0)
     {
-    	printf("M: data\n");
+    	printf("M: X=%d, Y=%d, Z=%d\n", measured_data.mag[0], measured_data.mag[1], measured_data.mag[2]);
     }
     else if (strcasecmp(token, "GYR") == 0)
     {
-    	printf("G: data\n");
+    	printf("G: X=%d, Y=%d, Z=%d\n", measured_data.gyr[0], measured_data.gyr[1], measured_data.gyr[2]);
     }
     else if (strcasecmp(token, "ACC") == 0)
     {
-    	printf("A: data\n");
+    	printf("A: X=%d, Y=%d, Z=%d\n", measured_data.acc[0], measured_data.acc[1], measured_data.acc[2]);
     }
     else if (strcasecmp(token, "ALL") == 0)
     {
-    	printf("M: data\n");
-    	printf("G: data\n");
-    	printf("A: data\n");
+    	printf("M: X=%d, Y=%d, Z=%d\n", measured_data.mag[0], measured_data.mag[1], measured_data.mag[2]);
+    	printf("G: X=%d, Y=%d, Z=%d\n", measured_data.gyr[0], measured_data.gyr[1], measured_data.gyr[2]);
+    	printf("A: X=%d, Y=%d, Z=%d\n", measured_data.acc[0], measured_data.acc[1], measured_data.acc[2]);
     }
     else
     {

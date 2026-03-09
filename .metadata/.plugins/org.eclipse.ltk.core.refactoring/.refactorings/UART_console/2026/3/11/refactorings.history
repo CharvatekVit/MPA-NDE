@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;UART_console/Core/Inc/cmd_processing&apos; to &apos;cmd_processing.h&apos;" description="Rename resource &apos;cmd_processing&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/cmd_processing" name="cmd_processing.h" stamp="1773003477053" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;UART_console/Core/Src/cmd_processing&apos; to &apos;cmd_processing.c&apos;" description="Rename resource &apos;cmd_processing&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/cmd_processing" name="cmd_processing.c" stamp="1773003485335" updateReferences="true"/>
-</session>

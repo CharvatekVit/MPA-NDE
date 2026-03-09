@@ -84,10 +84,10 @@ void Error_Handler(void);
 #define AUTOREAD_GYR_BIT 26 // autoread includes gyroscope data
 #define AUTOREAD_MAG_BIT 27 // autoread includes magnetometer data
 /* Reserved */
-#define CMD1_BIT         28
-#define CMD2_BIT         29
-#define CMD3_BIT         30
-#define CMD4_BIT         31
+#define CMD0_BIT         28
+#define CMD1_BIT         29
+#define CMD2_BIT         30
+#define CMD3_BIT         31
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

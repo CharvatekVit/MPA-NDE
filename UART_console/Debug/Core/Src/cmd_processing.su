@@ -1,6 +1,6 @@
-../Core/Src/cmd_processing.c:21:6:uart_byte_available	16	static
-../Core/Src/cmd_processing.c:40:13:process_cmd	24	static
-../Core/Src/cmd_processing.c:78:13:process_cmd_turn	16	static
-../Core/Src/cmd_processing.c:92:13:process_cmd_read	16	static
-../Core/Src/cmd_processing.c:121:13:process_cmd_pulse	24	static
-../Core/Src/cmd_processing.c:150:13:process_cmd_ncmd	24	static
+../Core/Src/cmd_processing.c:23:10:uart_byte_available	16	static
+../Core/Src/cmd_processing.c:44:17:process_cmd	24	static
+../Core/Src/cmd_processing.c:84:17:process_cmd_turn	16	static
+../Core/Src/cmd_processing.c:107:13:process_cmd_read	16	static
+../Core/Src/cmd_processing.c:136:17:process_cmd_pulse	24	static
+../Core/Src/cmd_processing.c:174:17:process_cmd_ncmd	24	static

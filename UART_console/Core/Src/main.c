@@ -22,7 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "cmd_processing.h"
-
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -81,7 +81,7 @@ int main(void)
 {
 
 	/* USER CODE BEGIN 1 */
-
+	uint32_t cmd_reg = 0;
 	/* USER CODE END 1 */
 
 	/* MCU Configuration--------------------------------------------------------*/
@@ -134,8 +134,14 @@ int main(void)
 				uart_rx_read_ptr = 0;
 				}
 				// process every received byte with the RX state machine
-			uart_byte_available(b);
+			cmd_reg = uart_byte_available(b, cmd_reg);
+
+			/* Demo - check cmd register */
+			printf("cmd_reg = %lx\n", cmd_reg);
 		}
+
+		cmd_reg = 0;
+
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */

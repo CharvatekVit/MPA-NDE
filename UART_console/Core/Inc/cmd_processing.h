@@ -14,7 +14,7 @@ extern sensor_data_t measured_data;
 
 /* Function prototypes */
 
-void uart_byte_available(uint8_t);
+uint32_t uart_byte_available(uint8_t, uint32_t);
 
 
 #endif /* __CMD_PROCCESING_H */

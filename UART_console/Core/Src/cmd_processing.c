@@ -75,6 +75,10 @@ static void process_cmd(char * cmd, uint32_t * p_reg)
 	{
 		process_cmd_ncmd(token, p_reg);
 	}
+	else
+	{
+		printf("Invalid cmd\n");
+	}
 }
 
 /* TURN cmd callback */
@@ -133,6 +137,8 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 	uint8_t pulse_len;
 	token = strtok(NULL, " ");
 
+	_clr_time(*p_reg);
+
 	if (strcasecmp(token, "RIGHT") == 0)
 	{
 		_set_BV(*p_reg, DIR_BIT);
@@ -152,11 +158,11 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 
 	if ((pulse_len >= PULSE_LEN_MIN) && (pulse_len <= PULSE_LEN_MAX))
 	{
-	   	printf("%s ms\n", token);
+		_set_time(*p_reg, pulse_len);
 	}
 	else
 	{
-	  	printf("Invalid time\n");
+	  	return;
 	}
 
     _set_BV(*p_reg, RUN_BIT);
@@ -186,7 +192,7 @@ static void process_cmd_ncmd(char * token, uint32_t * p_reg)
 			_set_BV(*p_reg, CMD3_BIT);
 			break;
 		default:
-			printf("Invalid command\n");
+			printf("Invalid cmd\n");
 			break;
 	}
 }

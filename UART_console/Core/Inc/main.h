@@ -50,10 +50,14 @@ typedef struct {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-#define _read_BV(reg, bit) reg & (1 << bit)
-#define _set_BV(reg, bit)  reg = reg | (1 << bit)
-#define _clr_BV(reg, bit)  reg = reg & ~(1 << bit)
-#define _tog_BV(reg, bit)  reg = reg ^ (1 << bit)
+#define _read_BV(reg, bit)   reg & (1 << bit)
+#define _set_BV(reg, bit)    reg = reg | (1 << bit)
+#define _clr_BV(reg, bit)    reg = reg & ~(1 << bit)
+#define _tog_BV(reg, bit)    reg = reg ^ (1 << bit)
+
+// Time data are included in bites 15 to 8
+#define _clr_time(reg)	     reg = reg & ~0x0000FF00
+#define _set_time(reg, time) reg = reg | (time << 8)
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/

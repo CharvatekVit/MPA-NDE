@@ -1,6 +1,6 @@
-../Core/Src/cmd_processing.c:23:10:uart_byte_available	7
-../Core/Src/cmd_processing.c:44:17:process_cmd	7
-../Core/Src/cmd_processing.c:84:17:process_cmd_turn	3
-../Core/Src/cmd_processing.c:107:13:process_cmd_read	5
-../Core/Src/cmd_processing.c:136:17:process_cmd_pulse	5
-../Core/Src/cmd_processing.c:174:17:process_cmd_ncmd	7
+../Core/Src/cmd_processing.c:23:6:uart_byte_available	7
+../Core/Src/cmd_processing.c:43:13:process_cmd	7
+../Core/Src/cmd_processing.c:81:13:process_cmd_turn	3
+../Core/Src/cmd_processing.c:102:13:process_cmd_read	5
+../Core/Src/cmd_processing.c:131:13:process_cmd_pulse	5
+../Core/Src/cmd_processing.c:167:13:process_cmd_ncmd	7

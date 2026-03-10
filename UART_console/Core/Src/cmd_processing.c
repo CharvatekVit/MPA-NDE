@@ -12,15 +12,15 @@
 #define PULSE_LEN_MAX 100
 
 /* Static functions declaration */
-static uint32_t process_cmd(char *, uint32_t);
+static void process_cmd(char *, uint32_t *);
 static void process_cmd_read(char *);
-static uint32_t process_cmd_turn(char *, uint32_t);
-static uint32_t process_cmd_pulse(char *, uint32_t);
-static uint32_t process_cmd_ncmd(char *, uint32_t);
+static void process_cmd_turn(char *, uint32_t *);
+static void process_cmd_pulse(char *, uint32_t *);
+static void process_cmd_ncmd(char *, uint32_t *);
 
 
 /* Global functions */
-uint32_t uart_byte_available(uint8_t c, uint32_t cmd_reg)
+void uart_byte_available(uint8_t c, uint32_t * p_reg)
 {
     static uint16_t cnt;
     static char data[CMD_BUFFER_LEN];
@@ -33,15 +33,14 @@ uint32_t uart_byte_available(uint8_t c, uint32_t cmd_reg)
     if ((c == '\n' || c == '\r') && cnt > 0)
     {
         data[cnt] = '\0';
-        cmd_reg = process_cmd(data, cmd_reg);
+        process_cmd(data, p_reg);
         cnt = 0;
     }
 
-    return cmd_reg;
 }
 
 /* Static functions */
-static uint32_t process_cmd(char * cmd, uint32_t cmd_reg)
+static void process_cmd(char * cmd, uint32_t * p_reg)
 {
 	char *token;
 	token = strtok(cmd, " ");
@@ -59,12 +58,12 @@ static uint32_t process_cmd(char * cmd, uint32_t cmd_reg)
 	/* Perform 1 step */
 	else if (strcasecmp(token, "TURN") == 0)
 	{
-		cmd_reg = process_cmd_turn(token, cmd_reg);
+		process_cmd_turn(token, p_reg);
 	}
 	/* Perform 1 pulse */
 	else if (strcasecmp(token, "PULSE") == 0)
 	{
-		cmd_reg = process_cmd_pulse(token, cmd_reg);
+		process_cmd_pulse(token, p_reg);
 	}
 	/* Once read data from sensor */
 	else if (strcasecmp(token, "READ") == 0)
@@ -74,33 +73,29 @@ static uint32_t process_cmd(char * cmd, uint32_t cmd_reg)
 	/* Once read data from sensor */
 	else if (strcasecmp(token, "CMD") == 0)
 	{
-		cmd_reg = process_cmd_ncmd(token, cmd_reg);
+		process_cmd_ncmd(token, p_reg);
 	}
-
-	return cmd_reg;
 }
 
 /* TURN cmd callback */
-static uint32_t process_cmd_turn(char * token, uint32_t cmd_reg)
+static void process_cmd_turn(char * token, uint32_t * p_reg)
 {
 	token = strtok(NULL, " ");
     if (strcasecmp(token, "RIGHT") == 0)
     {
-    	_set_BV(cmd_reg, DIR_BIT);
+    	_set_BV(*p_reg, DIR_BIT);
     }
     else if (strcasecmp(token, "LEFT") == 0)
     {
-    	_clr_BV(cmd_reg, DIR_BIT);
+    	_clr_BV(*p_reg, DIR_BIT);
     }
     else
     {
-    	return cmd_reg;
+    	return;
     }
 
-    _set_BV(cmd_reg, RUN_BIT);
-    _set_BV(cmd_reg, TURN_BIT);
-
-    return cmd_reg;
+    _set_BV(*p_reg, RUN_BIT);
+    _set_BV(*p_reg, TURN_BIT);
 }
 
 /* READ cmd callback */
@@ -133,22 +128,22 @@ static void process_cmd_read(char * token)
 }
 
 /* PULSE cmd callback */
-static uint32_t process_cmd_pulse(char * token, uint32_t cmd_reg)
+static void process_cmd_pulse(char * token, uint32_t * p_reg)
 {
 	uint8_t pulse_len;
 	token = strtok(NULL, " ");
 
 	if (strcasecmp(token, "RIGHT") == 0)
 	{
-		_set_BV(cmd_reg, DIR_BIT);
+		_set_BV(*p_reg, DIR_BIT);
 	}
 	else if (strcasecmp(token, "LEFT") == 0)
 	{
-		_clr_BV(cmd_reg, DIR_BIT);
+		_clr_BV(*p_reg, DIR_BIT);
 	}
 	else
 	{
-		return cmd_reg;
+		return;
 	}
 
 	token = strtok(NULL, " ");
@@ -164,14 +159,12 @@ static uint32_t process_cmd_pulse(char * token, uint32_t cmd_reg)
 	  	printf("Invalid time\n");
 	}
 
-    _set_BV(cmd_reg, RUN_BIT);
-    _set_BV(cmd_reg, PULSE_BIT);
-
-    return cmd_reg;
+    _set_BV(*p_reg, RUN_BIT);
+    _set_BV(*p_reg, PULSE_BIT);
 }
 
 /* Reserve commands */
-static uint32_t process_cmd_ncmd(char * token, uint32_t cmd_reg)
+static void process_cmd_ncmd(char * token, uint32_t * p_reg)
 {
 	uint8_t ncmd;
 
@@ -181,23 +174,21 @@ static uint32_t process_cmd_ncmd(char * token, uint32_t cmd_reg)
 	switch (ncmd)
 	{
 		case 0:
-			_set_BV(cmd_reg, CMD0_BIT);
+			_set_BV(*p_reg, CMD0_BIT);
 			break;
 		case 1:
-			_set_BV(cmd_reg, CMD1_BIT);
+			_set_BV(*p_reg, CMD1_BIT);
 			break;
 		case 2:
-			_set_BV(cmd_reg, CMD2_BIT);
+			_set_BV(*p_reg, CMD2_BIT);
 			break;
 		case 3:
-			_set_BV(cmd_reg, CMD3_BIT);
+			_set_BV(*p_reg, CMD3_BIT);
 			break;
 		default:
 			printf("Invalid command\n");
 			break;
 	}
-
-	return cmd_reg;
 }
 
 

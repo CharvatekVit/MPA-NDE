@@ -20,6 +20,7 @@ Team members
    * [x] Requirements
    * [ ] Energy budget
    * [x] Component list
+   * [ ] Component purchase
    * [x] Physical description
 - [ ]  Electronics
    * [x] Component choice 
@@ -49,7 +50,8 @@ Team members
 - [ ] Structure
    * [x] Size estimation
    * [x] Structural design
-   * [ ] 3D print
+   * [x] 3D print
+   * [ ] Assembly
 
 ## Sharepoint
 - [Part list](https://vutbr-my.sharepoint.com/:x:/r/personal/246858_vutbr_cz/Documents/MPA-NDE%20Part%20List.xlsx?d=wf46451cfd72a41359eeacaa9987770c3&csf=1&web=1&e=Fm6BbQ)

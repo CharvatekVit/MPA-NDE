@@ -15,9 +15,12 @@
 static void process_cmd(char *, uint32_t *);
 static void process_cmd_read(char *);
 static void process_cmd_turn(char *, uint32_t *);
-static void process_cmd_home(char *, uint32_t *);
+static void process_cmd_home(uint32_t *);
 static void process_cmd_pulse(char *, uint32_t *);
+static void process_cmd_set(char *, uint32_t *);
 static void process_cmd_ncmd(char *, uint32_t *);
+static void process_cmd_autoread(char *, uint32_t *);
+static void process_cmd_set_read(char *, uint32_t *);
 
 
 /* Global functions */
@@ -53,7 +56,7 @@ static void process_cmd(char * cmd, uint32_t * p_reg)
 	/* Set default position */
 	else if (strcasecmp(token, "HOME") == 0)
 	{
-		process_cmd_home(token, p_reg);
+		process_cmd_home(p_reg);
 	}
 	/* Perform 1 step */
 	else if (strcasecmp(token, "TURN") == 0)
@@ -69,6 +72,16 @@ static void process_cmd(char * cmd, uint32_t * p_reg)
 	else if (strcasecmp(token, "READ") == 0)
 	{
 		process_cmd_read(token);
+	}
+	/* Periodic reading data from sensors */
+	else if (strcasecmp(token, "AUTOREAD") == 0)
+	{
+		process_cmd_autoread(token, p_reg);
+	}
+	/* Enables configurate cube */
+	else if (strcasecmp(token, "SET") == 0)
+	{
+		process_cmd_set(token, p_reg);
 	}
 	/* Once read data from sensor */
 	else if (strcasecmp(token, "CMD") == 0)
@@ -172,7 +185,87 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
     _set_BV(*p_reg, PULSE_BIT);
 }
 
-static void process_cmd_home(char * token, uint32_t * p_reg)
+/* Autoreading settings */
+static void process_cmd_autoread(char * token, uint32_t * p_reg)
+{
+	token = strtok(NULL, " ");
+
+	if (strcasecmp(token, "ON") == 0)
+	{
+		/* By setting AUTOREAD_BIT, automatic reading will by started */
+		_set_BV(*p_reg, AUTOREAD_BIT);
+	}
+	else if (strcasecmp(token, "OFF") == 0)
+	{
+		_clr_BV(*p_reg, AUTOREAD_BIT);
+	}
+	else
+	{
+	  	printf("Invalid cmd\n");
+	  	return;
+	}
+
+}
+
+static void process_cmd_set(char * token, uint32_t * p_reg)
+{
+	token = strtok(NULL, " ");
+
+	if (strcasecmp(token, "READ") == 0)
+	{
+		process_cmd_set_read(token, p_reg);
+	}
+	else
+	{
+		printf("Invalid cmd\n");
+		return;
+	}
+}
+
+static void process_cmd_set_read(char * token, uint32_t * p_reg)
+{
+	token = strtok(NULL, " ");
+	uint8_t bit;
+
+	/* Select which sensor */
+	if (strcasecmp(token, "ACC") == 0)
+	{
+		bit = AUTOREAD_ACC_BIT;
+	}
+	else if (strcasecmp(token, "GYR") == 0)
+	{
+		bit = AUTOREAD_GYR_BIT;
+	}
+	else if (strcasecmp(token, "MAG") == 0)
+	{
+		bit = AUTOREAD_MAG_BIT;
+	}
+	else
+	{
+		printf("Invalid cmd\n");
+		return;
+	}
+
+	token = strtok(NULL, " ");
+
+	/* Turn on or turn off report */
+	if (strcasecmp(token, "ON") == 0)
+	{
+		_set_BV(*p_reg, bit);
+	}
+	else if (strcasecmp(token, "OFF") == 0)
+	{
+		_clr_BV(*p_reg, bit);
+	}
+	else
+	{
+	  	printf("Invalid cmd\n");
+	  	return;
+	}
+}
+
+/* Go to home position */
+static void process_cmd_home(uint32_t * p_reg)
 {
     _set_BV(*p_reg, RUN_BIT);
     _set_BV(*p_reg, HOME_BIT);

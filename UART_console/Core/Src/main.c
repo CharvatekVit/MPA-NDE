@@ -51,6 +51,7 @@ static uint8_t uart_rx_buf[RX_BUFFER_LEN];
 static volatile uint16_t uart_rx_read_ptr = 0;
 
 sensor_data_t measured_data;
+settings_t    set_data;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -60,7 +61,7 @@ static void MX_DMA_Init(void);
 static void MX_USART2_UART_Init(void);
 
 /* USER CODE BEGIN PFP */
-
+void setting_init(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -70,6 +71,14 @@ int _write(int file, char const *buf, int n)
     /* stdout redirection to UART2 */
     HAL_UART_Transmit(&huart2, (uint8_t*)(buf), n, HAL_MAX_DELAY);
     return n;
+}
+
+void setting_init(void)
+{
+	/* Default data */
+	set_data.angle  = 90; // 90 deg
+	set_data.time_a = 10; // 10 * 0.1 = 1 sec
+	set_data.time_v = 20; // 20us
 }
 /* USER CODE END 0 */
 
@@ -82,6 +91,8 @@ int main(void)
 
 	/* USER CODE BEGIN 1 */
 	uint32_t cmd_reg = 0;
+
+	setting_init();
 
 	/* USER CODE END 1 */
 

@@ -11,6 +11,7 @@
 
 /* Extern global variables */
 extern sensor_data_t measured_data;
+extern settings_t    set_data;
 
 /* Function prototypes */
 

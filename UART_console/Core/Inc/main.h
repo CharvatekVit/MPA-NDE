@@ -41,6 +41,12 @@ typedef struct {
 	int16_t gyr[3]; // Gyroscope X, Y, Z
 	int16_t mag[3]; // Magnetometer X, Y, Z
 } sensor_data_t;
+
+typedef struct {
+    uint8_t angle;  // Angle [deg], cube rotate after turn cmd
+	uint8_t time_v; // Time [ms], valve is open
+	uint8_t time_a; // Period [s*0.1], sensor report will be sended
+} settings_t;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

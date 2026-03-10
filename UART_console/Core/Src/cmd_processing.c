@@ -15,6 +15,7 @@
 static void process_cmd(char *, uint32_t *);
 static void process_cmd_read(char *);
 static void process_cmd_turn(char *, uint32_t *);
+static void process_cmd_home(char *, uint32_t *);
 static void process_cmd_pulse(char *, uint32_t *);
 static void process_cmd_ncmd(char *, uint32_t *);
 
@@ -36,7 +37,6 @@ void uart_byte_available(uint8_t c, uint32_t * p_reg)
         process_cmd(data, p_reg);
         cnt = 0;
     }
-
 }
 
 /* Static functions */
@@ -53,7 +53,7 @@ static void process_cmd(char * cmd, uint32_t * p_reg)
 	/* Set default position */
 	else if (strcasecmp(token, "HOME") == 0)
 	{
-		printf("Home\n");
+		process_cmd_home(token, p_reg);
 	}
 	/* Perform 1 step */
 	else if (strcasecmp(token, "TURN") == 0)
@@ -95,6 +95,7 @@ static void process_cmd_turn(char * token, uint32_t * p_reg)
     }
     else
     {
+    	printf("Invalid dir\n");
     	return;
     }
 
@@ -149,6 +150,7 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 	}
 	else
 	{
+		printf("Invalid dir\n");
 		return;
 	}
 
@@ -162,11 +164,18 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 	}
 	else
 	{
+		printf("Invalid time\n");
 	  	return;
 	}
 
     _set_BV(*p_reg, RUN_BIT);
     _set_BV(*p_reg, PULSE_BIT);
+}
+
+static void process_cmd_home(char * token, uint32_t * p_reg)
+{
+    _set_BV(*p_reg, RUN_BIT);
+    _set_BV(*p_reg, HOME_BIT);
 }
 
 /* Reserve commands */

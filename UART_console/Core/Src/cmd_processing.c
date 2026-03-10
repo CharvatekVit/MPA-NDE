@@ -112,6 +112,10 @@ static void process_cmd_turn(char * token, uint32_t * p_reg)
     	return;
     }
 
+    /* Preper time setting */
+    _clr_time(*p_reg);
+    _set_time(*p_reg, set_data.time_v);
+
     _set_BV(*p_reg, RUN_BIT);
     _set_BV(*p_reg, TURN_BIT);
 }
@@ -175,6 +179,11 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 	{
 		_set_time(*p_reg, pulse_len);
 	}
+	/* Time opening valve was not specified*/
+	else if (token == NULL)
+	{
+		_set_time(*p_reg, set_data.time_v);
+	}
 	else
 	{
 		printf("Invalid time\n");
@@ -207,6 +216,7 @@ static void process_cmd_autoread(char * token, uint32_t * p_reg)
 
 }
 
+/* Enables change system settings */
 static void process_cmd_set(char * token, uint32_t * p_reg)
 {
 	token = strtok(NULL, " ");
@@ -222,6 +232,7 @@ static void process_cmd_set(char * token, uint32_t * p_reg)
 	}
 }
 
+/* Enables turn on/off autoreport from these sensors */
 static void process_cmd_set_read(char * token, uint32_t * p_reg)
 {
 	token = strtok(NULL, " ");

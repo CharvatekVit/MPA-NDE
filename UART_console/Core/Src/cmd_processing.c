@@ -10,6 +10,9 @@
 /* Defines */
 #define PULSE_LEN_MIN 10
 #define PULSE_LEN_MAX 100
+#define MAX_TIME 255       // max period of sending autoreport 25,5 s
+#define TURN_ANGLE_MIN 10
+#define TURN_ANGLE_MAX 90
 
 /* Static functions declaration */
 static void process_cmd(char *, uint32_t *);
@@ -21,7 +24,9 @@ static void process_cmd_set(char *, uint32_t *);
 static void process_cmd_ncmd(char *, uint32_t *);
 static void process_cmd_autoread(char *, uint32_t *);
 static void process_cmd_set_read(char *, uint32_t *);
-
+static void process_cmd_set_auto(char *);
+static void process_cmd_set_time(char *);
+static void process_cmd_set_angle(char *);
 
 /* Global functions */
 void uart_byte_available(uint8_t c, uint32_t * p_reg)
@@ -225,6 +230,18 @@ static void process_cmd_set(char * token, uint32_t * p_reg)
 	{
 		process_cmd_set_read(token, p_reg);
 	}
+	else if (strcasecmp(token, "AUTO") == 0)
+	{
+		process_cmd_set_auto(token);
+	}
+	else if (strcasecmp(token, "TIME") == 0)
+	{
+		process_cmd_set_time(token);
+	}
+	else if (strcasecmp(token, "ANGLE") == 0)
+	{
+		process_cmd_set_angle(token);
+	}
 	else
 	{
 		printf("Invalid cmd\n");
@@ -272,6 +289,41 @@ static void process_cmd_set_read(char * token, uint32_t * p_reg)
 	{
 	  	printf("Invalid cmd\n");
 	  	return;
+	}
+}
+
+/* Autoread time settings */
+static void process_cmd_set_auto(char * token)
+{
+	token = strtok(NULL, " ");
+	uint8_t time = atoi(token);
+
+	if ((time != 0) && (time <= MAX_TIME))
+	{
+		set_data.time_a = time;
+	}
+}
+
+/* Valve time open setting */
+static void process_cmd_set_time(char * token)
+{
+	token = strtok(NULL, " ");
+	uint8_t time = atoi(token);
+
+	if ((time >= PULSE_LEN_MIN) && (time <= PULSE_LEN_MAX))
+	{
+		set_data.time_v = time;
+	}
+}
+
+static void process_cmd_set_angle(char * token)
+{
+	token = strtok(NULL, " ");
+	uint8_t angle = atoi(token);
+
+	if ((angle >= TURN_ANGLE_MIN) && (angle <= TURN_ANGLE_MAX))
+	{
+		set_data.angle = angle;
 	}
 }
 

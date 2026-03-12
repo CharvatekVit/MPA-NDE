@@ -179,11 +179,7 @@ int main(void)
 				// process every received byte with the RX state machine
 			uart_byte_available(b, &cmd_reg);
 
-			/* Demo - check cmd register */
-			// printf("cmd_reg = %lx\n", cmd_reg);
 		}
-
-		// cmd_reg = 0;
 
 		autoread_fcn(cmd_reg);
 

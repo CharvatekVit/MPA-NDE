@@ -21,9 +21,6 @@ void autoread_fcn(uint32_t reg)
 
 		if (HAL_GetTick() > (ticks + set_data.time_a * 100))
 		{
-			//
-			printf("Home: X=%d, Y=%d\n", set_data.home[0], set_data.home[1]);
-			//
 			ticks = HAL_GetTick();
 
 			if (_read_BV(reg, AUTOREAD_ACC_BIT))

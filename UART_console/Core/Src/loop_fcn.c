@@ -55,7 +55,7 @@ void valve_fcn(uint32_t * p_reg)
 
 		if (_read_BV(*p_reg, PULSE_BIT))
 		{
-			ticks = HAL_GetTick() + _read_time(*p_reg) * 1000;
+			ticks = HAL_GetTick() + _read_time(*p_reg);
 
 			if (_read_BV(*p_reg, DIR_BIT))
 			{
@@ -78,13 +78,14 @@ void valve_fcn(uint32_t * p_reg)
 		printf("Valves were closed\n");
 	}
 
-	static uint32_t previous_tick = 0;
+	// // Testing time between valving controling
+	//static uint32_t previous_tick = 0;
 
-	if (HAL_GetTick() > (previous_tick + 1000))
-	{
-		printf("%ld\n", HAL_GetTick());
-		previous_tick = HAL_GetTick();
-	}
+	//if (HAL_GetTick() > (previous_tick + 1000))
+	//{
+	//	printf("%ld\n", HAL_GetTick());
+	//	previous_tick = HAL_GetTick();
+	//}
 
 }
 

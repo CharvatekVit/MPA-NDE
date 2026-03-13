@@ -342,7 +342,6 @@ static void process_cmd_set_angle(char * token)
 }
 
 /* Default position setting */
-// Do not work !!!!!!!!!!!
 static void process_cmd_set_home(char * token)
 {
 	token = strtok(NULL, " ");

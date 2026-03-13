@@ -65,6 +65,7 @@ typedef struct {
 // Time data are included in bites 15 to 8
 #define _clr_time(reg)	     reg = reg & ~0x0000FF00
 #define _set_time(reg, time) reg = reg | (time << 8)
+#define _read_time(reg)      ((reg & 0x0000FF00) >> 8)
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/

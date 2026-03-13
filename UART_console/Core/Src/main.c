@@ -145,6 +145,7 @@ int main(void)
 		}
 
 		autoread_fcn(cmd_reg);
+		valve_fcn(&cmd_reg);
 
 		/* USER CODE END WHILE */
 

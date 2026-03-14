@@ -62,10 +62,8 @@ void valve_fcn(uint32_t * p_reg)
 			ticks = HAL_GetTick() + _read_time(*p_reg);
 
 			/* 1 - right direction, 0 - left direction */
-			printf("%s valve was turned on\n", _read_BV(*p_reg, DIR_BIT) ? "Right" : "Left");
-			// Open valve
-
-			// printf("%lx\n",*p_reg);
+			HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, _read_BV(*p_reg, DIR_BIT));
+			HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, !(_read_BV(*p_reg, DIR_BIT)));
 		}
 		else
 		{
@@ -75,8 +73,6 @@ void valve_fcn(uint32_t * p_reg)
 				// Create opposite pulse
 				_tog_BV(*p_reg, DIR_BIT);
 				_set_BV(*p_reg, PULSE_BIT);
-
-				// printf("%lx\n",*p_reg);
 			}
 		}
 	}
@@ -85,9 +81,10 @@ void valve_fcn(uint32_t * p_reg)
 		if (_read_BV(*p_reg, PULSE_BIT))
 		{
 			_clr_BV(*p_reg, PULSE_BIT);
-			printf("Valves were closed\n");
 
-			// printf("%lx\n",*p_reg);
+			// Close valves
+			HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 0);
+			HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
 		}
 		else if (_read_BV(*p_reg, TURN_BIT))
 		{
@@ -98,9 +95,10 @@ void valve_fcn(uint32_t * p_reg)
 
 			// Duration of fly
 			ticks = HAL_GetTick() + FLY_TIME;
-			printf("Valves were closed\n");
 
-			// printf("%lx\n",*p_reg); // CMD reg
+			// Close valves
+			HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 0);
+			HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
 		}
 	}
 

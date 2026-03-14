@@ -85,6 +85,10 @@ void Error_Handler(void);
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
+#define VALVE_R_Pin GPIO_PIN_4
+#define VALVE_R_GPIO_Port GPIOB
+#define VALVE_L_Pin GPIO_PIN_5
+#define VALVE_L_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 #define RUN_BIT           0 // movement was required

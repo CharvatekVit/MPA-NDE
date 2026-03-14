@@ -67,8 +67,6 @@ void valve_fcn(uint32_t * p_reg)
 			/* 1 - right direction, 0 - left direction */
 			HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, _read_BV(*p_reg, DIR_BIT));
 			HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, !(_read_BV(*p_reg, DIR_BIT)));
-
-			printf("Valve %s\n", _read_BV(*p_reg, DIR_BIT) ? "RIGHT" : "LEFT");
 		}
 		else
 		{
@@ -121,8 +119,6 @@ static void valve_close(void)
 	// Close valves
 	HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 0);
 	HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
-
-	printf("Close\n");
 }
 
 

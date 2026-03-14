@@ -48,7 +48,7 @@ Team members
    * [ ] UART communication
        - [ ] Sensor data
        - [ ] Valve control
-       - [ ] Command implementation
+       - [x] Command implementation
    * [ ] Wireless communication
 - [ ] Structure
    * [x] Size estimation

@@ -14,6 +14,9 @@
 /* Defines */
 #define FLY_TIME 5000 // five secs
 
+/* Function declaration*/
+static void valve_close(void);
+
 /* Global functions */
 
 /* Automatic writing sensor data to serial */
@@ -53,7 +56,7 @@ void valve_fcn(uint32_t * p_reg)
 
 	if (_read_BV(*p_reg, RUN_BIT))
 	{
-		if (_read_BV(*p_reg, PULSE_BIT) || _read_BV(*p_reg, TURN_BIT))
+		if (_read_BV(*p_reg, PULSE_BIT) || _read_BV(*p_reg, TURN_BIT) || _read_BV(*p_reg, HOME_BIT))
 		{
 			// Run is handled
 			_clr_BV(*p_reg, RUN_BIT);
@@ -64,6 +67,8 @@ void valve_fcn(uint32_t * p_reg)
 			/* 1 - right direction, 0 - left direction */
 			HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, _read_BV(*p_reg, DIR_BIT));
 			HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, !(_read_BV(*p_reg, DIR_BIT)));
+
+			printf("Valve %s\n", _read_BV(*p_reg, DIR_BIT) ? "RIGHT" : "LEFT");
 		}
 		else
 		{
@@ -82,9 +87,7 @@ void valve_fcn(uint32_t * p_reg)
 		{
 			_clr_BV(*p_reg, PULSE_BIT);
 
-			// Close valves
-			HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 0);
-			HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
+			valve_close();
 		}
 		else if (_read_BV(*p_reg, TURN_BIT))
 		{
@@ -93,24 +96,33 @@ void valve_fcn(uint32_t * p_reg)
 			/* Waiting for stopping pulse */
 			_set_BV(*p_reg, RUN_BIT);
 
+			valve_close();
+
 			// Duration of fly
 			ticks = HAL_GetTick() + FLY_TIME;
+		}
+		else if (_read_BV(*p_reg, HOME_BIT))
+		{
+			/* Now similar to turn left */
+			_clr_BV(*p_reg, HOME_BIT);
+			_set_BV(*p_reg, RUN_BIT);
 
-			// Close valves
-			HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 0);
-			HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
+			valve_close();
+
+			// Duration of fly
+			ticks = HAL_GetTick() + FLY_TIME;
 		}
 	}
+}
 
-	// // Testing time between valving controling
-	//static uint32_t previous_tick = 0;
+/* Local function */
+static void valve_close(void)
+{
+	// Close valves
+	HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 0);
+	HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
 
-	//if (HAL_GetTick() > (previous_tick + 1000))
-	//{
-	//	printf("%ld\n", HAL_GetTick());
-	//	previous_tick = HAL_GetTick();
-	//}
-
+	printf("Close\n");
 }
 
 

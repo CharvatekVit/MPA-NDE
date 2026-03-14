@@ -111,6 +111,8 @@ static void process_cmd(char * cmd, uint32_t * p_reg)
 /* TURN cmd callback */
 static void process_cmd_turn(char * token, uint32_t * p_reg)
 {
+	// Not eval when RUN, PULSE, TURN, HOME is set
+
 	token = strtok(NULL, " ");
     if (strcasecmp(token, "RIGHT") == 0)
     {
@@ -166,6 +168,8 @@ static void process_cmd_read(char * token)
 /* PULSE cmd callback */
 static void process_cmd_pulse(char * token, uint32_t * p_reg)
 {
+	// Not eval when RUN, PULSE, TURN, HOME is set
+
 	uint8_t pulse_len;
 	token = strtok(NULL, " ");
 
@@ -374,6 +378,8 @@ static void process_cmd_set_home(char * token)
 /* Go to home position */
 static void process_cmd_home(uint32_t * p_reg)
 {
+	// Not eval when RUN, PULSE, TURN, HOME is set
+
     _set_BV(*p_reg, RUN_BIT);
     _set_BV(*p_reg, HOME_BIT);
 }

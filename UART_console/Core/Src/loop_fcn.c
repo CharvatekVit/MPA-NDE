@@ -11,6 +11,9 @@
 
 #include <stdio.h>
 
+/* Defines */
+#define FLY_TIME 5000 // five sec
+
 /* Global functions */
 
 /* Automatic writing sensor data to serial */
@@ -50,32 +53,55 @@ void valve_fcn(uint32_t * p_reg)
 
 	if (_read_BV(*p_reg, RUN_BIT))
 	{
-		// Run is handled
-		_clr_BV(*p_reg, RUN_BIT);
-
-		if (_read_BV(*p_reg, PULSE_BIT))
+		if (_read_BV(*p_reg, PULSE_BIT) || _read_BV(*p_reg, TURN_BIT))
 		{
+			// Run is handled
+			_clr_BV(*p_reg, RUN_BIT);
+
+			// Duration of pulse
 			ticks = HAL_GetTick() + _read_time(*p_reg);
 
-			if (_read_BV(*p_reg, DIR_BIT))
-			{
-				/* Right direction */
-				printf("Right valve was turned on\n");
-				// Open valve
-			}
-			else
-			{
-				/* Left direction*/
-				printf("Left valve was turned on\n");
+			/* 1 - right direction, 0 - left direction */
+			printf("%s valve was turned on\n", _read_BV(*p_reg, DIR_BIT) ? "Right" : "Left");
+			// Open valve
 
-				// Open valve
+			printf("%lx\n",*p_reg);
+		}
+		else
+		{
+			/* Satellite is moving, waiting for required position */
+			if (HAL_GetTick() > ticks)
+			{
+				// Create opposite pulse
+				_tog_BV(*p_reg, DIR_BIT);
+				_set_BV(*p_reg, PULSE_BIT);
+
+				printf("%lx\n",*p_reg);
 			}
 		}
 	}
-	else if ((HAL_GetTick() > ticks) && _read_BV(*p_reg, PULSE_BIT))
+	else if ((HAL_GetTick() > ticks))
 	{
-		_clr_BV(*p_reg, PULSE_BIT);
-		printf("Valves were closed\n");
+		if (_read_BV(*p_reg, PULSE_BIT))
+		{
+			_clr_BV(*p_reg, PULSE_BIT);
+			printf("Valves were closed\n");
+
+			printf("%lx\n",*p_reg);
+		}
+		else if (_read_BV(*p_reg, TURN_BIT))
+		{
+			_clr_BV(*p_reg, TURN_BIT);
+			/* When run is set, and pulse and turn bit clear, satellite is moving. */
+			/* Waiting for stopping pulse */
+			_set_BV(*p_reg, RUN_BIT);
+
+			// Duration of fly
+			ticks = HAL_GetTick() + FLY_TIME;
+			printf("Valves were closed\n");
+
+			printf("%lx\n",*p_reg);
+		}
 	}
 
 	// // Testing time between valving controling

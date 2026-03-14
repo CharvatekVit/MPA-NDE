@@ -34,6 +34,7 @@ static void process_cmd_pulse(char *, uint32_t *);
 static void process_cmd_set(char *, uint32_t *);
 static void process_cmd_ncmd(char *, uint32_t *);
 static void process_cmd_autoread(char *, uint32_t *);
+static void process_cmd_reset(uint32_t *);
 static void process_cmd_set_read(char *, uint32_t *);
 static void process_cmd_set_auto(char *);
 static void process_cmd_set_time(char *);
@@ -74,6 +75,16 @@ static void process_cmd(char * cmd, uint32_t * p_reg)
 	else if (strcasecmp(token, "HOME") == 0)
 	{
 		process_cmd_home(p_reg);
+	}
+	/* Read status register */
+	else if (strcasecmp(token, "STATUS") == 0)
+	{
+		printf("reg:%08lx\n", *p_reg);
+	}
+	/* Reset status register */
+	else if (strcasecmp(token, "RESET") == 0)
+	{
+		process_cmd_reset(p_reg);
 	}
 	/* Perform 1 step */
 	else if (strcasecmp(token, "TURN") == 0)
@@ -275,6 +286,16 @@ static void process_cmd_set(char * token, uint32_t * p_reg)
 		printf("Invalid cmd\n");
 		return;
 	}
+}
+
+static void process_cmd_reset(uint32_t * p_reg)
+{
+	// Clear cmd register
+	*p_reg = 0;
+
+	// Turn of all valves
+	HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 0);
+	HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
 }
 
 /* Enables turn on/off autoreport from these sensors */

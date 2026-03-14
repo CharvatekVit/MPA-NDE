@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 /* Defines */
-#define FLY_TIME 5000 // five sec
+#define FLY_TIME 5000 // five secs
 
 /* Global functions */
 

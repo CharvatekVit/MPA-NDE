@@ -65,7 +65,7 @@ void valve_fcn(uint32_t * p_reg)
 			printf("%s valve was turned on\n", _read_BV(*p_reg, DIR_BIT) ? "Right" : "Left");
 			// Open valve
 
-			printf("%lx\n",*p_reg);
+			// printf("%lx\n",*p_reg);
 		}
 		else
 		{
@@ -76,7 +76,7 @@ void valve_fcn(uint32_t * p_reg)
 				_tog_BV(*p_reg, DIR_BIT);
 				_set_BV(*p_reg, PULSE_BIT);
 
-				printf("%lx\n",*p_reg);
+				// printf("%lx\n",*p_reg);
 			}
 		}
 	}
@@ -87,7 +87,7 @@ void valve_fcn(uint32_t * p_reg)
 			_clr_BV(*p_reg, PULSE_BIT);
 			printf("Valves were closed\n");
 
-			printf("%lx\n",*p_reg);
+			// printf("%lx\n",*p_reg);
 		}
 		else if (_read_BV(*p_reg, TURN_BIT))
 		{
@@ -100,7 +100,7 @@ void valve_fcn(uint32_t * p_reg)
 			ticks = HAL_GetTick() + FLY_TIME;
 			printf("Valves were closed\n");
 
-			printf("%lx\n",*p_reg);
+			// printf("%lx\n",*p_reg); // CMD reg
 		}
 	}
 

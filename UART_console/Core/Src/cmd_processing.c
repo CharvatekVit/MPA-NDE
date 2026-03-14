@@ -14,13 +14,16 @@
 #include <string.h>
 
 /* Defines */
-#define PULSE_LEN_MIN 10
-#define PULSE_LEN_MAX 100
-#define MAX_TIME 255       // max period of sending autoreport 25,5 s
-#define TURN_ANGLE_MIN 10
-#define TURN_ANGLE_MAX 90
-#define HOME_ANGLE_MAX 90
-#define HOME_ANGLE_MIN -90
+#define PULSE_LEN_MIN      10
+#define PULSE_LEN_MAX     100
+#define MAX_TIME          255    // max period of sending autoreport 25,5 s
+#define TURN_ANGLE_MIN     10
+#define TURN_ANGLE_MAX     90
+#define HOME_ANGLE_MAX     90
+#define HOME_ANGLE_MIN    -90
+
+/* Macros */
+#define _read_valve(reg)  reg & ((1 << RUN_BIT) | (1 << TURN_BIT) | (1 << PULSE_BIT) | (1 << HOME_BIT))
 
 /* Static functions declaration */
 static void process_cmd(char *, uint32_t *);
@@ -111,7 +114,11 @@ static void process_cmd(char * cmd, uint32_t * p_reg)
 /* TURN cmd callback */
 static void process_cmd_turn(char * token, uint32_t * p_reg)
 {
-	// Not eval when RUN, PULSE, TURN, HOME is set
+	if (_read_valve(*p_reg))
+	{
+		// printf("Another cmd is processing\n");
+		return;
+	}
 
 	token = strtok(NULL, " ");
     if (strcasecmp(token, "RIGHT") == 0)
@@ -168,7 +175,11 @@ static void process_cmd_read(char * token)
 /* PULSE cmd callback */
 static void process_cmd_pulse(char * token, uint32_t * p_reg)
 {
-	// Not eval when RUN, PULSE, TURN, HOME is set
+	if (_read_valve(*p_reg))
+	{
+		// printf("Another cmd is processing\n");
+		return;
+	}
 
 	uint8_t pulse_len;
 	token = strtok(NULL, " ");
@@ -378,7 +389,11 @@ static void process_cmd_set_home(char * token)
 /* Go to home position */
 static void process_cmd_home(uint32_t * p_reg)
 {
-	// Not eval when RUN, PULSE, TURN, HOME is set
+	if (_read_valve(*p_reg))
+	{
+		// printf("Another cmd is processing\n");
+		return;
+	}
 
     _set_BV(*p_reg, RUN_BIT);
     _set_BV(*p_reg, HOME_BIT);

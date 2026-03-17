@@ -6,9 +6,6 @@ Team members
 2. Vít Janoš (responsible for Electronics)
 4. Antonín Putala (responsible for Software, Structure)
 
-> [!WARNING]
-> March 16 will be a progress presentation.
-
 ## Requirements
 1. Determining position using a sensor
 2. Compressed air drive
@@ -48,8 +45,8 @@ Team members
    * [ ] UART communication
        - [ ] Sensor data
        - [ ] Valve control
-       - [ ] Command implementation
-   * [ ] Wireless communication
+       - [x] Command implementation
+   * [x] Wireless communication
 - [ ] Structure
    * [x] Size estimation
    * [x] Structural design
@@ -59,6 +56,7 @@ Team members
 ## Sharepoint
 - [Part list](https://vutbr-my.sharepoint.com/:x:/r/personal/246858_vutbr_cz/Documents/MPA-NDE%20Part%20List.xlsx?d=wf46451cfd72a41359eeacaa9987770c3&csf=1&web=1&e=Fm6BbQ)
 - [Presentation 1](https://vutbr-my.sharepoint.com/:p:/r/personal/246850_vutbr_cz/_layouts/15/Doc.aspx?sourcedoc=%7BA22FE4DB-148C-41C8-9C42-CBA38E74E679%7D&file=Prezentace_1.pptx&fromShare=true&action=edit&mobileredirect=true)
+- [Presentation 2](https://vutbr-my.sharepoint.com/:p:/r/personal/246922_vutbr_cz/_layouts/15/Doc.aspx?sourcedoc=%7B1F2A7DCB-3A78-4C2B-ABEC-51CC65FE5E03%7D&file=Prezentace_2.pptx&action=edit&mobileredirect=true)
 
 ## Reference
 1. [Arduino HC-05](https://arduinogetstarted.com/tutorials/arduino-bluetooth#google_vignette)

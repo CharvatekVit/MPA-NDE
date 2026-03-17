@@ -6,9 +6,6 @@ Team members
 2. Vít Janoš (responsible for Electronics)
 4. Antonín Putala (responsible for Software, Structure)
 
-> [!WARNING]
-> March 16 will be a progress presentation.
-
 ## Requirements
 1. Determining position using a sensor
 2. Compressed air drive
@@ -49,7 +46,7 @@ Team members
        - [ ] Sensor data
        - [ ] Valve control
        - [x] Command implementation
-   * [ ] Wireless communication
+   * [x] Wireless communication
 - [ ] Structure
    * [x] Size estimation
    * [x] Structural design

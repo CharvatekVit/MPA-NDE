@@ -372,8 +372,6 @@ static void process_cmd_set_time(char * token)
 
 	if ((time >= PULSE_LEN_MIN) && (time <= PULSE_LEN_MAX))
 	{
-		printf("%x\n",time);
-
 		if (strcasecmp(dir, "RIGHT") == 0)
 		{
 			set_data.time_r = time;

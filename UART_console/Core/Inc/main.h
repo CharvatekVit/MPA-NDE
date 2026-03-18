@@ -95,11 +95,15 @@ void Error_Handler(void);
 #define DIR_BIT           1 // 0 - left, 1 - right
 #define PULSE_BIT         2 // only one pulse
 #define TURN_BIT          3 // change attitude, 2 pulses
+#define REG_BIT           4 // active if regulation is performed
 #define HOME_BIT          7 // return to home position
 #define AUTOREAD_BIT     24 // periodic sending messages through serial
 #define AUTOREAD_ACC_BIT 25 // autoread includes accelerometer data
 #define AUTOREAD_GYR_BIT 26 // autoread includes gyroscope data
 #define AUTOREAD_MAG_BIT 27 // autoread includes magnetometer data
+
+/* Macros */
+#define _read_valve(reg) reg & ((1 << RUN_BIT) | (1 << TURN_BIT) | (1 << PULSE_BIT) | (1 << HOME_BIT) | (1 << REG_BIT))
 /* Reserved */
 #define CMD0_BIT         28
 #define CMD1_BIT         29

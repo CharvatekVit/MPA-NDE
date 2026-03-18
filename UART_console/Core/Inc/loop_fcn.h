@@ -18,5 +18,6 @@ extern settings_t    set_data;
 /* Function prototypes */
 void autoread_fcn(uint32_t);
 void valve_fcn(uint32_t *);
+void regul_fcn(uint32_t *);
 
 #endif /* INC_LOOP_FCN_H_ */

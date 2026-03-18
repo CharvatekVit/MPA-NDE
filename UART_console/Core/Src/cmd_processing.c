@@ -22,9 +22,6 @@
 #define HOME_ANGLE_MAX     90
 #define HOME_ANGLE_MIN    -90
 
-/* Macros */
-#define _read_valve(reg)  reg & ((1 << RUN_BIT) | (1 << TURN_BIT) | (1 << PULSE_BIT) | (1 << HOME_BIT))
-
 /* Static functions declaration */
 static void process_cmd(char *, uint32_t *);
 static void process_cmd_read(char *);
@@ -127,7 +124,7 @@ static void process_cmd_turn(char * token, uint32_t * p_reg)
 {
 	if (_read_valve(*p_reg))
 	{
-		// printf("Another cmd is processing\n");
+		//printf("Another cmd is processing\n");
 		return;
 	}
 
@@ -431,16 +428,16 @@ static void process_cmd_ncmd(char * token, uint32_t * p_reg)
 	switch (ncmd)
 	{
 		case 0:
-			_set_BV(*p_reg, CMD0_BIT);
+			_tog_BV(*p_reg, CMD0_BIT);
 			break;
 		case 1:
-			_set_BV(*p_reg, CMD1_BIT);
+			_tog_BV(*p_reg, CMD1_BIT);
 			break;
 		case 2:
-			_set_BV(*p_reg, CMD2_BIT);
+			_tog_BV(*p_reg, CMD2_BIT);
 			break;
 		case 3:
-			_set_BV(*p_reg, CMD3_BIT);
+			_tog_BV(*p_reg, CMD3_BIT);
 			break;
 		default:
 			printf("Invalid cmd\n");

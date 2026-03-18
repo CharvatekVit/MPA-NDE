@@ -113,6 +113,44 @@ void valve_fcn(uint32_t * p_reg)
 	}
 }
 
+/* Regulation when cmd is not received */
+void regul_fcn(uint32_t * p_reg)
+{
+   if (!(_read_valve(*p_reg)))
+   {
+	   /* Condition of running */
+	   /* Change to data from accelerometer!!! */
+	   if (_read_BV(*p_reg, CMD0_BIT))
+	   {
+		   _set_BV(*p_reg, REG_BIT);
+
+		   /* Open valves!!! */
+		   /* Change to data from accelerometer!!! */
+		   if (_read_BV(*p_reg, CMD1_BIT))
+		   {
+			   HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
+			   printf("Right valve was open\n");
+		   }
+		   else
+		   {
+			   HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
+			   printf("Left valve was open\n");
+		   }
+	   }
+   }
+   else if (_read_BV(*p_reg, REG_BIT))
+   {
+	   /* Condition of stoping */
+	   /* Change to data from accelerometer!!! */
+	   if (!(_read_BV(*p_reg, CMD0_BIT)))
+	   {
+		   _clr_BV(*p_reg, REG_BIT);
+		   valve_close();
+		   printf("Valve was closed\n");
+	   }
+   }
+}
+
 /* Local function */
 static void valve_close(void)
 {

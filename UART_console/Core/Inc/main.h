@@ -44,7 +44,8 @@ typedef struct {
 
 typedef struct {
     uint8_t angle;  // Angle [deg], cube rotate after turn cmd
-	uint8_t time_v; // Time [ms], valve is open
+	uint8_t time_r; // Time [ms], right valve is open
+	uint8_t time_l; // Time [ms], left valve is open
 	uint8_t time_a; // Period [s*0.1], sensor report will be sended
 	int8_t home[2]; // X, Y coordinates default position
 } settings_t;
@@ -62,10 +63,11 @@ typedef struct {
 #define _clr_BV(reg, bit)    reg = reg & ~(1 << bit)
 #define _tog_BV(reg, bit)    reg = reg ^ (1 << bit)
 
-// Time data are included in bites 15 to 8
-#define _clr_time(reg)	     reg = reg & ~0x0000FF00
-#define _set_time(reg, time) reg = reg | (time << 8)
-#define _read_time(reg)      ((reg & 0x0000FF00) >> 8)
+// Time data are included in bites 15 to 8 (right valve) and  in 23 to 16 (left valve)
+#define _clr_time(reg)	                reg = reg & ~0x00FFFF00
+#define _set_time(reg, time_l, time_r)  reg = reg | (time_r << 8) | (time_l << 16)
+#define _read_time_r(reg)               ((reg & 0x0000FF00) >> 8)
+#define _read_time_l(reg)               ((reg & 0x00FF0000) >> 16)
 
 /* USER CODE END EM */
 

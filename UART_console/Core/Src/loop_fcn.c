@@ -62,11 +62,14 @@ void valve_fcn(uint32_t * p_reg)
 			_clr_BV(*p_reg, RUN_BIT);
 
 			// Duration of pulse
-			ticks = HAL_GetTick() + _read_time(*p_reg);
+			ticks = HAL_GetTick();
+			ticks += (_read_BV(*p_reg, DIR_BIT)) ? _read_time_r(*p_reg) : _read_time_l(*p_reg);
 
 			/* 1 - right direction, 0 - left direction */
 			HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, _read_BV(*p_reg, DIR_BIT));
 			HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, !(_read_BV(*p_reg, DIR_BIT)));
+
+			printf("%lx\n", *p_reg);
 		}
 		else
 		{
@@ -76,6 +79,8 @@ void valve_fcn(uint32_t * p_reg)
 				// Create opposite pulse
 				_tog_BV(*p_reg, DIR_BIT);
 				_set_BV(*p_reg, PULSE_BIT);
+
+				printf("%lx\n", *p_reg);
 			}
 		}
 	}
@@ -86,6 +91,8 @@ void valve_fcn(uint32_t * p_reg)
 			_clr_BV(*p_reg, PULSE_BIT);
 
 			valve_close();
+
+			printf("%lx\n", *p_reg);
 		}
 		else if (_read_BV(*p_reg, TURN_BIT))
 		{
@@ -98,6 +105,8 @@ void valve_fcn(uint32_t * p_reg)
 
 			// Duration of fly
 			ticks = HAL_GetTick() + FLY_TIME;
+
+			printf("%lx\n", *p_reg);
 		}
 		else if (_read_BV(*p_reg, HOME_BIT))
 		{

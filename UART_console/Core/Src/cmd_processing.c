@@ -145,7 +145,7 @@ static void process_cmd_turn(char * token, uint32_t * p_reg)
 
     /* Preper time setting */
     _clr_time(*p_reg);
-    _set_time(*p_reg, set_data.time_v);
+    _set_time(*p_reg, set_data.time_l, set_data.time_r);
 
     _set_BV(*p_reg, RUN_BIT);
     _set_BV(*p_reg, TURN_BIT);
@@ -189,6 +189,10 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 		return;
 	}
 
+	/* Data which will be set to time register*/
+	uint8_t time_array[2] = {set_data.time_l, set_data.time_r};
+	uint8_t dir_pointer;
+
 	uint8_t pulse_len;
 	token = strtok(NULL, " ");
 
@@ -197,10 +201,12 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 	if (strcasecmp(token, "RIGHT") == 0)
 	{
 		_set_BV(*p_reg, DIR_BIT);
+		dir_pointer = 1;
 	}
 	else if (strcasecmp(token, "LEFT") == 0)
 	{
 		_clr_BV(*p_reg, DIR_BIT);
+		dir_pointer = 0;
 	}
 	else
 	{
@@ -214,18 +220,22 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 
 	if ((pulse_len >= PULSE_LEN_MIN) && (pulse_len <= PULSE_LEN_MAX))
 	{
-		_set_time(*p_reg, pulse_len);
+		/* Valid time */
+		time_array[dir_pointer] = pulse_len;
 	}
 	/* Time opening valve was not specified*/
 	else if (token == NULL)
 	{
-		_set_time(*p_reg, set_data.time_v);
+		/* No time setting*/
 	}
 	else
 	{
 		printf("Invalid time\n");
 	  	return;
 	}
+
+	/* Update time setting*/
+	_set_time(*p_reg, time_array[0], time_array[1]);
 
     _set_BV(*p_reg, RUN_BIT);
     _set_BV(*p_reg, PULSE_BIT);
@@ -354,11 +364,29 @@ static void process_cmd_set_auto(char * token)
 static void process_cmd_set_time(char * token)
 {
 	token = strtok(NULL, " ");
+
+	char * dir = token;
+
+	token = strtok(NULL, " ");
 	uint8_t time = atoi(token);
 
 	if ((time >= PULSE_LEN_MIN) && (time <= PULSE_LEN_MAX))
 	{
-		set_data.time_v = time;
+		printf("%x\n",time);
+
+		if (strcasecmp(dir, "RIGHT") == 0)
+		{
+			set_data.time_r = time;
+		}
+		else if (strcasecmp(dir, "LEFT") == 0)
+		{
+			set_data.time_l = time;
+		}
+		else
+		{
+			printf("Invalid dir\n");
+			return;
+		}
 	}
 }
 
@@ -412,6 +440,10 @@ static void process_cmd_home(uint32_t * p_reg)
 		// printf("Another cmd is processing\n");
 		return;
 	}
+
+    /* Preper time setting */
+    _clr_time(*p_reg);
+    _set_time(*p_reg, set_data.time_l, set_data.time_r);
 
     _set_BV(*p_reg, RUN_BIT);
     _set_BV(*p_reg, HOME_BIT);

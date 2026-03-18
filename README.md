@@ -45,8 +45,8 @@ Team members
    * [ ] UART communication
        - [ ] Sensor data
        - [ ] Valve control
-             * [ ] Position setting
-             * [ ] Position regulation
+           * [ ] Position setting
+           * [ ] Position regulation
        - [x] Command implementation
    * [x] Wireless communication
 - [ ] Structure

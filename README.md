@@ -37,7 +37,8 @@ Team members
       - [x] Valve
       - [x] T-hub
       - [x] Tube
-   * [ ]  Gas bottle construction
+   * [x]  Gas bottle construction
+   * [ ]  Completation pneumatic circuit
 - [ ] Software
    * [x] Component choice 
        - [x] MCU

@@ -37,7 +37,8 @@ Team members
       - [x] Valve
       - [x] T-hub
       - [x] Tube
-   * [ ]  Gas bottle construction
+   * [x]  Gas bottle construction
+   * [ ]  Completation pneumatic circuit
 - [ ] Software
    * [x] Component choice 
        - [x] MCU
@@ -65,4 +66,5 @@ Team members
 2. [Calculator - Potencial Energy of Compression](https://codingace.net/physics/potential_energy_of_compressed.html)
 3. [Calculator - Dynamic Viscosity](https://www.engineeringtoolbox.com/air-absolute-kinematic-viscosity-d_601.html)
 4. [CubeSAT dimension specification](https://www.nasa.gov/wp-content/uploads/2018/01/cubesatdesignspecificationrev14_12022-02-09.pdf)
-5. [MP-9250 Video](https://www.bing.com/videos/riverview/relatedvideo?q=mpu-9250%2f6500&&mid=BEA83FD97D245E639D38BEA83FD97D245E639D38&FORM=VAMGZC)
+5. [MP-9250 Video 1](https://www.bing.com/videos/riverview/relatedvideo?q=mpu-9250%2f6500&&mid=BEA83FD97D245E639D38BEA83FD97D245E639D38&FORM=VAMGZC)
+6. [MP-950 Video 2](https://www.youtube.com/watch?v=UEnWlSgGPiE&t=22s)

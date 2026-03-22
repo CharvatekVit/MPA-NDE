@@ -133,6 +133,85 @@ int main(void)
 	/* Time marker */
 	uint32_t tick = 0;
 
+	/* --- Manual activation magnetometer bridge through SPI --- */
+	  printf("Activing I2C Master for automatic magnetometer reading...\r\n");
+
+	  uint8_t temp_reg = 0;
+
+	  /* 1. Enable I2C Master mode in register USER_CTRL (0x6A) */
+	  mpu9250_interface_spi_read(0x6A, &temp_reg, 1);
+	  temp_reg |= 0x20; /* Set bit 5 (I2C_MST_EN) */
+	  mpu9250_interface_spi_write(0x6A, &temp_reg, 1);
+
+	  /* 2. Set I2C Slave 0 address for reading from magnetometer */
+	  /* Address AK8963 is 0x0C, for reading must be set MSB (0x80) -> 0x8C */
+	  temp_reg = 0x8C;
+	  mpu9250_interface_spi_write(0x25, &temp_reg, 1); /* Register I2C_SLV0_ADDR */
+
+	  /* 3. Set initial magnetometer register */
+	  /* Data X axis, register 0x03 in AK8963 */
+	  temp_reg = 0x03;
+	  mpu9250_interface_spi_write(0x26, &temp_reg, 1); /* Register I2C_SLV0_REG */
+
+	  /* 4. Enable Slave 0 and set reading length to 7 byte */
+	  /* Bit 7 enables reading (0x80), plus 7 bytes (0x07) -> 0x87 */
+	  temp_reg = 0x87;
+	  mpu9250_interface_spi_write(0x27, &temp_reg, 1); /* Register I2C_SLV0_CTRL */
+
+	  printf("Bridge has been configurated! Start reading data...\r\n");
+	  HAL_Delay(100);
+	  /* -------------------------------------------------------- */
+
+	  /* --- TVRDÝ RESTART A PROBUZENÍ MAGNETOMETRU --- */
+	    printf("Zacinam tvrdou konfiguraci AK8963...\r\n");
+	    uint8_t reg_val;
+
+	    /* 1. ZAKÁZAT I2C BYPASS (Registr INT_PIN_CFG - 0x37) */
+	    /* Pokud je Bypass zapnutý, interní I2C Master nefunguje! */
+	    mpu9250_interface_spi_read(0x37, &reg_val, 1);
+	    reg_val &= ~0x02; // Vynulujeme bit 1 (BYPASS_EN)
+	    mpu9250_interface_spi_write(0x37, &reg_val, 1);
+
+	    /* 2. POVOLIT I2C MASTERA (Registr USER_CTRL - 0x6A) */
+	    mpu9250_interface_spi_read(0x6A, &reg_val, 1);
+	    reg_val |= 0x20; // Nastavíme bit 5 (I2C_MST_EN)
+	    mpu9250_interface_spi_write(0x6A, &reg_val, 1);
+
+	    /* 3. NASTAVIT RYCHLOST INTERNÍHO I2C (Registr I2C_MST_CTRL - 0x24) */
+	    reg_val = 0x0D; // I2C rychlost 400 kHz
+	    mpu9250_interface_spi_write(0x24, &reg_val, 1);
+
+	    /* --- ZÁPIS DO AK8963: PROBUĎ SE A MĚŘ! --- */
+	    /* K zápisu do magnetometru musíme použít kanál SLV4 */
+	    reg_val = 0x0C; // I2C adresa AK8963 (Zápis)
+	    mpu9250_interface_spi_write(0x31, &reg_val, 1); // I2C_SLV4_ADDR
+
+	    reg_val = 0x0A; // Registr CNTL1 v AK8963 (Nastavení módu)
+	    mpu9250_interface_spi_write(0x32, &reg_val, 1); // I2C_SLV4_REG
+
+	    reg_val = 0x16; // Hodnota: 16-bit rozlišení, Continuous Mode 2 (100 Hz)
+	    mpu9250_interface_spi_write(0x33, &reg_val, 1); // I2C_SLV4_DO
+
+	    reg_val = 0x80; // Povolit přenos (EN bit)
+	    mpu9250_interface_spi_write(0x34, &reg_val, 1); // I2C_SLV4_CTRL
+
+	    HAL_Delay(50); // Počkáme, až se příkaz pošle a magnetometr se probudí
+
+	    /* --- NASTAVENÍ KONTINUÁLNÍHO ČTENÍ DO EXT_SENS_DATA --- */
+	    /* Nastavíme kanál SLV0, aby neustále četl měření */
+	    reg_val = 0x8C; // I2C adresa 0x0C + bit čtení (0x80)
+	    mpu9250_interface_spi_write(0x25, &reg_val, 1); // I2C_SLV0_ADDR
+
+	    reg_val = 0x03; // Začít číst od registru HXL (osa X)
+	    mpu9250_interface_spi_write(0x26, &reg_val, 1); // I2C_SLV0_REG
+
+	    reg_val = 0x87; // Povolit čtení (EN) + délka 7 bajtů (X, Y, Z + ST2)
+	    mpu9250_interface_spi_write(0x27, &reg_val, 1); // I2C_SLV0_CTRL
+
+	    printf("Konfigurace dokoncena. Cekam na prvni data...\r\n");
+	    HAL_Delay(100);
+	    /* -------------------------------------------------------- */
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -155,18 +234,24 @@ int main(void)
 			{
 				/* 3. WRITE VALUE TO SERIAL */
 				//printf("\r\n");
-				printf("A [g]  : X=%d, Y=%d, Z=%d\r\n", (int16_t)(g[0]*1000), (int16_t)(g[1]*1000), (int16_t)(g[2]*1000));
-				printf("G [dps]: X=%d, Y=%d, Z=%d\r\n", (int16_t)(dps[0]*1000), (int16_t)(dps[1]*1000), (int16_t)(dps[2]*1000));
-				printf("M [uT] : X=%d, Y=%d, Z=%d\r\n", (int16_t)(ut[0]*1000), (int16_t)(ut[1]*1000), (int16_t)(ut[2]*1000));
+				//printf("A [g]  : X=%d, Y=%d, Z=%d\r\n", (int16_t)(g[0]*1000), (int16_t)(g[1]*1000), (int16_t)(g[2]*1000));
+				//printf("G [dps]: X=%d, Y=%d, Z=%d\r\n", (int16_t)(dps[0]*1000), (int16_t)(dps[1]*1000), (int16_t)(dps[2]*1000));
+				//printf("M [uT] : X=%d, Y=%d, Z=%d\r\n", (int16_t)(ut[0]*1000), (int16_t)(ut[1]*1000), (int16_t)(ut[2]*1000));
 				//printf("\r\n");
 			}
 
 			uint8_t mag_raw_data[7];
 			mpu9250_interface_spi_read(0x49, mag_raw_data, 7);
 
-			printf("Raw Mag Data: %02X %02X %02X %02X %02X %02X | ST2: %02X\r\n",
-			       mag_raw_data[0], mag_raw_data[1], mag_raw_data[2],
-			       mag_raw_data[3], mag_raw_data[4], mag_raw_data[5], mag_raw_data[6]);
+			//printf("Raw Mag Data: %02X %02X %02X %02X %02X %02X | ST2: %02X\r\n",
+			//       mag_raw_data[0], mag_raw_data[1], mag_raw_data[2],
+			//       mag_raw_data[3], mag_raw_data[4], mag_raw_data[5], mag_raw_data[6]);
+
+			int16_t raw_x = ((int16_t)((mag_raw_data[1] << 8) | mag_raw_data[0]) * 15) / 100;
+			int16_t raw_y = ((int16_t)((mag_raw_data[3] << 8) | mag_raw_data[2]) * 15) / 100;
+			int16_t raw_z = ((int16_t)((mag_raw_data[5] << 8) | mag_raw_data[4]) * 15) / 100;
+
+			printf("M [uT]: X=%d, Y=%d, Z=%d\r\n", raw_x, raw_y, raw_z);
 		}
 
     /* USER CODE END WHILE */

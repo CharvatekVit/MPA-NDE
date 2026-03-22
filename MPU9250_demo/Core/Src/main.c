@@ -21,6 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "driver_mpu9250_basic.h"
+
 #include <stdio.h>
 /* USER CODE END Includes */
 
@@ -42,12 +44,10 @@
 /* Private variables ---------------------------------------------------------*/
 SPI_HandleTypeDef hspi1;
 
-TIM_HandleTypeDef htim3;
-
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-static volatile uint8_t timer_flag = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -55,22 +55,14 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_SPI1_Init(void);
-static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
-static void mpu9250_read_reg(uint8_t, uint8_t *, uint8_t);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 /* USER CODE BEGIN 0 */
-static void mpu9250_read_reg(uint8_t reg, uint8_t * data, uint8_t len)
-{
-	uint8_t temp_data = 0x80|reg;
-	HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, 0);
-	HAL_SPI_Transmit(&hspi1, &temp_data, 1, 100);
-	HAL_SPI_Receive(&hspi1, data, len, 100);
-	HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, 1);
-}
+
 
 int _write(int file, char const *buf, int n)
 {
@@ -111,35 +103,62 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   MX_SPI1_Init();
-  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim3);
 
-  int16_t accel_data[3];
-  uint8_t imu_data[14];
+  printf("--- Start program NUCLEO-F070RB ---\r\n");
+  printf("Run inicialization MPU9250...\r\n");
 
-  uint32_t Ticks = 0;
+  /* * 1. INICIALIZATION
+     * For SPI interface set MPU9250_INTERFACE_SPI.
+     * Address only for I2C, library requires it.
+     */
+    uint8_t res = mpu9250_basic_init(MPU9250_INTERFACE_SPI, MPU9250_ADDRESS_AD0_LOW);
+    if (res != 0)
+    {
+        printf("Error: MPU9250 inicialization failed!\r\n");
+        // Optional Error Handler
+    }
+    else
+    {
+        printf("MPU9250 succesfully inicialized and prepered.\r\n");
+    }
+
+    /* Pause for stabilization */
+    HAL_Delay(100);
+
+    /* Measured data variables */
+    float g[3];   // Accelerometes (Multiples of gravitational acceleration)
+    float dps[3]; // Gyroscope (Degrees Per Second)
+    float ut[3];  // Magnetometer (µT)
+
+    /* * 2. ONE-TIME READING
+     */
+    printf("Reading data from sensor...\r\n");
+    if (mpu9250_basic_read(g, dps, ut) != 0) {
+        printf("Error: Sensor data reading failed!\r\n");
+    } else {
+        /* 3. VÝPIS HODNOT */
+        printf("=================================\r\n");
+        printf("          MEASURED DATA          \r\n");
+        printf("=================================\r\n");
+        printf("Accelerometer [g]  : X=%6.2f, Y=%6.2f, Z=%6.2f\r\n", g[0], g[1], g[2]);
+        printf("Gyroscope     [dps]: X=%6.2f, Y=%6.2f, Z=%6.2f\r\n", dps[0], dps[1], dps[2]);
+        printf("Magnetometer  [uT] : X=%6.2f, Y=%6.2f, Z=%6.2f\r\n", ut[0], ut[1], ut[2]);
+        printf("=================================\r\n");
+    }
+
+    /* * 4. DEINICIALIZATION
+     * Sleep sensor due to energy save.
+     */
+    mpu9250_basic_deinit();
+    printf("Sensor was sleeped.\r\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (timer_flag)
-	  {
-		  timer_flag = 0;
 
-		  mpu9250_read_reg(59, imu_data, sizeof(imu_data));
-		  accel_data[0] = ((int16_t)imu_data[0] << 8) + imu_data[1];
-		  accel_data[1] = ((int16_t)imu_data[2] << 8) + imu_data[3];
-		  accel_data[2] = ((int16_t)imu_data[4] << 8) + imu_data[5];
-	  }
-
-	  if (HAL_GetTick() > Ticks)
-	  {
-		  Ticks = HAL_GetTick() + DISP_TIME;
-		  printf("A: X = %d, Y = %d, Z = %d.\n", accel_data[0], accel_data[1], accel_data[2]);
-	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -228,51 +247,6 @@ static void MX_SPI1_Init(void)
 }
 
 /**
-  * @brief TIM3 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM3_Init(void)
-{
-
-  /* USER CODE BEGIN TIM3_Init 0 */
-
-  /* USER CODE END TIM3_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM3_Init 1 */
-
-  /* USER CODE END TIM3_Init 1 */
-  htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 1599;
-  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 99;
-  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
-  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM3_Init 2 */
-
-  /* USER CODE END TIM3_Init 2 */
-
-}
-
-/**
   * @brief USART2 Initialization Function
   * @param None
   * @retval None
@@ -353,13 +327,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-	if (htim == &htim3)
-	{
-		timer_flag = 1;
-	}
-}
+
 /* USER CODE END 4 */
 
 /**

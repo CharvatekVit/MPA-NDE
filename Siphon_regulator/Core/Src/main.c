@@ -24,6 +24,7 @@
 #include "cmd_processing.h"
 #include "driver_mpu9250_basic.h"
 #include "loop_fcn.h"
+#include "sensor_fcn.h"
 #include <stdio.h>
 /* USER CODE END Includes */
 
@@ -37,7 +38,6 @@
 #define RX_BUFFER_LEN 64
 #define uart_rx_write_ptr (RX_BUFFER_LEN - hdma_usart1_rx.Instance->CNDTR)
 
-#define MEAS_TIME 10
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -138,27 +138,7 @@ int main(void)
 	/* USER CODE BEGIN 2 */
 	HAL_UART_Receive_DMA(&huart1, uart_rx_buf, RX_BUFFER_LEN);
 
-	/* * 1. INICIALIZATION
-	 * For SPI interface set MPU9250_INTERFACE_SPI.
-	 * Address only for I2C, library requires it.
-	 */
-	uint8_t res = mpu9250_basic_init(MPU9250_INTERFACE_SPI, 0); // MPU9250_ADDRESS_AD0_LOW
-	if (res != 0)
-	{
-		printf("Error: MPU9250 inicialization failed!\r\n");
-		// Optional Error Handler
-	}
-	else
-	{
-		printf("MPU9250 succesfully inicialized and prepered.\r\n");
-	}
-	printf("%x\n", res);
-
-	/* Pause for stabilization */
-	HAL_Delay(100);
-
-	/* Time marker */
-	uint32_t tick = 0;
+	sensor_init();
 
 	/* USER CODE END 2 */
 
@@ -183,17 +163,7 @@ int main(void)
 		valve_fcn(&cmd_reg);
 		regul_fcn(&cmd_reg);
 
-		/* * 2 READING
-		 */
-		if (HAL_GetTick() > tick)
-		{
-			tick = HAL_GetTick() + MEAS_TIME;
-
-			if (mpu9250_basic_read(measured_data.acc, measured_data.gyr, measured_data.mag) != 0)
-			{
-				printf("Sensor reading failed!\n");
-			}
-		}
+		sensor_read();
 
 		/* USER CODE END WHILE */
 

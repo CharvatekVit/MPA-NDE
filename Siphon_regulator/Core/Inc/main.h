@@ -109,6 +109,8 @@ void Error_Handler(void);
 #define AUTOREAD_GYR_BIT 26 // autoread includes gyroscope data
 #define AUTOREAD_MAG_BIT 27 // autoread includes magnetometer data
 
+#define MEAS_TIME        10 // how often sensor is readed
+
 /* Macros */
 #define _read_valve(reg) reg & ((1 << RUN_BIT) | (1 << TURN_BIT) | (1 << PULSE_BIT) | (1 << HOME_BIT) | (1 << REG_BIT))
 /* Reserved */

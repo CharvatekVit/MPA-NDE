@@ -69,3 +69,4 @@ Team members
 5. [MP-9250 Video 1](https://www.bing.com/videos/riverview/relatedvideo?q=mpu-9250%2f6500&&mid=BEA83FD97D245E639D38BEA83FD97D245E639D38&FORM=VAMGZC)
 6. [MP-9250 Video 2](https://www.youtube.com/watch?v=UEnWlSgGPiE&t=22s)
 7. [MP-9250 Library](https://github.com/libdriver/mpu9250)
+8. [BluePill pinout](https://deepbluembedded.com/stm32-blue-pill-pinout-programming-guide/)

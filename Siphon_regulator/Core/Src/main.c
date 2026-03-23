@@ -157,16 +157,8 @@ int main(void)
 	/* Pause for stabilization */
 	HAL_Delay(100);
 
-	/* Measured data variables */
-	/*
-	float g[3];   // Accelerometes (Multiples of gravitational acceleration)
-	float dps[3]; // Gyroscope (Degrees Per Second)
-	float ut[3];  // Magnetometer (µT)
-	*/
-
 	/* Time marker */
 	uint32_t tick = 0;
-	//uint32_t disp_tick = 0;
 
 	/* USER CODE END 2 */
 
@@ -203,17 +195,6 @@ int main(void)
 			}
 		}
 
-		/* 3. WRITE VALUE TO SERIAL */
-		/*
-		if (HAL_GetTick() > disp_tick)
-		{
-			disp_tick = HAL_GetTick() + 1000;
-
-			printf("A [g]  : X=%d, Y=%d, Z=%d\r\n", (int16_t)(g[0]*1000), (int16_t)(g[1]*1000), (int16_t)(g[2]*1000));
-			printf("G [dps]: X=%d, Y=%d, Z=%d\r\n", (int16_t)(dps[0]*1000), (int16_t)(dps[1]*1000), (int16_t)(dps[2]*1000));
-			printf("\r\n");
-		}
-		*/
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */

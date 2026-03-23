@@ -7,7 +7,7 @@ Team members
 4. Antonín Putala (responsible for Software, Structure)
 
 > [!WARNING]
-> On March 30 will be progress presentation.
+> Next progress presentation will be on March 30.
 
 ## Requirements
 1. Determining position using a sensor

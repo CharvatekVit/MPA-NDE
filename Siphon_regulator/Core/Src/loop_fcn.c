@@ -33,18 +33,23 @@ void autoread_fcn(uint32_t reg)
 
 			if (_read_BV(reg, AUTOREAD_ACC_BIT))
 			{
-		    	printf("A: X=%d, Y=%d, Z=%d\n", measured_data.acc[0], measured_data.acc[1], measured_data.acc[2]);
+		    	printf("A: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.acc[0]),
+		    			_float2int(measured_data.acc[1]), _float2int(measured_data.acc[2]));
 			}
 
 			if (_read_BV(reg, AUTOREAD_GYR_BIT))
 			{
-				printf("G: X=%d, Y=%d, Z=%d\n", measured_data.gyr[0], measured_data.gyr[1], measured_data.gyr[2]);
+				printf("G: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.gyr[0]),
+						_float2int(measured_data.gyr[1]), _float2int(measured_data.gyr[2]));
 			}
 
+			/*
 			if (_read_BV(reg, AUTOREAD_MAG_BIT))
 			{
-				printf("M: X=%d, Y=%d, Z=%d\n", measured_data.mag[0], measured_data.mag[1], measured_data.mag[2]);
+				printf("M: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.mag[0]),
+						_float2int(measured_data.mag[1]), _float2int(measured_data.mag[2]));
 			}
+			*/
 		}
 	}
 }

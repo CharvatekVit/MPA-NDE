@@ -37,9 +37,9 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 typedef struct {
-    int16_t acc[3]; // Accelerometer X, Y, Z
-	int16_t gyr[3]; // Gyroscope X, Y, Z
-	int16_t mag[3]; // Magnetometer X, Y, Z
+    float acc[3]; // Accelerometer X, Y, Z
+    float gyr[3]; // Gyroscope X, Y, Z
+    float mag[3]; // Magnetometer X, Y, Z
 } sensor_data_t;
 
 typedef struct {
@@ -68,6 +68,9 @@ typedef struct {
 #define _set_time(reg, time_l, time_r)  reg = reg | (time_r << 8) | (time_l << 16)
 #define _read_time_r(reg)               ((reg & 0x0000FF00) >> 8)
 #define _read_time_l(reg)               ((reg & 0x00FF0000) >> 16)
+
+// Display float interpretation
+#define _float2int(data_fl)             ((int16_t)(data_fl*1000))
 
 /* USER CODE END EM */
 

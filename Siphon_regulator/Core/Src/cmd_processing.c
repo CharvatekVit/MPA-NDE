@@ -156,23 +156,31 @@ static void process_cmd_read(char * token)
 {
     token = strtok(NULL, " ");
 
-    if (strcasecmp(token, "MAG") == 0)
+    if (strcasecmp(token, "GYR") == 0)
     {
-    	printf("M: X=%d, Y=%d, Z=%d\n", measured_data.mag[0], measured_data.mag[1], measured_data.mag[2]);
-    }
-    else if (strcasecmp(token, "GYR") == 0)
-    {
-    	printf("G: X=%d, Y=%d, Z=%d\n", measured_data.gyr[0], measured_data.gyr[1], measured_data.gyr[2]);
+    	printf("G: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.gyr[0]),
+    			_float2int(measured_data.gyr[1]), _float2int(measured_data.gyr[2]));
     }
     else if (strcasecmp(token, "ACC") == 0)
     {
-    	printf("A: X=%d, Y=%d, Z=%d\n", measured_data.acc[0], measured_data.acc[1], measured_data.acc[2]);
+    	printf("A: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.acc[0]),
+    			_float2int(measured_data.acc[1]), _float2int(measured_data.acc[2]));
     }
+    /*
+    else if (strcasecmp(token, "MAG") == 0)
+    {
+    	//printf("M: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.mag[0]),
+    	//		_float2int(measured_data.mag[1]), _float2int(measured_data.mag[2]));
+    }
+    */
     else if (strcasecmp(token, "ALL") == 0)
     {
-    	printf("M: X=%d, Y=%d, Z=%d\n", measured_data.mag[0], measured_data.mag[1], measured_data.mag[2]);
-    	printf("G: X=%d, Y=%d, Z=%d\n", measured_data.gyr[0], measured_data.gyr[1], measured_data.gyr[2]);
-    	printf("A: X=%d, Y=%d, Z=%d\n", measured_data.acc[0], measured_data.acc[1], measured_data.acc[2]);
+    	//printf("M: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.mag[0]),
+    	//		_float2int(measured_data.mag[1]), _float2int(measured_data.mag[2]));
+    	printf("G: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.gyr[0]),
+    			_float2int(measured_data.gyr[1]), _float2int(measured_data.gyr[2]));
+    	printf("A: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.acc[0]),
+    			_float2int(measured_data.acc[1]), _float2int(measured_data.acc[2]));
     }
     else
     {
@@ -320,10 +328,12 @@ static void process_cmd_set_read(char * token, uint32_t * p_reg)
 	{
 		bit = AUTOREAD_GYR_BIT;
 	}
+	/*
 	else if (strcasecmp(token, "MAG") == 0)
 	{
 		bit = AUTOREAD_MAG_BIT;
 	}
+	*/
 	else
 	{
 		printf("Invalid cmd\n");

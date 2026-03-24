@@ -40,6 +40,7 @@ typedef struct {
     float acc[3]; // Accelerometer X, Y, Z
     float gyr[3]; // Gyroscope X, Y, Z
     float mag[3]; // Magnetometer X, Y, Z
+    float pos[3]; // Position X, Y, Z related to initial position
 } sensor_data_t;
 
 typedef struct {
@@ -107,9 +108,10 @@ void Error_Handler(void);
 #define AUTOREAD_BIT     24 // periodic sending messages through serial
 #define AUTOREAD_ACC_BIT 25 // autoread includes accelerometer data
 #define AUTOREAD_GYR_BIT 26 // autoread includes gyroscope data
-#define AUTOREAD_MAG_BIT 27 // autoread includes magnetometer data
+#define AUTOREAD_POS_BIT 27 // autoread includes position data
 
-//
+//#define AUTOREAD_MAG_BIT 6 // autoread includes magnetometer data
+
 
 /* Macros */
 #define _read_valve(reg) reg & ((1 << RUN_BIT) | (1 << TURN_BIT) | (1 << PULSE_BIT) | (1 << HOME_BIT) | (1 << REG_BIT))

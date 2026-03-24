@@ -140,7 +140,6 @@ int main(void)
 	HAL_UART_Receive_DMA(&huart1, uart_rx_buf, RX_BUFFER_LEN);
 
 	sensor_init(gyr_offset);
-	printf("Hello\n");
 
 	/* USER CODE END 2 */
 

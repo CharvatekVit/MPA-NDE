@@ -43,6 +43,12 @@ void autoread_fcn(uint32_t reg)
 						_float2int(measured_data.gyr[1]), _float2int(measured_data.gyr[2]));
 			}
 
+			if (_read_BV(reg, AUTOREAD_POS_BIT))
+			{
+				printf("P: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.pos[0]),
+						_float2int(measured_data.pos[1]), _float2int(measured_data.pos[2]));
+			}
+
 			/*
 			if (_read_BV(reg, AUTOREAD_MAG_BIT))
 			{

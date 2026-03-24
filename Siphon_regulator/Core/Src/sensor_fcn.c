@@ -62,6 +62,7 @@ void sensor_get_value(float * gyr_offset)
 				measured_data.acc[i] = acc[i];
 				measured_data.gyr[i] = gyr[i] - gyr_offset[i];
 				measured_data.mag[i] = mag[i];
+				measured_data.pos[i] += (measured_data.gyr[i] * MEAS_TIME) / 1000;
 			}
 		}
 	}

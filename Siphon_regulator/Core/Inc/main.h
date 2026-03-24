@@ -84,16 +84,16 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define BOARD_LED_Pin GPIO_PIN_13
 #define BOARD_LED_GPIO_Port GPIOC
+#define VALVE_R_Pin GPIO_PIN_2
+#define VALVE_R_GPIO_Port GPIOA
+#define VALVE_L_Pin GPIO_PIN_3
+#define VALVE_L_GPIO_Port GPIOA
 #define LED_R_Pin GPIO_PIN_5
 #define LED_R_GPIO_Port GPIOA
 #define LED_Y_Pin GPIO_PIN_6
 #define LED_Y_GPIO_Port GPIOA
 #define LED_G_Pin GPIO_PIN_7
 #define LED_G_GPIO_Port GPIOA
-#define VALVE_R_Pin GPIO_PIN_8
-#define VALVE_R_GPIO_Port GPIOA
-#define VALVE_L_Pin GPIO_PIN_9
-#define VALVE_L_GPIO_Port GPIOA
 #define SPI2_CS_Pin GPIO_PIN_9
 #define SPI2_CS_GPIO_Port GPIOB
 

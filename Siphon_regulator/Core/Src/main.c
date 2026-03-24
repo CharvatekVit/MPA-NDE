@@ -153,10 +153,10 @@ int main(void)
 			uint8_t b = uart_rx_buf[uart_rx_read_ptr];
 			// increase read pointer
 			if (++uart_rx_read_ptr >= RX_BUFFER_LEN)
-				{
+			{
 				uart_rx_read_ptr = 0;
-				}
-				// process every received byte with the RX state machine
+			}
+			// process every received byte with the RX state machine
 			uart_byte_available(b, &cmd_reg);
 
 		}
@@ -321,7 +321,7 @@ static void MX_GPIO_Init(void)
 	HAL_GPIO_WritePin(BOARD_LED_GPIO_Port, BOARD_LED_Pin, GPIO_PIN_RESET);
 
 	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(GPIOA, LED_R_Pin|LED_G_Pin|VALVE_R_Pin|VALVE_L_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, VALVE_R_Pin|VALVE_L_Pin|LED_R_Pin|LED_G_Pin, GPIO_PIN_RESET);
 
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(SPI2_CS_GPIO_Port, SPI2_CS_Pin, GPIO_PIN_RESET);
@@ -333,8 +333,8 @@ static void MX_GPIO_Init(void)
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	HAL_GPIO_Init(BOARD_LED_GPIO_Port, &GPIO_InitStruct);
 
-	/*Configure GPIO pins : LED_R_Pin LED_G_Pin VALVE_R_Pin VALVE_L_Pin */
-	GPIO_InitStruct.Pin = LED_R_Pin|LED_G_Pin|VALVE_R_Pin|VALVE_L_Pin;
+	/*Configure GPIO pins : VALVE_R_Pin VALVE_L_Pin LED_R_Pin LED_G_Pin */
+	GPIO_InitStruct.Pin = VALVE_R_Pin|VALVE_L_Pin|LED_R_Pin|LED_G_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

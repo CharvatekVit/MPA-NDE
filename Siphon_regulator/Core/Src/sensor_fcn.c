@@ -13,13 +13,15 @@
 #include <stdio.h>
 
 /* Defines */
-#define CAL_CYC_NUM 100
+#define CAL_CYC_NUM       100 // How much calibration measurement is performed
+#define CAL_MUL     (360/320) // Magic number, comparison required angle for turn and measured
 
-#define MEAS_TIME         10 // how often sensor is readed
-#define CAL_TIME          10 // how often sensor is readed during calibration
+#define MEAS_TIME          10 // how often sensor is readed
+#define CAL_TIME           10 // how often sensor is readed during calibration
 
 /* Function declaration */
 static void sensor_calibration(float *);
+static void sensor_deg_limit(float *);
 
 /* Global functions */
 
@@ -62,7 +64,8 @@ void sensor_get_value(float * gyr_offset)
 				measured_data.acc[i] = acc[i];
 				measured_data.gyr[i] = gyr[i] - gyr_offset[i];
 				measured_data.mag[i] = mag[i];
-				measured_data.pos[i] += (measured_data.gyr[i] * MEAS_TIME) / 1000;
+				measured_data.pos[i] += (measured_data.gyr[i] * MEAS_TIME * CAL_MUL) / 1000;
+				sensor_deg_limit(&measured_data.pos[i]);
 			}
 		}
 	}
@@ -99,5 +102,12 @@ static void sensor_calibration(float * gyr_offset)
 	{
 		gyr_offset[j] = (offset[j] / i);
 	}
+}
+
+/* Arrange position data to degree format*/
+static void sensor_deg_limit(float * p_deg)
+{
+    *p_deg += (*p_deg < -180) ? 360: 0;
+    *p_deg -= (*p_deg > 180)  ? 360: 0;
 }
 

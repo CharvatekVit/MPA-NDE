@@ -45,8 +45,8 @@ void autoread_fcn(uint32_t reg)
 
 			if (_read_BV(reg, AUTOREAD_POS_BIT))
 			{
-				printf("P: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.pos[0]),
-						_float2int(measured_data.pos[1]), _float2int(measured_data.pos[2]));
+				printf("P: X=%ld, Y=%ld, Z=%ld\n", (int32_t)(measured_data.pos[0]),
+						(int32_t)(measured_data.pos[1]), (int32_t)(measured_data.pos[2]));
 			}
 
 			/*

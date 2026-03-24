@@ -15,18 +15,17 @@
 /* Defines */
 #define CAL_CYC_NUM 100
 
-#define MEAS_TIME        10 // how often sensor is readed
+#define MEAS_TIME         10 // how often sensor is readed
 #define CAL_TIME          10 // how often sensor is readed during calibration
 
 /* Function declaration */
-//static uint8_t sensor_read(float *, float *, float *);
+static void sensor_calibration(float *);
 
 /* Global functions */
 
 /* Initialization */
 void sensor_init(float * gyr_offset)
 {
-
 	/* For SPI interface set MPU9250_INTERFACE_SPI.
 	    Address only for I2C, library requires it.
 	 */
@@ -39,42 +38,8 @@ void sensor_init(float * gyr_offset)
 	/* Pause for stabilization */
 	HAL_Delay(200);
 
-	/* Temporary variables for calibration */
-	float acc[3];
-	float gyr[3];
-	float mag[3];
+	sensor_calibration(gyr_offset);
 
-	float offset[3] = {0};
-	uint8_t i;
-
-	/* Calibration */
-	for (i = 0; i < CAL_CYC_NUM; i++)
-	{
-		if (mpu9250_basic_read(acc, gyr, mag) == 0)
-		{
-			printf("M: %d %d %d\n", _float2int(gyr[0]), _float2int(gyr[1]), _float2int(gyr[2]));
-
-			for (uint8_t j = 0; j < 3; j++)
-			{
-				offset[j] += gyr[j];
-			}
-		}
-
-		HAL_Delay(CAL_TIME);
-	}
-	// printf("%d\n", i);
-
-	for (uint8_t j = 0; j < 3; j++)
-	{
-		gyr_offset[j] = (offset[j] / i);
-	}
-
-	/*
-	printf("Calibration\n");
-	printf("%d\n", _float2int(gyr_offset[0]));
-	printf("%d\n", _float2int(gyr_offset[1]));
-	printf("%d\n", _float2int(gyr_offset[2]));
-	 */
 }
 
 /* 2 READING */
@@ -100,31 +65,38 @@ void sensor_get_value(float * gyr_offset)
 			}
 		}
 	}
-
-	/*
-	printf("Measured\n");
-	printf("%d\n", _float2int(measured_data.gyr[0]));
-	printf("%d\n", _float2int(measured_data.gyr[1]));
-	printf("%d\n", _float2int(measured_data.gyr[2]));
-	*/
-
-	/*
-	printf("Read\n");
-	printf("%d\n", _float2int(gyr_offset[0]));
-	printf("%d\n", _float2int(gyr_offset[1]));
-	printf("%d\n", _float2int(gyr_offset[2]));
-	 */
 }
 
 /* Local function */
-/*
-uint8_t sensor_read(float * acc, float * gyr, float * mag)
+
+/* Gyroscope calibration */
+static void sensor_calibration(float * gyr_offset)
 {
-	if (mpu9250_basic_read(acc, gyr, mag) == 0)
+	/* Temporary variables for calibration */
+	float acc[3];
+	float gyr[3];
+	float mag[3];
+
+	float offset[3] = {0};
+	uint8_t i;
+
+
+	for (i = 0; i < CAL_CYC_NUM; i++)
 	{
-		//printf("Sensor reading failed!\n");
-		return 0;
+		if (mpu9250_basic_read(acc, gyr, mag) == 0)
+		{
+			for (uint8_t j = 0; j < 3; j++)
+			{
+				offset[j] += gyr[j];
+			}
+		}
+
+		HAL_Delay(CAL_TIME);
 	}
-	return 1;
+
+	for (uint8_t j = 0; j < 3; j++)
+	{
+		gyr_offset[j] = (offset[j] / i);
+	}
 }
-*/
+

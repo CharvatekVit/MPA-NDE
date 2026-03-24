@@ -109,6 +109,7 @@ int main(void)
 
 	/* USER CODE BEGIN 1 */
 	uint32_t cmd_reg = 0;
+	float gyr_offset[3];
 
 	setting_init();
 	valve_init();
@@ -138,7 +139,8 @@ int main(void)
 	/* USER CODE BEGIN 2 */
 	HAL_UART_Receive_DMA(&huart1, uart_rx_buf, RX_BUFFER_LEN);
 
-	sensor_init();
+	sensor_init(gyr_offset);
+	printf("Hello\n");
 
 	/* USER CODE END 2 */
 
@@ -162,8 +164,7 @@ int main(void)
 		autoread_fcn(cmd_reg);
 		valve_fcn(&cmd_reg);
 		regul_fcn(&cmd_reg);
-
-		sensor_read();
+		sensor_get_value(gyr_offset);
 
 		/* USER CODE END WHILE */
 

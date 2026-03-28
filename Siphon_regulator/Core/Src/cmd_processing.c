@@ -430,28 +430,12 @@ static void process_cmd_set_home(char * token)
 	if (home >= HOME_ANGLE_MIN && home <= HOME_ANGLE_MAX)
 	{
 		set_data.home = home;
-		printf("%d\n",set_data.home);
 	}
 	else
 	{
 		printf("Invalid position\n");
 		return;
 	}
-
-	/*
-	token = strtok(NULL, " ");
-	home = atoi(token);
-
-	if (home >= HOME_ANGLE_MIN && home <= HOME_ANGLE_MAX)
-	{
-		set_data.home[1] = home;
-	}
-	else
-	{
-		printf("Invalid position\n");
-		return;
-	}
-	*/
 }
 
 /* Go to home position */

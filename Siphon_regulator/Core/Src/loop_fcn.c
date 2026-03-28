@@ -133,9 +133,7 @@ void valve_fcn(uint32_t * p_reg)
 
 			valve_close();
 
-			required_pos = stable_pos;
-			required_pos += (_read_BV(*p_reg, DIR_BIT)) ? (-90) : 90;
-			sensor_deg_limit(&required_pos);
+			required_pos = (float)set_data.home;
 
 			printf("required_pos: %d\n", (int16_t)(required_pos));
 		}

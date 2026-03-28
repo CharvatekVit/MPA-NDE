@@ -88,8 +88,7 @@ void setting_init(void)
 	set_data.time_a = 10; // 10 * 0.1 = 1 sec
 	set_data.time_l = 20; // 20us
 	set_data.time_r = 20; // 20us
-	set_data.home[0] = 0;
-	set_data.home[1] = 0;
+	set_data.home   =  0; // return position
 }
 
 void valve_init(void)

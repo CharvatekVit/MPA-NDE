@@ -14,7 +14,6 @@
 #include <stdio.h>
 
 /* Defines */
-#define FLY_TIME 5000 // five secs
 #define ANGLE_TOL 5   // Precision setting of position
 
 /* Function declaration*/
@@ -125,8 +124,6 @@ void valve_fcn(uint32_t * p_reg)
 
 			printf("required_pos: %d\n", (int16_t)(required_pos));
 
-			// ticks = HAL_GetTick(); //  + FLY_TIME
-
 		}
 		else if (_read_BV(*p_reg, HOME_BIT))
 		{
@@ -135,9 +132,6 @@ void valve_fcn(uint32_t * p_reg)
 			_set_BV(*p_reg, RUN_BIT);
 
 			valve_close();
-
-			// Duration of fly
-			//ticks = HAL_GetTick() + FLY_TIME;
 
 			required_pos = stable_pos;
 			required_pos += (_read_BV(*p_reg, DIR_BIT)) ? (-90) : 90;

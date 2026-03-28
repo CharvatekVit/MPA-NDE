@@ -19,8 +19,8 @@
 #define MAX_TIME          255    // max period of sending autoreport 25,5 s
 #define TURN_ANGLE_MIN     10
 #define TURN_ANGLE_MAX     90
-#define HOME_ANGLE_MAX     90
-#define HOME_ANGLE_MIN    -90
+#define HOME_ANGLE_MAX    180
+#define HOME_ANGLE_MIN   -180
 
 /* Static functions declaration */
 static void process_cmd(char *, uint32_t *);
@@ -415,7 +415,7 @@ static void process_cmd_set_angle(char * token)
 	token = strtok(NULL, " ");
 	uint8_t angle = atoi(token);
 
-	if ((angle >= TURN_ANGLE_MIN) && (angle <= TURN_ANGLE_MAX))
+	if ((angle > TURN_ANGLE_MIN) && (angle <= TURN_ANGLE_MAX))
 	{
 		set_data.angle = angle;
 	}
@@ -425,11 +425,12 @@ static void process_cmd_set_angle(char * token)
 static void process_cmd_set_home(char * token)
 {
 	token = strtok(NULL, " ");
-	int8_t home = atoi(token);
+	int16_t home = atoi(token);
 
 	if (home >= HOME_ANGLE_MIN && home <= HOME_ANGLE_MAX)
 	{
-		set_data.home[0] = home;
+		set_data.home = home;
+		printf("%d\n",set_data.home);
 	}
 	else
 	{
@@ -437,6 +438,7 @@ static void process_cmd_set_home(char * token)
 		return;
 	}
 
+	/*
 	token = strtok(NULL, " ");
 	home = atoi(token);
 
@@ -449,6 +451,7 @@ static void process_cmd_set_home(char * token)
 		printf("Invalid position\n");
 		return;
 	}
+	*/
 }
 
 /* Go to home position */

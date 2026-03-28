@@ -18,5 +18,6 @@ extern settings_t    set_data;
 /* Function prototypes */
 void sensor_init(float *);
 void sensor_get_value(float *);
+void sensor_deg_limit(float *);
 
 #endif /* INC_SENSOR_FCN_H_ */

@@ -8,11 +8,14 @@
 /* Includes */
 #include "loop_fcn.h"
 #include "main.h"
+#include "sensor_fcn.h"
+#include <math.h>
 
 #include <stdio.h>
 
 /* Defines */
 #define FLY_TIME 5000 // five secs
+#define ANGLE_TOL 5   // Precision setting of position
 
 /* Function declaration*/
 static void valve_close(void);
@@ -64,6 +67,8 @@ void autoread_fcn(uint32_t reg)
 void valve_fcn(uint32_t * p_reg)
 {
 	static uint32_t ticks = 0;
+	static float stable_pos = 0; // Default measured_data.pos is 0 0 0
+	static float required_pos = 0;
 
 	if (_read_BV(*p_reg, RUN_BIT))
 	{
@@ -79,11 +84,16 @@ void valve_fcn(uint32_t * p_reg)
 			/* 1 - right direction, 0 - left direction */
 			HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, _read_BV(*p_reg, DIR_BIT));
 			HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, !(_read_BV(*p_reg, DIR_BIT)));
+
+			/* Update stable position */
+			stable_pos = measured_data.pos[2];
+
+			printf("stable_pos: %d\n", (int16_t)(stable_pos));
 		}
 		else
 		{
 			/* Satellite is moving, waiting for required position */
-			if (HAL_GetTick() > ticks)
+			if ((fabsf(required_pos - measured_data.pos[2]) < ANGLE_TOL))
 			{
 				// Create opposite pulse
 				_tog_BV(*p_reg, DIR_BIT);
@@ -109,7 +119,14 @@ void valve_fcn(uint32_t * p_reg)
 			valve_close();
 
 			// Duration of fly
-			ticks = HAL_GetTick() + FLY_TIME;
+			required_pos = stable_pos;
+			required_pos += (_read_BV(*p_reg, DIR_BIT)) ? (-90) : 90;
+			sensor_deg_limit(&required_pos);
+
+			printf("required_pos: %d\n", (int16_t)(required_pos));
+
+			// ticks = HAL_GetTick(); //  + FLY_TIME
+
 		}
 		else if (_read_BV(*p_reg, HOME_BIT))
 		{
@@ -120,7 +137,13 @@ void valve_fcn(uint32_t * p_reg)
 			valve_close();
 
 			// Duration of fly
-			ticks = HAL_GetTick() + FLY_TIME;
+			//ticks = HAL_GetTick() + FLY_TIME;
+
+			required_pos = stable_pos;
+			required_pos += (_read_BV(*p_reg, DIR_BIT)) ? (-90) : 90;
+			sensor_deg_limit(&required_pos);
+
+			printf("required_pos: %d\n", (int16_t)(required_pos));
 		}
 	}
 }

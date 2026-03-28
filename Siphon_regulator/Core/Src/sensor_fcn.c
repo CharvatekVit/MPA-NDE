@@ -21,7 +21,6 @@
 
 /* Function declaration */
 static void sensor_calibration(float *);
-static void sensor_deg_limit(float *);
 
 /* Global functions */
 
@@ -71,6 +70,13 @@ void sensor_get_value(float * gyr_offset)
 	}
 }
 
+/* Arrange position data to degree format*/
+void sensor_deg_limit(float * p_deg)
+{
+    *p_deg += (*p_deg < -180) ? 360: 0;
+    *p_deg -= (*p_deg > 180)  ? 360: 0;
+}
+
 /* Local function */
 
 /* Gyroscope calibration */
@@ -102,12 +108,5 @@ static void sensor_calibration(float * gyr_offset)
 	{
 		gyr_offset[j] = (offset[j] / i);
 	}
-}
-
-/* Arrange position data to degree format*/
-static void sensor_deg_limit(float * p_deg)
-{
-    *p_deg += (*p_deg < -180) ? 360: 0;
-    *p_deg -= (*p_deg > 180)  ? 360: 0;
 }
 

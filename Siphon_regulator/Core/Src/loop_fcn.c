@@ -66,7 +66,7 @@ void autoread_fcn(uint32_t reg)
 }
 
 /* Function for handling valves */
-void valve_fcn(uint32_t * p_reg)
+void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 {
 	static uint32_t ticks = 0;
 	static float stable_pos = 0; // Default measured_data.pos is 0 0 0
@@ -89,6 +89,8 @@ void valve_fcn(uint32_t * p_reg)
 
 			/* Update stable position */
 			stable_pos = measured_data.pos[2];
+			/* For regulator */
+			*p_set_pos = stable_pos;
 
 			printf("stable_pos: %d\n", (int16_t)(stable_pos));
 		}
@@ -141,7 +143,6 @@ void valve_fcn(uint32_t * p_reg)
 		}
 		else if (_read_BV(*p_reg, HOME_BIT))
 		{
-			/* Now similar to turn left */
 			_clr_BV(*p_reg, HOME_BIT);
 			_set_BV(*p_reg, RUN_BIT);
 
@@ -152,45 +153,101 @@ void valve_fcn(uint32_t * p_reg)
 			printf("required_pos: %d\n", (int16_t)(required_pos));
 		}
 	}
+	/* For regulation, it helps transfer regulation to home setting */
+	else if ((_read_BV(*p_reg, HOME_BIT)) && (_read_BV(*p_reg, REG_BIT)))
+	{
+		/* Now I am flying */
+		_clr_BV(*p_reg, REG_BIT);
+		_clr_BV(*p_reg, HOME_BIT);
+		_set_BV(*p_reg, RUN_BIT);
+
+		required_pos = *p_set_pos;
+
+		printf("required_pos: %d\n", (int16_t)(required_pos));
+	}
 }
 
 /* Regulation when cmd is not received */
-///////// Add supressing of very small opening time
-void regul_fcn(uint32_t * p_reg)
+///////// Add suspending of very small opening time
+void regul_fcn(uint32_t * p_reg, float set_pos)
 {
 	static uint32_t ticks = 0;
 
+	/* No motion is processed */
 	if (!(_read_valve(*p_reg)))
 	{
 		/* Condition of running */
-		if (!(_read_BV(*p_reg, CMD0_BIT)) && (fabsf(measured_data.gyr[2]) > GYR_TOL))
+		if (!(_read_BV(*p_reg, CMD0_BIT)))
 		{
-			_set_BV(*p_reg, REG_BIT);
+			/* Create function */
+			if (fabsf(measured_data.gyr[2]) > GYR_TOL)
+			{
+				_set_BV(*p_reg, REG_BIT);
 
-			/* Change to data from accelerometer!!! */
-			if (measured_data.gyr[2] > 0)
-			{
-				HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
-				ticks = HAL_GetTick() + (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]);
-				printf("Right valve was open\n");
-				printf("break time: %ld\n", (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]));
+				if (measured_data.gyr[2] > 0)
+				{
+					HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
+					ticks = HAL_GetTick() + (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]);
+					printf("Right valve was open\n");
+					printf("break time: %ld\n", (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]));
+				}
+				else
+				{
+					HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
+					ticks = HAL_GetTick() + (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]); // gyr data are negative!!!
+					printf("Left valve was open\n");
+					printf("break time: %ld\n", (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]));
+				}
 			}
-			else
+			/* Cube is stable but position is different from required */
+			/* Create function */
+			else if (fabsf(measured_data.pos[2] - set_pos) > ANGLE_TOL)
 			{
-				HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
-				ticks = HAL_GetTick() + (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]); // gyr data are negative!!!
-				printf("Left valve was open\n");
-				printf("break time: %ld\n", (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]));
+				/* Unique state */
+				/* Helps to regulate required destination */
+				_set_BV(*p_reg, REG_BIT);
+				_set_BV(*p_reg, HOME_BIT);
+
+				ticks = HAL_GetTick();
+
+				/* Choose direction */
+				if (((measured_data.pos[2] - set_pos) > 0) && ((measured_data.pos[2] - set_pos) < 180))
+				{
+					_set_BV(*p_reg, DIR_BIT);
+
+					ticks += set_data.time_r;
+
+					HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
+					printf("Right valve was open\n");
+				}
+				else
+				{
+					_clr_BV(*p_reg, DIR_BIT);
+
+					ticks += set_data.time_l;
+
+					HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
+					printf("Left valve was open\n");
+				}
 			}
 		}
 	}
 	else if (_read_BV(*p_reg, REG_BIT))
 	{
-		/* Condition of stoping */
-		/* Change to data from accelerometer!!! */
-		if(HAL_GetTick() > ticks)
+		/* Condition of stopping */
+		if (HAL_GetTick() > ticks)
 		{
-			_clr_BV(*p_reg, REG_BIT);
+			if (!(_read_BV(*p_reg, HOME_BIT)))
+			{
+				/* Only stop cube */
+				_clr_BV(*p_reg, REG_BIT);
+			}
+			else
+			{
+				/* Continue as home cmd */
+				printf("Continue as home\n");
+			}
+
 			valve_close();
 			printf("Valve was closed\n");
 		}

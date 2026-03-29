@@ -108,6 +108,7 @@ int main(void)
 
 	/* USER CODE BEGIN 1 */
 	uint32_t cmd_reg = 0;
+	float set_position = 0;
 	float gyr_offset[3];
 
 	setting_init();
@@ -160,8 +161,8 @@ int main(void)
 		}
 
 		autoread_fcn(cmd_reg);
-		valve_fcn(&cmd_reg);
-		regul_fcn(&cmd_reg);
+		valve_fcn(&cmd_reg, &set_position);
+		regul_fcn(&cmd_reg, set_position);
 		sensor_get_value(gyr_offset);
 
 		/* USER CODE END WHILE */

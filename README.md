@@ -54,6 +54,7 @@ Team members
        - [x] Command implementation
    * [x] Wireless communication
    * [ ] Constant tuning
+   * [ ] Testing
 - [x] Structure
    * [x] Size estimation
    * [x] Structural design

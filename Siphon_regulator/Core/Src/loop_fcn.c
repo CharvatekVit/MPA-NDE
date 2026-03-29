@@ -155,6 +155,7 @@ void valve_fcn(uint32_t * p_reg)
 }
 
 /* Regulation when cmd is not received */
+///////// Add supressing of very small opening time
 void regul_fcn(uint32_t * p_reg)
 {
 	static uint32_t ticks = 0;

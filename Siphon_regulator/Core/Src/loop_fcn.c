@@ -18,6 +18,7 @@
 #define STOP_CONST_LEFT     1   // For stop pulse calculation
 #define STOP_CONST_RIGHT    1
 #define GYR_TOL          1.0f   // Ignored motion
+#define PULSE_IGNORE        5   // Too short pulse
 
 /* Function declaration*/
 static void valve_close(void);
@@ -168,7 +169,6 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 }
 
 /* Regulation when cmd is not received */
-///////// Add suspending of very small opening time
 void regul_fcn(uint32_t * p_reg, float set_pos)
 {
 	static uint32_t ticks = 0;
@@ -187,16 +187,28 @@ void regul_fcn(uint32_t * p_reg, float set_pos)
 				if (measured_data.gyr[2] > 0)
 				{
 					HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
-					ticks = HAL_GetTick() + (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]);
+					ticks = (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]);
+
 					printf("Right valve was open\n");
 					printf("break time: %ld\n", (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]));
 				}
 				else
 				{
 					HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
-					ticks = HAL_GetTick() + (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]); // gyr data are negative!!!
+					ticks = (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]); // gyroscope data are negative!!!
+
 					printf("Left valve was open\n");
 					printf("break time: %ld\n", (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]));
+				}
+
+				/* Ignore too small pulses */
+				if (ticks > PULSE_IGNORE)
+				{
+					ticks += HAL_GetTick();
+				}
+				else
+				{
+					_clr_BV(*p_reg, REG_BIT);
 				}
 			}
 			/* Cube is stable but position is different from required */

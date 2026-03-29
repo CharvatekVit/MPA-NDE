@@ -136,7 +136,7 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 
 			// Duration of fly
 			required_pos = stable_pos;
-			required_pos += (_read_BV(*p_reg, DIR_BIT)) ? (-90) : 90;
+			required_pos += (_read_BV(*p_reg, DIR_BIT)) ? (-set_data.angle) : set_data.angle;
 			sensor_deg_limit(&required_pos);
 
 			printf("required_pos: %d\n", (int16_t)(required_pos));
@@ -162,7 +162,7 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 		_clr_BV(*p_reg, HOME_BIT);
 		_set_BV(*p_reg, RUN_BIT);
 
-		required_pos = *p_set_pos;
+		required_pos = stable_pos;
 
 		printf("required_pos: %d\n", (int16_t)(required_pos));
 	}
@@ -208,6 +208,7 @@ void regul_fcn(uint32_t * p_reg, float set_pos)
 				}
 				else
 				{
+					printf("Too short!\n");
 					_clr_BV(*p_reg, REG_BIT);
 				}
 			}

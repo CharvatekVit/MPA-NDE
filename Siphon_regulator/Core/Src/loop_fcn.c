@@ -14,9 +14,10 @@
 #include <stdio.h>
 
 /* Defines */
-#define ANGLE_TOL         5   // Precision setting of position
-#define STOP_CONST_LEFT   1  // For stop pulse calculation
-#define STOP_CONST_RIGHT  1
+#define ANGLE_TOL           5   // Precision setting of position
+#define STOP_CONST_LEFT     1   // For stop pulse calculation
+#define STOP_CONST_RIGHT    1
+#define GYR_TOL          1.0f   // Ignored motion
 
 /* Function declaration*/
 static void valve_close(void);
@@ -37,8 +38,8 @@ void autoread_fcn(uint32_t reg)
 
 			if (_read_BV(reg, AUTOREAD_ACC_BIT))
 			{
-		    	printf("A: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.acc[0]),
-		    			_float2int(measured_data.acc[1]), _float2int(measured_data.acc[2]));
+				printf("A: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.acc[0]),
+						_float2int(measured_data.acc[1]), _float2int(measured_data.acc[2]));
 			}
 
 			if (_read_BV(reg, AUTOREAD_GYR_BIT))
@@ -59,7 +60,7 @@ void autoread_fcn(uint32_t reg)
 				printf("M: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.mag[0]),
 						_float2int(measured_data.mag[1]), _float2int(measured_data.mag[2]));
 			}
-			*/
+			 */
 		}
 	}
 }
@@ -156,39 +157,43 @@ void valve_fcn(uint32_t * p_reg)
 /* Regulation when cmd is not received */
 void regul_fcn(uint32_t * p_reg)
 {
-   if (!(_read_valve(*p_reg)))
-   {
-	   /* Condition of running */
-	   /* Change to data from accelerometer!!! */
-	   if (_read_BV(*p_reg, CMD0_BIT))
-	   {
-		   _set_BV(*p_reg, REG_BIT);
+	static uint32_t ticks = 0;
 
-		   /* Open valves!!! */
-		   /* Change to data from accelerometer!!! */
-		   if (_read_BV(*p_reg, CMD1_BIT))
-		   {
-			   HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
-			   printf("Right valve was open\n");
-		   }
-		   else
-		   {
-			   HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
-			   printf("Left valve was open\n");
-		   }
-	   }
-   }
-   else if (_read_BV(*p_reg, REG_BIT))
-   {
-	   /* Condition of stoping */
-	   /* Change to data from accelerometer!!! */
-	   if (!(_read_BV(*p_reg, CMD0_BIT)))
-	   {
-		   _clr_BV(*p_reg, REG_BIT);
-		   valve_close();
-		   printf("Valve was closed\n");
-	   }
-   }
+	if (!(_read_valve(*p_reg)))
+	{
+		/* Condition of running */
+		if (!(_read_BV(*p_reg, CMD0_BIT)) && (fabsf(measured_data.gyr[2]) > GYR_TOL))
+		{
+			_set_BV(*p_reg, REG_BIT);
+
+			/* Change to data from accelerometer!!! */
+			if (measured_data.gyr[2] > 0)
+			{
+				HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
+				ticks = HAL_GetTick() + (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]);
+				printf("Right valve was open\n");
+				printf("break time: %ld\n", (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]));
+			}
+			else
+			{
+				HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
+				ticks = HAL_GetTick() + (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]); // gyr data are negative!!!
+				printf("Left valve was open\n");
+				printf("break time: %ld\n", (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]));
+			}
+		}
+	}
+	else if (_read_BV(*p_reg, REG_BIT))
+	{
+		/* Condition of stoping */
+		/* Change to data from accelerometer!!! */
+		if(HAL_GetTick() > ticks)
+		{
+			_clr_BV(*p_reg, REG_BIT);
+			valve_close();
+			printf("Valve was closed\n");
+		}
+	}
 }
 
 /* Local function */

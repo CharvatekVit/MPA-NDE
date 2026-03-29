@@ -20,8 +20,10 @@
 #define GYR_TOL          1.0f   // Ignored motion
 #define PULSE_IGNORE        5   // Too short pulse
 
-/* Function declaration*/
+/* Function declaration */
 static void valve_close(void);
+static void regul_stop(uint32_t *, uint32_t *);
+static void regul_return(uint32_t *, uint32_t *, float);
 
 /* Global functions */
 
@@ -178,69 +180,14 @@ void regul_fcn(uint32_t * p_reg, float set_pos)
 		/* Condition of running */
 		if (!(_read_BV(*p_reg, CMD0_BIT)))
 		{
-			/* Create function */
 			if (fabsf(measured_data.gyr[2]) > GYR_TOL)
 			{
-				_set_BV(*p_reg, REG_BIT);
-
-				if (measured_data.gyr[2] > 0)
-				{
-					HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
-					ticks = (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]);
-
-					//printf("Right valve was open\n");
-					//printf("break time: %ld\n", (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]));
-				}
-				else
-				{
-					HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
-					ticks = (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]); // gyroscope data are negative!!!
-
-					//printf("Left valve was open\n");
-					//printf("break time: %ld\n", (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]));
-				}
-
-				/* Ignore too small pulses */
-				if (ticks > PULSE_IGNORE)
-				{
-					ticks += HAL_GetTick();
-				}
-				else
-				{
-					//printf("Too short!\n");
-					_clr_BV(*p_reg, REG_BIT);
-				}
+				regul_stop(p_reg, &ticks);
 			}
 			/* Cube is stable but position is different from required */
-			/* Create function */
 			else if (fabsf(measured_data.pos[2] - set_pos) > ANGLE_TOL)
 			{
-				/* Helps to regulate required destination */
-				_set_BV(*p_reg, REG_BIT);
-				_set_BV(*p_reg, RETURN_BIT);
-
-				ticks = HAL_GetTick();
-
-				/* Choose direction */
-				if (((measured_data.pos[2] - set_pos) > 0) && ((measured_data.pos[2] - set_pos) < 180))
-				{
-					_set_BV(*p_reg, DIR_BIT);
-
-					ticks += set_data.time_r;
-
-					HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
-					printf("Right valve was open\n");
-				}
-				else
-				{
-					_clr_BV(*p_reg, DIR_BIT);
-
-					ticks += set_data.time_l;
-
-					HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
-					printf("Left valve was open\n");
-				}
-
+				regul_return(p_reg, &ticks, set_pos);
 			}
 		}
 	}
@@ -264,4 +211,63 @@ static void valve_close(void)
 	HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
 }
 
+/* Create stop pulse when position is forced to change */
+static void regul_stop(uint32_t * p_reg, uint32_t * p_ticks)
+{
+	_set_BV(*p_reg, REG_BIT);
+
+	if (measured_data.gyr[2] > 0)
+	{
+		HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
+		*p_ticks = (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]);
+
+		//printf("Right valve was open\n");
+		//printf("break time: %ld\n", (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]));
+	}
+	else
+	{
+		HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
+		*p_ticks = (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]); // gyroscope data are negative!!!
+
+		//printf("Left valve was open\n");
+		//printf("break time: %ld\n", (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]));
+	}
+
+	/* Ignore too small pulses */
+	if (*p_ticks > PULSE_IGNORE)
+	{
+		*p_ticks += HAL_GetTick();
+	}
+	else
+	{
+		//printf("Too short!\n");
+		_clr_BV(*p_reg, REG_BIT);
+	}
+}
+
+/* First pulse which start return to original position */
+static void regul_return(uint32_t * p_reg, uint32_t * p_ticks, float set_pos)
+{
+	/* Helps to regulate required destination */
+	_set_BV(*p_reg, REG_BIT);
+	_set_BV(*p_reg, RETURN_BIT);
+
+	*p_ticks = HAL_GetTick();
+
+	/* Choose direction */
+	if (((measured_data.pos[2] - set_pos) > 0) && ((measured_data.pos[2] - set_pos) < 180))
+	{
+		_set_BV(*p_reg, DIR_BIT);
+		*p_ticks += set_data.time_r;
+		HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
+		printf("Right valve was open\n");
+	}
+	else
+	{
+		_clr_BV(*p_reg, DIR_BIT);
+		*p_ticks += set_data.time_l;
+		HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
+		printf("Left valve was open\n");
+	}
+}
 

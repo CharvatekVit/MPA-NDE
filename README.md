@@ -50,7 +50,7 @@ Team members
        - [x] Sensor data
        - [ ] Valve control
            * [x] Position setting
-           * [ ] Position regulation
+           * [x] Position regulation
        - [x] Command implementation
    * [x] Wireless communication
    * [ ] Constant tuning

@@ -94,8 +94,6 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 			*p_set_pos = stable_pos;
 
 			printf("stable_pos: %d\n", (int16_t)(stable_pos));
-
-			printf("6\n");
 		}
 		else
 		{
@@ -105,8 +103,6 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 				// Create opposite pulse
 				_tog_BV(*p_reg, DIR_BIT);
 				_set_BV(*p_reg, PULSE_BIT);
-
-				printf("5\n");
 
 				// Redefine time according to angle speed
 				_clr_time(*p_reg);
@@ -160,9 +156,7 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 		/* For regulation, it helps transfer regulation to home setting */
 		else if (_read_BV(*p_reg, RETURN_BIT))
 		{
-			printf("3\n");
 			/* Now I am flying */
-			//_clr_BV(*p_reg, REG_BIT);
 			_clr_BV(*p_reg, RETURN_BIT);
 			_set_BV(*p_reg, RUN_BIT);
 
@@ -221,7 +215,6 @@ void regul_fcn(uint32_t * p_reg, float set_pos)
 			/* Create function */
 			else if (fabsf(measured_data.pos[2] - set_pos) > ANGLE_TOL)
 			{
-				printf("1\n");
 				/* Helps to regulate required destination */
 				_set_BV(*p_reg, REG_BIT);
 				_set_BV(*p_reg, RETURN_BIT);
@@ -248,31 +241,15 @@ void regul_fcn(uint32_t * p_reg, float set_pos)
 					printf("Left valve was open\n");
 				}
 
-				printf("status: %lx\n", *p_reg);
 			}
 		}
 	}
 	else if (_read_BV(*p_reg, REG_BIT))
 	{
-		printf("2: status: %lx\n", *p_reg);
 		/* Condition of stopping */
 		if (HAL_GetTick() > ticks)
 		{
 			_clr_BV(*p_reg, REG_BIT);
-
-			/* Only test */
-			if (!(_read_BV(*p_reg, RETURN_BIT)))
-			{
-				printf("!!!!\n");
-				/* Only stop cube */
-
-			}
-			else
-			{
-				/* Continue as home cmd */
-				printf("Continue as home\n");
-			}
-
 			valve_close();
 			printf("Valve was closed\n");
 		}

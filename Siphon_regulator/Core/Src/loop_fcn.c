@@ -94,6 +94,8 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 			*p_set_pos = stable_pos;
 
 			printf("stable_pos: %d\n", (int16_t)(stable_pos));
+
+			printf("6\n");
 		}
 		else
 		{
@@ -103,6 +105,8 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 				// Create opposite pulse
 				_tog_BV(*p_reg, DIR_BIT);
 				_set_BV(*p_reg, PULSE_BIT);
+
+				printf("5\n");
 
 				// Redefine time according to angle speed
 				_clr_time(*p_reg);
@@ -153,18 +157,19 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 
 			printf("required_pos: %d\n", (int16_t)(required_pos));
 		}
-	}
-	/* For regulation, it helps transfer regulation to home setting */
-	else if ((_read_BV(*p_reg, HOME_BIT)) && (_read_BV(*p_reg, REG_BIT)))
-	{
-		/* Now I am flying */
-		_clr_BV(*p_reg, REG_BIT);
-		_clr_BV(*p_reg, HOME_BIT);
-		_set_BV(*p_reg, RUN_BIT);
+		/* For regulation, it helps transfer regulation to home setting */
+		else if (_read_BV(*p_reg, RETURN_BIT))
+		{
+			printf("3\n");
+			/* Now I am flying */
+			//_clr_BV(*p_reg, REG_BIT);
+			_clr_BV(*p_reg, RETURN_BIT);
+			_set_BV(*p_reg, RUN_BIT);
 
-		required_pos = stable_pos;
+			required_pos = *p_set_pos;
 
-		printf("required_pos: %d\n", (int16_t)(required_pos));
+			printf("required_pos: %d\n", (int16_t)(required_pos));
+		}
 	}
 }
 
@@ -189,16 +194,16 @@ void regul_fcn(uint32_t * p_reg, float set_pos)
 					HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
 					ticks = (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]);
 
-					printf("Right valve was open\n");
-					printf("break time: %ld\n", (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]));
+					//printf("Right valve was open\n");
+					//printf("break time: %ld\n", (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]));
 				}
 				else
 				{
 					HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
 					ticks = (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]); // gyroscope data are negative!!!
 
-					printf("Left valve was open\n");
-					printf("break time: %ld\n", (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]));
+					//printf("Left valve was open\n");
+					//printf("break time: %ld\n", (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]));
 				}
 
 				/* Ignore too small pulses */
@@ -208,7 +213,7 @@ void regul_fcn(uint32_t * p_reg, float set_pos)
 				}
 				else
 				{
-					printf("Too short!\n");
+					//printf("Too short!\n");
 					_clr_BV(*p_reg, REG_BIT);
 				}
 			}
@@ -216,10 +221,10 @@ void regul_fcn(uint32_t * p_reg, float set_pos)
 			/* Create function */
 			else if (fabsf(measured_data.pos[2] - set_pos) > ANGLE_TOL)
 			{
-				/* Unique state */
+				printf("1\n");
 				/* Helps to regulate required destination */
 				_set_BV(*p_reg, REG_BIT);
-				_set_BV(*p_reg, HOME_BIT);
+				_set_BV(*p_reg, RETURN_BIT);
 
 				ticks = HAL_GetTick();
 
@@ -242,18 +247,25 @@ void regul_fcn(uint32_t * p_reg, float set_pos)
 					HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
 					printf("Left valve was open\n");
 				}
+
+				printf("status: %lx\n", *p_reg);
 			}
 		}
 	}
 	else if (_read_BV(*p_reg, REG_BIT))
 	{
+		printf("2: status: %lx\n", *p_reg);
 		/* Condition of stopping */
 		if (HAL_GetTick() > ticks)
 		{
-			if (!(_read_BV(*p_reg, HOME_BIT)))
+			_clr_BV(*p_reg, REG_BIT);
+
+			/* Only test */
+			if (!(_read_BV(*p_reg, RETURN_BIT)))
 			{
+				printf("!!!!\n");
 				/* Only stop cube */
-				_clr_BV(*p_reg, REG_BIT);
+
 			}
 			else
 			{

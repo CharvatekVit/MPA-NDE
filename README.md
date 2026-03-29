@@ -49,10 +49,11 @@ Team members
    * [ ] UART communication
        - [x] Sensor data
        - [ ] Valve control
-           * [ ] Position setting
+           * [x] Position setting
            * [ ] Position regulation
        - [x] Command implementation
    * [x] Wireless communication
+   * [ ] Constant tuning
 - [x] Structure
    * [x] Size estimation
    * [x] Structural design

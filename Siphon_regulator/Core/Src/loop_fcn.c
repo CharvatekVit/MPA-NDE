@@ -9,12 +9,14 @@
 #include "loop_fcn.h"
 #include "main.h"
 #include "sensor_fcn.h"
-#include <math.h>
 
+#include <math.h>
 #include <stdio.h>
 
 /* Defines */
-#define ANGLE_TOL 5   // Precision setting of position
+#define ANGLE_TOL         5   // Precision setting of position
+#define STOP_CONST_LEFT   1  // For stop pulse calculation
+#define STOP_CONST_RIGHT  1
 
 /* Function declaration*/
 static void valve_close(void);
@@ -97,6 +99,17 @@ void valve_fcn(uint32_t * p_reg)
 				// Create opposite pulse
 				_tog_BV(*p_reg, DIR_BIT);
 				_set_BV(*p_reg, PULSE_BIT);
+
+				// Redefine time according to angle speed
+				_clr_time(*p_reg);
+				uint8_t time[2];
+				// Positive velocity => right rotation => left valve for stop
+				time[0] = !(_read_BV(*p_reg, DIR_BIT)) ? (uint8_t)(STOP_CONST_LEFT  * fabsf(measured_data.gyr[2])) : set_data.time_l;
+				time[1] = (_read_BV(*p_reg, DIR_BIT))  ? (uint8_t)(STOP_CONST_RIGHT * measured_data.gyr[2]) : set_data.time_r;
+				_set_time(*p_reg, time[0], time[1]);
+
+				printf("gyroscope: %d\n", _float2int(measured_data.gyr[2]));
+				printf("break time: %d %d\n", time[0], time[1]);
 			}
 		}
 	}

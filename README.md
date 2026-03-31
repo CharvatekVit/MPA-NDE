@@ -6,9 +6,6 @@ Team members
 2. Vít Janoš (responsible for Electronics)
 4. Antonín Putala (responsible for Software, Structure)
 
-> [!WARNING]
-> Next progress presentation will be on March 30.
-
 ## Requirements
 1. Determining position using a sensor
 2. Compressed air drive

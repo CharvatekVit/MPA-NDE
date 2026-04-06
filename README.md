@@ -77,3 +77,4 @@ Team members
 9. [MPU-9250 Library](https://github.com/libdriver/mpu9250)
 10. [BluePill pinout](https://deepbluembedded.com/stm32-blue-pill-pinout-programming-guide/)
 11. [C Compiler online](https://www.programiz.com/c-programming/online-compiler/)
+12. [Nanosatellites Design and Electronics](https://moodle.vut.cz/pluginfile.php/1264520/mod_resource/content/1/SPACE_NDE_Povalac_202203.pdf)

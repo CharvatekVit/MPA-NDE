@@ -7,12 +7,14 @@ Team members
 4. Antonín Putala (responsible for Software, Structure)
 
 ## Requirements
-1. Determining position using a sensor
-2. Compressed air drive
-3. Maintaining a constant position on one axis
-4. Instruction for rotation of 90°
-5. Battery supply
-6. Wireless control
+1.	Operation on battery supply
+2.	Wireless control capability
+2.  Attitude determination using an onboard sensor
+2.  Actuation using compressed air
+2.	Analysis of the pulse response of the system
+2.  Maintaining a stable orientation around a single axis
+2.	Performing controlled orientation changes
+
 
 ## Task list
 - [ ] System

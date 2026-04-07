@@ -15,6 +15,8 @@ Team members
 2.  Maintaining a stable orientation around a single axis
 2.	Performing controlled orientation changes
 
+> [!WARNING]
+> Progress presentation will be on April 13.
 
 ## Task list
 - [ ] System

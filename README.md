@@ -6,16 +6,17 @@ Team members
 2. Vít Janoš (responsible for Electronics)
 4. Antonín Putala (responsible for Software, Structure)
 
-> [!WARNING]
-> Next progress presentation will be on March 30.
-
 ## Requirements
-1. Determining position using a sensor
-2. Compressed air drive
-3. Maintaining a constant position on one axis
-4. Instruction for rotation of 90°
-5. Battery supply
-6. Wireless control
+1.	Operation on battery supply
+2.	Wireless control capability
+2.  Attitude determination using an onboard sensor
+2.  Actuation using compressed air
+2.	Analysis of the pulse response of the system
+2.  Maintaining a stable orientation around a single axis
+2.	Performing controlled orientation changes
+
+> [!WARNING]
+> Progress presentation will be on April 13.
 
 ## Task list
 - [ ] System
@@ -50,10 +51,11 @@ Team members
        - [x] Sensor data
        - [ ] Valve control
            * [x] Position setting
-           * [ ] Position regulation
+           * [x] Position regulation
        - [x] Command implementation
    * [x] Wireless communication
    * [ ] Constant tuning
+   * [ ] Testing
 - [x] Structure
    * [x] Size estimation
    * [x] Structural design
@@ -77,3 +79,4 @@ Team members
 9. [MPU-9250 Library](https://github.com/libdriver/mpu9250)
 10. [BluePill pinout](https://deepbluembedded.com/stm32-blue-pill-pinout-programming-guide/)
 11. [C Compiler online](https://www.programiz.com/c-programming/online-compiler/)
+12. [Nanosatellites Design and Electronics](https://moodle.vut.cz/pluginfile.php/1264520/mod_resource/content/1/SPACE_NDE_Povalac_202203.pdf)

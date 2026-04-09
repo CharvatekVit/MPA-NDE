@@ -113,9 +113,12 @@ void Error_Handler(void);
 
 //#define AUTOREAD_MAG_BIT 6 // autoread includes magnetometer data
 
-
 /* Macros */
 #define _read_valve(reg) reg & ((1 << RUN_BIT) | (1 << TURN_BIT) | (1 << PULSE_BIT) | (1 << HOME_BIT) | (1 << REG_BIT) | (1 << RETURN_BIT))
+
+/* Calibration constant */
+#define CAL_MUL     (360.0f/328.0f) // Magic number, comparison required angle for turn and measured
+
 /* Reserved */
 #define CMD0_BIT         28
 #define CMD1_BIT         29

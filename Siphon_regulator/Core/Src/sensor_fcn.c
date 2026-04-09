@@ -13,11 +13,10 @@
 #include <stdio.h>
 
 /* Defines */
-#define CAL_CYC_NUM       100 // How much calibration measurement is performed
-#define CAL_MUL     (360/320) // Magic number, comparison required angle for turn and measured
+#define CAL_CYC_NUM             100 // How much calibration measurement is performed
 
-#define MEAS_TIME          10 // how often sensor is readed
-#define CAL_TIME           10 // how often sensor is readed during calibration
+#define MEAS_TIME                10 // how often sensor is readed
+#define CAL_TIME                 10 // how often sensor is readed during calibration
 
 /* Function declaration */
 static void sensor_calibration(float *);

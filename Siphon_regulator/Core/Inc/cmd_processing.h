@@ -29,7 +29,7 @@
 #include "main.h"
 
 /* Defines ------------------------------------------------*/
-#define CMD_BUFFER_LEN 256
+//#define CMD_BUFFER_LEN 256
 
 /* Extern global variables --------------------------------*/
 extern sensor_data_t measured_data;
@@ -55,7 +55,7 @@ extern settings_t    set_data;
  * TURN      (RIGHT/LEFT)          - rotates by a defined angle
  * PULSE     (RIGHT/LEFT)   <time> - generates a pulse of
  *                                   a defined duration
- * READ     (ACC/GYR/POS)          - read sensor data
+ * READ (ACC/GYR/POS/ALL)          - read sensor data
  * AUTOREAD      (ON/OFF)          - repeated reading from the sensors
  * CMD          (0/1/2/3)	       - reserved
  * SET ANGLE               <angle> - set angle of TURN command

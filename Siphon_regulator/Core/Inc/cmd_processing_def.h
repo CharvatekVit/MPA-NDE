@@ -10,13 +10,30 @@
 #define INC_CMD_PROCESSING_DEF_H_
 
 /* Defines ------------------------------------------------*/
+/** Maximum length of a received command is 256 characters. */
+#define CMD_BUFFER_LEN    256
+
+/** Minimum open valve time is 10 ms. */
 #define PULSE_LEN_MIN      10
+
+/** Maximum  open valve time is 100 ms. */
 #define PULSE_LEN_MAX     100
-#define MAX_TIME          255    // max period of sending autoreport 25,5 s
+
+/** Maximum period of autoreading is 25.5 s. */
+#define MAX_TIME          255
+
+/** Minimum angle of TURN command is 10°. */
 #define TURN_ANGLE_MIN     10
+
+/** Maximum angle of TURN command is 90°. */
 #define TURN_ANGLE_MAX     90
-#define HOME_ANGLE_MAX    180
+
+/** Minimum angle of a default orietation is -180°. */
 #define HOME_ANGLE_MIN   -180
+
+/** Maximum angle of a default orietation is 180°. */
+#define HOME_ANGLE_MAX    180
+
 
 /* Static functions declaration ---------------------------*/
 /* Function prototypes ------------------------------------*/

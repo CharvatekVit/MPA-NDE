@@ -21,11 +21,16 @@
 /* Static functions declaration ---------------------------*/
 /* Function prototypes ------------------------------------*/
 /**
- * @brief  Rounded number with decimal and integer part.
- * @param  c         8 bits  - processed character
+ * @brief  Executes the corresponding commands are stores the result
+ *         in the command register.
+ * @param  cmd       pointer to the string with processed command
  * @param  cmd_reg   32 bits - command register, involves
  * 			         information about system state and
  * 			         switching time of valves
+ *
+ * It processes the first word of the command. It handles the HELLO
+ * and STATUS commands directly. For the remaining commands, it calls
+ * a dedicated function.
  */
 static void process_cmd(char *, uint32_t *);
 

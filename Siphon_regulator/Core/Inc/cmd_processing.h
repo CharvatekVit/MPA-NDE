@@ -43,9 +43,26 @@ extern settings_t    set_data;
  * @param  cmd_reg   32 bits - command register, involves
  * 			         information about system state and
  * 			         switching time of valves
- * The processed character is writtend into the buffer step by step.
+ * The processed character is written into the buffer step by step.
  * The terminating characters '\n' and '\r' are checked. After that,
  * the function that processes the received command is called.
+ *
+ * Available commands:
+ * HELLO                           - test communication
+ * STATUS 	   	                   - read command register
+ * RESET                           - clear command register
+ * HOME                            - return to home position
+ * TURN      (RIGHT/LEFT)          - rotates by a defined angle
+ * PULSE     (RIGHT/LEFT)   <time> - generates a pulse of
+ *                                   a defined duration
+ * READ     (ACC/GYR/POS)          - read sensor data
+ * AUTOREAD      (ON/OFF)          - repeated reading from the sensors
+ * CMD          (0/1/2/3)	       - reserved
+ * SET ANGLE               <angle> - set angle of TURN command
+ * SET TIME  (RIGHT/LEFT)   <time> - set valve switching time
+ * SET AUTO                 <time> - set period of autoreading
+ * SET READ (ACC/GYR/POS) (ON/OFF) - set content of autoreading
+ * SET HOME                <angle> - set default orientation
  */
 void uart_byte_available(uint8_t, uint32_t *);
 

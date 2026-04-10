@@ -158,17 +158,8 @@ static void process_cmd_read(char * token)
     	printf("P: X=%ld, Y=%ld, Z=%ld\n", (int32_t)(measured_data.pos[0]),
     			(int32_t)(measured_data.pos[1]), (int32_t)(measured_data.pos[2]));
     }
-    /*
-    else if (strcasecmp(token, "MAG") == 0)
-    {
-    	//printf("M: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.mag[0]),
-    	//		_float2int(measured_data.mag[1]), _float2int(measured_data.mag[2]));
-    }
-    */
     else if (strcasecmp(token, "ALL") == 0)
     {
-    	//printf("M: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.mag[0]),
-    	//		_float2int(measured_data.mag[1]), _float2int(measured_data.mag[2]));
     	printf("G: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.gyr[0]),
     			_float2int(measured_data.gyr[1]), _float2int(measured_data.gyr[2]));
     	printf("A: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.acc[0]),

@@ -11,7 +11,7 @@
  * @defgroup  Commands
  * @code #include <cmd_processing_def.h> @endcode
  *
- * @brief Necessary definition and function declaration.
+ * Necessary definition and function declaration.
  *
  * @copyright (c) Antonin Putala 2026
  * @{

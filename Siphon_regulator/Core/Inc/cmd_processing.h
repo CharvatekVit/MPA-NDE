@@ -18,7 +18,6 @@
  * READ, AUTOREAD and CMD. Its contents are adapted to the
  * Siphon Regulator project.
  *
- * @copyright (c) Antonin Putala 2026
  * @{
  */
 
@@ -44,7 +43,7 @@ extern settings_t    set_data;
  * 			         information about system state and
  * 			         switching time of valves
  * The processed character is written into the buffer step by step.
- * The terminating characters '\n' and '\r' are checked. After that,
+ * The terminating characters '\\n' and '\r' are checked. After that,
  * the function that processes the received command is called.
  *
  * Available commands:\n

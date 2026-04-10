@@ -8,7 +8,7 @@ var group___commands =
     [ "PULSE_LEN_MIN", "group___commands.html#ga2ac20daf535d8dd4685124f193fb5194", null ],
     [ "TURN_ANGLE_MAX", "group___commands.html#gac1aee9508c5c20e0f2652950e23b2ebd", null ],
     [ "TURN_ANGLE_MIN", "group___commands.html#ga4e0735d11dd5c64fc9b3ae10c7459f3d", null ],
-    [ "uart_byte_available", "group___commands.html#ga1b10492747c39a1424141db66e01fab4", null ],
+    [ "uart_byte_available", "group___commands.html#ga9d5b4fe5519cc8efeae97b37f74a688e", null ],
     [ "measured_data", "group___commands.html#ga466eacd817dffbddc805f3afada5de81", null ],
     [ "set_data", "group___commands.html#ga44bf19ed80e184a62dc75471fcf8dee6", null ]
 ];

@@ -128,9 +128,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga1b10492747c39a1424141db66e01fab4" id="r_ga1b10492747c39a1424141db66e01fab4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1b10492747c39a1424141db66e01fab4">uart_byte_available</a> (uint8_t, uint32_t *)</td></tr>
-<tr class="memdesc:ga1b10492747c39a1424141db66e01fab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recognizes commands in the received characters and sets the cmd register accordingly.  <br /></td></tr>
-<tr class="separator:ga1b10492747c39a1424141db66e01fab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d5b4fe5519cc8efeae97b37f74a688e" id="r_ga9d5b4fe5519cc8efeae97b37f74a688e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9d5b4fe5519cc8efeae97b37f74a688e">uart_byte_available</a> (uint8_t c, uint32_t *p_reg)</td></tr>
+<tr class="memdesc:ga9d5b4fe5519cc8efeae97b37f74a688e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recognizes commands in the received characters and sets the cmd register accordingly.  <br /></td></tr>
+<tr class="separator:ga9d5b4fe5519cc8efeae97b37f74a688e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -141,14 +141,13 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Process commands send to MCU through serial port. </p>
-<p>Necessary definition and function declaration.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="cmd__processing_8h.html">cmd_processing.h</a>&gt;</span> </div>
 <div class="ttc" id="acmd__processing_8h_html"><div class="ttname"><a href="cmd__processing_8h.html">cmd_processing.h</a></div></div>
 </div><!-- fragment --><p>The library contains functions that enables the recognition of the commands HELLO, STATUS, RESET, TURN, PULSE, HOME, SET, READ, AUTOREAD and CMD. Its contents are adapted to the Siphon Regulator project.</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) Antonin Putala 2026</dd></dl>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="cmd__processing__def_8h.html">cmd_processing_def.h</a>&gt;</span> </div>
 <div class="ttc" id="acmd__processing__def_8h_html"><div class="ttname"><a href="cmd__processing__def_8h.html">cmd_processing_def.h</a></div></div>
-</div><!-- fragment --><dl class="section copyright"><dt>Copyright</dt><dd>(c) Antonin Putala 2026 </dd></dl>
+</div><!-- fragment --><p>Necessary definition and function declaration.</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>(c) Antonin Putala 2026 </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="gae8489e8a1fdc362dcd512d3282310f94" name="gae8489e8a1fdc362dcd512d3282310f94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gae8489e8a1fdc362dcd512d3282310f94">&#9670;&#160;</a></span>CMD_BUFFER_LEN</h2>
@@ -162,8 +161,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Maximum length of a received command is 256 characters. </p>
-
-<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00025">25</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
 
 </div>
 </div>
@@ -180,8 +177,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Maximum angle of a default orietation is 180°. </p>
 
-<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00046">46</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
-
 </div>
 </div>
 <a id="gad087ebac4059417c24cbc9ac36feb733" name="gad087ebac4059417c24cbc9ac36feb733"></a>
@@ -196,8 +191,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Minimum angle of a default orietation is -180°. </p>
-
-<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00043">43</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
 
 </div>
 </div>
@@ -214,8 +207,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Maximum period of autoreading is 25.5 s. </p>
 
-<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00034">34</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
-
 </div>
 </div>
 <a id="gadd45fffa4059a1fa7a281d5a0c608e9c" name="gadd45fffa4059a1fa7a281d5a0c608e9c"></a>
@@ -230,8 +221,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Maximum open valve time is 100 ms. </p>
-
-<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00031">31</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
 
 </div>
 </div>
@@ -248,8 +237,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Minimum open valve time is 10 ms. </p>
 
-<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00028">28</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
-
 </div>
 </div>
 <a id="gac1aee9508c5c20e0f2652950e23b2ebd" name="gac1aee9508c5c20e0f2652950e23b2ebd"></a>
@@ -264,8 +251,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Maximum angle of TURN command is 90°. </p>
-
-<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00040">40</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
 
 </div>
 </div>
@@ -282,13 +267,11 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Minimum angle of TURN command is 10°. </p>
 
-<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00037">37</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga1b10492747c39a1424141db66e01fab4" name="ga1b10492747c39a1424141db66e01fab4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1b10492747c39a1424141db66e01fab4">&#9670;&#160;</a></span>uart_byte_available()</h2>
+<a id="ga9d5b4fe5519cc8efeae97b37f74a688e" name="ga9d5b4fe5519cc8efeae97b37f74a688e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9d5b4fe5519cc8efeae97b37f74a688e">&#9670;&#160;</a></span>uart_byte_available()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -296,12 +279,12 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void uart_byte_available </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -309,9 +292,8 @@ Variables</h2></td></tr>
 <p>Recognizes commands in the received characters and sets the cmd register accordingly. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">c</td><td>8 bits - processed character </td></tr>
-    <tr><td class="paramname">cmd_reg</td><td>32 bits - command register, involves information about system state and switching time of valves The processed character is written into the buffer step by step. The terminating characters '<br  />
-' and '\r' are checked. After that, the function that processes the received command is called.</td></tr>
+    <tr><td class="paramname">c</td><td>processed character </td></tr>
+    <tr><td class="paramname">cmd_reg</td><td>command register, involves information about system state and switching time of valves The processed character is written into the buffer step by step. The terminating characters '\n' and '\r' are checked. After that, the function that processes the received command is called.</td></tr>
   </table>
   </dd>
 </dl>

@@ -45,6 +45,16 @@ void uart_byte_available(uint8_t c, uint32_t * p_reg)
 }
 
 /* Static functions ---------------------------------------*/
+/*
+ * Function: process_cmd
+ * Purpose:  Executes the corresponding commands are stores
+ *           the result in the command register.
+ * Input(s): cmd     - pointer to the string with processed command
+ *           cmd_reg - 32 bits - command register, involves
+ * 			           information about system state and
+ * 			           switching time of valves
+ * Returns:  none
+ */
 static void process_cmd(char * cmd, uint32_t * p_reg)
 {
 	char *token;

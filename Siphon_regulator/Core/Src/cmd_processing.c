@@ -1,44 +1,30 @@
 /*
- * cmd_processing.c
+ * cmd_processing library
+ * (c) Antonin Putala 2026
  *
- *  Created on: Mar 9, 2026
- *      Author: Antonin Putala
+ * Developed using STM32CubeIDE
+ * Tested on BluePill board and STM32F103C8T6, 32 MHz.
  */
 
-/* Includes */
+/* Includes -----------------------------------------------*/
 #include "cmd_processing.h"
+#include "cmd_processing_def.h"
 #include "main.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-/* Defines */
-#define PULSE_LEN_MIN      10
-#define PULSE_LEN_MAX     100
-#define MAX_TIME          255    // max period of sending autoreport 25,5 s
-#define TURN_ANGLE_MIN     10
-#define TURN_ANGLE_MAX     90
-#define HOME_ANGLE_MAX    180
-#define HOME_ANGLE_MIN   -180
-
-/* Static functions declaration */
-static void process_cmd(char *, uint32_t *);
-static void process_cmd_read(char *);
-static void process_cmd_turn(char *, uint32_t *);
-static void process_cmd_home(uint32_t *);
-static void process_cmd_pulse(char *, uint32_t *);
-static void process_cmd_set(char *, uint32_t *);
-static void process_cmd_ncmd(char *, uint32_t *);
-static void process_cmd_autoread(char *, uint32_t *);
-static void process_cmd_reset(uint32_t *);
-static void process_cmd_set_read(char *, uint32_t *);
-static void process_cmd_set_auto(char *);
-static void process_cmd_set_time(char *);
-static void process_cmd_set_angle(char *);
-static void process_cmd_set_home(char *);
-
-/* Global functions */
+/* Global functions ---------------------------------------*/
+/*
+ * Function: uart_byte_available
+ * Purpose:  Recognizes commands in the received characters and
+ * 	         sets the cmd register accordingly.
+ * Input(s): c       -  8 bits  - processed character
+ *           cmd_reg - 32 bits - command register, involves
+ * 			           information about system state and
+ * 			           switching time of valves
+ * Returns:  none
+ */
 void uart_byte_available(uint8_t c, uint32_t * p_reg)
 {
     static uint16_t cnt;
@@ -49,6 +35,7 @@ void uart_byte_available(uint8_t c, uint32_t * p_reg)
     	data[cnt++] = c;
     }
 
+    /* Checking terminating characters */
     if ((c == '\n' || c == '\r') && cnt > 0)
     {
         data[cnt] = '\0';
@@ -57,7 +44,7 @@ void uart_byte_available(uint8_t c, uint32_t * p_reg)
     }
 }
 
-/* Static functions */
+/* Static functions ---------------------------------------*/
 static void process_cmd(char * cmd, uint32_t * p_reg)
 {
 	char *token;

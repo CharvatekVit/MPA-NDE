@@ -19,8 +19,8 @@
  * Function: uart_byte_available
  * Purpose:  Recognizes commands in the received characters and
  * 	         sets the cmd register accordingly.
- * Input(s): c       -  8 bits  - processed character
- *           cmd_reg - 32 bits - command register, involves
+ * Input(s): c       - processed character
+ *           cmd_reg - command register, involves
  * 			           information about system state and
  * 			           switching time of valves
  * Returns:  none
@@ -50,7 +50,7 @@ void uart_byte_available(uint8_t c, uint32_t * p_reg)
  * Purpose:  Executes the corresponding commands are stores
  *           the result in the command register.
  * Input(s): cmd     - pointer to the string with processed command
- *           cmd_reg - 32 bits - command register, involves
+ *           cmd_reg - command register, involves
  * 			           information about system state and
  * 			           switching time of valves
  * Returns:  none
@@ -65,7 +65,7 @@ static void process_cmd(char * cmd, uint32_t * p_reg)
 	{
 	    printf("Communication OK\n");
 	}
-	/* Set default position */
+	/* Return default position */
 	else if (strcasecmp(token, "HOME") == 0)
 	{
 		process_cmd_home(p_reg);
@@ -100,12 +100,12 @@ static void process_cmd(char * cmd, uint32_t * p_reg)
 	{
 		process_cmd_autoread(token, p_reg);
 	}
-	/* Enables configurate cube */
+	/* Enables configurate the cube */
 	else if (strcasecmp(token, "SET") == 0)
 	{
 		process_cmd_set(token, p_reg);
 	}
-	/* Once read data from sensor */
+	/* Reserved */
 	else if (strcasecmp(token, "CMD") == 0)
 	{
 		process_cmd_ncmd(token, p_reg);

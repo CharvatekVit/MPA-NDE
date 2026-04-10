@@ -6,6 +6,17 @@
  * Tested on BluePill board and STM32F103C8T6, 32 MHz.
  */
 
+/**
+ * @file      Command processing library definition <cmd_processing_def.h>
+ * @defgroup  Commands
+ * @code #include <cmd_processing_def.h> @endcode
+ *
+ * @brief Necessary definition and function declaration.
+ *
+ * @copyright (c) Antonin Putala 2026
+ * @{
+ */
+
 #ifndef INC_CMD_PROCESSING_DEF_H_
 #define INC_CMD_PROCESSING_DEF_H_
 
@@ -41,7 +52,7 @@
  * @brief  Executes the corresponding commands are stores the result
  *         in the command register.
  * @param  cmd       pointer to the string with processed command
- * @param  cmd_reg   32 bits - command register, involves
+ * @param  cmd_reg   command register, involves
  * 			         information about system state and
  * 			         switching time of valves
  *
@@ -49,32 +60,32 @@
  * and STATUS commands directly. For the remaining commands, it calls
  * a dedicated function.
  */
-static void process_cmd(char *, uint32_t *);
+static void process_cmd(char * cmd, uint32_t * p_reg);
 
-static void process_cmd_read(char *);
+static void process_cmd_read(char * cmd);
 
-static void process_cmd_turn(char *, uint32_t *);
+static void process_cmd_turn(char * cmd, uint32_t * p_reg);
 
-static void process_cmd_home(uint32_t *);
+static void process_cmd_home(uint32_t * p_reg);
 
-static void process_cmd_pulse(char *, uint32_t *);
+static void process_cmd_pulse(char * cmd, uint32_t * p_reg);
 
-static void process_cmd_set(char *, uint32_t *);
+static void process_cmd_set(char * cmd, uint32_t * p_reg);
 
-static void process_cmd_ncmd(char *, uint32_t *);
+static void process_cmd_ncmd(char * cmd, uint32_t * p_reg);
 
-static void process_cmd_autoread(char *, uint32_t *);
+static void process_cmd_autoread(char * cmd, uint32_t * p_reg);
 
-static void process_cmd_reset(uint32_t *);
+static void process_cmd_reset(uint32_t * p_reg);
 
-static void process_cmd_set_read(char *, uint32_t *);
+static void process_cmd_set_read(char * cmd, uint32_t * p_reg);
 
-static void process_cmd_set_auto(char *);
+static void process_cmd_set_auto(char * cmd);
 
-static void process_cmd_set_time(char *);
+static void process_cmd_set_time(char * cmd);
 
-static void process_cmd_set_angle(char *);
+static void process_cmd_set_angle(char * cmd);
 
-static void process_cmd_set_home(char *);
+static void process_cmd_set_home(char * cmd);
 
 #endif /* INC_CMD_PROCESSING_DEF_H_ */

@@ -137,6 +137,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:gae61136d7f7fa401ed2a87247f78e7074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a pulse with a defined duration.  <br /></td></tr>
 <tr class="separator:gae61136d7f7fa401ed2a87247f78e7074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga91fa3c2809b131f835477cc9556077b3" id="r_ga91fa3c2809b131f835477cc9556077b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga91fa3c2809b131f835477cc9556077b3">process_cmd_set</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="memdesc:ga91fa3c2809b131f835477cc9556077b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows modifying the settings global variable and changing the contents of the autoread report.  <br /></td></tr>
 <tr class="separator:ga91fa3c2809b131f835477cc9556077b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4da5f6f9222b8b8195b39072f95fed4d" id="r_ga4da5f6f9222b8b8195b39072f95fed4d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4da5f6f9222b8b8195b39072f95fed4d">process_cmd_ncmd</a> (char *cmd, uint32_t *p_reg)</td></tr>
 <tr class="memdesc:ga4da5f6f9222b8b8195b39072f95fed4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserved.  <br /></td></tr>
@@ -148,6 +149,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:gaddc9020c4b196ba9fac53e415c878fae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears command register. Closes valves.  <br /></td></tr>
 <tr class="separator:gaddc9020c4b196ba9fac53e415c878fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga644e1c381a2886b39457cdde7934371b" id="r_ga644e1c381a2886b39457cdde7934371b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga644e1c381a2886b39457cdde7934371b">process_cmd_set_read</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="memdesc:ga644e1c381a2886b39457cdde7934371b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables turn on/off autoreport from these sensors.  <br /></td></tr>
 <tr class="separator:ga644e1c381a2886b39457cdde7934371b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad618c28bed067a94125bffd758bec243" id="r_gad618c28bed067a94125bffd758bec243"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad618c28bed067a94125bffd758bec243">process_cmd_set_auto</a> (char *cmd)</td></tr>
 <tr class="separator:gad618c28bed067a94125bffd758bec243"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -511,7 +513,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>It does not work together with the regulation system. Intended for testing only. The regulation must be disabledg (CMD 0).</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>It does not work together with the regulation system. Intended for testing only. The regulation must be disabled (CMD 0).</dd></dl>
 <p>It forwards the pulse request by writing it into the command register. It sets the RUN_BIT and PULSE_BIT flag. Depending on the direction, it sets the DIR_BIT flag. It also updates the timing configuration in the command register.</p>
 <p>The pulse duration can be specified by the user using the &lt;time&gt; argument. The time is given in milliseconds. If it is not specified, the value from the global variable <em>settings</em> is used.</p>
 <p>Available arguments:<br  />
@@ -633,6 +635,34 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Allows modifying the settings global variable and changing the contents of the autoread report. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>pointer to the string with processed command </td></tr>
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Processes the second arguments of the command. Calls the corresponding function.</p>
+<ul>
+<li>Available arguments:<br  />
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Argument   </th><th class="markdownTableHeadLeft">Description   </th><th class="markdownTableHeadLeft">Function    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>ANGLE</b>   </td><td class="markdownTableBodyLeft">set angle of TURN command   </td><td class="markdownTableBodyLeft">process_cmd_set_angle    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>TIME</b>   </td><td class="markdownTableBodyLeft">set valve switching time   </td><td class="markdownTableBodyLeft">process_cmd_set_time    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>AUTO</b>   </td><td class="markdownTableBodyLeft">set period of autoreading   </td><td class="markdownTableBodyLeft">process_cmd_set_auto    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>HOME</b>   </td><td class="markdownTableBodyLeft">set default orientation   </td><td class="markdownTableBodyLeft">process_cmd_set_home    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>READ</b>   </td><td class="markdownTableBodyLeft">set content of autoreading   </td><td class="markdownTableBodyLeft">process_cmd_set_read   </td></tr>
+</table>
+</li>
+</ul>
+
 </div>
 </div>
 <a id="gaa6c02e4380a7705f1d37c7e393929d9e" name="gaa6c02e4380a7705f1d37c7e393929d9e"></a>
@@ -736,6 +766,27 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Enables turn on/off autoreport from these sensors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>pointer to the string with processed command </td></tr>
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Sets (ON) or clear (OFF) the corresponding flag in the command register.</p>
+<p>Available arguments:<br  />
+</p><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Argument   </th><th class="markdownTableHeadLeft">Description   </th><th class="markdownTableHeadLeft">Affected bit    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>ACC</b>   </td><td class="markdownTableBodyLeft">accelerometer   </td><td class="markdownTableBodyLeft">AUTOREAD_ACC_BIT    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>GYR</b>   </td><td class="markdownTableBodyLeft">gyroscope - angular velocity   </td><td class="markdownTableBodyLeft">AUTOREAD_GYR_BIT    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>POS</b>   </td><td class="markdownTableBodyLeft">gyroscope - orientation   </td><td class="markdownTableBodyLeft">AUTOREAD_POS_BIT   </td></tr>
+</table>
 
 </div>
 </div>

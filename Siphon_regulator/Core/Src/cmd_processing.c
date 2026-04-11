@@ -410,7 +410,13 @@ static void process_cmd_set_read(char * token, uint32_t * p_reg)
 	}
 }
 
-/* Autoread time settings */
+/*
+* Function: process_cmd_set_auto
+* Purpose:  Enables change the period of autoreading.
+* Input(s): cmd     - pointer to the string with processed command
+*
+* Returns:  none
+*/
 static void process_cmd_set_auto(char * token)
 {
 	token = strtok(NULL, " ");

@@ -219,6 +219,14 @@ static void process_cmd_reset(uint32_t * p_reg);
  */
 static void process_cmd_set_read(char * cmd, uint32_t * p_reg);
 
+/**
+ * @brief  Enables change the period of autoreading.
+ * @param  cmd       pointer to the string with processed command
+ *
+ * The autoread period is stored in the global variable settings Its value
+ * is determined by the <time> argument. It is an integer within the specified
+ * limits and is interpreted as tenths of a second.
+ */
 static void process_cmd_set_auto(char * cmd);
 
 static void process_cmd_set_time(char * cmd);

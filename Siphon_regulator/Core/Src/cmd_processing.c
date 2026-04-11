@@ -489,7 +489,15 @@ static void process_cmd_home(uint32_t * p_reg)
     _set_BV(*p_reg, HOME_BIT);
 }
 
-/* Reserve commands */
+/*
+* Function: process_cmd_ncomd
+* Purpose:  Reserved.
+* Input(s): cmd     - pointer to the string with processed command
+*           p_reg   - command register, involves
+* 			          information about system state and
+* 			          switching time of valves
+* Returns:  none
+*/
 static void process_cmd_ncmd(char * token, uint32_t * p_reg)
 {
 	uint8_t ncmd;

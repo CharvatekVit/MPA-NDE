@@ -139,6 +139,18 @@ static void process_cmd_pulse(char * cmd, uint32_t * p_reg);
 
 static void process_cmd_set(char * cmd, uint32_t * p_reg);
 
+/**
+ * @brief  Reserved.
+ * @param  cmd       pointer to the string with processed command
+ * @param  p_reg     command register, involves
+ * 			         information about system state and
+ * 			         switching time of valves
+ * @note   Setting CMD0_BIT disables regulation.
+ *
+ * Allow arguments are 0 to 3. Based on the argument, it
+ * toggles the bits CMD0_BIT to CMD3_BIT.
+ *
+ */
 static void process_cmd_ncmd(char * cmd, uint32_t * p_reg);
 
 /**

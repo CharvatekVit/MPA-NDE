@@ -431,14 +431,7 @@ static void process_cmd_set_angle(char * token)
 	}
 }
 
-/*
-* Function: process_cmd_home
-* Purpose:  Triggers a home command.
-* Input(s): cmd_reg - command register, involves
-* 			          information about system state and
-* 			          switching time of valves
-* Returns:  none
-*/
+/* Set home position */
 static void process_cmd_set_home(char * token)
 {
 	token = strtok(NULL, " ");
@@ -455,7 +448,14 @@ static void process_cmd_set_home(char * token)
 	}
 }
 
-/* Go to home position */
+/*
+* Function: process_cmd_home
+* Purpose:  Triggers a home command.
+* Input(s): cmd_reg - command register, involves
+* 			          information about system state and
+* 			          switching time of valves
+* Returns:  none
+*/
 static void process_cmd_home(uint32_t * p_reg)
 {
 	/* During performing another cmd is disable */

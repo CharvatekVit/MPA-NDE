@@ -158,15 +158,19 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga6d4048e4758abc305e84ea2c3fd7e801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows adjusting the valve-opening time settings.  <br /></td></tr>
 <tr class="separator:ga6d4048e4758abc305e84ea2c3fd7e801"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa6c02e4380a7705f1d37c7e393929d9e" id="r_gaa6c02e4380a7705f1d37c7e393929d9e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa6c02e4380a7705f1d37c7e393929d9e">process_cmd_set_angle</a> (char *cmd)</td></tr>
+<tr class="memdesc:gaa6c02e4380a7705f1d37c7e393929d9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows setting the rotation angle for the TURN command.  <br /></td></tr>
 <tr class="separator:gaa6c02e4380a7705f1d37c7e393929d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadee728b1b0c97be9721eb9d221ce8d9e" id="r_gadee728b1b0c97be9721eb9d221ce8d9e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadee728b1b0c97be9721eb9d221ce8d9e">process_cmd_set_home</a> (char *cmd)</td></tr>
+<tr class="memdesc:gadee728b1b0c97be9721eb9d221ce8d9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows setting the default orientation for the HOME command.  <br /></td></tr>
 <tr class="separator:gadee728b1b0c97be9721eb9d221ce8d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ga466eacd817dffbddc805f3afada5de81" id="r_ga466eacd817dffbddc805f3afada5de81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsensor__data__t.html">sensor_data_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga466eacd817dffbddc805f3afada5de81">measured_data</a></td></tr>
+<tr class="memdesc:ga466eacd817dffbddc805f3afada5de81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current sensor measured data.  <br /></td></tr>
 <tr class="separator:ga466eacd817dffbddc805f3afada5de81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga44bf19ed80e184a62dc75471fcf8dee6" id="r_ga44bf19ed80e184a62dc75471fcf8dee6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsettings__t.html">settings_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga44bf19ed80e184a62dc75471fcf8dee6">set_data</a></td></tr>
+<tr class="memdesc:ga44bf19ed80e184a62dc75471fcf8dee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main system settings.  <br /></td></tr>
 <tr class="separator:ga44bf19ed80e184a62dc75471fcf8dee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -690,6 +694,15 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Allows setting the rotation angle for the TURN command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>pointer to the string with processed command</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The &lt;angle&gt; argument is stored in the global variable settings. It must be an unsigned integer value within the defined limits and is interpreted as degrees. </p>
+
 </div>
 </div>
 <a id="gad618c28bed067a94125bffd758bec243" name="gad618c28bed067a94125bffd758bec243"></a>
@@ -748,6 +761,15 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Allows setting the default orientation for the HOME command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>pointer to the string with processed command</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The &lt;angle&gt; argument is stored in the global variable settings. It must be an signed integer value within the defined limits and is interpreted as degrees. </p>
 
 </div>
 </div>
@@ -831,7 +853,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Stores the specified time value &lt;time&gt; into the global variable settings. The time value must be an integer within the defined range and is interpreted as a duration in milliseconds.</p>
+<p>Stores the specified time value &lt;time&gt; into the global variable settings. The time value must be an unsinged integer within the defined range and is interpreted as a duration in milliseconds.</p>
 <p>Available arguments:<br  />
 </p><table class="markdownTable">
 <tr class="markdownTableHead">
@@ -980,6 +1002,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Current sensor measured data. </p>
+
 <p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00058">58</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 
 </div>
@@ -1003,6 +1027,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Main system settings. </p>
 
 <p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00059">59</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 

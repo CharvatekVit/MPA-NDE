@@ -272,7 +272,15 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
     _set_BV(*p_reg, PULSE_BIT);
 }
 
-/* Autoreading settings */
+/*
+* Function: process_cmd_autoread
+* Purpose:  Enables and disables autoread.
+* Input(s): cmd     - pointer to the string with processed command
+*           p_reg   - command register, involves
+* 			          information about system state and
+* 			          switching time of valves
+* Returns:  none
+*/
 static void process_cmd_autoread(char * token, uint32_t * p_reg)
 {
 	token = strtok(NULL, " ");

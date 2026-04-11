@@ -141,6 +141,21 @@ static void process_cmd_set(char * cmd, uint32_t * p_reg);
 
 static void process_cmd_ncmd(char * cmd, uint32_t * p_reg);
 
+/**
+ * @brief  Enables and disables autoread.
+ * @param  cmd       pointer to the string with processed command
+ * @param  p_reg     command register, involves
+ * 			         information about system state and
+ * 			         switching time of valves
+ *
+ * Allows setting and clearing the AUTOREAD_BIT flag.
+ *
+ *  * Available arguments:\n
+ * | Argument    | Description 				     | AUTOREAD_BIT |
+ * | :---        |:---        				     | :---         |
+ * |**OFF**      | disable autoread           	 | 0            |
+ * |**ON**       | enable autoread   	     	 | 1            |
+ */
 static void process_cmd_autoread(char * cmd, uint32_t * p_reg);
 
 /**

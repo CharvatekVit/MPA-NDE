@@ -234,8 +234,9 @@ static void process_cmd_set_auto(char * cmd);
  * @param  cmd       pointer to the string with processed command
  *
  * Stores the specified time value <time> into the global variable
- * settings. The time value must be an integer within the defined
- * range and is interpreted as a duration in milliseconds.
+ * settings. The time value must be an unsinged integer within
+ * the defined range and is interpreted as a duration
+ * in milliseconds.
  *
  * Available arguments:\n
  * | Argument    |  Affected variables  		       |
@@ -246,8 +247,26 @@ static void process_cmd_set_auto(char * cmd);
  */
 static void process_cmd_set_time(char * cmd);
 
+/**
+ * @brief  Allows setting the rotation angle for the TURN command.
+ * @param  cmd       pointer to the string with processed command
+ *
+ * The <angle> argument is stored in the global variable settings.
+ * It must be an unsigned integer value within the defined limits
+ * and is interpreted as degrees.
+ *
+ */
 static void process_cmd_set_angle(char * cmd);
 
+/**
+ * @brief  Allows setting the default orientation for the HOME command.
+ * @param  cmd       pointer to the string with processed command
+ *
+ * The <angle> argument is stored in the global variable settings.
+ * It must be an signed integer value within the defined limits
+ * and is interpreted as degrees.
+ *
+ */
 static void process_cmd_set_home(char * cmd);
 
 /** @} */

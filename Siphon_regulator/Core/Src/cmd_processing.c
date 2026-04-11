@@ -428,7 +428,13 @@ static void process_cmd_set_auto(char * token)
 	}
 }
 
-/* Valve time open setting */
+/*
+* Function: process_cmd_set_time
+* Purpose:  Allows adjusting the valve-opening time settings.
+* Input(s): cmd     - pointer to the string with processed command
+*
+* Returns:  none
+*/
 static void process_cmd_set_time(char * token)
 {
 	token = strtok(NULL, " ");
@@ -461,7 +467,13 @@ static void process_cmd_set_time(char * token)
 	}
 }
 
-/* Turning angle settings */
+/*
+* Function: process_cmd_set_angle
+* Purpose:  Allows setting the rotation angle for the TURN command.
+* Input(s): cmd     - pointer to the string with processed command
+*
+* Returns:  none
+*/
 static void process_cmd_set_angle(char * token)
 {
 	token = strtok(NULL, " ");
@@ -473,7 +485,13 @@ static void process_cmd_set_angle(char * token)
 	}
 }
 
-/* Set home position */
+/*
+* Function: process_cmd_set_home
+* Purpose:  Allows setting the default orientation for the HOME command.
+* Input(s): cmd     - pointer to the string with processed command
+*
+* Returns:  none
+*/
 static void process_cmd_set_home(char * token)
 {
 	token = strtok(NULL, " ");

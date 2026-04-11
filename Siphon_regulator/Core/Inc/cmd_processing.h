@@ -39,7 +39,7 @@ extern settings_t    set_data;
  * @brief  Recognizes commands in the received characters and
  * 	       sets the cmd register accordingly.
  * @param  c         processed character
- * @param  cmd_reg   command register, involves
+ * @param  p_reg     command register, involves
  * 			         information about system state and
  * 			         switching time of valves
  * The processed character is written into the buffer step by step.

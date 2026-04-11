@@ -52,7 +52,7 @@
  * @brief  Executes the corresponding commands are stores the result
  *         in the command register.
  * @param  cmd       pointer to the string with processed command
- * @param  cmd_reg   command register, involves
+ * @param  p_reg     command register, involves
  * 			         information about system state and
  * 			         switching time of valves
  *
@@ -79,7 +79,7 @@ static void process_cmd_read(char * cmd);
 /**
  * @brief  Triggers a rotation by a defined angle.
  * @param  cmd       pointer to the string with processed command
- * @param  cmd_reg   command register, involves
+ * @param  p_reg     command register, involves
  * 			         information about system state and
  * 			         switching time of valves
  *
@@ -98,14 +98,13 @@ static void process_cmd_read(char * cmd);
 static void process_cmd_turn(char * cmd, uint32_t * p_reg);
 
 /**
- * @brief  Triggers a pulse with a defined duration.
- * @param  cmd_reg   command register, involves
+ * @brief  Triggers a home command.
+ * @param  p_reg     command register, involves
  * 			         information about system state and
  * 			         switching time of valves
  *
- * It forwards the pulse request by writing it into the command
- * register. It sets the RUN_BIT and PULSE_BIT flag. Depending
- * on the direction, it sets the DIR_BIT flag. It also updates
+ * It forwards the home request by writing it into the command
+ * register. It sets the RUN_BIT and HOME_BIT flag. It also updates
  * the timing configuration in the command register, using
  * the time value from the global variable settings.
  */
@@ -114,7 +113,7 @@ static void process_cmd_home(uint32_t * p_reg);
 /**
  * @brief  Triggers a pulse with a defined duration.
  * @param  cmd       pointer to the string with processed command
- * @param  cmd_reg   command register, involves
+ * @param  p_reg     command register, involves
  * 			         information about system state and
  * 			         switching time of valves
  * @warning It does not work together with the regulation system.
@@ -144,6 +143,15 @@ static void process_cmd_ncmd(char * cmd, uint32_t * p_reg);
 
 static void process_cmd_autoread(char * cmd, uint32_t * p_reg);
 
+/**
+ * @brief  Clears command register. Closes valves.
+ * @param  p_reg     command register, involves
+ * 			         information about system state and
+ * 			         switching time of valves
+ *
+ * Emergency command. Reset to defaut settings.
+ * Interrupts any running commands. Stop the valves.
+ */
 static void process_cmd_reset(uint32_t * p_reg);
 
 static void process_cmd_set_read(char * cmd, uint32_t * p_reg);

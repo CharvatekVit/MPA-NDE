@@ -20,7 +20,7 @@
  * Purpose:  Recognizes commands in the received characters and
  * 	         sets the cmd register accordingly.
  * Input(s): c       - processed character
- *           cmd_reg - command register, involves
+ *           p_reg   - command register, involves
  * 			           information about system state and
  * 			           switching time of valves
  * Returns:  none
@@ -50,7 +50,7 @@ void uart_byte_available(uint8_t c, uint32_t * p_reg)
  * Purpose:  Executes the corresponding commands are stores
  *           the result in the command register.
  * Input(s): cmd     - pointer to the string with processed command
- *           cmd_reg - command register, involves
+ *           p_reg   - command register, involves
  * 			           information about system state and
  * 			           switching time of valves
  * Returns:  none
@@ -120,7 +120,7 @@ static void process_cmd(char * cmd, uint32_t * p_reg)
 * Function: process_cmd_turn
 * Purpose:  Triggers a rotation by a defined angle.
 * Input(s): cmd     - pointer to the string with processed command
-*           cmd_reg - command register, involves
+*           p_reg   - command register, involves
 * 			          information about system state and
 * 			          switching time of valves
 * Returns:  none
@@ -203,7 +203,7 @@ static void process_cmd_read(char * token)
 * Function: process_cmd_pulse
 * Purpose:  Triggers a pulse with a defined duration.
 * Input(s): cmd     - pointer to the string with processed command
-*           cmd_reg - command register, involves
+*           p_reg   - command register, involves
 * 			          information about system state and
 * 			          switching time of valves
 * Returns:  none
@@ -326,12 +326,20 @@ static void process_cmd_set(char * token, uint32_t * p_reg)
 	}
 }
 
+/*
+* Function: process_cmd_reset
+* Purpose:  Clears command register. Closes valves.
+* Input(s): p_reg   - command register, involves
+* 			          information about system state and
+* 			          switching time of valves
+* Returns:  none
+*/
 static void process_cmd_reset(uint32_t * p_reg)
 {
 	/* Clear cmd register */
 	*p_reg = 0;
 
-	/* Turn of all valves */
+	/* Close all valves */
 	HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 0);
 	HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
 }
@@ -451,7 +459,7 @@ static void process_cmd_set_home(char * token)
 /*
 * Function: process_cmd_home
 * Purpose:  Triggers a home command.
-* Input(s): cmd_reg - command register, involves
+* Input(s): p_reg   - command register, involves
 * 			          information about system state and
 * 			          switching time of valves
 * Returns:  none

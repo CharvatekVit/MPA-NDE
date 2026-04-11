@@ -131,8 +131,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga3a2091bdff2858552b1eb515d51d41b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a rotation by a defined angle.  <br /></td></tr>
 <tr class="separator:ga3a2091bdff2858552b1eb515d51d41b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6b5e720be354db6271ba1c470fe58c64" id="r_ga6b5e720be354db6271ba1c470fe58c64"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6b5e720be354db6271ba1c470fe58c64">process_cmd_home</a> (uint32_t *p_reg)</td></tr>
+<tr class="memdesc:ga6b5e720be354db6271ba1c470fe58c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a pulse with a defined duration.  <br /></td></tr>
 <tr class="separator:ga6b5e720be354db6271ba1c470fe58c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae61136d7f7fa401ed2a87247f78e7074" id="r_gae61136d7f7fa401ed2a87247f78e7074"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae61136d7f7fa401ed2a87247f78e7074">process_cmd_pulse</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="memdesc:gae61136d7f7fa401ed2a87247f78e7074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a pulse with a defined duration.  <br /></td></tr>
 <tr class="separator:gae61136d7f7fa401ed2a87247f78e7074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga91fa3c2809b131f835477cc9556077b3" id="r_ga91fa3c2809b131f835477cc9556077b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga91fa3c2809b131f835477cc9556077b3">process_cmd_set</a> (char *cmd, uint32_t *p_reg)</td></tr>
 <tr class="separator:ga91fa3c2809b131f835477cc9556077b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -398,6 +400,15 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Triggers a pulse with a defined duration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>It forwards the pulse request by writing it into the command register. It sets the RUN_BIT and PULSE_BIT flag. Depending on the direction, it sets the DIR_BIT flag. It also updates the timing configuration in the command register, using the time value from the global variable settings. </p>
+
 </div>
 </div>
 <a id="ga4da5f6f9222b8b8195b39072f95fed4d" name="ga4da5f6f9222b8b8195b39072f95fed4d"></a>
@@ -455,6 +466,27 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Triggers a pulse with a defined duration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>pointer to the string with processed command </td></tr>
+    <tr><td class="paramname">cmd_reg</td><td>command register, involves information about system state and switching time of valves </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>It does not work together with the regulation system. Intended for testing only. The regulation must be disabledg (CMD 0).</dd></dl>
+<p>It forwards the pulse request by writing it into the command register. It sets the RUN_BIT and PULSE_BIT flag. Depending on the direction, it sets the DIR_BIT flag. It also updates the timing configuration in the command register.</p>
+<p>The pulse duration can be specified by the user using the &lt;time&gt; argument. The time is given in milliseconds. If it is not specified, the value from the global variable <em>settings</em> is used.</p>
+<p>Available arguments:<br  />
+</p><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Argument   </th><th class="markdownTableHeadLeft">Description   </th><th class="markdownTableHeadLeft">DIR_BIT    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>LEFT</b>   </td><td class="markdownTableBodyLeft">rotation to the left   </td><td class="markdownTableBodyLeft">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>RIGHT</b>   </td><td class="markdownTableBodyLeft">rotation to the right   </td><td class="markdownTableBodyLeft">1   </td></tr>
+</table>
 
 </div>
 </div>
@@ -722,7 +754,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>It forwards the rotation request by writing it into the command register. It sets the RUN_BIT and TURN_BIT flag. Depending on the direction, it sets the DIR_BIT flag. It also updates the timing configuration in the command register, using the time value from the global variable.</p>
+<p>It forwards the rotation request by writing it into the command register. It sets the RUN_BIT and TURN_BIT flag. Depending on the direction, it sets the DIR_BIT flag. It also updates the timing configuration in the command register, using the time value from the global variable settings.</p>
 <p>Available arguments:<br  />
 </p><table class="markdownTable">
 <tr class="markdownTableHead">

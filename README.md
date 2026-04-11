@@ -35,7 +35,7 @@ Team members
       - [x] LED indicator
       - [x] Switching circuit
    * [x] PCB design
-   * [ ] Soldering
+   * [x] Soldering
 - [ ]  Pneumatics
    * [x] Component choice 
       - [x] Valve

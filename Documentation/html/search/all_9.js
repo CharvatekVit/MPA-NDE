@@ -7,6 +7,7 @@ var searchData=
   ['iic_5fspi_4',['iic_spi',['../structmpu9250__handle__s.html#a00209e629162307269baa592e51144ac',1,'mpu9250_handle_s']]],
   ['iic_5fwrite_5',['iic_write',['../structmpu9250__handle__s.html#adca3ee7a793bbf510d5267daf0fcf1c5',1,'mpu9250_handle_s']]],
   ['inited_6',['inited',['../structmpu9250__handle__s.html#a19bedf28d2b9748f6a62d9ae93f4e68f',1,'mpu9250_handle_s']]],
-  ['interface_7',['interface',['../structmpu9250__info__s.html#aebaa6c28dd4f2c3dc27566fcb910fd28',1,'mpu9250_info_s']]],
-  ['interface_20driver_20function_8',['mpu9250 interface driver function',['../group__mpu9250__interface__driver.html',1,'']]]
+  ['initialise_5fmonitor_5fhandles_7',['initialise_monitor_handles',['../syscalls_8c.html#a25c7f100d498300fff65568c2fcfe639',1,'syscalls.c']]],
+  ['interface_8',['interface',['../structmpu9250__info__s.html#aebaa6c28dd4f2c3dc27566fcb910fd28',1,'mpu9250_info_s']]],
+  ['interface_20driver_20function_9',['mpu9250 interface driver function',['../group__mpu9250__interface__driver.html',1,'']]]
 ];

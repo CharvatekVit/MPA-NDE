@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['receive_5fcallback_0',['receive_callback',['../structmpu9250__handle__s.html#a4a9a1af4e28aea769f6d9f02a02e07c3',1,'mpu9250_handle_s']]]
+  ['orient_0',['orient',['../structmpu9250__handle__s.html#a9ffc92f060368a3946c73ce1c3528452',1,'mpu9250_handle_s']]]
 ];

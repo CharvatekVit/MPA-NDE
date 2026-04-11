@@ -11,8 +11,6 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -26,9 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Siphon Regulator
+   <div id="projectname">Siphon Regulator<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Nanosattelite attitude determination and control system.</div>
   </td>
  </tr>
  </tbody>
@@ -51,29 +51,19 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search',false);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
+<div id="doc-content">
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('group__mpu9250__magnetometer__driver.html',''); initResizable(true); });
+$(function(){ initResizable(false); });
 /* @license-end */
 </script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -214,6 +204,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00425">425</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="ga96325b0b819243ccbbb2a6e00e798d33" name="ga96325b0b819243ccbbb2a6e00e798d33"></a>
@@ -246,6 +238,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00411">411</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="gaf25efb8a583c0829cd9bad3f692e7043" name="gaf25efb8a583c0829cd9bad3f692e7043"></a>
@@ -268,6 +262,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00393">393</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="ga15ae01bcf3243b67110695ca92f39c3a" name="ga15ae01bcf3243b67110695ca92f39c3a"></a>
@@ -289,6 +285,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="gga15ae01bcf3243b67110695ca92f39c3aa00d3d86806db7ee1adde5ba94b5329eb" name="gga15ae01bcf3243b67110695ca92f39c3aa00d3d86806db7ee1adde5ba94b5329eb"></a>MPU9250_MAGNETOMETER_STATUS2_BITM&#160;</td><td class="fielddoc"><p>0: 14bits / 1: 16bits </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00402">402</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -324,6 +322,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l04893">4893</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -364,6 +364,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05612">5612</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga785f16eaac2033bd7879bdfdaba43903" name="ga785f16eaac2033bd7879bdfdaba43903"></a>
@@ -402,6 +404,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05333">5333</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -442,6 +446,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05059">5059</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga2ed2dde488c69352119493594b8ad2d2" name="ga2ed2dde488c69352119493594b8ad2d2"></a>
@@ -480,6 +486,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05237">5237</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -520,6 +528,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05429">5429</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga70c36f1ed535ef0a612edb33a8bc282d" name="ga70c36f1ed535ef0a612edb33a8bc282d"></a>
@@ -558,6 +568,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05525">5525</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -598,6 +610,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05101">5101</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga0bf56067b23fe3db7e9a564bea77f25d" name="ga0bf56067b23fe3db7e9a564bea77f25d"></a>
@@ -637,6 +651,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05143">5143</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga171543445d444086b9a30d46e576cf5b" name="ga171543445d444086b9a30d46e576cf5b"></a>
@@ -670,6 +686,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05568">5568</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -706,6 +724,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l04741">4741</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -752,6 +772,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l04994">4994</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga8b71a9307bd46ebb45ca224e36064790" name="ga8b71a9307bd46ebb45ca224e36064790"></a>
@@ -791,6 +813,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05281">5281</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gae87e32f7d9f479e895a96fbb9983be12" name="gae87e32f7d9f479e895a96fbb9983be12"></a>
@@ -824,6 +848,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>fifo mode will use slave 0 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05653">5653</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -864,6 +890,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05185">5185</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gaab0426a6cea05ed0454aa52a5f8abe00" name="gaab0426a6cea05ed0454aa52a5f8abe00"></a>
@@ -902,6 +930,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05377">5377</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -942,15 +972,15 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05473">5473</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

@@ -11,8 +11,6 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -26,9 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Siphon Regulator
+   <div id="projectname">Siphon Regulator<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Nanosattelite attitude determination and control system.</div>
   </td>
  </tr>
  </tbody>
@@ -51,29 +51,17 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search',false);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('cmd__processing__def_8h_source.html',''); initResizable(true); });
+$(function(){ initResizable(false); });
 /* @license-end */
 </script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -95,6 +83,12 @@ $(function(){initNavTree('cmd__processing__def_8h_source.html',''); initResizabl
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e8b33f2d80e1d695c0f7a2061d1007d6.html">Siphon_regulator</a></li><li class="navelem"><a class="el" href="dir_c0f69a84cccc30ca89b79a79ee99f6c6.html">Core</a></li><li class="navelem"><a class="el" href="dir_344e7bdc2d2ab73b175ad66a65ed9f4d.html">Inc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">cmd_processing_def.h</div></div>
 </div><!--header-->
@@ -130,43 +124,54 @@ $(function(){initNavTree('cmd__processing__def_8h_source.html',''); initResizabl
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/* Static functions declaration ---------------------------*/</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">/* Function prototypes ------------------------------------*/</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="group___commands.html#ga0989b7dfd8eea67732cc4e24e96d5576">   63</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#ga0989b7dfd8eea67732cc4e24e96d5576">process_cmd</a>(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_read(<span class="keywordtype">char</span> * cmd);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_turn(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_home(uint32_t * p_reg);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_pulse(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_set(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_ncmd(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_autoread(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="group___commands.html#ga0d092364df6a6b69d649489c37d73984">   77</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#ga0d092364df6a6b69d649489c37d73984">process_cmd_read</a>(<span class="keywordtype">char</span> * cmd);</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_reset(uint32_t * p_reg);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_set_read(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_set_auto(<span class="keywordtype">char</span> * cmd);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_set_time(<span class="keywordtype">char</span> * cmd);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_set_angle(<span class="keywordtype">char</span> * cmd);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword">static</span> <span class="keywordtype">void</span> process_cmd_set_home(<span class="keywordtype">char</span> * cmd);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#endif </span><span class="comment">/* INC_CMD_PROCESSING_DEF_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="group___commands.html#ga3a2091bdff2858552b1eb515d51d41b4">   98</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#ga3a2091bdff2858552b1eb515d51d41b4">process_cmd_turn</a>(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="group___commands.html#ga6b5e720be354db6271ba1c470fe58c64">  100</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#ga6b5e720be354db6271ba1c470fe58c64">process_cmd_home</a>(uint32_t * p_reg);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="group___commands.html#gae61136d7f7fa401ed2a87247f78e7074">  102</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#gae61136d7f7fa401ed2a87247f78e7074">process_cmd_pulse</a>(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="group___commands.html#ga91fa3c2809b131f835477cc9556077b3">  104</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#ga91fa3c2809b131f835477cc9556077b3">process_cmd_set</a>(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="group___commands.html#ga4da5f6f9222b8b8195b39072f95fed4d">  106</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#ga4da5f6f9222b8b8195b39072f95fed4d">process_cmd_ncmd</a>(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="group___commands.html#ga51b40b78fe8d6cefb1063c5c84662b5d">  108</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#ga51b40b78fe8d6cefb1063c5c84662b5d">process_cmd_autoread</a>(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="group___commands.html#gaddc9020c4b196ba9fac53e415c878fae">  110</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#gaddc9020c4b196ba9fac53e415c878fae">process_cmd_reset</a>(uint32_t * p_reg);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="group___commands.html#ga644e1c381a2886b39457cdde7934371b">  112</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#ga644e1c381a2886b39457cdde7934371b">process_cmd_set_read</a>(<span class="keywordtype">char</span> * cmd, uint32_t * p_reg);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="group___commands.html#gad618c28bed067a94125bffd758bec243">  114</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#gad618c28bed067a94125bffd758bec243">process_cmd_set_auto</a>(<span class="keywordtype">char</span> * cmd);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="group___commands.html#ga6d4048e4758abc305e84ea2c3fd7e801">  116</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#ga6d4048e4758abc305e84ea2c3fd7e801">process_cmd_set_time</a>(<span class="keywordtype">char</span> * cmd);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="group___commands.html#gaa6c02e4380a7705f1d37c7e393929d9e">  118</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#gaa6c02e4380a7705f1d37c7e393929d9e">process_cmd_set_angle</a>(<span class="keywordtype">char</span> * cmd);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="group___commands.html#gadee728b1b0c97be9721eb9d221ce8d9e">  120</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group___commands.html#gadee728b1b0c97be9721eb9d221ce8d9e">process_cmd_set_home</a>(<span class="keywordtype">char</span> * cmd);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#endif </span><span class="comment">/* INC_CMD_PROCESSING_DEF_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="agroup___commands_html_ga0989b7dfd8eea67732cc4e24e96d5576"><div class="ttname"><a href="group___commands.html#ga0989b7dfd8eea67732cc4e24e96d5576">process_cmd</a></div><div class="ttdeci">static void process_cmd(char *cmd, uint32_t *p_reg)</div><div class="ttdoc">Executes the corresponding commands are stores the result in the command register.</div></div>
+<div class="ttc" id="agroup___commands_html_ga0d092364df6a6b69d649489c37d73984"><div class="ttname"><a href="group___commands.html#ga0d092364df6a6b69d649489c37d73984">process_cmd_read</a></div><div class="ttdeci">static void process_cmd_read(char *cmd)</div><div class="ttdoc">Sends sensors data based on the command.</div></div>
+<div class="ttc" id="agroup___commands_html_ga3a2091bdff2858552b1eb515d51d41b4"><div class="ttname"><a href="group___commands.html#ga3a2091bdff2858552b1eb515d51d41b4">process_cmd_turn</a></div><div class="ttdeci">static void process_cmd_turn(char *cmd, uint32_t *p_reg)</div><div class="ttdoc">Triggers a rotation by a defined angle.</div></div>
+<div class="ttc" id="agroup___commands_html_ga4da5f6f9222b8b8195b39072f95fed4d"><div class="ttname"><a href="group___commands.html#ga4da5f6f9222b8b8195b39072f95fed4d">process_cmd_ncmd</a></div><div class="ttdeci">static void process_cmd_ncmd(char *cmd, uint32_t *p_reg)</div></div>
+<div class="ttc" id="agroup___commands_html_ga51b40b78fe8d6cefb1063c5c84662b5d"><div class="ttname"><a href="group___commands.html#ga51b40b78fe8d6cefb1063c5c84662b5d">process_cmd_autoread</a></div><div class="ttdeci">static void process_cmd_autoread(char *cmd, uint32_t *p_reg)</div></div>
+<div class="ttc" id="agroup___commands_html_ga644e1c381a2886b39457cdde7934371b"><div class="ttname"><a href="group___commands.html#ga644e1c381a2886b39457cdde7934371b">process_cmd_set_read</a></div><div class="ttdeci">static void process_cmd_set_read(char *cmd, uint32_t *p_reg)</div></div>
+<div class="ttc" id="agroup___commands_html_ga6b5e720be354db6271ba1c470fe58c64"><div class="ttname"><a href="group___commands.html#ga6b5e720be354db6271ba1c470fe58c64">process_cmd_home</a></div><div class="ttdeci">static void process_cmd_home(uint32_t *p_reg)</div></div>
+<div class="ttc" id="agroup___commands_html_ga6d4048e4758abc305e84ea2c3fd7e801"><div class="ttname"><a href="group___commands.html#ga6d4048e4758abc305e84ea2c3fd7e801">process_cmd_set_time</a></div><div class="ttdeci">static void process_cmd_set_time(char *cmd)</div></div>
+<div class="ttc" id="agroup___commands_html_ga91fa3c2809b131f835477cc9556077b3"><div class="ttname"><a href="group___commands.html#ga91fa3c2809b131f835477cc9556077b3">process_cmd_set</a></div><div class="ttdeci">static void process_cmd_set(char *cmd, uint32_t *p_reg)</div></div>
+<div class="ttc" id="agroup___commands_html_gaa6c02e4380a7705f1d37c7e393929d9e"><div class="ttname"><a href="group___commands.html#gaa6c02e4380a7705f1d37c7e393929d9e">process_cmd_set_angle</a></div><div class="ttdeci">static void process_cmd_set_angle(char *cmd)</div></div>
+<div class="ttc" id="agroup___commands_html_gad618c28bed067a94125bffd758bec243"><div class="ttname"><a href="group___commands.html#gad618c28bed067a94125bffd758bec243">process_cmd_set_auto</a></div><div class="ttdeci">static void process_cmd_set_auto(char *cmd)</div></div>
+<div class="ttc" id="agroup___commands_html_gaddc9020c4b196ba9fac53e415c878fae"><div class="ttname"><a href="group___commands.html#gaddc9020c4b196ba9fac53e415c878fae">process_cmd_reset</a></div><div class="ttdeci">static void process_cmd_reset(uint32_t *p_reg)</div></div>
+<div class="ttc" id="agroup___commands_html_gadee728b1b0c97be9721eb9d221ce8d9e"><div class="ttname"><a href="group___commands.html#gadee728b1b0c97be9721eb9d221ce8d9e">process_cmd_set_home</a></div><div class="ttdeci">static void process_cmd_set_home(char *cmd)</div></div>
+<div class="ttc" id="agroup___commands_html_gae61136d7f7fa401ed2a87247f78e7074"><div class="ttname"><a href="group___commands.html#gae61136d7f7fa401ed2a87247f78e7074">process_cmd_pulse</a></div><div class="ttdeci">static void process_cmd_pulse(char *cmd, uint32_t *p_reg)</div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_e8b33f2d80e1d695c0f7a2061d1007d6.html">Siphon_regulator</a></li><li class="navelem"><a class="el" href="dir_c0f69a84cccc30ca89b79a79ee99f6c6.html">Core</a></li><li class="navelem"><a class="el" href="dir_344e7bdc2d2ab73b175ad66a65ed9f4d.html">Inc</a></li><li class="navelem"><a class="el" href="cmd__processing__def_8h.html">cmd_processing_def.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

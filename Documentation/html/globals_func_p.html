@@ -11,8 +11,6 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -26,9 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Siphon Regulator
+   <div id="projectname">Siphon Regulator<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Nanosattelite attitude determination and control system.</div>
   </td>
  </tr>
  </tbody>
@@ -51,29 +51,19 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search',false);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
+<div id="doc-content">
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('globals_func_p.html',''); initResizable(true); });
+$(function(){ initResizable(false); });
 /* @license-end */
 </script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -99,15 +89,27 @@ $(function(){initNavTree('globals_func_p.html',''); initResizable(true); });
 <div class="textblock">Here is a list of all functions with links to the files they belong to:</div>
 
 <h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
-<li>PendSV_Handler()&#160;:&#160;<a class="el" href="stm32f1xx__it_8h.html#a6303e1f258cbdc1f970ce579cc015623">stm32f1xx_it.h</a></li>
+<li>PendSV_Handler()&#160;:&#160;<a class="el" href="stm32f1xx__it_8h.html#a6303e1f258cbdc1f970ce579cc015623">stm32f1xx_it.h</a>, <a class="el" href="stm32f1xx__it_8c.html#a6303e1f258cbdc1f970ce579cc015623">stm32f1xx_it.c</a></li>
+<li>process_cmd()&#160;:&#160;<a class="el" href="group___commands.html#ga0989b7dfd8eea67732cc4e24e96d5576">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#a0989b7dfd8eea67732cc4e24e96d5576">cmd_processing.c</a></li>
+<li>process_cmd_autoread()&#160;:&#160;<a class="el" href="group___commands.html#ga51b40b78fe8d6cefb1063c5c84662b5d">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#a3d64523936a4c1bc19560d008b54dbd4">cmd_processing.c</a></li>
+<li>process_cmd_home()&#160;:&#160;<a class="el" href="group___commands.html#ga6b5e720be354db6271ba1c470fe58c64">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#a6b5e720be354db6271ba1c470fe58c64">cmd_processing.c</a></li>
+<li>process_cmd_ncmd()&#160;:&#160;<a class="el" href="group___commands.html#ga4da5f6f9222b8b8195b39072f95fed4d">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#a5624a122457071c449e4c772ba702e64">cmd_processing.c</a></li>
+<li>process_cmd_pulse()&#160;:&#160;<a class="el" href="group___commands.html#gae61136d7f7fa401ed2a87247f78e7074">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#ac1fed0f3f546fe2d66a4591e11d8656c">cmd_processing.c</a></li>
+<li>process_cmd_read()&#160;:&#160;<a class="el" href="group___commands.html#ga0d092364df6a6b69d649489c37d73984">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#ac7fce7cc36da1eae4329df4502fb6720">cmd_processing.c</a></li>
+<li>process_cmd_reset()&#160;:&#160;<a class="el" href="group___commands.html#gaddc9020c4b196ba9fac53e415c878fae">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#addc9020c4b196ba9fac53e415c878fae">cmd_processing.c</a></li>
+<li>process_cmd_set()&#160;:&#160;<a class="el" href="group___commands.html#ga91fa3c2809b131f835477cc9556077b3">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#aa4aea5a4295920243dc809f7d344df17">cmd_processing.c</a></li>
+<li>process_cmd_set_angle()&#160;:&#160;<a class="el" href="group___commands.html#gaa6c02e4380a7705f1d37c7e393929d9e">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#a90da046c157df01748ab615dc5e9a2ea">cmd_processing.c</a></li>
+<li>process_cmd_set_auto()&#160;:&#160;<a class="el" href="group___commands.html#gad618c28bed067a94125bffd758bec243">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#a74cc148496cd174c164699b3b2159166">cmd_processing.c</a></li>
+<li>process_cmd_set_home()&#160;:&#160;<a class="el" href="group___commands.html#gadee728b1b0c97be9721eb9d221ce8d9e">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#a03fb04173146d238273354be38e4ad89">cmd_processing.c</a></li>
+<li>process_cmd_set_read()&#160;:&#160;<a class="el" href="group___commands.html#ga644e1c381a2886b39457cdde7934371b">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#a9bbea9327037cf8ed6a91de7538eeb10">cmd_processing.c</a></li>
+<li>process_cmd_set_time()&#160;:&#160;<a class="el" href="group___commands.html#ga6d4048e4758abc305e84ea2c3fd7e801">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#aa39de7817b3828e7d81432d859e64b03">cmd_processing.c</a></li>
+<li>process_cmd_turn()&#160;:&#160;<a class="el" href="group___commands.html#ga3a2091bdff2858552b1eb515d51d41b4">cmd_processing_def.h</a>, <a class="el" href="cmd__processing_8c.html#a73ac3840070e82e65cd08f8c3b875026">cmd_processing.c</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

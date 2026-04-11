@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['mac_5faddr0_0',['MAC_ADDR0',['../stm32f1xx__hal__conf_8h.html#ab84a2e15d360e2644ada09641513a941',1,'stm32f1xx_hal_conf.h']]],
-  ['mac_5faddr1_1',['MAC_ADDR1',['../stm32f1xx__hal__conf_8h.html#a8d14266d76690c530bee01e7e5bb4099',1,'stm32f1xx_hal_conf.h']]],
-  ['mac_5faddr2_2',['MAC_ADDR2',['../stm32f1xx__hal__conf_8h.html#a6c5df15bec1d305ed033ad9a85ec803d',1,'stm32f1xx_hal_conf.h']]],
-  ['mac_5faddr3_3',['MAC_ADDR3',['../stm32f1xx__hal__conf_8h.html#a08a36ede83ae67498aecf54676be8fc8',1,'stm32f1xx_hal_conf.h']]],
-  ['mac_5faddr4_4',['MAC_ADDR4',['../stm32f1xx__hal__conf_8h.html#a41e5cb0b39ad74f0aafb83dbcecf9006',1,'stm32f1xx_hal_conf.h']]],
-  ['mac_5faddr5_5',['MAC_ADDR5',['../stm32f1xx__hal__conf_8h.html#a3bcc92663c42ec434f527847bbc4abc1',1,'stm32f1xx_hal_conf.h']]]
+  ['led_5fg_5fgpio_5fport_0',['LED_G_GPIO_Port',['../main_8h.html#af97b78a47156ba4e7c2da210354f61bf',1,'main.h']]],
+  ['led_5fg_5fpin_1',['LED_G_Pin',['../main_8h.html#afb22fa0bca678176a208c6af5ce7a585',1,'main.h']]],
+  ['led_5fr_5fgpio_5fport_2',['LED_R_GPIO_Port',['../main_8h.html#a62917595145fcd57580cc8385a92b6ff',1,'main.h']]],
+  ['led_5fr_5fpin_3',['LED_R_Pin',['../main_8h.html#a93f5bc960fad63ead65c6eeca47f1000',1,'main.h']]],
+  ['led_5fy_5fgpio_5fport_4',['LED_Y_GPIO_Port',['../main_8h.html#ad81da99eec4d7a483ee874025e097bb0',1,'main.h']]],
+  ['led_5fy_5fpin_5',['LED_Y_Pin',['../main_8h.html#a8010b619b44ff32d27125258c04604ea',1,'main.h']]],
+  ['lse_5fstartup_5ftimeout_6',['LSE_STARTUP_TIMEOUT',['../stm32f1xx__hal__conf_8h.html#a85e6fc812dc26f7161a04be2568a5462',1,'stm32f1xx_hal_conf.h']]],
+  ['lse_5fvalue_7',['LSE_VALUE',['../stm32f1xx__hal__conf_8h.html#a7bbb9d19e5189a6ccd0fb6fa6177d20d',1,'stm32f1xx_hal_conf.h']]],
+  ['lsi_5fvalue_8',['LSI_VALUE',['../stm32f1xx__hal__conf_8h.html#a4872023e65449c0506aac3ea6bec99e9',1,'stm32f1xx_hal_conf.h']]]
 ];

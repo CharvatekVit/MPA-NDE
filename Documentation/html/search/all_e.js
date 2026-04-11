@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pendsv_5fhandler_0',['PendSV_Handler',['../stm32f1xx__it_8h.html#a6303e1f258cbdc1f970ce579cc015623',1,'stm32f1xx_it.h']]],
+  ['pendsv_5fhandler_0',['PendSV_Handler',['../stm32f1xx__it_8h.html#a6303e1f258cbdc1f970ce579cc015623',1,'PendSV_Handler(void):&#160;stm32f1xx_it.c'],['../stm32f1xx__it_8c.html#a6303e1f258cbdc1f970ce579cc015623',1,'PendSV_Handler(void):&#160;stm32f1xx_it.c']]],
   ['phy_5fautonego_5fcomplete_1',['PHY_AUTONEGO_COMPLETE',['../stm32f1xx__hal__conf_8h.html#a36c4dbd5f6df1f5eaefa010929ef9773',1,'stm32f1xx_hal_conf.h']]],
   ['phy_5fautonegotiation_2',['PHY_AUTONEGOTIATION',['../stm32f1xx__hal__conf_8h.html#a9b7f5c8f71047ee449f21562d26b1b43',1,'stm32f1xx_hal_conf.h']]],
   ['phy_5fbcr_3',['PHY_BCR',['../stm32f1xx__hal__conf_8h.html#a8abe1a40c71e68881ec669d59f513fdb',1,'stm32f1xx_hal_conf.h']]],
@@ -25,7 +25,22 @@ var searchData=
   ['phy_5fwrite_5fto_22',['PHY_WRITE_TO',['../stm32f1xx__hal__conf_8h.html#a474bf13e28d09b667e41b151140ee39d',1,'stm32f1xx_hal_conf.h']]],
   ['pos_23',['pos',['../structsensor__data__t.html#a617e6b670348d89bfb267f3b5001bd4d',1,'sensor_data_t']]],
   ['prefetch_5fenable_24',['PREFETCH_ENABLE',['../stm32f1xx__hal__conf_8h.html#a13fc0d5e7bb925385c0cc0772ba6a391',1,'stm32f1xx_hal_conf.h']]],
-  ['pulse_5fbit_25',['PULSE_BIT',['../main_8h.html#ac70b773fff57d71eefb6472749d86757',1,'main.h']]],
-  ['pulse_5flen_5fmax_26',['PULSE_LEN_MAX',['../group___commands.html#gadd45fffa4059a1fa7a281d5a0c608e9c',1,'cmd_processing_def.h']]],
-  ['pulse_5flen_5fmin_27',['PULSE_LEN_MIN',['../group___commands.html#ga2ac20daf535d8dd4685124f193fb5194',1,'cmd_processing_def.h']]]
+  ['process_5fcmd_25',['process_cmd',['../group___commands.html#ga0989b7dfd8eea67732cc4e24e96d5576',1,'process_cmd(char *cmd, uint32_t *p_reg):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#a0989b7dfd8eea67732cc4e24e96d5576',1,'process_cmd(char *cmd, uint32_t *p_reg):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fautoread_26',['process_cmd_autoread',['../group___commands.html#ga51b40b78fe8d6cefb1063c5c84662b5d',1,'process_cmd_autoread(char *cmd, uint32_t *p_reg):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#a3d64523936a4c1bc19560d008b54dbd4',1,'process_cmd_autoread(char *token, uint32_t *p_reg):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fhome_27',['process_cmd_home',['../group___commands.html#ga6b5e720be354db6271ba1c470fe58c64',1,'process_cmd_home(uint32_t *p_reg):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#a6b5e720be354db6271ba1c470fe58c64',1,'process_cmd_home(uint32_t *p_reg):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fncmd_28',['process_cmd_ncmd',['../group___commands.html#ga4da5f6f9222b8b8195b39072f95fed4d',1,'process_cmd_ncmd(char *cmd, uint32_t *p_reg):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#a5624a122457071c449e4c772ba702e64',1,'process_cmd_ncmd(char *token, uint32_t *p_reg):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fpulse_29',['process_cmd_pulse',['../group___commands.html#gae61136d7f7fa401ed2a87247f78e7074',1,'process_cmd_pulse(char *cmd, uint32_t *p_reg):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#ac1fed0f3f546fe2d66a4591e11d8656c',1,'process_cmd_pulse(char *token, uint32_t *p_reg):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fread_30',['process_cmd_read',['../group___commands.html#ga0d092364df6a6b69d649489c37d73984',1,'process_cmd_read(char *cmd):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#ac7fce7cc36da1eae4329df4502fb6720',1,'process_cmd_read(char *token):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5freset_31',['process_cmd_reset',['../group___commands.html#gaddc9020c4b196ba9fac53e415c878fae',1,'process_cmd_reset(uint32_t *p_reg):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#addc9020c4b196ba9fac53e415c878fae',1,'process_cmd_reset(uint32_t *p_reg):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fset_32',['process_cmd_set',['../group___commands.html#ga91fa3c2809b131f835477cc9556077b3',1,'process_cmd_set(char *cmd, uint32_t *p_reg):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#aa4aea5a4295920243dc809f7d344df17',1,'process_cmd_set(char *token, uint32_t *p_reg):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fset_5fangle_33',['process_cmd_set_angle',['../group___commands.html#gaa6c02e4380a7705f1d37c7e393929d9e',1,'process_cmd_set_angle(char *cmd):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#a90da046c157df01748ab615dc5e9a2ea',1,'process_cmd_set_angle(char *token):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fset_5fauto_34',['process_cmd_set_auto',['../group___commands.html#gad618c28bed067a94125bffd758bec243',1,'process_cmd_set_auto(char *cmd):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#a74cc148496cd174c164699b3b2159166',1,'process_cmd_set_auto(char *token):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fset_5fhome_35',['process_cmd_set_home',['../group___commands.html#gadee728b1b0c97be9721eb9d221ce8d9e',1,'process_cmd_set_home(char *cmd):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#a03fb04173146d238273354be38e4ad89',1,'process_cmd_set_home(char *token):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fset_5fread_36',['process_cmd_set_read',['../group___commands.html#ga644e1c381a2886b39457cdde7934371b',1,'process_cmd_set_read(char *cmd, uint32_t *p_reg):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#a9bbea9327037cf8ed6a91de7538eeb10',1,'process_cmd_set_read(char *token, uint32_t *p_reg):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fset_5ftime_37',['process_cmd_set_time',['../group___commands.html#ga6d4048e4758abc305e84ea2c3fd7e801',1,'process_cmd_set_time(char *cmd):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#aa39de7817b3828e7d81432d859e64b03',1,'process_cmd_set_time(char *token):&#160;cmd_processing.c']]],
+  ['process_5fcmd_5fturn_38',['process_cmd_turn',['../group___commands.html#ga3a2091bdff2858552b1eb515d51d41b4',1,'process_cmd_turn(char *cmd, uint32_t *p_reg):&#160;cmd_processing_def.h'],['../cmd__processing_8c.html#a73ac3840070e82e65cd08f8c3b875026',1,'process_cmd_turn(char *token, uint32_t *p_reg):&#160;cmd_processing.c']]],
+  ['pulse_5fbit_39',['PULSE_BIT',['../main_8h.html#ac70b773fff57d71eefb6472749d86757',1,'main.h']]],
+  ['pulse_5fignore_40',['PULSE_IGNORE',['../loop__fcn_8c.html#a9a13615b230b8aa8abda217a0473a4a7',1,'loop_fcn.c']]],
+  ['pulse_5flen_5fmax_41',['PULSE_LEN_MAX',['../group___commands.html#gadd45fffa4059a1fa7a281d5a0c608e9c',1,'cmd_processing_def.h']]],
+  ['pulse_5flen_5fmin_42',['PULSE_LEN_MIN',['../group___commands.html#ga2ac20daf535d8dd4685124f193fb5194',1,'cmd_processing_def.h']]]
 ];

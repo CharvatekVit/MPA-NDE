@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['home_0',['home',['../structsettings__t.html#aa73ff59a60ab7d1c69a4b7e8ccdda858',1,'settings_t']]]
+  ['environ_0',['environ',['../syscalls_8c.html#aa006daaf11f1e2e45a6ababaf463212b',1,'syscalls.c']]]
 ];

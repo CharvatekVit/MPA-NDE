@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['acc_0',['acc',['../structsensor__data__t.html#aa71c43964fa7767f0461b2a0e0c0b151',1,'sensor_data_t']]],
-  ['angle_1',['angle',['../structsettings__t.html#a76f155f57a7d8504459c4438bdcfdceb',1,'settings_t']]]
+  ['_5f_5fsbrk_5fheap_5fend_0',['__sbrk_heap_end',['../sysmem_8c.html#a2cf862d604e9c7cfcf0528a0f539a6a5',1,'sysmem.c']]]
 ];

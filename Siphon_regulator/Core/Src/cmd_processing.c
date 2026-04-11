@@ -116,9 +116,18 @@ static void process_cmd(char * cmd, uint32_t * p_reg)
 	}
 }
 
-/* TURN cmd callback */
+/*
+* Function: process_cmd_turn
+* Purpose:  Triggers a rotation by a defined angle.
+* Input(s): cmd     - pointer to the string with processed command
+*           cmd_reg - command register, involves
+* 			          information about system state and
+* 			          switching time of valves
+* Returns:  none
+*/
 static void process_cmd_turn(char * token, uint32_t * p_reg)
 {
+	/* During performing another cmd is disable */
 	if (_read_valve(*p_reg))
 	{
 		//printf("Another cmd is processing\n");
@@ -140,15 +149,22 @@ static void process_cmd_turn(char * token, uint32_t * p_reg)
     	return;
     }
 
-    /* Preper time setting */
+    /* Update time setting */
     _clr_time(*p_reg);
     _set_time(*p_reg, set_data.time_l, set_data.time_r);
 
+    /* Save turn request */
     _set_BV(*p_reg, RUN_BIT);
     _set_BV(*p_reg, TURN_BIT);
 }
 
-/* READ cmd callback */
+/*
+* Function: process_cmd_read
+* Purpose:  Sends sensors data based on the command.
+* Input(s): cmd     - pointer to the string with processed command
+*
+* Returns:  none
+*/
 static void process_cmd_read(char * token)
 {
     token = strtok(NULL, " ");
@@ -183,16 +199,25 @@ static void process_cmd_read(char * token)
     }
 }
 
-/* PULSE cmd callback */
+/*
+* Function: process_cmd_pulse
+* Purpose:  Triggers a pulse with a defined duration.
+* Input(s): cmd     - pointer to the string with processed command
+*           cmd_reg - command register, involves
+* 			          information about system state and
+* 			          switching time of valves
+* Returns:  none
+*/
 static void process_cmd_pulse(char * token, uint32_t * p_reg)
 {
+	/* During performing another cmd is disable */
 	if (_read_valve(*p_reg))
 	{
 		// printf("Another cmd is processing\n");
 		return;
 	}
 
-	/* Data which will be set to time register*/
+	/* Data which will be set to time register */
 	uint8_t time_array[2] = {set_data.time_l, set_data.time_r};
 	uint8_t dir_pointer;
 
@@ -224,12 +249,14 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 	if ((pulse_len >= PULSE_LEN_MIN) && (pulse_len <= PULSE_LEN_MAX))
 	{
 		/* Valid time */
+		/* Arrange time setting only in selected direction */
 		time_array[dir_pointer] = pulse_len;
 	}
 	/* Time opening valve was not specified*/
 	else if (token == NULL)
 	{
 		/* No time setting*/
+		/* Use default time settings */
 	}
 	else
 	{
@@ -240,6 +267,7 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 	/* Update time setting*/
 	_set_time(*p_reg, time_array[0], time_array[1]);
 
+	/* Save pulse request */
     _set_BV(*p_reg, RUN_BIT);
     _set_BV(*p_reg, PULSE_BIT);
 }
@@ -300,10 +328,10 @@ static void process_cmd_set(char * token, uint32_t * p_reg)
 
 static void process_cmd_reset(uint32_t * p_reg)
 {
-	// Clear cmd register
+	/* Clear cmd register */
 	*p_reg = 0;
 
-	// Turn of all valves
+	/* Turn of all valves */
 	HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 0);
 	HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
 }
@@ -327,12 +355,6 @@ static void process_cmd_set_read(char * token, uint32_t * p_reg)
 	{
 		bit = AUTOREAD_POS_BIT;
 	}
-	/*
-	else if (strcasecmp(token, "MAG") == 0)
-	{
-		bit = AUTOREAD_MAG_BIT; // Needs to be redefine !!!
-	}
-	*/
 	else
 	{
 		printf("Invalid cmd\n");
@@ -409,7 +431,14 @@ static void process_cmd_set_angle(char * token)
 	}
 }
 
-/* Default position setting */
+/*
+* Function: process_cmd_home
+* Purpose:  Triggers a home command.
+* Input(s): cmd_reg - command register, involves
+* 			          information about system state and
+* 			          switching time of valves
+* Returns:  none
+*/
 static void process_cmd_set_home(char * token)
 {
 	token = strtok(NULL, " ");
@@ -429,6 +458,7 @@ static void process_cmd_set_home(char * token)
 /* Go to home position */
 static void process_cmd_home(uint32_t * p_reg)
 {
+	/* During performing another cmd is disable */
 	if (_read_valve(*p_reg))
 	{
 		// printf("Another cmd is processing\n");

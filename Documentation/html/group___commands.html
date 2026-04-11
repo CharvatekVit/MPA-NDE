@@ -11,8 +11,6 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -26,9 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Siphon Regulator
+   <div id="projectname">Siphon Regulator<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Nanosattelite attitude determination and control system.</div>
   </td>
  </tr>
  </tbody>
@@ -51,29 +51,19 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search',false);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
+<div id="doc-content">
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('group___commands.html',''); initResizable(true); });
+$(function(){ initResizable(false); });
 /* @license-end */
 </script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -131,6 +121,37 @@ Functions</h2></td></tr>
 <tr class="memitem:ga9d5b4fe5519cc8efeae97b37f74a688e" id="r_ga9d5b4fe5519cc8efeae97b37f74a688e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9d5b4fe5519cc8efeae97b37f74a688e">uart_byte_available</a> (uint8_t c, uint32_t *p_reg)</td></tr>
 <tr class="memdesc:ga9d5b4fe5519cc8efeae97b37f74a688e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recognizes commands in the received characters and sets the cmd register accordingly.  <br /></td></tr>
 <tr class="separator:ga9d5b4fe5519cc8efeae97b37f74a688e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0989b7dfd8eea67732cc4e24e96d5576" id="r_ga0989b7dfd8eea67732cc4e24e96d5576"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0989b7dfd8eea67732cc4e24e96d5576">process_cmd</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="memdesc:ga0989b7dfd8eea67732cc4e24e96d5576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the corresponding commands are stores the result in the command register.  <br /></td></tr>
+<tr class="separator:ga0989b7dfd8eea67732cc4e24e96d5576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d092364df6a6b69d649489c37d73984" id="r_ga0d092364df6a6b69d649489c37d73984"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0d092364df6a6b69d649489c37d73984">process_cmd_read</a> (char *cmd)</td></tr>
+<tr class="memdesc:ga0d092364df6a6b69d649489c37d73984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends sensors data based on the command.  <br /></td></tr>
+<tr class="separator:ga0d092364df6a6b69d649489c37d73984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a2091bdff2858552b1eb515d51d41b4" id="r_ga3a2091bdff2858552b1eb515d51d41b4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3a2091bdff2858552b1eb515d51d41b4">process_cmd_turn</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="memdesc:ga3a2091bdff2858552b1eb515d51d41b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a rotation by a defined angle.  <br /></td></tr>
+<tr class="separator:ga3a2091bdff2858552b1eb515d51d41b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b5e720be354db6271ba1c470fe58c64" id="r_ga6b5e720be354db6271ba1c470fe58c64"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6b5e720be354db6271ba1c470fe58c64">process_cmd_home</a> (uint32_t *p_reg)</td></tr>
+<tr class="separator:ga6b5e720be354db6271ba1c470fe58c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae61136d7f7fa401ed2a87247f78e7074" id="r_gae61136d7f7fa401ed2a87247f78e7074"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae61136d7f7fa401ed2a87247f78e7074">process_cmd_pulse</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="separator:gae61136d7f7fa401ed2a87247f78e7074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91fa3c2809b131f835477cc9556077b3" id="r_ga91fa3c2809b131f835477cc9556077b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga91fa3c2809b131f835477cc9556077b3">process_cmd_set</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="separator:ga91fa3c2809b131f835477cc9556077b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4da5f6f9222b8b8195b39072f95fed4d" id="r_ga4da5f6f9222b8b8195b39072f95fed4d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4da5f6f9222b8b8195b39072f95fed4d">process_cmd_ncmd</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="separator:ga4da5f6f9222b8b8195b39072f95fed4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga51b40b78fe8d6cefb1063c5c84662b5d" id="r_ga51b40b78fe8d6cefb1063c5c84662b5d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga51b40b78fe8d6cefb1063c5c84662b5d">process_cmd_autoread</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="separator:ga51b40b78fe8d6cefb1063c5c84662b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaddc9020c4b196ba9fac53e415c878fae" id="r_gaddc9020c4b196ba9fac53e415c878fae"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaddc9020c4b196ba9fac53e415c878fae">process_cmd_reset</a> (uint32_t *p_reg)</td></tr>
+<tr class="separator:gaddc9020c4b196ba9fac53e415c878fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga644e1c381a2886b39457cdde7934371b" id="r_ga644e1c381a2886b39457cdde7934371b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga644e1c381a2886b39457cdde7934371b">process_cmd_set_read</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="separator:ga644e1c381a2886b39457cdde7934371b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad618c28bed067a94125bffd758bec243" id="r_gad618c28bed067a94125bffd758bec243"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad618c28bed067a94125bffd758bec243">process_cmd_set_auto</a> (char *cmd)</td></tr>
+<tr class="separator:gad618c28bed067a94125bffd758bec243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d4048e4758abc305e84ea2c3fd7e801" id="r_ga6d4048e4758abc305e84ea2c3fd7e801"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6d4048e4758abc305e84ea2c3fd7e801">process_cmd_set_time</a> (char *cmd)</td></tr>
+<tr class="separator:ga6d4048e4758abc305e84ea2c3fd7e801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6c02e4380a7705f1d37c7e393929d9e" id="r_gaa6c02e4380a7705f1d37c7e393929d9e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa6c02e4380a7705f1d37c7e393929d9e">process_cmd_set_angle</a> (char *cmd)</td></tr>
+<tr class="separator:gaa6c02e4380a7705f1d37c7e393929d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadee728b1b0c97be9721eb9d221ce8d9e" id="r_gadee728b1b0c97be9721eb9d221ce8d9e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadee728b1b0c97be9721eb9d221ce8d9e">process_cmd_set_home</a> (char *cmd)</td></tr>
+<tr class="separator:gadee728b1b0c97be9721eb9d221ce8d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -162,6 +183,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Maximum length of a received command is 256 characters. </p>
 
+<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00025">25</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
+
 </div>
 </div>
 <a id="ga0b733aec890e0e11b8dae0b427fa2d40" name="ga0b733aec890e0e11b8dae0b427fa2d40"></a>
@@ -176,6 +199,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Maximum angle of a default orietation is 180°. </p>
+
+<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00046">46</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
 
 </div>
 </div>
@@ -192,6 +217,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Minimum angle of a default orietation is -180°. </p>
 
+<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00043">43</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
+
 </div>
 </div>
 <a id="ga5320d4457a472d8888ec1905bc0e0a1c" name="ga5320d4457a472d8888ec1905bc0e0a1c"></a>
@@ -206,6 +233,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Maximum period of autoreading is 25.5 s. </p>
+
+<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00034">34</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
 
 </div>
 </div>
@@ -222,6 +251,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Maximum open valve time is 100 ms. </p>
 
+<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00031">31</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
+
 </div>
 </div>
 <a id="ga2ac20daf535d8dd4685124f193fb5194" name="ga2ac20daf535d8dd4685124f193fb5194"></a>
@@ -236,6 +267,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Minimum open valve time is 10 ms. </p>
+
+<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00028">28</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
 
 </div>
 </div>
@@ -252,6 +285,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Maximum angle of TURN command is 90°. </p>
 
+<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00040">40</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
+
 </div>
 </div>
 <a id="ga4e0735d11dd5c64fc9b3ae10c7459f3d" name="ga4e0735d11dd5c64fc9b3ae10c7459f3d"></a>
@@ -267,9 +302,439 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Minimum angle of TURN command is 10°. </p>
 
+<p class="definition">Definition at line <a class="el" href="cmd__processing__def_8h_source.html#l00037">37</a> of file <a class="el" href="cmd__processing__def_8h_source.html">cmd_processing_def.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga0989b7dfd8eea67732cc4e24e96d5576" name="ga0989b7dfd8eea67732cc4e24e96d5576"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0989b7dfd8eea67732cc4e24e96d5576">&#9670;&#160;</a></span>process_cmd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executes the corresponding commands are stores the result in the command register. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>pointer to the string with processed command </td></tr>
+    <tr><td class="paramname">cmd_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>It processes the first word of the command. It handles the HELLO and STATUS commands directly. For the remaining commands, it calls a dedicated function. </p>
+
+</div>
+</div>
+<a id="ga51b40b78fe8d6cefb1063c5c84662b5d" name="ga51b40b78fe8d6cefb1063c5c84662b5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga51b40b78fe8d6cefb1063c5c84662b5d">&#9670;&#160;</a></span>process_cmd_autoread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_autoread </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga6b5e720be354db6271ba1c470fe58c64" name="ga6b5e720be354db6271ba1c470fe58c64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6b5e720be354db6271ba1c470fe58c64">&#9670;&#160;</a></span>process_cmd_home()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_home </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga4da5f6f9222b8b8195b39072f95fed4d" name="ga4da5f6f9222b8b8195b39072f95fed4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4da5f6f9222b8b8195b39072f95fed4d">&#9670;&#160;</a></span>process_cmd_ncmd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_ncmd </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="gae61136d7f7fa401ed2a87247f78e7074" name="gae61136d7f7fa401ed2a87247f78e7074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae61136d7f7fa401ed2a87247f78e7074">&#9670;&#160;</a></span>process_cmd_pulse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_pulse </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga0d092364df6a6b69d649489c37d73984" name="ga0d092364df6a6b69d649489c37d73984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0d092364df6a6b69d649489c37d73984">&#9670;&#160;</a></span>process_cmd_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_read </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends sensors data based on the command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>pointer to the string with processed command</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Available arguments:<br  />
+</p><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Argument   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>ACC</b>   </td><td class="markdownTableBodyLeft">accelerometer    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>GYR</b>   </td><td class="markdownTableBodyLeft">gyroscope - angular velocity    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>POS</b>   </td><td class="markdownTableBodyLeft">gyroscope - orientation    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>ALL</b>   </td><td class="markdownTableBodyLeft">all available data   </td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaddc9020c4b196ba9fac53e415c878fae" name="gaddc9020c4b196ba9fac53e415c878fae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaddc9020c4b196ba9fac53e415c878fae">&#9670;&#160;</a></span>process_cmd_reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_reset </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga91fa3c2809b131f835477cc9556077b3" name="ga91fa3c2809b131f835477cc9556077b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga91fa3c2809b131f835477cc9556077b3">&#9670;&#160;</a></span>process_cmd_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_set </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="gaa6c02e4380a7705f1d37c7e393929d9e" name="gaa6c02e4380a7705f1d37c7e393929d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa6c02e4380a7705f1d37c7e393929d9e">&#9670;&#160;</a></span>process_cmd_set_angle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_set_angle </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="gad618c28bed067a94125bffd758bec243" name="gad618c28bed067a94125bffd758bec243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad618c28bed067a94125bffd758bec243">&#9670;&#160;</a></span>process_cmd_set_auto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_set_auto </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="gadee728b1b0c97be9721eb9d221ce8d9e" name="gadee728b1b0c97be9721eb9d221ce8d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadee728b1b0c97be9721eb9d221ce8d9e">&#9670;&#160;</a></span>process_cmd_set_home()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_set_home </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga644e1c381a2886b39457cdde7934371b" name="ga644e1c381a2886b39457cdde7934371b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga644e1c381a2886b39457cdde7934371b">&#9670;&#160;</a></span>process_cmd_set_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_set_read </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga6d4048e4758abc305e84ea2c3fd7e801" name="ga6d4048e4758abc305e84ea2c3fd7e801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6d4048e4758abc305e84ea2c3fd7e801">&#9670;&#160;</a></span>process_cmd_set_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_set_time </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga3a2091bdff2858552b1eb515d51d41b4" name="ga3a2091bdff2858552b1eb515d51d41b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3a2091bdff2858552b1eb515d51d41b4">&#9670;&#160;</a></span>process_cmd_turn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void process_cmd_turn </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Triggers a rotation by a defined angle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>pointer to the string with processed command </td></tr>
+    <tr><td class="paramname">cmd_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>It forwards the rotation request by writing it into the command register. It sets the RUN_BIT and TURN_BIT flag. Depending on the direction, it sets the DIR_BIT flag. It also updates the timing configuration in the command register, using the time value from the global variable.</p>
+<p>Available arguments:<br  />
+</p><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Argument   </th><th class="markdownTableHeadLeft">Description   </th><th class="markdownTableHeadLeft">DIR_BIT    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>LEFT</b>   </td><td class="markdownTableBodyLeft">rotation to the left   </td><td class="markdownTableBodyLeft">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>RIGHT</b>   </td><td class="markdownTableBodyLeft">rotation to the right   </td><td class="markdownTableBodyLeft">1   </td></tr>
+</table>
+
+</div>
+</div>
 <a id="ga9d5b4fe5519cc8efeae97b37f74a688e" name="ga9d5b4fe5519cc8efeae97b37f74a688e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga9d5b4fe5519cc8efeae97b37f74a688e">&#9670;&#160;</a></span>uart_byte_available()</h2>
 
@@ -331,6 +796,8 @@ Variables</h2></td></tr>
 <td class="markdownTableBodyLeft"><b>SET HOME</b>   </td><td class="markdownTableBodyLeft">&lt;angle&gt;   </td><td class="markdownTableBodyLeft">set default orientation   </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="cmd__processing_8c_source.html#l00028">28</a> of file <a class="el" href="cmd__processing_8c_source.html">cmd_processing.c</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -354,6 +821,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00058">58</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
 </div>
 </div>
 <a id="ga44bf19ed80e184a62dc75471fcf8dee6" name="ga44bf19ed80e184a62dc75471fcf8dee6"></a>
@@ -376,15 +845,15 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00059">59</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

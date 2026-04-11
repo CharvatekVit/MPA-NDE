@@ -11,8 +11,6 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -26,9 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Siphon Regulator
+   <div id="projectname">Siphon Regulator<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Nanosattelite attitude determination and control system.</div>
   </td>
  </tr>
  </tbody>
@@ -51,29 +51,17 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search',false);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('driver__mpu9250__code_8h_source.html',''); initResizable(true); });
+$(function(){ initResizable(false); });
 /* @license-end */
 </script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -95,6 +83,12 @@ $(function(){initNavTree('driver__mpu9250__code_8h_source.html',''); initResizab
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e8b33f2d80e1d695c0f7a2061d1007d6.html">Siphon_regulator</a></li><li class="navelem"><a class="el" href="dir_c0f69a84cccc30ca89b79a79ee99f6c6.html">Core</a></li><li class="navelem"><a class="el" href="dir_344e7bdc2d2ab73b175ad66a65ed9f4d.html">Inc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">driver_mpu9250_code.h</div></div>
 </div><!--header-->
@@ -112,7 +106,8 @@ $(function(){initNavTree('driver__mpu9250__code_8h_source.html',''); initResizab
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="group__mpu9250__dmp__driver.html#gaff8686495d6a0c4f773ed13375b00369">   56</a></span><span class="preprocessor">#define MPU9250_DMP_CODE_SIZE        3062        </span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">static</span> uint8_t gs_mpu9250_dmp_code[<a class="code hl_define" href="group__mpu9250__dmp__driver.html#gaff8686495d6a0c4f773ed13375b00369">MPU9250_DMP_CODE_SIZE</a>] = </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="group__mpu9250__dmp__driver.html#gae9fe8b206a69bdafb66a0875b0acfcb7">   61</a></span><span class="keyword">static</span> uint8_t <a class="code hl_variable" href="group__mpu9250__dmp__driver.html#gae9fe8b206a69bdafb66a0875b0acfcb7">gs_mpu9250_dmp_code</a>[<a class="code hl_define" href="group__mpu9250__dmp__driver.html#gaff8686495d6a0c4f773ed13375b00369">MPU9250_DMP_CODE_SIZE</a>] = </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>{</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment">/* bank # 0 */</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x00, 0x24, 0x00, 0x00, 0x00, 0x02, 0x00, 0x03, 0x00, 0x00,</div>
@@ -330,21 +325,20 @@ $(function(){initNavTree('driver__mpu9250__code_8h_source.html',''); initResizab
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    0xac, 0xde, 0x80, 0x92, 0xa2, 0xf2, 0x4c, 0x82, 0xa8, 0xf1, 0xca, 0xf2, 0x35, 0xf1, 0x96, 0x88,</div>
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    0xa6, 0xd9, 0x00, 0xd8, 0xf1, 0xff</div>
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>};</div>
+</div>
 <div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="preprocessor">#ifdef __cplusplus</span></div>
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>}</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="agroup__mpu9250__dmp__driver_html_gaff8686495d6a0c4f773ed13375b00369"><div class="ttname"><a href="group__mpu9250__dmp__driver.html#gaff8686495d6a0c4f773ed13375b00369">MPU9250_DMP_CODE_SIZE</a></div><div class="ttdeci">#define MPU9250_DMP_CODE_SIZE</div><div class="ttdoc">mpu9250 dmp code definition</div><div class="ttdef"><b>Definition</b> driver_mpu9250_code.h:56</div></div>
+<div class="ttc" id="agroup__mpu9250__dmp__driver_html_gae9fe8b206a69bdafb66a0875b0acfcb7"><div class="ttname"><a href="group__mpu9250__dmp__driver.html#gae9fe8b206a69bdafb66a0875b0acfcb7">gs_mpu9250_dmp_code</a></div><div class="ttdeci">static uint8_t gs_mpu9250_dmp_code[MPU9250_DMP_CODE_SIZE]</div><div class="ttdoc">mpu9250 dmp code definition</div><div class="ttdef"><b>Definition</b> <a href="#l00061">driver_mpu9250_code.h:61</a></div></div>
+<div class="ttc" id="agroup__mpu9250__dmp__driver_html_gaff8686495d6a0c4f773ed13375b00369"><div class="ttname"><a href="group__mpu9250__dmp__driver.html#gaff8686495d6a0c4f773ed13375b00369">MPU9250_DMP_CODE_SIZE</a></div><div class="ttdeci">#define MPU9250_DMP_CODE_SIZE</div><div class="ttdoc">mpu9250 dmp code definition</div><div class="ttdef"><b>Definition</b> <a href="#l00056">driver_mpu9250_code.h:56</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_e8b33f2d80e1d695c0f7a2061d1007d6.html">Siphon_regulator</a></li><li class="navelem"><a class="el" href="dir_c0f69a84cccc30ca89b79a79ee99f6c6.html">Core</a></li><li class="navelem"><a class="el" href="dir_344e7bdc2d2ab73b175ad66a65ed9f4d.html">Inc</a></li><li class="navelem"><a class="el" href="driver__mpu9250__code_8h.html">driver_mpu9250_code.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

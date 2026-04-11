@@ -11,8 +11,6 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -26,9 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Siphon Regulator
+   <div id="projectname">Siphon Regulator<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Nanosattelite attitude determination and control system.</div>
   </td>
  </tr>
  </tbody>
@@ -51,29 +51,17 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search',false);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('main_8h_source.html',''); initResizable(true); });
+$(function(){ initResizable(false); });
 /* @license-end */
 </script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -95,6 +83,12 @@ $(function(){initNavTree('main_8h_source.html',''); initResizable(true); });
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e8b33f2d80e1d695c0f7a2061d1007d6.html">Siphon_regulator</a></li><li class="navelem"><a class="el" href="dir_c0f69a84cccc30ca89b79a79ee99f6c6.html">Core</a></li><li class="navelem"><a class="el" href="dir_344e7bdc2d2ab73b175ad66a65ed9f4d.html">Inc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">main.h</div></div>
 </div><!--header-->
@@ -164,7 +158,7 @@ $(function(){initNavTree('main_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">/* USER CODE END EM */</span></div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">/* Exported functions prototypes ---------------------------------------------*/</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="main_8h.html#a1730ffe1e560465665eb47d9264826f9">   79</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="main_8h.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keywordtype">void</span> <a class="code hl_function" href="main_8h.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">/* USER CODE BEGIN EFP */</span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
@@ -219,22 +213,19 @@ $(function(){initNavTree('main_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#endif </span><span class="comment">/* __MAIN_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="amain_8h_html_a1730ffe1e560465665eb47d9264826f9"><div class="ttname"><a href="main_8h.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a></div><div class="ttdeci">void Error_Handler(void)</div></div>
-<div class="ttc" id="astructsensor__data__t_html"><div class="ttname"><a href="structsensor__data__t.html">sensor_data_t</a></div><div class="ttdef"><b>Definition</b> main.h:39</div></div>
-<div class="ttc" id="astructsettings__t_html"><div class="ttname"><a href="structsettings__t.html">settings_t</a></div><div class="ttdef"><b>Definition</b> main.h:46</div></div>
-<div class="ttc" id="astructsettings__t_html_a00175cae0c30dddff96fc9d00b7b576c"><div class="ttname"><a href="structsettings__t.html#a00175cae0c30dddff96fc9d00b7b576c">settings_t::time_r</a></div><div class="ttdeci">uint8_t time_r</div><div class="ttdef"><b>Definition</b> main.h:48</div></div>
-<div class="ttc" id="astructsettings__t_html_a76f155f57a7d8504459c4438bdcfdceb"><div class="ttname"><a href="structsettings__t.html#a76f155f57a7d8504459c4438bdcfdceb">settings_t::angle</a></div><div class="ttdeci">uint8_t angle</div><div class="ttdef"><b>Definition</b> main.h:47</div></div>
-<div class="ttc" id="astructsettings__t_html_aa73ff59a60ab7d1c69a4b7e8ccdda858"><div class="ttname"><a href="structsettings__t.html#aa73ff59a60ab7d1c69a4b7e8ccdda858">settings_t::home</a></div><div class="ttdeci">int16_t home</div><div class="ttdef"><b>Definition</b> main.h:51</div></div>
-<div class="ttc" id="astructsettings__t_html_ade6b7012559552fc17931f43969a8b1c"><div class="ttname"><a href="structsettings__t.html#ade6b7012559552fc17931f43969a8b1c">settings_t::time_l</a></div><div class="ttdeci">uint8_t time_l</div><div class="ttdef"><b>Definition</b> main.h:49</div></div>
-<div class="ttc" id="astructsettings__t_html_ae7fb725515dcd3f904cbebf1df0e19c1"><div class="ttname"><a href="structsettings__t.html#ae7fb725515dcd3f904cbebf1df0e19c1">settings_t::time_a</a></div><div class="ttdeci">uint8_t time_a</div><div class="ttdef"><b>Definition</b> main.h:50</div></div>
+<div class="ttc" id="amain_8h_html_a1730ffe1e560465665eb47d9264826f9"><div class="ttname"><a href="main_8h.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a></div><div class="ttdeci">void Error_Handler(void)</div><div class="ttdoc">This function is executed in case of error occurrence.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00368">main.c:368</a></div></div>
+<div class="ttc" id="astructsensor__data__t_html"><div class="ttname"><a href="structsensor__data__t.html">sensor_data_t</a></div><div class="ttdef"><b>Definition</b> <a href="#l00039">main.h:39</a></div></div>
+<div class="ttc" id="astructsettings__t_html"><div class="ttname"><a href="structsettings__t.html">settings_t</a></div><div class="ttdef"><b>Definition</b> <a href="#l00046">main.h:46</a></div></div>
+<div class="ttc" id="astructsettings__t_html_a00175cae0c30dddff96fc9d00b7b576c"><div class="ttname"><a href="structsettings__t.html#a00175cae0c30dddff96fc9d00b7b576c">settings_t::time_r</a></div><div class="ttdeci">uint8_t time_r</div><div class="ttdef"><b>Definition</b> <a href="#l00048">main.h:48</a></div></div>
+<div class="ttc" id="astructsettings__t_html_a76f155f57a7d8504459c4438bdcfdceb"><div class="ttname"><a href="structsettings__t.html#a76f155f57a7d8504459c4438bdcfdceb">settings_t::angle</a></div><div class="ttdeci">uint8_t angle</div><div class="ttdef"><b>Definition</b> <a href="#l00047">main.h:47</a></div></div>
+<div class="ttc" id="astructsettings__t_html_aa73ff59a60ab7d1c69a4b7e8ccdda858"><div class="ttname"><a href="structsettings__t.html#aa73ff59a60ab7d1c69a4b7e8ccdda858">settings_t::home</a></div><div class="ttdeci">int16_t home</div><div class="ttdef"><b>Definition</b> <a href="#l00051">main.h:51</a></div></div>
+<div class="ttc" id="astructsettings__t_html_ade6b7012559552fc17931f43969a8b1c"><div class="ttname"><a href="structsettings__t.html#ade6b7012559552fc17931f43969a8b1c">settings_t::time_l</a></div><div class="ttdeci">uint8_t time_l</div><div class="ttdef"><b>Definition</b> <a href="#l00049">main.h:49</a></div></div>
+<div class="ttc" id="astructsettings__t_html_ae7fb725515dcd3f904cbebf1df0e19c1"><div class="ttname"><a href="structsettings__t.html#ae7fb725515dcd3f904cbebf1df0e19c1">settings_t::time_a</a></div><div class="ttdeci">uint8_t time_a</div><div class="ttdef"><b>Definition</b> <a href="#l00050">main.h:50</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_e8b33f2d80e1d695c0f7a2061d1007d6.html">Siphon_regulator</a></li><li class="navelem"><a class="el" href="dir_c0f69a84cccc30ca89b79a79ee99f6c6.html">Core</a></li><li class="navelem"><a class="el" href="dir_344e7bdc2d2ab73b175ad66a65ed9f4d.html">Inc</a></li><li class="navelem"><a class="el" href="main_8h.html">main.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

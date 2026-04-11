@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hardfault_5fhandler_0',['HardFault_Handler',['../stm32f1xx__it_8h.html#a2bffc10d5bd4106753b7c30e86903bea',1,'stm32f1xx_it.h']]]
+  ['error_5fhandler_0',['Error_Handler',['../main_8h.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c'],['../main_8c.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c']]]
 ];

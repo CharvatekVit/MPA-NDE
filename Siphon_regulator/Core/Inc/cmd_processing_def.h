@@ -62,12 +62,80 @@
  */
 static void process_cmd(char * cmd, uint32_t * p_reg);
 
+/**
+ * @brief  Sends sensors data based on the command.
+ * @param  cmd       pointer to the string with processed command
+ *
+ * Available arguments:\n
+ * | Argument    | Description 					  		 |
+ * | :---        |:---        					  		 |
+ * |**ACC**      | accelerometer			 		     |
+ * |**GYR**      | gyroscope - angular velocity 	     |
+ * |**POS**      | gyroscope - orientation 		  		 |
+ * |**ALL**      | all available data    		  		 |
+ */
 static void process_cmd_read(char * cmd);
 
+/**
+ * @brief  Triggers a rotation by a defined angle.
+ * @param  cmd       pointer to the string with processed command
+ * @param  cmd_reg   command register, involves
+ * 			         information about system state and
+ * 			         switching time of valves
+ *
+ * It forwards the rotation request by writing it into the command
+ * register. It sets the RUN_BIT and TURN_BIT flag. Depending
+ * on the direction, it sets the DIR_BIT flag. It also updates
+ * the timing configuration in the command register, using
+ * the time value from the global variable settings.
+ *
+ * Available arguments:\n
+ * | Argument    | Description 				     |   DIR_BIT |
+ * | :---        |:---        				     | :---      |
+ * |**LEFT**     | rotation to the left       	 | 0         |
+ * |**RIGHT**    | rotation to the right   		 | 1         |
+ */
 static void process_cmd_turn(char * cmd, uint32_t * p_reg);
 
+/**
+ * @brief  Triggers a pulse with a defined duration.
+ * @param  cmd_reg   command register, involves
+ * 			         information about system state and
+ * 			         switching time of valves
+ *
+ * It forwards the pulse request by writing it into the command
+ * register. It sets the RUN_BIT and PULSE_BIT flag. Depending
+ * on the direction, it sets the DIR_BIT flag. It also updates
+ * the timing configuration in the command register, using
+ * the time value from the global variable settings.
+ */
 static void process_cmd_home(uint32_t * p_reg);
 
+/**
+ * @brief  Triggers a pulse with a defined duration.
+ * @param  cmd       pointer to the string with processed command
+ * @param  cmd_reg   command register, involves
+ * 			         information about system state and
+ * 			         switching time of valves
+ * @warning It does not work together with the regulation system.
+ * 		    Intended for testing only. The regulation must be disabledg
+ * 		    (CMD 0).
+ *
+ * It forwards the pulse request by writing it into the command
+ * register. It sets the RUN_BIT and PULSE_BIT flag. Depending
+ * on the direction, it sets the DIR_BIT flag. It also updates
+ * the timing configuration in the command register.
+ *
+ * The pulse duration can be specified by the user using the <time>
+ * argument. The time is given in milliseconds. If it is not specified,
+ * the value from the global variable *settings* is used.
+ *
+ * Available arguments:\n
+ * | Argument    | Description 				     |   DIR_BIT |
+ * | :---        |:---        				     | :---      |
+ * |**LEFT**     | rotation to the left       	 | 0         |
+ * |**RIGHT**    | rotation to the right   		 | 1         |
+ */
 static void process_cmd_pulse(char * cmd, uint32_t * p_reg);
 
 static void process_cmd_set(char * cmd, uint32_t * p_reg);
@@ -88,4 +156,5 @@ static void process_cmd_set_angle(char * cmd);
 
 static void process_cmd_set_home(char * cmd);
 
+/** @} */
 #endif /* INC_CMD_PROCESSING_DEF_H_ */

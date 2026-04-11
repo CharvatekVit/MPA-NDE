@@ -11,8 +11,6 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -26,9 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Siphon Regulator
+   <div id="projectname">Siphon Regulator<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Nanosattelite attitude determination and control system.</div>
   </td>
  </tr>
  </tbody>
@@ -51,29 +51,19 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search',false);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
+<div id="doc-content">
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('group__mpu9250__basic__driver.html',''); initResizable(true); });
+$(function(){ initResizable(false); });
 /* @license-end */
 </script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -951,6 +941,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00154">154</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="ga30a08d6d164e1ec9ecbf6c674d0162ce" name="ga30a08d6d164e1ec9ecbf6c674d0162ce"></a>
@@ -977,6 +969,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00210">210</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="ga51224d8bd81cd18f40f52a6b0d44bc85" name="ga51224d8bd81cd18f40f52a6b0d44bc85"></a>
@@ -998,6 +992,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="gga51224d8bd81cd18f40f52a6b0d44bc85a71b15c3a62426d84a1a80f602a830856" name="gga51224d8bd81cd18f40f52a6b0d44bc85a71b15c3a62426d84a1a80f602a830856"></a>MPU9250_ADDRESS_AD0_HIGH&#160;</td><td class="fielddoc"><p>AD0 pin set HIGH </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00071">71</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1023,6 +1019,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00189">189</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="ga80d5162f5e92390d0310dbfd8c2b1fd4" name="ga80d5162f5e92390d0310dbfd8c2b1fd4"></a>
@@ -1044,6 +1042,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="gga80d5162f5e92390d0310dbfd8c2b1fd4a3a5a8f91560f481e8745533d2e2d3e75" name="gga80d5162f5e92390d0310dbfd8c2b1fd4a3a5a8f91560f481e8745533d2e2d3e75"></a>MPU9250_BOOL_TRUE&#160;</td><td class="fielddoc"><p>enable function </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00080">80</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1068,6 +1068,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="ggafb535417000a253cc28596e3d39a2b23aaf55782d8af8f30e1be8a2c8c26eafdc" name="ggafb535417000a253cc28596e3d39a2b23aaf55782d8af8f30e1be8a2c8c26eafdc"></a>MPU9250_CLOCK_SOURCE_STOP_CLOCK&#160;</td><td class="fielddoc"><p>stop the clock </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00102">102</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1103,6 +1105,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00122">122</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="gab13778e0d9f00d67ab417f8c8c59a857" name="gab13778e0d9f00d67ab417f8c8c59a857"></a>
@@ -1124,6 +1128,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="ggab13778e0d9f00d67ab417f8c8c59a857abed87fe1c99bba45da2e41bbfd6719a7" name="ggab13778e0d9f00d67ab417f8c8c59a857abed87fe1c99bba45da2e41bbfd6719a7"></a>MPU9250_FIFO_MODE_NORMAL&#160;</td><td class="fielddoc"><p>when the fifo is full, additional writes will not be written to fifo </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00233">233</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1153,6 +1159,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00221">221</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="ga516f3106aa12afe168e549885c6023bd" name="ga516f3106aa12afe168e549885c6023bd"></a>
@@ -1179,6 +1187,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00199">199</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="gac822022882fe75c6a1b95d00696eb0be" name="gac822022882fe75c6a1b95d00696eb0be"></a>
@@ -1200,6 +1210,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="ggac822022882fe75c6a1b95d00696eb0beadc9c6946c25de85158529c2546362bec" name="ggac822022882fe75c6a1b95d00696eb0beadc9c6946c25de85158529c2546362bec"></a>MPU9250_IIC4_TRANSACTION_MODE_REG&#160;</td><td class="fielddoc"><p>register only </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00335">335</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1251,6 +1263,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00285">285</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="ga44cdbfcbc22e1219efc3033084eb4090" name="ga44cdbfcbc22e1219efc3033084eb4090"></a>
@@ -1281,6 +1295,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00370">370</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="gacd45d6732fca81b5de83b6d39a946e54" name="gacd45d6732fca81b5de83b6d39a946e54"></a>
@@ -1302,6 +1318,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="ggacd45d6732fca81b5de83b6d39a946e54affb2b2e4d9d4f553a37424498ea6f65a" name="ggacd45d6732fca81b5de83b6d39a946e54affb2b2e4d9d4f553a37424498ea6f65a"></a>MPU9250_IIC_GROUP_ORDER_ODD&#160;</td><td class="fielddoc"><p>when set to 1, bytes from register addresses are paired 1 and 2, 3 and 4, etc (odd, then even register addresses) are paired to form a word </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00344">344</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1325,6 +1343,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00317">317</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="gac1d7f29a8abb96f7503f72f12be984ca" name="gac1d7f29a8abb96f7503f72f12be984ca"></a>
@@ -1346,6 +1366,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="ggac1d7f29a8abb96f7503f72f12be984caa4966efe2b9438cbb438ae31b1726aecc" name="ggac1d7f29a8abb96f7503f72f12be984caa4966efe2b9438cbb438ae31b1726aecc"></a>MPU9250_IIC_READ_MODE_STOP_AND_START&#160;</td><td class="fielddoc"><p>stop and start </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00308">308</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1374,6 +1396,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="gga6e47b88b6fdf8ed5af0c2942fc19a4c7abc2233951b0bc23ac42791c2ee662a22" name="gga6e47b88b6fdf8ed5af0c2942fc19a4c7abc2233951b0bc23ac42791c2ee662a22"></a>MPU9250_IIC_SLAVE_4&#160;</td><td class="fielddoc"><p>slave4 </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00273">273</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1409,6 +1433,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00355">355</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="ga6e162ff6e92bcfa91d7e08e937093c7c" name="ga6e162ff6e92bcfa91d7e08e937093c7c"></a>
@@ -1431,6 +1457,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00326">326</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="ga7d9cf66109326149ba40c8bee86e12c6" name="ga7d9cf66109326149ba40c8bee86e12c6"></a>
@@ -1452,6 +1480,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="gga7d9cf66109326149ba40c8bee86e12c6a4caf275cf35615c231ec06f9bafd87af" name="gga7d9cf66109326149ba40c8bee86e12c6a4caf275cf35615c231ec06f9bafd87af"></a>MPU9250_INTERFACE_SPI&#160;</td><td class="fielddoc"><p>spi interface function </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00062">62</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1480,6 +1510,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="gga759b7cd8b95661bfc10bb71f5ebb10e2a56a52905e782fac90618ac0bd137de8c" name="gga759b7cd8b95661bfc10bb71f5ebb10e2a56a52905e782fac90618ac0bd137de8c"></a>MPU9250_INTERRUPT_DATA_READY&#160;</td><td class="fielddoc"><p>data ready </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00261">261</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1526,6 +1558,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00137">137</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="gab646732c9be086324d83bd7274038c4a" name="gab646732c9be086324d83bd7274038c4a"></a>
@@ -1568,6 +1602,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00170">170</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="gaf7bc0d4e62e153592add7834d2e015b5" name="gaf7bc0d4e62e153592add7834d2e015b5"></a>
@@ -1590,6 +1626,8 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00243">243</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
+
 </div>
 </div>
 <a id="ga3ce5cd6961f3ebda61bef61dc30b34d2" name="ga3ce5cd6961f3ebda61bef61dc30b34d2"></a>
@@ -1611,6 +1649,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="gga3ce5cd6961f3ebda61bef61dc30b34d2aa7ed7202cdceff75b3f4b91668fc0a87" name="gga3ce5cd6961f3ebda61bef61dc30b34d2aa7ed7202cdceff75b3f4b91668fc0a87"></a>MPU9250_PIN_TYPE_OPEN_DRAIN&#160;</td><td class="fielddoc"><p>open drain </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00252">252</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1635,6 +1675,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="gga3da9d2d2ef0d1df3a3db68a8f34df8d1ad0771d021b94f45feca26fb732680026" name="gga3da9d2d2ef0d1df3a3db68a8f34df8d1ad0771d021b94f45feca26fb732680026"></a>MPU9250_SIGNAL_PATH_RESET_GYRO&#160;</td><td class="fielddoc"><p>gyroscope analog and digital signal paths </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00112">112</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1665,6 +1707,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="gga7b211bf948250fd521f5bac73a542636adbf686e57542b017ae156ea7263b6003" name="gga7b211bf948250fd521f5bac73a542636adbf686e57542b017ae156ea7263b6003"></a>MPU9250_SOURCE_GYRO_Z&#160;</td><td class="fielddoc"><p>gyroscope z </p>
 </td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8h_source.html#l00089">89</a> of file <a class="el" href="driver__mpu9250_8h_source.html">driver_mpu9250.h</a>.</p>
 
 </div>
 </div>
@@ -1710,6 +1754,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09662">9662</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga4e91903b63a4188d45c5e9f44feee0d1" name="ga4e91903b63a4188d45c5e9f44feee0d1"></a>
@@ -1753,6 +1799,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09635">9635</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga91cfe80c70e7e102d6e5a1def3a2ee6e" name="ga91cfe80c70e7e102d6e5a1def3a2ee6e"></a>
@@ -1787,6 +1835,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l04167">4167</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga9e4c357b54fec30d939e0065e7ae1716" name="ga9e4c357b54fec30d939e0065e7ae1716"></a>
@@ -1819,6 +1869,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06284">6284</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -1864,6 +1916,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06898">6898</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga4c9fe97544cbd8679d707ff0ec3be121" name="ga4c9fe97544cbd8679d707ff0ec3be121"></a>
@@ -1896,6 +1950,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06041">6041</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -1941,6 +1997,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06934">6934</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gafd62e34956311f516d188c10c24d7ee9" name="gafd62e34956311f516d188c10c24d7ee9"></a>
@@ -1973,6 +2031,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05843">5843</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2011,6 +2071,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08176">8176</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2051,6 +2113,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07848">7848</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga1d24b0ec077012f267d26223f86057b1" name="ga1d24b0ec077012f267d26223f86057b1"></a>
@@ -2089,6 +2153,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07930">7930</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga440889575585cd3d68d11824592c5449" name="ga440889575585cd3d68d11824592c5449"></a>
@@ -2126,6 +2192,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07714">7714</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2171,6 +2239,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07632">7632</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gad2b2810474c40cbb3cf312c6e7ca5031" name="gad2b2810474c40cbb3cf312c6e7ca5031"></a>
@@ -2208,6 +2278,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09448">9448</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2247,6 +2319,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09235">9235</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga9450aad07f85a5bd33402437e14a683c" name="ga9450aad07f85a5bd33402437e14a683c"></a>
@@ -2284,6 +2358,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09523">9523</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2323,6 +2399,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09305">9305</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga33c2e978bd46b3eee1a4778183032fcd" name="ga33c2e978bd46b3eee1a4778183032fcd"></a>
@@ -2360,6 +2438,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09598">9598</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2399,6 +2479,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09375">9375</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga01849361aadc45c4d3864ce0f96f1a77" name="ga01849361aadc45c4d3864ce0f96f1a77"></a>
@@ -2434,6 +2516,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l03984">3984</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2473,6 +2557,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06411">6411</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gaa1837a8c2fe08bb60c3598795f07a6fe" name="gaa1837a8c2fe08bb60c3598795f07a6fe"></a>
@@ -2510,6 +2596,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06575">6575</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2549,6 +2637,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06329">6329</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gaa744793c29eac7ef35fdb64f68298312" name="gaa744793c29eac7ef35fdb64f68298312"></a>
@@ -2586,6 +2676,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06005">6005</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2625,6 +2717,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07129">7129</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gad4fa781e24c9b219c45e4f7800a46b5b" name="gad4fa781e24c9b219c45e4f7800a46b5b"></a>
@@ -2663,6 +2757,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05807">5807</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga353641c23c70be8b6598617ea7d3365c" name="ga353641c23c70be8b6598617ea7d3365c"></a>
@@ -2700,6 +2796,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06860">6860</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2745,6 +2843,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08260">8260</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga1ca594c177c1142fe45a6ed808c81897" name="ga1ca594c177c1142fe45a6ed808c81897"></a>
@@ -2782,6 +2882,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07293">7293</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2821,6 +2923,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06086">6086</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga7659d118c29f5fd72f6c82e97ffb5b41" name="ga7659d118c29f5fd72f6c82e97ffb5b41"></a>
@@ -2858,6 +2962,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08752">8752</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2897,6 +3003,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08670">8670</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga7250e10db6f4260562bc27ad35f26e09" name="ga7250e10db6f4260562bc27ad35f26e09"></a>
@@ -2934,6 +3042,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06739">6739</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -2973,6 +3083,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09727">9727</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga303af1a635cf07b86193c5654b6813d9" name="ga303af1a635cf07b86193c5654b6813d9"></a>
@@ -3010,6 +3122,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09802">9802</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -3049,6 +3163,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09877">9877</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gadbadf1b8e26556253c782a9f236d32bb" name="gadbadf1b8e26556253c782a9f236d32bb"></a>
@@ -3087,6 +3203,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07548">7548</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga982cb66da5f7efcd9be5c5e040a00c90" name="ga982cb66da5f7efcd9be5c5e040a00c90"></a>
@@ -3124,6 +3242,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07459">7459</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -3169,6 +3289,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07377">7377</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga75bab91f2fa96aee69eb89da561f227a" name="ga75bab91f2fa96aee69eb89da561f227a"></a>
@@ -3206,6 +3328,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09025">9025</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -3245,6 +3369,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09095">9095</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga85d23ba6808a6461124feb790c93ecd8" name="ga85d23ba6808a6461124feb790c93ecd8"></a>
@@ -3282,6 +3408,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09165">9165</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -3321,6 +3449,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12953">12953</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga69180ec27b84ec15334ec09e10a42e69" name="ga69180ec27b84ec15334ec09e10a42e69"></a>
@@ -3358,6 +3488,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12883">12883</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -3397,6 +3529,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12558">12558</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga3ad4d01611d559977c49259906021710" name="ga3ad4d01611d559977c49259906021710"></a>
@@ -3435,6 +3569,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12640">12640</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga54d626671ab92f0bfbd6046d3c99ea12" name="ga54d626671ab92f0bfbd6046d3c99ea12"></a>
@@ -3472,6 +3608,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12722">12722</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -3518,6 +3656,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l11003">11003</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga225dbe6056c9b18e084eed323528c455" name="ga225dbe6056c9b18e084eed323528c455"></a>
@@ -3555,6 +3695,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08834">8834</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -3601,6 +3743,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l11726">11726</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gae5aa4415aa04b36a87c06cb1826c28eb" name="gae5aa4415aa04b36a87c06cb1826c28eb"></a>
@@ -3638,6 +3782,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10222">10222</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -3684,6 +3830,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l11343">11343</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gac7007f0d12f52c17e282a5ae60960190" name="gac7007f0d12f52c17e282a5ae60960190"></a>
@@ -3721,6 +3869,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12811">12811</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -3765,6 +3915,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12476">12476</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -3811,6 +3963,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l11532">11532</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gab927519b32a52e4d54e3bbeeba73a48f" name="gab927519b32a52e4d54e3bbeeba73a48f"></a>
@@ -3855,6 +4009,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10585">10585</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -3901,6 +4057,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12114">12114</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga18fbd0488c683f0ac8ca266a8625aa15" name="ga18fbd0488c683f0ac8ca266a8625aa15"></a>
@@ -3939,6 +4097,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05923">5923</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga38b2ddc0b7f9976463babf1b253d004d" name="ga38b2ddc0b7f9976463babf1b253d004d"></a>
@@ -3976,6 +4136,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06167">6167</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -4022,6 +4184,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10779">10779</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga44aa6919b9e292eab0fffd91f41e585b" name="ga44aa6919b9e292eab0fffd91f41e585b"></a>
@@ -4060,6 +4224,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10304">10304</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga124c3ce6fadcdf59f17d77eeff33b732" name="ga124c3ce6fadcdf59f17d77eeff33b732"></a>
@@ -4097,6 +4263,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10468">10468</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -4143,6 +4311,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l11181">11181</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gab840ffd84c9115087ca2cef0382e6f65" name="gab840ffd84c9115087ca2cef0382e6f65"></a>
@@ -4180,6 +4350,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12394">12394</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -4226,6 +4398,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l11920">11920</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gaaca15893d54f42b01d52d6764ca6bb40" name="gaaca15893d54f42b01d52d6764ca6bb40"></a>
@@ -4271,6 +4445,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12315">12315</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gae2b4f7e42019b82e4f2eb4fa0c40a76a" name="gae2b4f7e42019b82e4f2eb4fa0c40a76a"></a>
@@ -4309,6 +4485,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10386">10386</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga6d1db8c9e247280524e95238a06f5453" name="ga6d1db8c9e247280524e95238a06f5453"></a>
@@ -4344,6 +4522,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l03942">3942</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -4389,6 +4569,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08918">8918</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gada20719d9260323af69b79de6f2ac16f" name="gada20719d9260323af69b79de6f2ac16f"></a>
@@ -4426,6 +4608,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08506">8506</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -4465,6 +4649,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08342">8342</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga06ca0d84fe16909e05b05c0e3eecc9b3" name="ga06ca0d84fe16909e05b05c0e3eecc9b3"></a>
@@ -4502,6 +4688,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08424">8424</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -4541,6 +4729,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08588">8588</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga8e8f8922b178e0e61a44d348113f087b" name="ga8e8f8922b178e0e61a44d348113f087b"></a>
@@ -4578,6 +4768,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08955">8955</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -4617,6 +4809,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07211">7211</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gaf3b173621d0b4dc0383be1e8c94639c0" name="gaf3b173621d0b4dc0383be1e8c94639c0"></a>
@@ -4654,6 +4848,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08012">8012</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -4693,6 +4889,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10003">10003</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga44166bd31e99b2795a0e32494b698917" name="ga44166bd31e99b2795a0e32494b698917"></a>
@@ -4730,6 +4928,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06493">6493</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -4769,6 +4969,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07049">7049</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga4ffd6a95ce5a31356a92a80a630cf08f" name="ga4ffd6a95ce5a31356a92a80a630cf08f"></a>
@@ -4807,6 +5009,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06248">6248</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga3df940a87f9b282c407653228e35747d" name="ga3df940a87f9b282c407653228e35747d"></a>
@@ -4844,6 +5048,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06657">6657</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -4889,6 +5095,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06823">6823</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga2a34e5629339a837e3fc05245d2ab7a5" name="ga2a34e5629339a837e3fc05245d2ab7a5"></a>
@@ -4926,6 +5134,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08094">8094</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -4970,6 +5180,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09941">9941</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gae083639cb7275cf89ad61767a4c6a8fb" name="gae083639cb7275cf89ad61767a4c6a8fb"></a>
@@ -5013,6 +5225,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09914">9914</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gad01b7d94654db9393826db78f73aa49c" name="gad01b7d94654db9393826db78f73aa49c"></a>
@@ -5046,6 +5260,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06122">6122</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga6233966b9f1212bc3d922d5579ed5cc4" name="ga6233966b9f1212bc3d922d5579ed5cc4"></a>
@@ -5076,6 +5292,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l13082">13082</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -5112,6 +5330,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l04008">4008</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga70f0287789306f5eb8218c8d8d2f310f" name="ga70f0287789306f5eb8218c8d8d2f310f"></a>
@@ -5144,6 +5364,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l04667">4667</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -5188,6 +5410,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10065">10065</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga9ab3e582e544dc7473be5eb3be98785d" name="ga9ab3e582e544dc7473be5eb3be98785d"></a>
@@ -5230,6 +5454,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10038">10038</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -5308,6 +5534,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>spi can't read mag data </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l04222">4222</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gab8821775031af3c3465976b285cfb4d0" name="gab8821775031af3c3465976b285cfb4d0"></a>
@@ -5353,6 +5581,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12990">12990</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga93342fa220992d59d6137a560d8e46e3" name="ga93342fa220992d59d6137a560d8e46e3"></a>
@@ -5396,6 +5626,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l04630">4630</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -5441,6 +5673,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10093">10093</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga79c7aeafb90112b20c1ae38fb0202783" name="ga79c7aeafb90112b20c1ae38fb0202783"></a>
@@ -5473,6 +5707,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06203">6203</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -5511,6 +5747,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08131">8131</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -5551,6 +5789,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07796">7796</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga070e0be03ff82b63a621b28d7cfb9ef6" name="ga070e0be03ff82b63a621b28d7cfb9ef6"></a>
@@ -5589,6 +5829,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07885">7885</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gadf326e1597e13e17ac02289be4772797" name="gadf326e1597e13e17ac02289be4772797"></a>
@@ -5626,6 +5868,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07669">7669</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -5671,6 +5915,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07586">7586</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gabf302adc61ad62407b9b02116eef0f8b" name="gabf302adc61ad62407b9b02116eef0f8b"></a>
@@ -5708,6 +5954,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09410">9410</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -5747,6 +5995,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09200">9200</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga5a2f8346cef457fd62dcddb3ef0354b1" name="ga5a2f8346cef457fd62dcddb3ef0354b1"></a>
@@ -5784,6 +6034,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09485">9485</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -5823,6 +6075,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09270">9270</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga14d2287cde1486304ca8ec7e21710403" name="ga14d2287cde1486304ca8ec7e21710403"></a>
@@ -5860,6 +6114,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09560">9560</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -5899,6 +6155,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09340">9340</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga14d223233cac73c46302833bfc4b0fe3" name="ga14d223233cac73c46302833bfc4b0fe3"></a>
@@ -5934,6 +6192,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l03963">3963</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -5973,6 +6233,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06366">6366</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga26f412894624bb62d43eb0b4e0787cf1" name="ga26f412894624bb62d43eb0b4e0787cf1"></a>
@@ -6010,6 +6272,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06530">6530</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6049,6 +6313,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05960">5960</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga39452e3f106a9e536563684cde3a9653" name="ga39452e3f106a9e536563684cde3a9653"></a>
@@ -6086,6 +6352,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07084">7084</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6125,6 +6393,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05762">5762</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga97d5c00f1de8cfdc1a13abf5c502fd36" name="ga97d5c00f1de8cfdc1a13abf5c502fd36"></a>
@@ -6157,6 +6427,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07750">7750</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6202,6 +6474,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08214">8214</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga118157bbb7d19b2873fc8aa208f72433" name="ga118157bbb7d19b2873fc8aa208f72433"></a>
@@ -6239,6 +6513,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07248">7248</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6278,6 +6554,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08707">8707</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga8a369f25689d107c3307e2f197c4aa84" name="ga8a369f25689d107c3307e2f197c4aa84"></a>
@@ -6315,6 +6593,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08625">8625</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6354,6 +6634,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06694">6694</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gab9cdce42462298408dfb14f7c1946dbe" name="gab9cdce42462298408dfb14f7c1946dbe"></a>
@@ -6391,6 +6673,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09689">9689</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6430,6 +6714,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09764">9764</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gad3d1d1fd5df6b843e8a254724e0917ab" name="gad3d1d1fd5df6b843e8a254724e0917ab"></a>
@@ -6467,6 +6753,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09839">9839</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6507,6 +6795,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07497">7497</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gacd41a8826a124f4a1bddfe6c346a85cd" name="gacd41a8826a124f4a1bddfe6c346a85cd"></a>
@@ -6544,6 +6834,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07414">7414</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6589,6 +6881,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07331">7331</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga657c5c011eb9cd2d8562fee2587c6585" name="ga657c5c011eb9cd2d8562fee2587c6585"></a>
@@ -6626,6 +6920,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08990">8990</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6665,6 +6961,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09060">9060</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gadd593beb8a15f9c01a8e9a2f09ede825" name="gadd593beb8a15f9c01a8e9a2f09ede825"></a>
@@ -6702,6 +7000,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09130">9130</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6741,6 +7041,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12918">12918</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga5193583e0b9f7aaed365f41bf0d47727" name="ga5193583e0b9f7aaed365f41bf0d47727"></a>
@@ -6778,6 +7080,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12848">12848</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6817,6 +7121,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12513">12513</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gacccce2eca015991a8a20a4fb21bc2a5f" name="gacccce2eca015991a8a20a4fb21bc2a5f"></a>
@@ -6855,6 +7161,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12595">12595</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gad8cc0d6e7f1f047bf08cdc2360636dd5" name="gad8cc0d6e7f1f047bf08cdc2360636dd5"></a>
@@ -6892,6 +7200,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12677">12677</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -6938,6 +7248,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10871">10871</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga5b348d7e792fa1dd2ce9af2bc377c8d6" name="ga5b348d7e792fa1dd2ce9af2bc377c8d6"></a>
@@ -6975,6 +7287,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08789">8789</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7021,6 +7335,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l11613">11613</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gaa627df394c3ea9393622f5b501ad0c92" name="gaa627df394c3ea9393622f5b501ad0c92"></a>
@@ -7058,6 +7374,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10177">10177</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7104,6 +7422,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l11267">11267</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gac84ed856476bdbb24e162abd16753e3c" name="gac84ed856476bdbb24e162abd16753e3c"></a>
@@ -7142,6 +7462,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12760">12760</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7186,6 +7508,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12430">12430</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7232,6 +7556,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l11419">11419</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga8ef43bd291cdcc7930bc58a13952c534" name="ga8ef43bd291cdcc7930bc58a13952c534"></a>
@@ -7276,6 +7602,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10507">10507</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7322,6 +7650,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12001">12001</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gaddc9799db34bfb9ee0a8a12c05f4bae9" name="gaddc9799db34bfb9ee0a8a12c05f4bae9"></a>
@@ -7359,6 +7689,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l05878">5878</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7405,6 +7737,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10647">10647</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga3ddd883fd6c88db4c85c0424cebe2b1f" name="ga3ddd883fd6c88db4c85c0424cebe2b1f"></a>
@@ -7443,6 +7777,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10259">10259</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga4d879b4a20e0d50ad4f7f4770a922768" name="ga4d879b4a20e0d50ad4f7f4770a922768"></a>
@@ -7480,6 +7816,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10423">10423</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7526,6 +7864,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l11095">11095</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga82bab65265dc9bf17f56ff35ec85bfa7" name="ga82bab65265dc9bf17f56ff35ec85bfa7"></a>
@@ -7570,6 +7910,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l11807">11807</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7617,6 +7959,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l12196">12196</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga1f59c3c5021ad74215a367699533d4b7" name="ga1f59c3c5021ad74215a367699533d4b7"></a>
@@ -7655,6 +7999,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l10341">10341</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga6d1b57cd5f937f8c9538694554219f09" name="ga6d1b57cd5f937f8c9538694554219f09"></a>
@@ -7690,6 +8036,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l03921">3921</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7735,6 +8083,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08872">8872</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga2b38791132acc7a8790b0065114f244c" name="ga2b38791132acc7a8790b0065114f244c"></a>
@@ -7772,6 +8122,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08461">8461</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7811,6 +8163,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08297">8297</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gad41a29c64249b8ad014418deacffad92" name="gad41a29c64249b8ad014418deacffad92"></a>
@@ -7848,6 +8202,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08379">8379</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7887,6 +8243,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08543">8543</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga9b899b894453de709ee47aefb730660d" name="ga9b899b894453de709ee47aefb730660d"></a>
@@ -7924,6 +8282,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07166">7166</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -7963,6 +8323,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07967">7967</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga89eff30acbfe4db064773b26ccc4dd23" name="ga89eff30acbfe4db064773b26ccc4dd23"></a>
@@ -8000,6 +8362,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l09968">9968</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -8039,6 +8403,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06448">6448</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gab8ef8d4cc839a2fbcb55e65330b1ba0b" name="gab8ef8d4cc839a2fbcb55e65330b1ba0b"></a>
@@ -8076,6 +8442,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l07014">7014</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -8115,6 +8483,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06969">6969</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="gaecb6481f459eb1cb5ad15a7e32d6a1c2" name="gaecb6481f459eb1cb5ad15a7e32d6a1c2"></a>
@@ -8152,6 +8522,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06612">6612</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
 
 </div>
 </div>
@@ -8197,6 +8569,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l06777">6777</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 <a id="ga0d186c577cd772ff1d1aba5ad9afc514" name="ga0d186c577cd772ff1d1aba5ad9afc514"></a>
@@ -8235,15 +8609,15 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250_8c_source.html#l08049">8049</a> of file <a class="el" href="driver__mpu9250_8c_source.html">driver_mpu9250.c</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

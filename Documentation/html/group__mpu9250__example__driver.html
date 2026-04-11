@@ -11,8 +11,6 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -26,9 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Siphon Regulator
+   <div id="projectname">Siphon Regulator<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Nanosattelite attitude determination and control system.</div>
   </td>
  </tr>
  </tbody>
@@ -51,29 +51,19 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search',false);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
+<div id="doc-content">
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('group__mpu9250__example__driver.html',''); initResizable(true); });
+$(function(){ initResizable(false); });
 /* @license-end */
 </script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -201,6 +191,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>0 </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00079">79</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="ga3ab04f1c63c8abe1ba3c027fd4c83329" name="ga3ab04f1c63c8abe1ba3c027fd4c83329"></a>
@@ -215,6 +207,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>enable compare </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00083">83</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -231,6 +225,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>low pass filter 3 </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00080">80</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="ga445e033218f34847c4ef461d7867f3cd" name="ga445e033218f34847c4ef461d7867f3cd"></a>
@@ -245,6 +241,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>2g </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00062">62</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -263,6 +261,8 @@ Functions</h2></td></tr>
 <p>mpu9250 basic example default definition </p>
 <p>pll </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00056">56</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="ga1f15e0212920ca83ead93049f46fc04b" name="ga1f15e0212920ca83ead93049f46fc04b"></a>
@@ -277,6 +277,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>disable cycle wake up </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00059">59</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -293,6 +295,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>extern sync input disable </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00071">71</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="gaf2adf4900684f60b6f0c0b78600fda38" name="gaf2adf4900684f60b6f0c0b78600fda38"></a>
@@ -307,6 +311,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>normal mode </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00077">77</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -323,6 +329,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>disable fsync interrupt </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00072">72</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="gadbd107461ad3f676cd53d1cbc92a6f86" name="gadbd107461ad3f676cd53d1cbc92a6f86"></a>
@@ -337,6 +345,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>low level </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00073">73</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -353,6 +363,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>0 </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00078">78</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="ga3bf3b544e1c6280f281626ac68bc528d" name="ga3bf3b544e1c6280f281626ac68bc528d"></a>
@@ -367,6 +379,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>2000dps </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00063">63</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -383,6 +397,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>disable gyro standby </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00076">76</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="gade942e5910d9d33055914fa9c6911098" name="gade942e5910d9d33055914fa9c6911098"></a>
@@ -397,6 +413,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>disable iic bypass </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00075">75</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -413,6 +431,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>disable iic master </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00074">74</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="gaaaca8498b454720061b5eeb409c98836" name="gaaaca8498b454720061b5eeb409c98836"></a>
@@ -427,6 +447,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>disable data ready </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00068">68</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -443,6 +465,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>disable dmp </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00066">66</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="gad7f4ebcc092057389e45458a07739eeb" name="gad7f4ebcc092057389e45458a07739eeb"></a>
@@ -457,6 +481,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>disable fifo overflow </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00065">65</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -473,6 +499,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>disable fsync int </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00067">67</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="ga0b6cedfdc171ca562dff4d8402082ca3" name="ga0b6cedfdc171ca562dff4d8402082ca3"></a>
@@ -487,6 +515,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>enable latch </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00069">69</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -503,6 +533,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>disable motion </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00064">64</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="ga6c1807ed9bfbab1f7f6df17f723f860f" name="ga6c1807ed9bfbab1f7f6df17f723f860f"></a>
@@ -517,6 +549,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>low level </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00060">60</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -533,6 +567,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>push pull </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00061">61</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="ga49fdb836b1375b32edb66f00a1587abf" name="ga49fdb836b1375b32edb66f00a1587abf"></a>
@@ -547,6 +583,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>enable interrupt read clear </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00070">70</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -563,6 +601,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>low pass filter 3 </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00058">58</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="ga23c7d164f1559a56c24979118c80d58a" name="ga23c7d164f1559a56c24979118c80d58a"></a>
@@ -577,6 +617,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>62.5Hz </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00081">81</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -593,6 +635,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>16bits </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00085">85</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="ga8d1c3ce5cbab7c9c08920ace6fad450f" name="ga8d1c3ce5cbab7c9c08920ace6fad450f"></a>
@@ -607,6 +651,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>100Hz </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00084">84</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -623,6 +669,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>50Hz </p>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00057">57</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
+
 </div>
 </div>
 <a id="ga7585e7c68b25606d56e36dbca42e36e7" name="ga7585e7c68b25606d56e36dbca42e36e7"></a>
@@ -637,6 +685,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>disable wake on motion </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8h_source.html#l00082">82</a> of file <a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>.</p>
 
 </div>
 </div>
@@ -663,6 +713,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8c_source.html#l00717">717</a> of file <a class="el" href="driver__mpu9250__basic_8c_source.html">driver_mpu9250_basic.c</a>.</p>
 
 </div>
 </div>
@@ -699,6 +751,8 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>spi can't read magnetometer data </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8c_source.html#l00050">50</a> of file <a class="el" href="driver__mpu9250__basic_8c_source.html">driver_mpu9250_basic.c</a>.</p>
 
 </div>
 </div>
@@ -742,6 +796,8 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8c_source.html#l00672">672</a> of file <a class="el" href="driver__mpu9250__basic_8c_source.html">driver_mpu9250_basic.c</a>.</p>
+
 </div>
 </div>
 <a id="ga8029e1e05a66c8e3b909772019c402ec" name="ga8029e1e05a66c8e3b909772019c402ec"></a>
@@ -773,15 +829,15 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="driver__mpu9250__basic_8c_source.html#l00649">649</a> of file <a class="el" href="driver__mpu9250__basic_8c_source.html">driver_mpu9250_basic.c</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

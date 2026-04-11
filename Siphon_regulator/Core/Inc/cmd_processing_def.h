@@ -229,6 +229,21 @@ static void process_cmd_set_read(char * cmd, uint32_t * p_reg);
  */
 static void process_cmd_set_auto(char * cmd);
 
+/**
+ * @brief  Allows adjusting the valve-opening time settings.
+ * @param  cmd       pointer to the string with processed command
+ *
+ * Stores the specified time value <time> into the global variable
+ * settings. The time value must be an integer within the defined
+ * range and is interpreted as a duration in milliseconds.
+ *
+ * Available arguments:\n
+ * | Argument    |  Affected variables  		       |
+ * | :---        |:---        					 	   |
+ * |**RIGHT**    | set_data.time_r			 	       |
+ * |**LEFT**     | set_data.time_l          	       |
+ * |**ALL**      | set_data.time_r, set_data.time_l    |
+ */
 static void process_cmd_set_time(char * cmd);
 
 static void process_cmd_set_angle(char * cmd);

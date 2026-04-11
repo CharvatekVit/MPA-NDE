@@ -448,6 +448,11 @@ static void process_cmd_set_time(char * token)
 		{
 			set_data.time_l = time;
 		}
+		else if (strcasecmp(dir, "ALL") == 0)
+		{
+			set_data.time_r = time;
+			set_data.time_l = time;
+		}
 		else
 		{
 			printf("Invalid dir\n");

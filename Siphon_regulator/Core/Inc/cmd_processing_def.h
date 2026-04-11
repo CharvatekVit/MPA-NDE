@@ -201,6 +201,22 @@ static void process_cmd_autoread(char * cmd, uint32_t * p_reg);
  */
 static void process_cmd_reset(uint32_t * p_reg);
 
+/**
+ * @brief  Enables turn on/off autoreport from these sensors.
+ * @param  cmd       pointer to the string with processed command
+ * @param  p_reg     command register, involves
+ * 			         information about system state and
+ * 			         switching time of valves
+ *
+ * Sets (ON) or clear (OFF) the corresponding flag in the command register.
+ *
+ * Available arguments:\n
+ * | Argument    | Description 			     		 | Affected bit     |
+ * | :---        |:---        					 	 | :---             |
+ * |**ACC**      | accelerometer			 	     | AUTOREAD_ACC_BIT |
+ * |**GYR**      | gyroscope - angular velocity      | AUTOREAD_GYR_BIT |
+ * |**POS**      | gyroscope - orientation   		 | AUTOREAD_POS_BIT |
+ */
 static void process_cmd_set_read(char * cmd, uint32_t * p_reg);
 
 static void process_cmd_set_auto(char * cmd);

@@ -359,7 +359,15 @@ static void process_cmd_reset(uint32_t * p_reg)
 	HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
 }
 
-/* Enables turn on/off autoreport from these sensors */
+/*
+* Function: process_cmd_set_read
+* Purpose:  Enables turn on/off autoreport from these sensors.
+* Input(s): cmd     - pointer to the string with processed command
+*           p_reg   - command register, involves
+* 			          information about system state and
+* 			          switching time of valves
+* Returns:  none
+*/
 static void process_cmd_set_read(char * token, uint32_t * p_reg)
 {
 	token = strtok(NULL, " ");

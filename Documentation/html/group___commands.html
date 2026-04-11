@@ -131,7 +131,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga3a2091bdff2858552b1eb515d51d41b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a rotation by a defined angle.  <br /></td></tr>
 <tr class="separator:ga3a2091bdff2858552b1eb515d51d41b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6b5e720be354db6271ba1c470fe58c64" id="r_ga6b5e720be354db6271ba1c470fe58c64"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6b5e720be354db6271ba1c470fe58c64">process_cmd_home</a> (uint32_t *p_reg)</td></tr>
-<tr class="memdesc:ga6b5e720be354db6271ba1c470fe58c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a pulse with a defined duration.  <br /></td></tr>
+<tr class="memdesc:ga6b5e720be354db6271ba1c470fe58c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a home command.  <br /></td></tr>
 <tr class="separator:ga6b5e720be354db6271ba1c470fe58c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae61136d7f7fa401ed2a87247f78e7074" id="r_gae61136d7f7fa401ed2a87247f78e7074"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae61136d7f7fa401ed2a87247f78e7074">process_cmd_pulse</a> (char *cmd, uint32_t *p_reg)</td></tr>
 <tr class="memdesc:gae61136d7f7fa401ed2a87247f78e7074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers a pulse with a defined duration.  <br /></td></tr>
@@ -139,10 +139,13 @@ Functions</h2></td></tr>
 <tr class="memitem:ga91fa3c2809b131f835477cc9556077b3" id="r_ga91fa3c2809b131f835477cc9556077b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga91fa3c2809b131f835477cc9556077b3">process_cmd_set</a> (char *cmd, uint32_t *p_reg)</td></tr>
 <tr class="separator:ga91fa3c2809b131f835477cc9556077b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4da5f6f9222b8b8195b39072f95fed4d" id="r_ga4da5f6f9222b8b8195b39072f95fed4d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4da5f6f9222b8b8195b39072f95fed4d">process_cmd_ncmd</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="memdesc:ga4da5f6f9222b8b8195b39072f95fed4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserved.  <br /></td></tr>
 <tr class="separator:ga4da5f6f9222b8b8195b39072f95fed4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga51b40b78fe8d6cefb1063c5c84662b5d" id="r_ga51b40b78fe8d6cefb1063c5c84662b5d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga51b40b78fe8d6cefb1063c5c84662b5d">process_cmd_autoread</a> (char *cmd, uint32_t *p_reg)</td></tr>
+<tr class="memdesc:ga51b40b78fe8d6cefb1063c5c84662b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables and disables autoread.  <br /></td></tr>
 <tr class="separator:ga51b40b78fe8d6cefb1063c5c84662b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaddc9020c4b196ba9fac53e415c878fae" id="r_gaddc9020c4b196ba9fac53e415c878fae"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaddc9020c4b196ba9fac53e415c878fae">process_cmd_reset</a> (uint32_t *p_reg)</td></tr>
+<tr class="memdesc:gaddc9020c4b196ba9fac53e415c878fae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears command register. Closes valves.  <br /></td></tr>
 <tr class="separator:gaddc9020c4b196ba9fac53e415c878fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga644e1c381a2886b39457cdde7934371b" id="r_ga644e1c381a2886b39457cdde7934371b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga644e1c381a2886b39457cdde7934371b">process_cmd_set_read</a> (char *cmd, uint32_t *p_reg)</td></tr>
 <tr class="separator:ga644e1c381a2886b39457cdde7934371b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -340,7 +343,7 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cmd</td><td>pointer to the string with processed command </td></tr>
-    <tr><td class="paramname">cmd_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
   </table>
   </dd>
 </dl>
@@ -375,6 +378,28 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Enables and disables autoread. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>pointer to the string with processed command </td></tr>
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Allows setting and clearing the AUTOREAD_BIT flag.</p>
+<ul>
+<li>Available arguments:<br  />
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Argument   </th><th class="markdownTableHeadLeft">Description   </th><th class="markdownTableHeadLeft">AUTOREAD_BIT    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>OFF</b>   </td><td class="markdownTableBodyLeft">disable autoread   </td><td class="markdownTableBodyLeft">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>ON</b>   </td><td class="markdownTableBodyLeft">enable autoread   </td><td class="markdownTableBodyLeft">1   </td></tr>
+</table>
+</li>
+</ul>
+
 </div>
 </div>
 <a id="ga6b5e720be354db6271ba1c470fe58c64" name="ga6b5e720be354db6271ba1c470fe58c64"></a>
@@ -400,14 +425,14 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Triggers a pulse with a defined duration. </p>
+<p>Triggers a home command. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cmd_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
   </table>
   </dd>
 </dl>
-<p>It forwards the pulse request by writing it into the command register. It sets the RUN_BIT and PULSE_BIT flag. Depending on the direction, it sets the DIR_BIT flag. It also updates the timing configuration in the command register, using the time value from the global variable settings. </p>
+<p>It forwards the home request by writing it into the command register. It sets the RUN_BIT and HOME_BIT flag. It also updates the timing configuration in the command register, using the time value from the global variable settings. </p>
 
 </div>
 </div>
@@ -437,6 +462,17 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reserved. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>pointer to the string with processed command </td></tr>
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Setting CMD0_BIT disables regulation.</dd></dl>
+<p>Allow arguments are 0 to 3. Based on the argument, it toggles the bits CMD0_BIT to CMD3_BIT. </p>
 
 </div>
 </div>
@@ -471,7 +507,7 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cmd</td><td>pointer to the string with processed command </td></tr>
-    <tr><td class="paramname">cmd_reg</td><td>command register, involves information about system state and switching time of valves </td></tr>
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves </td></tr>
   </table>
   </dd>
 </dl>
@@ -558,6 +594,15 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Clears command register. Closes valves. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Emergency command. Reset to defaut settings. Interrupts any running commands. Stop the valves. </p>
 
 </div>
 </div>
@@ -750,7 +795,7 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cmd</td><td>pointer to the string with processed command </td></tr>
-    <tr><td class="paramname">cmd_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
   </table>
   </dd>
 </dl>
@@ -790,7 +835,7 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>processed character </td></tr>
-    <tr><td class="paramname">cmd_reg</td><td>command register, involves information about system state and switching time of valves The processed character is written into the buffer step by step. The terminating characters '\n' and '\r' are checked. After that, the function that processes the received command is called.</td></tr>
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves The processed character is written into the buffer step by step. The terminating characters '\n' and '\r' are checked. After that, the function that processes the received command is called.</td></tr>
   </table>
   </dd>
 </dl>

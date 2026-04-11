@@ -117,7 +117,7 @@ static void process_cmd_home(uint32_t * p_reg);
  * 			         information about system state and
  * 			         switching time of valves
  * @warning It does not work together with the regulation system.
- * 		    Intended for testing only. The regulation must be disabledg
+ * 		    Intended for testing only. The regulation must be disabled
  * 		    (CMD 0).
  *
  * It forwards the pulse request by writing it into the command
@@ -137,6 +137,26 @@ static void process_cmd_home(uint32_t * p_reg);
  */
 static void process_cmd_pulse(char * cmd, uint32_t * p_reg);
 
+/**
+ * @brief  Allows modifying the settings global variable and
+ *         changing the contents of the autoread report.
+ * @param  cmd       pointer to the string with processed command
+ * @param  p_reg     command register, involves
+ * 			         information about system state and
+ * 			         switching time of valves
+ *
+ * Processes the second arguments of the command. Calls the
+ * corresponding function.
+ *
+ * * Available arguments:\n
+ * | Argument    | Description 				     |  Function              |
+ * | :---        |:---        				     | :---                   |
+ * |**ANGLE**    | set angle of TURN command   	 | process_cmd_set_angle  |
+ * |**TIME**     | set valve switching time 	 | process_cmd_set_time   |
+ * |**AUTO**     | set period of autoreading 	 | process_cmd_set_auto   |
+ * |**HOME**     | set default orientation   	 | process_cmd_set_home   |
+ * |**READ**     | set content of autoreading    | process_cmd_set_read   |
+ */
 static void process_cmd_set(char * cmd, uint32_t * p_reg);
 
 /**

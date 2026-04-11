@@ -130,7 +130,6 @@ static void process_cmd_turn(char * token, uint32_t * p_reg)
 	/* During performing another cmd is disable */
 	if (_read_valve(*p_reg))
 	{
-		//printf("Another cmd is processing\n");
 		return;
 	}
 
@@ -213,7 +212,6 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 	/* During performing another cmd is disable */
 	if (_read_valve(*p_reg))
 	{
-		// printf("Another cmd is processing\n");
 		return;
 	}
 
@@ -302,7 +300,16 @@ static void process_cmd_autoread(char * token, uint32_t * p_reg)
 
 }
 
-/* Enables change system settings */
+/*
+* Function: process_cmd_set
+* Purpose:  Allows modifying the settings global variable and
+*           changing the contents of the autoread report.
+* Input(s): cmd     - pointer to the string with processed command
+*           p_reg   - command register, involves
+* 			          information about system state and
+* 			          switching time of valves
+* Returns:  none
+*/
 static void process_cmd_set(char * token, uint32_t * p_reg)
 {
 	token = strtok(NULL, " ");
@@ -477,7 +484,6 @@ static void process_cmd_home(uint32_t * p_reg)
 	/* During performing another cmd is disable */
 	if (_read_valve(*p_reg))
 	{
-		// printf("Another cmd is processing\n");
 		return;
 	}
 
@@ -485,6 +491,7 @@ static void process_cmd_home(uint32_t * p_reg)
     _clr_time(*p_reg);
     _set_time(*p_reg, set_data.time_l, set_data.time_r);
 
+    /* Save home request */
     _set_BV(*p_reg, RUN_BIT);
     _set_BV(*p_reg, HOME_BIT);
 }

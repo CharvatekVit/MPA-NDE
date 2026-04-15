@@ -15,9 +15,6 @@ Team members
 2.  Maintaining a stable orientation around a single axis
 2.	Performing controlled orientation changes
 
-> [!WARNING]
-> Progress presentation will be on April 13.
-
 ## Task list
 - [ ] System
    * [x] Conceptual diagram
@@ -26,6 +23,7 @@ Team members
    * [x] Component list
    * [x] Component purchase
    * [x] Physical description
+   * [ ] Report
 - [ ]  Electronics
    * [x] Component choice 
       - [x] Battery
@@ -42,7 +40,8 @@ Team members
       - [x] T-hub
       - [x] Tube
    * [x]  Gas bottle construction
-   * [ ]  Completation pneumatic circuit
+   * [x]  Completation pneumatic circuit
+   * [ ]  Sealing
 - [ ] Software
    * [x] Component choice 
        - [x] MCU
@@ -56,6 +55,7 @@ Team members
    * [x] Wireless communication
    * [ ] Constant tuning
    * [ ] Testing
+   * [ ] Doxygen
 - [x] Structure
    * [x] Size estimation
    * [x] Structural design

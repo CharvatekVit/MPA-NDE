@@ -46,9 +46,9 @@ Team members
    * [x] Component choice 
        - [x] MCU
        - [x] Wireless module
-   * [ ] UART communication
+   * [x] UART communication
        - [x] Sensor data
-       - [ ] Valve control
+       - [x] Valve control
            * [x] Position setting
            * [x] Position regulation
        - [x] Command implementation

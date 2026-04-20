@@ -45,9 +45,9 @@ typedef struct {
 
 typedef struct {
     uint8_t angle;  // Angle [deg], cube rotate after turn cmd
-	uint8_t time_r; // Time [ms], right valve is open
-	uint8_t time_l; // Time [ms], left valve is open
-	uint8_t time_a; // Period [s*0.1], sensor report will be sended
+	uint8_t time_r; // Time [10*ms], right valve is open
+	uint8_t time_l; // Time [10*ms], left valve is open
+	uint8_t time_a; // Period [100*ms], sensor report will be sended
 	int16_t home;   // coordinates default position
 } settings_t;
 /* USER CODE END ET */

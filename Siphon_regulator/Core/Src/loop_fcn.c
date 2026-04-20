@@ -15,10 +15,10 @@
 
 /* Defines */
 #define ANGLE_TOL           5   // Precision setting of position
-#define STOP_CONST_LEFT     1   // For stop pulse calculation
-#define STOP_CONST_RIGHT    1
+#define STOP_CONST_LEFT    10   // For stop pulse calculation
+#define STOP_CONST_RIGHT   10
 #define GYR_TOL          1.0f   // Ignored motion
-#define PULSE_IGNORE        5   // Too short pulse
+#define PULSE_IGNORE       50   // Too short pulse
 
 /* Function declaration */
 static void valve_close(void);
@@ -56,14 +56,6 @@ void autoread_fcn(uint32_t reg)
 				printf("P: X=%ld, Y=%ld, Z=%ld\n", (int32_t)(measured_data.pos[0]),
 						(int32_t)(measured_data.pos[1]), (int32_t)(measured_data.pos[2]));
 			}
-
-			/*
-			if (_read_BV(reg, AUTOREAD_MAG_BIT))
-			{
-				printf("M: X=%d, Y=%d, Z=%d\n", _float2int(measured_data.mag[0]),
-						_float2int(measured_data.mag[1]), _float2int(measured_data.mag[2]));
-			}
-			 */
 		}
 	}
 }
@@ -84,7 +76,8 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 
 			// Duration of pulse
 			ticks = HAL_GetTick();
-			ticks += (_read_BV(*p_reg, DIR_BIT)) ? _read_time_r(*p_reg) : _read_time_l(*p_reg);
+			// Time is interpreted as tens of milliseconds
+			ticks += (_read_BV(*p_reg, DIR_BIT)) ? ((_read_time_r(*p_reg)) * PULSE_REPRE) : ((_read_time_l(*p_reg)) * PULSE_REPRE);
 
 			/* 1 - right direction, 0 - left direction */
 			HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, _read_BV(*p_reg, DIR_BIT));
@@ -258,14 +251,14 @@ static void regul_return(uint32_t * p_reg, uint32_t * p_ticks, float set_pos)
 	if (((measured_data.pos[2] - set_pos) > 0) && ((measured_data.pos[2] - set_pos) < 180))
 	{
 		_set_BV(*p_reg, DIR_BIT);
-		*p_ticks += set_data.time_r;
+		*p_ticks += set_data.time_r * PULSE_REPRE; // interpreted as tens of milliseconds
 		HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
 		printf("Right valve was open\n");
 	}
 	else
 	{
 		_clr_BV(*p_reg, DIR_BIT);
-		*p_ticks += set_data.time_l;
+		*p_ticks += set_data.time_l * PULSE_REPRE; // interpreted as tens of milliseconds
 		HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
 		printf("Left valve was open\n");
 	}

@@ -178,7 +178,7 @@ void regul_fcn(uint32_t * p_reg, float set_pos)
 	if (!(_read_valve(*p_reg)))
 	{
 		/* Condition of running */
-		if (!(_read_BV(*p_reg, CMD0_BIT)))
+		if ((_read_BV(*p_reg, CMD0_BIT)))
 		{
 			if (fabsf(measured_data.gyr[2]) > GYR_TOL)
 			{

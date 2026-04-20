@@ -117,7 +117,8 @@ void Error_Handler(void);
 #define _read_valve(reg) reg & ((1 << RUN_BIT) | (1 << TURN_BIT) | (1 << PULSE_BIT) | (1 << HOME_BIT) | (1 << REG_BIT) | (1 << RETURN_BIT))
 
 /* Calibration constant */
-#define CAL_MUL     (360.0f/328.0f) // Magic number, comparison required angle for turn and measured
+// Magic number, comparison required angle for turn and measured
+#define CAL_MUL     ((360.0f/328.0f)*(360.0f/349.0f))
 
 /* Reserved */
 #define CMD0_BIT         28

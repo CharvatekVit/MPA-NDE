@@ -24,11 +24,11 @@
 /** Maximum length of a received command is 256 characters. */
 #define CMD_BUFFER_LEN    256
 
-/** Minimum open valve time is 10 ms. */
-#define PULSE_LEN_MIN      10
+/** Minimum open valve time is 100 ms. */
+#define PULSE_LEN_MIN     100
 
-/** Maximum  open valve time is 100 ms. */
-#define PULSE_LEN_MAX     100
+/** Maximum  open valve time is 1000 ms. */
+#define PULSE_LEN_MAX    1000
 
 /** Maximum period of autoreading is 25.5 s. */
 #define MAX_TIME          255
@@ -126,8 +126,10 @@ static void process_cmd_home(uint32_t * p_reg);
  * the timing configuration in the command register.
  *
  * The pulse duration can be specified by the user using the <time>
- * argument. The time is given in milliseconds. If it is not specified,
- * the value from the global variable *settings* is used.
+ * argument. The time is given in milliseconds. The time is divided by
+ * PULSE_REPRE because the value is provided in tens of milliseconds.
+ * If it is not specified, the value from the global variable
+ * *settings* is used.
  *
  * Available arguments:\n
  * | Argument    | Description 				     |   DIR_BIT |
@@ -236,7 +238,8 @@ static void process_cmd_set_auto(char * cmd);
  * Stores the specified time value <time> into the global variable
  * settings. The time value must be an unsinged integer within
  * the defined range and is interpreted as a duration
- * in milliseconds.
+ * in milliseconds. The time is divided by PULSE_REPRE
+ * because the value is provided in tens of milliseconds.
  *
  * Available arguments:\n
  * | Argument    |  Affected variables  		       |

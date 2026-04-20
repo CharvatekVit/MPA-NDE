@@ -219,7 +219,7 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 	uint8_t time_array[2] = {set_data.time_l, set_data.time_r};
 	uint8_t dir_pointer;
 
-	uint8_t pulse_len;
+	uint16_t pulse_len;
 	token = strtok(NULL, " ");
 
 	_clr_time(*p_reg);
@@ -248,7 +248,7 @@ static void process_cmd_pulse(char * token, uint32_t * p_reg)
 	{
 		/* Valid time */
 		/* Arrange time setting only in selected direction */
-		time_array[dir_pointer] = pulse_len;
+		time_array[dir_pointer] = (uint8_t)(pulse_len/PULSE_REPRE);
 	}
 	/* Time opening valve was not specified*/
 	else if (token == NULL)
@@ -442,22 +442,22 @@ static void process_cmd_set_time(char * token)
 	char * dir = token;
 
 	token = strtok(NULL, " ");
-	uint8_t time = atoi(token);
+	uint16_t time = atoi(token);
 
 	if ((time >= PULSE_LEN_MIN) && (time <= PULSE_LEN_MAX))
 	{
 		if (strcasecmp(dir, "RIGHT") == 0)
 		{
-			set_data.time_r = time;
+			set_data.time_r = (uint8_t)(time/PULSE_REPRE);
 		}
 		else if (strcasecmp(dir, "LEFT") == 0)
 		{
-			set_data.time_l = time;
+			set_data.time_l = (uint8_t)(time/PULSE_REPRE);
 		}
 		else if (strcasecmp(dir, "ALL") == 0)
 		{
-			set_data.time_r = time;
-			set_data.time_l = time;
+			set_data.time_r = (uint8_t)(time/PULSE_REPRE);
+			set_data.time_l = (uint8_t)(time/PULSE_REPRE);
 		}
 		else
 		{

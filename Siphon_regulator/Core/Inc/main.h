@@ -110,8 +110,8 @@ void Error_Handler(void);
 #define AUTOREAD_ACC_BIT 25 // autoread includes accelerometer data
 #define AUTOREAD_GYR_BIT 26 // autoread includes gyroscope data
 #define AUTOREAD_POS_BIT 27 // autoread includes position data
+#define PULSE_REPRE      10 // valve time is multiplied by 10
 
-//#define AUTOREAD_MAG_BIT 6 // autoread includes magnetometer data
 
 /* Macros */
 #define _read_valve(reg) reg & ((1 << RUN_BIT) | (1 << TURN_BIT) | (1 << PULSE_BIT) | (1 << HOME_BIT) | (1 << REG_BIT) | (1 << RETURN_BIT))

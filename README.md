@@ -24,7 +24,7 @@ Team members
    * [x] Component purchase
    * [x] Physical description
    * [ ] Report
-- [ ]  Electronics
+- [x]  Electronics
    * [x] Component choice 
       - [x] Battery
       - [x] Step-down
@@ -41,7 +41,8 @@ Team members
       - [x] Tube
    * [x]  Gas bottle construction
    * [x]  Completation pneumatic circuit
-   * [ ]  Sealing
+   * [x]  Sealing
+   * [ ]  Nozzles
 - [ ] Software
    * [x] Component choice 
        - [x] MCU

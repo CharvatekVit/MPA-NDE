@@ -1,35 +1,32 @@
 /*
- * snesor_fcn.c
+ * sensor_fcn library
+ * (c) Antonin Putala 2026
  *
- *  Created on: Mar 23, 2026
- *      Author: Antonin Putala
+ * Developed using STM32CubeIDE
+ * Tested on BluePill board and STM32F103C8T6, 32 MHz.
  */
 
-/* Includes */
+/* Includes -----------------------------------------------*/
 #include "sensor_fcn.h"
+#include "sensor_fcn_def.h"
 #include "main.h"
 #include "driver_mpu9250_basic.h"
-
 #include <stdio.h>
 
-/* Defines */
-#define CAL_CYC_NUM             100 // How much calibration measurement is performed
-
-#define MEAS_TIME                10 // how often sensor is readed
-#define CAL_TIME                 10 // how often sensor is readed during calibration
-
-/* Function declaration */
-static void sensor_calibration(float *);
-
-/* Global functions */
-
-/* Initialization */
+/* Global functions ---------------------------------------*/
+/*
+ * Function: sensor_init
+ * Purpose:  It initiates communication with the sensor.
+ * Input(s): gyr_offset       - gyroscope offset obtained
+ *                              repeated measurement
+ * Returns:  none
+ */
 void sensor_init(float * gyr_offset)
 {
-	/* For SPI interface set MPU9250_INTERFACE_SPI.
-	    Address only for I2C, library requires it.
+	/*   For SPI interface set MPU9250_INTERFACE_SPI.
+	 *   Address only for I2C, library requires it.
 	 */
-	uint8_t res = mpu9250_basic_init(MPU9250_INTERFACE_SPI, 0); // MPU9250_ADDRESS_AD0_LOW
+	uint8_t res = mpu9250_basic_init(MPU9250_INTERFACE_SPI, 0);
 	if (res != 0)
 	{
 		printf("Sensor error!\n");
@@ -60,9 +57,16 @@ void sensor_get_value(float * gyr_offset)
 			for (uint8_t i = 0; i < 3; i++)
 			{
 				measured_data.acc[i] = acc[i];
+
+				/* The gyroscope data are corrected using the calibration constant. */
 				measured_data.gyr[i] = gyr[i] - gyr_offset[i];
+
 				measured_data.mag[i] = mag[i];
+
+				/* CAL_MUL enables manual calibration of orientation measurement. */
 				measured_data.pos[i] += (measured_data.gyr[i] * MEAS_TIME * CAL_MUL) / 1000;
+
+				/* Get format -180° ÷ 180°. */
 				sensor_deg_limit(&measured_data.pos[i]);
 			}
 		}
@@ -76,8 +80,7 @@ void sensor_deg_limit(float * p_deg)
     *p_deg -= (*p_deg > 180)  ? 360: 0;
 }
 
-/* Local function */
-
+/* Static functions ---------------------------------------*/
 /* Gyroscope calibration */
 static void sensor_calibration(float * gyr_offset)
 {

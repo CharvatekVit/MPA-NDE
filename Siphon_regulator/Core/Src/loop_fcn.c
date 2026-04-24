@@ -248,7 +248,7 @@ static void regul_return(uint32_t * p_reg, uint32_t * p_ticks, float set_pos)
 	*p_ticks = HAL_GetTick();
 
 	/* Choose direction */
-	if (((measured_data.pos[2] - set_pos) > 0) && ((measured_data.pos[2] - set_pos) < 180))
+	if ((((measured_data.pos[2] - set_pos) > 0) && ((measured_data.pos[2] - set_pos) < 180)) || ((measured_data.pos[2] - set_pos) < -180))
 	{
 		_set_BV(*p_reg, DIR_BIT);
 		*p_ticks += set_data.time_r * PULSE_REPRE; // interpreted as tens of milliseconds

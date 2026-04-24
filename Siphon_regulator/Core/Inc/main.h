@@ -37,10 +37,10 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 typedef struct {
-    float acc[3]; // Accelerometer X, Y, Z
-    float gyr[3]; // Gyroscope X, Y, Z
-    float mag[3]; // Magnetometer X, Y, Z
-    float pos[3]; // Position X, Y, Z related to initial position
+    float acc[3];   // Accelerometer X, Y, Z
+    float gyr[3];   // Gyroscope X, Y, Z
+    float mag[3];   // Magnetometer X, Y, Z
+    float pos[3];   // Position X, Y, Z related to initial position
 } sensor_data_t;
 
 typedef struct {

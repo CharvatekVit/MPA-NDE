@@ -225,9 +225,19 @@ static void valve_close(void)
 	HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
 }
 
-/* Create stop pulse when position is forced to change */
+/*
+ * Function:  regul_stop
+ * Purpose:   It provides the stopping pulse.
+ * Input(s):  p_reg   - command register, involves
+ * 			            information about system state and
+ * 			            switching time of valves
+ *            p_ticks - number of ticks until the pulse
+ *                      is stopped
+ * Returns:   none
+ */
 static void regul_stop(uint32_t * p_reg, uint32_t * p_ticks)
 {
+	/* Create stop pulse when position is forced to change */
 	_set_BV(*p_reg, REG_BIT);
 
 	if (measured_data.gyr[2] > 0)
@@ -254,9 +264,21 @@ static void regul_stop(uint32_t * p_reg, uint32_t * p_ticks)
 	}
 }
 
-/* First pulse which start return to original position */
+/*
+ * Function:  regul_return
+ * Purpose:   It initiates the return to the stable orientation.
+ * Input(s):  p_reg   - command register, involves
+ * 			            information about system state and
+ * 			            switching time of valves
+ *            p_ticks - number of ticks until the pulse
+ *                      is stopped
+ *            set_pos - the orientation is maintained by
+ *                      the regulation loop.
+ * Returns:   none
+ */
 static void regul_return(uint32_t * p_reg, uint32_t * p_ticks, float set_pos)
 {
+	/* First pulse which start return to original position */
 	/* Helps to regulate required destination */
 	_set_BV(*p_reg, REG_BIT);
 	_set_BV(*p_reg, RETURN_BIT);

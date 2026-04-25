@@ -74,19 +74,21 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+/**  Current sensor measured data. */
 typedef struct {
-    float acc[3];   // Accelerometer X, Y, Z
-    float gyr[3];   // Gyroscope X, Y, Z
-    float mag[3];   // Magnetometer X, Y, Z
-    float pos[3];   // Position X, Y, Z related to initial position
+    float acc[3];   ///< Accelerometer X, Y, Z [g]
+    float gyr[3];   ///< Gyroscope     X, Y, Z [dps]
+    float mag[3];   ///< Magnetometer  X, Y, Z [uT]
+    float pos[3];   ///< Orientation   X, Y, Z [deg]; related to initial position
 } sensor_data_t;
 
+/**  Main system settings. */
 typedef struct {
-    uint8_t angle;  // Angle [deg], cube rotate after turn cmd
-	uint8_t time_r; // Time [10*ms], right valve is open
-	uint8_t time_l; // Time [10*ms], left valve is open
-	uint8_t time_a; // Period [100*ms], sensor report will be sended
-	int16_t home;   // coordinates default position
+    uint8_t angle;  ///< Angle     [deg], cube rotate after turn cmd
+	uint8_t time_r; ///< Time    [10*ms], right valve is open
+	uint8_t time_l; ///< Time    [10*ms], left valve is open
+	uint8_t time_a; ///< Period [100*ms], sensor report will be sended
+	int16_t home;   ///< Angle     [deg], default orientation
 } settings_t;
 /* USER CODE END ET */
 

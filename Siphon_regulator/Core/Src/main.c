@@ -35,7 +35,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+/** Size of RX buffer for UART */
 #define RX_BUFFER_LEN 64
+/** Address of UART RX pointer */
 #define uart_rx_write_ptr (RX_BUFFER_LEN - hdma_usart1_rx.Instance->CNDTR)
 
 /* USER CODE END PD */
@@ -52,11 +54,11 @@ UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_usart1_rx;
 
 /* USER CODE BEGIN PV */
-static uint8_t uart_rx_buf[RX_BUFFER_LEN];
-static volatile uint16_t uart_rx_read_ptr = 0;
+static uint8_t uart_rx_buf[RX_BUFFER_LEN];     ///< Received buffer fo UART
+static volatile uint16_t uart_rx_read_ptr = 0; ///< Received read pointer for UART
 
-sensor_data_t measured_data;
-settings_t    set_data;
+sensor_data_t measured_data;                   ///< Current sensor measured data.
+settings_t    set_data;                        ///< Main system settings.
 
 /* USER CODE END PV */
 
@@ -86,14 +88,14 @@ void setting_init(void)
 	/* Default data */
 	set_data.angle  = 90; // 90 deg
 	set_data.time_a = 10; // 10 * 0.1 = 1 sec
-	set_data.time_l = 20; // 20us
-	set_data.time_r = 20; // 20us
+	set_data.time_l = 20; // 200us
+	set_data.time_r = 20; // 200us
 	set_data.home   =  0; // return position
 }
 
 void valve_init(void)
 {
-	// Valves are closed by default
+	/* Valves are closed by default */
 	HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
 	HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 0);
 }
@@ -150,12 +152,12 @@ int main(void)
 		while (uart_rx_read_ptr != uart_rx_write_ptr)
 		{
 			uint8_t b = uart_rx_buf[uart_rx_read_ptr];
-			// increase read pointer
+			/* increase read pointer */
 			if (++uart_rx_read_ptr >= RX_BUFFER_LEN)
 			{
 				uart_rx_read_ptr = 0;
 			}
-			// process every received byte with the RX state machine
+			/* process every received byte with the RX state machine */
 			uart_byte_available(b, &cmd_reg);
 
 		}

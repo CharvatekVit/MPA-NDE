@@ -14,5 +14,5 @@ var searchData=
   ['a_5fmpu9250_5freset_5ffifo_11',['a_mpu9250_reset_fifo',['../driver__mpu9250_8c.html#a84dacc23d33b2e089860745ddb1c4494',1,'driver_mpu9250.c']]],
   ['a_5fmpu9250_5fwrite_12',['a_mpu9250_write',['../driver__mpu9250_8c.html#a85026b03c0c3ba8ef6f6bd564ee102ac',1,'driver_mpu9250.c']]],
   ['a_5fmpu9250_5fwrite_5fmem_13',['a_mpu9250_write_mem',['../driver__mpu9250_8c.html#a4f40b2d8a50a758bd871b10e7b13984b',1,'driver_mpu9250.c']]],
-  ['autoread_5ffcn_14',['autoread_fcn',['../group___loop.html#ga06ddf3e74d326b27126bf13355e9f72b',1,'autoread_fcn(uint32_t):&#160;loop_fcn.c'],['../group___loop.html#ga06ddf3e74d326b27126bf13355e9f72b',1,'autoread_fcn(uint32_t reg):&#160;loop_fcn.c']]]
+  ['autoread_5ffcn_14',['autoread_fcn',['../group___loop.html#ga69bed987a3c128612148f33c7cd47eab',1,'autoread_fcn(uint32_t reg):&#160;loop_fcn.c'],['../group___loop.html#ga69bed987a3c128612148f33c7cd47eab',1,'autoread_fcn(uint32_t reg):&#160;loop_fcn.c']]]
 ];

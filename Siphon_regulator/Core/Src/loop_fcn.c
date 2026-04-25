@@ -15,7 +15,15 @@
 #include <stdio.h>
 
 /* Global functions ---------------------------------------*/
-/* Automatic writing sensor data to serial */
+/*
+ * Function: uart_byte_available
+ * Purpose:  It handles the periodic transmission of
+ *           the sensor data message.
+ * Input(s): reg      - command register, involves
+ * 			            information about system state and
+ * 			            switching time of valves
+ * Returns:  none
+ */
 void autoread_fcn(uint32_t reg)
 {
 	if (_read_BV(reg, AUTOREAD_BIT))

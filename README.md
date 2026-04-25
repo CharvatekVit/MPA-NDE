@@ -59,7 +59,7 @@ Team members
    * [x] Wireless communication
    * [ ] Constant tuning
    * [ ] Testing
-   * [ ] Doxygen
+   * [x] Doxygen
 - [x] Structure
    * [x] Size estimation
    * [x] Structural design

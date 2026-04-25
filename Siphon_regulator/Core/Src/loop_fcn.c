@@ -169,7 +169,16 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 	}
 }
 
-/* Regulation when cmd is not received */
+/*
+ * Function: regul_fcn
+ * Purpose:  It handles the regulation of the orientation.
+ * Input(s): p_reg     - command register, involves
+ * 			             information about system state and
+ * 			             switching time of valves
+ *           set_pos   - the orientation is maintained by
+ *                       the regulation loop.
+ * Returns:  none
+ */
 void regul_fcn(uint32_t * p_reg, float set_pos)
 {
 	static uint32_t ticks = 0;

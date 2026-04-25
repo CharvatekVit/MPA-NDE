@@ -113,18 +113,20 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga69bed987a3c128612148f33c7cd47eab" id="r_ga69bed987a3c128612148f33c7cd47eab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga69bed987a3c128612148f33c7cd47eab">autoread_fcn</a> (uint32_t reg)</td></tr>
-<tr class="memdesc:ga69bed987a3c128612148f33c7cd47eab"><td class="mdescLeft">&#160;</td><td class="mdescRight">It handles the periodic transmission of the sensor‑data message.  <br /></td></tr>
+<tr class="memdesc:ga69bed987a3c128612148f33c7cd47eab"><td class="mdescLeft">&#160;</td><td class="mdescRight">It handles the periodic transmission of the sensor data message.  <br /></td></tr>
 <tr class="separator:ga69bed987a3c128612148f33c7cd47eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0bb3048113d118c155ecbed062902772" id="r_ga0bb3048113d118c155ecbed062902772"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0bb3048113d118c155ecbed062902772">valve_fcn</a> (uint32_t *p_reg, float *p_set_pos)</td></tr>
+<tr class="memdesc:ga0bb3048113d118c155ecbed062902772"><td class="mdescLeft">&#160;</td><td class="mdescRight">It handles the execution of motion commands.  <br /></td></tr>
 <tr class="separator:ga0bb3048113d118c155ecbed062902772"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae7bca36a406f1830e8c0ac0712ff37cc" id="r_gae7bca36a406f1830e8c0ac0712ff37cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae7bca36a406f1830e8c0ac0712ff37cc">regul_fcn</a> (uint32_t *p_reg, float set_pos)</td></tr>
 <tr class="separator:gae7bca36a406f1830e8c0ac0712ff37cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0a57d824004755d99c89598622cf37be" id="r_ga0a57d824004755d99c89598622cf37be"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0a57d824004755d99c89598622cf37be">valve_close</a> (void)</td></tr>
+<tr class="memdesc:ga0a57d824004755d99c89598622cf37be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes all valves.  <br /></td></tr>
 <tr class="separator:ga0a57d824004755d99c89598622cf37be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga90866fe95d7669087c79bd9a476e6f2a" id="r_ga90866fe95d7669087c79bd9a476e6f2a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga90866fe95d7669087c79bd9a476e6f2a">regul_stop</a> (uint32_t *, uint32_t *)</td></tr>
-<tr class="separator:ga90866fe95d7669087c79bd9a476e6f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga12c59b14992dfed76bd05d54f6723e2a" id="r_ga12c59b14992dfed76bd05d54f6723e2a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga12c59b14992dfed76bd05d54f6723e2a">regul_return</a> (uint32_t *, uint32_t *, float)</td></tr>
-<tr class="separator:ga12c59b14992dfed76bd05d54f6723e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31f7a107b9a4c8e9c2fa93957bce6665" id="r_ga31f7a107b9a4c8e9c2fa93957bce6665"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga31f7a107b9a4c8e9c2fa93957bce6665">regul_stop</a> (uint32_t *p_reg, uint32_t *p_ticks)</td></tr>
+<tr class="separator:ga31f7a107b9a4c8e9c2fa93957bce6665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab4768eff84ddaf64257272884ba34c12" id="r_gab4768eff84ddaf64257272884ba34c12"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab4768eff84ddaf64257272884ba34c12">regul_return</a> (uint32_t *p_reg, uint32_t *p_ticks, float set_pos)</td></tr>
+<tr class="separator:gab4768eff84ddaf64257272884ba34c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -156,8 +158,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Precision setting of position. </p>
 
-<p class="definition">Definition at line <a class="el" href="loop__fcn__def_8h_source.html#l00024">24</a> of file <a class="el" href="loop__fcn__def_8h_source.html">loop_fcn_def.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="loop__fcn__def_8h_source.html#l00025">25</a> of file <a class="el" href="loop__fcn__def_8h_source.html">loop_fcn_def.h</a>.</p>
 
 </div>
 </div>
@@ -172,8 +175,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Ignored motion, it accounts for sensor fluctuation. </p>
 
-<p class="definition">Definition at line <a class="el" href="loop__fcn__def_8h_source.html#l00027">27</a> of file <a class="el" href="loop__fcn__def_8h_source.html">loop_fcn_def.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="loop__fcn__def_8h_source.html#l00034">34</a> of file <a class="el" href="loop__fcn__def_8h_source.html">loop_fcn_def.h</a>.</p>
 
 </div>
 </div>
@@ -188,8 +192,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Ignored pulse duration in milliseconds, too short pulse for performing </p>
 
-<p class="definition">Definition at line <a class="el" href="loop__fcn__def_8h_source.html#l00028">28</a> of file <a class="el" href="loop__fcn__def_8h_source.html">loop_fcn_def.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="loop__fcn__def_8h_source.html#l00037">37</a> of file <a class="el" href="loop__fcn__def_8h_source.html">loop_fcn_def.h</a>.</p>
 
 </div>
 </div>
@@ -204,8 +209,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constant for stop pulse calculation, left valve. </p>
 
-<p class="definition">Definition at line <a class="el" href="loop__fcn__def_8h_source.html#l00025">25</a> of file <a class="el" href="loop__fcn__def_8h_source.html">loop_fcn_def.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="loop__fcn__def_8h_source.html#l00028">28</a> of file <a class="el" href="loop__fcn__def_8h_source.html">loop_fcn_def.h</a>.</p>
 
 </div>
 </div>
@@ -220,8 +226,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constant for stop pulse calculation, right valve. </p>
 
-<p class="definition">Definition at line <a class="el" href="loop__fcn__def_8h_source.html#l00026">26</a> of file <a class="el" href="loop__fcn__def_8h_source.html">loop_fcn_def.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="loop__fcn__def_8h_source.html#l00031">31</a> of file <a class="el" href="loop__fcn__def_8h_source.html">loop_fcn_def.h</a>.</p>
 
 </div>
 </div>
@@ -241,7 +248,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>It handles the periodic transmission of the sensor‑data message. </p>
+<p>It handles the periodic transmission of the sensor data message. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">reg</td><td>command register, involves information about system state and switching time of valves</td></tr>
@@ -251,7 +258,7 @@ Variables</h2></td></tr>
 <p>The command register specifies the requested content of the autoread message. If autoread is enabled, the message is transmitted periodically, with the interval defined in the global variable set_data.</p>
 <p>The AUTOREAD_BIT in the command register enables the automatic transmission of messages. The AUTOREAD_GYR_BIT, AUTOREAD_POS_BIT, and AUTOREAD_ACC_BIT flags allow the corresponding data to be included in the message. </p>
 
-<p class="definition">Definition at line <a class="el" href="loop__fcn_8c_source.html#l00019">19</a> of file <a class="el" href="loop__fcn_8c_source.html">loop_fcn.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="loop__fcn_8c_source.html#l00027">27</a> of file <a class="el" href="loop__fcn_8c_source.html">loop_fcn.c</a>.</p>
 
 </div>
 </div>
@@ -274,12 +281,12 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="loop__fcn_8c_source.html#l00156">156</a> of file <a class="el" href="loop__fcn_8c_source.html">loop_fcn.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="loop__fcn_8c_source.html#l00173">173</a> of file <a class="el" href="loop__fcn_8c_source.html">loop_fcn.c</a>.</p>
 
 </div>
 </div>
-<a id="ga12c59b14992dfed76bd05d54f6723e2a" name="ga12c59b14992dfed76bd05d54f6723e2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga12c59b14992dfed76bd05d54f6723e2a">&#9670;&#160;</a></span>regul_return()</h2>
+<a id="gab4768eff84ddaf64257272884ba34c12" name="gab4768eff84ddaf64257272884ba34c12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab4768eff84ddaf64257272884ba34c12">&#9670;&#160;</a></span>regul_return()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,17 +297,17 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">static void regul_return </td>
           <td>(</td>
-          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_ticks</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>set_pos</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -312,8 +319,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ga90866fe95d7669087c79bd9a476e6f2a" name="ga90866fe95d7669087c79bd9a476e6f2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga90866fe95d7669087c79bd9a476e6f2a">&#9670;&#160;</a></span>regul_stop()</h2>
+<a id="ga31f7a107b9a4c8e9c2fa93957bce6665" name="ga31f7a107b9a4c8e9c2fa93957bce6665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga31f7a107b9a4c8e9c2fa93957bce6665">&#9670;&#160;</a></span>regul_stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -324,12 +331,12 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">static void regul_stop </td>
           <td>(</td>
-          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_reg</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>p_ticks</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -364,6 +371,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Closes all valves. </p>
+
 </div>
 </div>
 <a id="ga0bb3048113d118c155ecbed062902772" name="ga0bb3048113d118c155ecbed062902772"></a>
@@ -385,7 +394,45 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="loop__fcn_8c_source.html#l00052">52</a> of file <a class="el" href="loop__fcn_8c_source.html">loop_fcn.c</a>.</p>
+<p>It handles the execution of motion commands. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves </td></tr>
+    <tr><td class="paramname">p_set_pos</td><td>the orientation is maintained by the regulation loop.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>It is a state machine that selects the appropriate function based on the configuration of the command register.</p>
+<p>Available states:<br  />
+</p><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">State   </th><th class="markdownTableHeadLeft">RUN_BIT   </th><th class="markdownTableHeadLeft">PULSE_BIT   </th><th class="markdownTableHeadLeft">TURN_BIT   </th><th class="markdownTableHeadLeft">HOME_BIT   </th><th class="markdownTableHeadLeft">RETURN_BIT    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>START</b>   </td><td class="markdownTableBodyLeft">1   </td><td class="markdownTableBodyLeft">1   </td><td class="markdownTableBodyLeft">X   </td><td class="markdownTableBodyLeft">X   </td><td class="markdownTableBodyLeft">X    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>START</b>   </td><td class="markdownTableBodyLeft">1   </td><td class="markdownTableBodyLeft">X   </td><td class="markdownTableBodyLeft">1   </td><td class="markdownTableBodyLeft">X   </td><td class="markdownTableBodyLeft">X    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>START</b>   </td><td class="markdownTableBodyLeft">1   </td><td class="markdownTableBodyLeft">X   </td><td class="markdownTableBodyLeft">X   </td><td class="markdownTableBodyLeft">1   </td><td class="markdownTableBodyLeft">X    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>FLY</b>   </td><td class="markdownTableBodyLeft">1   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">X    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>STOP PULSE</b>   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">1   </td><td class="markdownTableBodyLeft">X   </td><td class="markdownTableBodyLeft">X   </td><td class="markdownTableBodyLeft">X    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>STOP TURN</b>   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">1   </td><td class="markdownTableBodyLeft">X   </td><td class="markdownTableBodyLeft">X    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>STOP HOME</b>   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">1   </td><td class="markdownTableBodyLeft">X    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>STOP RETURN</b>   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">0   </td><td class="markdownTableBodyLeft">1   </td></tr>
+</table>
+<p>The START state indicates that a start pulse is requested. In addition to the corresponding command flag, at least one of the PULSE_BIT, TURN_BIT, or HOME_BIT flags must be set, while the RUN_BIT flag must be cleared. The valve closing time is initialized, and — based on the value of DIR_BIT — the appropriate valve is opened. After each command is executed, the value of set_pos is updated.</p>
+<p>The STOP states occur after a pulse has been triggered and its duration has elapsed. They are selected based on the command flag that is active at that moment.</p>
+<p>STOP PULSE is activated by the PULSE_BIT flag. In this state, the valves are simply closed and the PULSE_BIT flag is cleared.</p>
+<p>STOP TURN is activated by the TURN_BIT flag. The required orientation is computed using set_data.angle. The TURN_BIT flag is cleared, and by setting the RUN_BIT flag, the system transitions into the FLY state.</p>
+<p>STOP HOME is activated by the HOME_BIT flag. The required orientation is set according to set_data.home. The HOME_BIT flag is cleared, and the system enters the FLY state by setting RUN_BIT.</p>
+<p>STOP RETURN is activated by the RETURN_BIT flag. The required orientation is set to p_set_home. The RETURN_BIT flag is cleared, and the RUN_BIT flag is set, causing a transition to the FLY state.</p>
+<p>The FLY state is active when only the RUN_BIT flag is set. The satellite is in free flight, and the system waits until the stop condition is satisfied. Once the condition is met, the DIR_BIT flag is inverted and the duration of the stopping pulse is computed. The system then transitions to the START state with the PULSE_BIT flag set. </p>
+
+<p class="definition">Definition at line <a class="el" href="loop__fcn_8c_source.html#l00069">69</a> of file <a class="el" href="loop__fcn_8c_source.html">loop_fcn.c</a>.</p>
 
 </div>
 </div>

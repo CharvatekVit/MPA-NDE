@@ -109,7 +109,35 @@ void autoread_fcn(uint32_t reg);
  */
 void valve_fcn(uint32_t * p_reg, float * p_set_pos);
 
-
+/**
+ * @brief  It handles the regulation of the orientation.
+ * @param  p_reg      command register, involves
+ * 			          information about system state and
+ * 			          switching time of valves
+ * @param  set_pos    the orientation is maintained by
+ *                    the regulation loop.
+ *
+ * If no motion command or regulation method is active,
+ * the system checks whether the satellite is moving and
+ * whether its orientation remains stable.
+ *
+ * If an angular velocity exceeding the allowed tolerance
+ * is detected, a stopping pulse is requested. This is
+ * handled by the regul_stop() function, which sets
+ * the REG_BIT flag. While this flag is set, further
+ * testing is blocked. After the pulse duration expires,
+ * the function closes the valves and clears the REG_BIT flag.
+ *
+ * If the deviation between set_pos and the measured orientation
+ * exceeds ANGLE_TOL, a return motion operation is required.
+ * This operation is initiated by the regul_return() function,
+ * which triggers the start pulse. The remaining steps are handled
+ * by valve_fcn(), to which the execution flow seamlessly transitions.
+ *
+ * The CMD0_BIT flag allows this entire regulation
+ * mechanism to be disabled.
+ *
+ */
 void regul_fcn(uint32_t * p_reg, float set_pos);
 
 /** @} */

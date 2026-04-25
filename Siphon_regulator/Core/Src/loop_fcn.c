@@ -8,24 +8,11 @@
 
 /* Includes -----------------------------------------------*/
 #include "loop_fcn.h"
+#include "loop_fcn_def.h"
 #include "main.h"
 #include "sensor_fcn.h"
 #include <math.h>
 #include <stdio.h>
-
-/* Defines ------------------------------------------------*/
-#define ANGLE_TOL           5   // Precision setting of position
-#define STOP_CONST_LEFT    10   // For stop pulse calculation
-#define STOP_CONST_RIGHT   10
-#define GYR_TOL          1.0f   // Ignored motion
-#define PULSE_IGNORE       50   // Too short pulse
-
-/* Static functions declaration ---------------------------*/
-/* Function prototypes ------------------------------------*/
-static void valve_close(void);
-static void regul_stop(uint32_t *, uint32_t *);
-static void regul_return(uint32_t *, uint32_t *, float);
-
 
 /* Global functions ---------------------------------------*/
 /* Automatic writing sensor data to serial */

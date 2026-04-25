@@ -56,7 +56,16 @@ void autoread_fcn(uint32_t reg)
 	}
 }
 
-/* Function for handling valves */
+/*
+ * Function: valve_fcn
+ * Purpose:  It handles the execution of motion commands.
+ * Input(s): p_reg     - command register, involves
+ * 			             information about system state and
+ * 			             switching time of valves
+ *           p_set_pos - the orientation is maintained by
+ *                       the regulation loop.
+ * Returns:  none
+ */
 void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 {
 	static uint32_t ticks = 0;
@@ -86,7 +95,7 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 			/* For regulator */
 			*p_set_pos = stable_pos;
 
-			printf("stable_pos: %d\n", (int16_t)(stable_pos));
+			// printf("stable_pos: %d\n", (int16_t)(stable_pos));
 		}
 		else
 		{
@@ -195,9 +204,14 @@ void regul_fcn(uint32_t * p_reg, float set_pos)
 }
 
 /* Local function */
+/*
+ * Function: valve_close
+ * Purpose:  Closes all valves.
+ * Input(s): none
+ * Returns:  none
+ */
 static void valve_close(void)
 {
-	/* Close valves */
 	HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 0);
 	HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 0);
 }

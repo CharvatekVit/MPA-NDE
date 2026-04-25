@@ -21,17 +21,31 @@
 #define INC_LOOP_FCN_DEF_H_
 
 /* Defines ------------------------------------------------*/
-#define ANGLE_TOL           5   // Precision setting of position
-#define STOP_CONST_LEFT    10   // For stop pulse calculation
+/** Precision setting of position. */
+#define ANGLE_TOL           5
+
+/** Constant for stop pulse calculation, left valve. */
+#define STOP_CONST_LEFT    10
+
+/** Constant for stop pulse calculation, right valve. */
 #define STOP_CONST_RIGHT   10
-#define GYR_TOL          1.0f   // Ignored motion
-#define PULSE_IGNORE       50   // Too short pulse
+
+/** Ignored motion, it accounts for sensor fluctuation. */
+#define GYR_TOL          1.0f
+
+/** Ignored pulse duration in milliseconds, too short pulse for performing */
+#define PULSE_IGNORE       50
 
 /* Static functions declaration ---------------------------*/
 /* Function prototypes ------------------------------------*/
+/**
+ * @brief  Closes all valves.
+ */
 static void valve_close(void);
-static void regul_stop(uint32_t *, uint32_t *);
-static void regul_return(uint32_t *, uint32_t *, float);
+
+
+static void regul_stop(uint32_t * p_reg, uint32_t * p_ticks);
+static void regul_return(uint32_t * p_reg, uint32_t * p_ticks, float set_pos);
 
 /** @} */
 #endif /* INC_LOOP_FCN_DEF_H_ */

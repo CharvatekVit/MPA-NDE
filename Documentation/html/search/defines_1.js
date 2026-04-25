@@ -20,10 +20,9 @@ var searchData=
   ['ak8963_5freg_5fts1_17',['AK8963_REG_TS1',['../driver__mpu9250_8c.html#abd12bbbc58c9cbc8f56c160444ba8896',1,'driver_mpu9250.c']]],
   ['ak8963_5freg_5fts2_18',['AK8963_REG_TS2',['../driver__mpu9250_8c.html#ae9a2d16f15ae654aa5da971b23a14a77',1,'driver_mpu9250.c']]],
   ['ak8963_5freg_5fwia_19',['AK8963_REG_WIA',['../driver__mpu9250_8c.html#a038270c5bc318d453f25559215192f4f',1,'driver_mpu9250.c']]],
-  ['angle_5ftol_20',['ANGLE_TOL',['../loop__fcn_8c.html#ad11f6238565a3718a5b1f5a8779b34e8',1,'loop_fcn.c']]],
-  ['assert_5fparam_21',['assert_param',['../stm32f1xx__hal__conf_8h.html#a631dea7b230e600555f979c62af1de21',1,'stm32f1xx_hal_conf.h']]],
-  ['autoread_5facc_5fbit_22',['AUTOREAD_ACC_BIT',['../main_8h.html#ab9fb09e0082979d7825c65c0e946fffd',1,'main.h']]],
-  ['autoread_5fbit_23',['AUTOREAD_BIT',['../main_8h.html#a03c3d2d584e3e66fa16d6c20e9836ab6',1,'main.h']]],
-  ['autoread_5fgyr_5fbit_24',['AUTOREAD_GYR_BIT',['../main_8h.html#af9066837968e13ec7e60b3e6bd6dd220',1,'main.h']]],
-  ['autoread_5fpos_5fbit_25',['AUTOREAD_POS_BIT',['../main_8h.html#ad4342dfb5cbd4d6cba12c5473f27e4fe',1,'main.h']]]
+  ['assert_5fparam_20',['assert_param',['../stm32f1xx__hal__conf_8h.html#a631dea7b230e600555f979c62af1de21',1,'stm32f1xx_hal_conf.h']]],
+  ['autoread_5facc_5fbit_21',['AUTOREAD_ACC_BIT',['../main_8h.html#ab9fb09e0082979d7825c65c0e946fffd',1,'main.h']]],
+  ['autoread_5fbit_22',['AUTOREAD_BIT',['../main_8h.html#a03c3d2d584e3e66fa16d6c20e9836ab6',1,'main.h']]],
+  ['autoread_5fgyr_5fbit_23',['AUTOREAD_GYR_BIT',['../main_8h.html#af9066837968e13ec7e60b3e6bd6dd220',1,'main.h']]],
+  ['autoread_5fpos_5fbit_24',['AUTOREAD_POS_BIT',['../main_8h.html#ad4342dfb5cbd4d6cba12c5473f27e4fe',1,'main.h']]]
 ];

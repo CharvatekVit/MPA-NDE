@@ -37,12 +37,12 @@ var searchData=
   ['ak8963_5freg_5fts2_34',['AK8963_REG_TS2',['../driver__mpu9250_8c.html#ae9a2d16f15ae654aa5da971b23a14a77',1,'driver_mpu9250.c']]],
   ['ak8963_5freg_5fwia_35',['AK8963_REG_WIA',['../driver__mpu9250_8c.html#a038270c5bc318d453f25559215192f4f',1,'driver_mpu9250.c']]],
   ['angle_36',['angle',['../structsettings__t.html#a76f155f57a7d8504459c4438bdcfdceb',1,'settings_t']]],
-  ['angle_5ftol_37',['ANGLE_TOL',['../loop__fcn_8c.html#ad11f6238565a3718a5b1f5a8779b34e8',1,'loop_fcn.c']]],
+  ['angle_5ftol_37',['ANGLE_TOL',['../group___loop.html#gad11f6238565a3718a5b1f5a8779b34e8',1,'loop_fcn_def.h']]],
   ['apbpresctable_38',['APBPrescTable',['../group___s_t_m32_f1xx___system___private___variables.html#gaa93c123312c9273c0928a79f1203f759',1,'system_stm32f1xx.c']]],
   ['assert_5fparam_39',['assert_param',['../stm32f1xx__hal__conf_8h.html#a631dea7b230e600555f979c62af1de21',1,'stm32f1xx_hal_conf.h']]],
   ['autoread_5facc_5fbit_40',['AUTOREAD_ACC_BIT',['../main_8h.html#ab9fb09e0082979d7825c65c0e946fffd',1,'main.h']]],
   ['autoread_5fbit_41',['AUTOREAD_BIT',['../main_8h.html#a03c3d2d584e3e66fa16d6c20e9836ab6',1,'main.h']]],
-  ['autoread_5ffcn_42',['autoread_fcn',['../loop__fcn_8h.html#a06ddf3e74d326b27126bf13355e9f72b',1,'autoread_fcn(uint32_t):&#160;loop_fcn.c'],['../loop__fcn_8c.html#a69bed987a3c128612148f33c7cd47eab',1,'autoread_fcn(uint32_t reg):&#160;loop_fcn.c']]],
+  ['autoread_5ffcn_42',['autoread_fcn',['../group___loop.html#ga06ddf3e74d326b27126bf13355e9f72b',1,'autoread_fcn(uint32_t):&#160;loop_fcn.c'],['../group___loop.html#ga06ddf3e74d326b27126bf13355e9f72b',1,'autoread_fcn(uint32_t reg):&#160;loop_fcn.c']]],
   ['autoread_5fgyr_5fbit_43',['AUTOREAD_GYR_BIT',['../main_8h.html#af9066837968e13ec7e60b3e6bd6dd220',1,'main.h']]],
   ['autoread_5fpos_5fbit_44',['AUTOREAD_POS_BIT',['../main_8h.html#ad4342dfb5cbd4d6cba12c5473f27e4fe',1,'main.h']]]
 ];

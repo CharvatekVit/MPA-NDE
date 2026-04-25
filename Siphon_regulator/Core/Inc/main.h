@@ -1,4 +1,43 @@
 /* USER CODE BEGIN Header */
+/*
+ * Siphon Regulator library
+ * (c) Antonin Putala 2026
+ *
+ * Developed using STM32CubeIDE
+ * Tested on BluePill board and STM32F103C8T6, 32 MHz.
+ */
+
+/**
+ * @mainpage Siphon Regulator
+ *
+ * Attitude determination and control system (ADCS), together
+ * with on-board computer (OBC), communication system (COM)
+ * and electrical power system (EPS), represents one of
+ * the fundamental building blocks of nanosatellites.Attitude
+ * control is essential when the satellite carries, for example,
+ * a camera or a high-gain antenna. For CubeSats, reaction wheels
+ * or magnetorquers are typical components that enable the
+ * CubeSat to adjust its orientation.
+ *
+ * Using reaction-based pneumatic propulsion system (RPPS)
+ * is not a conventional approach; however, in addition to adjusting
+ * the orientation, they can also induce linear motion, thereby
+ * influencing the orbit of the satellite.
+ *
+ * The goal of the project was to demonstrate the use of an RPPS
+ * to control the orientation of a CubeSat. For the demonstration,
+ * a single axis was selected due to limited financial resources,
+ * time constraints, and the relative ease of testing under terrestrial
+ * conditions. An integral part of the ADCS is also gyroscope,
+ * which is used to determine angular position data.
+ *
+ * @author    Antonin Putala,
+ *            Dept. of Radio Electronics, Brno University of Technology, Czechia
+ * @copyright (c) 2026 Antonin Putala,
+ *            This work is licensed under the terms of the MIT license
+ */
+/* USER CODE END Header */
+
 /**
   ******************************************************************************
   * @file           : main.h
@@ -16,7 +55,6 @@
   *
   ******************************************************************************
   */
-/* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __MAIN_H

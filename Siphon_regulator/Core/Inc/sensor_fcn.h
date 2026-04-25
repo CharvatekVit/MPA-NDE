@@ -46,9 +46,27 @@ extern settings_t    set_data;
  */
 void sensor_init(float * gyr_offset);
 
-
+/**
+ * @brief  It handles reading the value from the sensor.
+ * @param  gyr_offset    gyroscope offset obtained repeated measurement
+ *
+ * The data are read using the mpu9250_basic_read() function from
+ * The the mpu9250 library. The values are stored in the global variable
+ * measure_data. The gyroscope data are corrected using the previously
+ * determined offset, and the orientation is then computed.
+ *
+ */
 void sensor_get_value(float * gyr_offset);
 
+/**
+ * @brief  It normalizes the orientation value to the –180° to +180° range.
+ * @param  p_deg         gyroscope offset obtained repeated measurement
+ *
+ * The orientation data are converted into an angular format.
+ * For values greater than 180°, 360° is subtracted.
+ * For values less than –180°, 360° is added.
+ *
+ */
 void sensor_deg_limit(float * p_deg);
 
 /** @} */

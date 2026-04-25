@@ -39,7 +39,13 @@ void sensor_init(float * gyr_offset)
 
 }
 
-/* 2 READING */
+/*
+ * Function: sensor_get_value
+ * Purpose:  It handles reading the value from the sensor.
+ * Input(s): gyr_offset       - gyroscope offset obtained
+ *                              repeated measurement
+ * Returns:  none
+ */
 void sensor_get_value(float * gyr_offset)
 {
 	static uint32_t tick = 0;
@@ -73,7 +79,12 @@ void sensor_get_value(float * gyr_offset)
 	}
 }
 
-/* Arrange position data to degree format*/
+/*
+ * Function: sensor_deg_limit
+ * Purpose:  It normalizes the orientation value to the –180° to +180° range.
+ * Input(s): p_deg            - gyroscope offset obtained repeated measurement
+ * Returns:  none
+ */
 void sensor_deg_limit(float * p_deg)
 {
     *p_deg += (*p_deg < -180) ? 360: 0;
@@ -81,7 +92,13 @@ void sensor_deg_limit(float * p_deg)
 }
 
 /* Static functions ---------------------------------------*/
-/* Gyroscope calibration */
+/*
+ * Function: sensor_calibration
+ * Purpose:  It performs the computation of the gyroscope offset.
+ * Input(s): gyr_offset       - gyroscope offset obtained
+ *                              repeated measurement
+ * Returns:  none
+ */
 static void sensor_calibration(float * gyr_offset)
 {
 	/* Temporary variables for calibration */
@@ -92,7 +109,7 @@ static void sensor_calibration(float * gyr_offset)
 	float offset[3] = {0};
 	uint8_t i;
 
-
+	/* A total of 100 measurements are taken. */
 	for (i = 0; i < CAL_CYC_NUM; i++)
 	{
 		if (mpu9250_basic_read(acc, gyr, mag) == 0)
@@ -106,6 +123,8 @@ static void sensor_calibration(float * gyr_offset)
 		HAL_Delay(CAL_TIME);
 	}
 
+	/* Only successful samples are included in the computation, i.e.,
+	 * the sum is divided by the number of valid measurements. */
 	for (uint8_t j = 0; j < 3; j++)
 	{
 		gyr_offset[j] = (offset[j] / i);

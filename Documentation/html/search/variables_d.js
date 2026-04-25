@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['set_5fdata_0',['set_data',['../group___commands.html#ga44bf19ed80e184a62dc75471fcf8dee6',1,'set_data:&#160;main.c'],['../group___commands.html#ga44bf19ed80e184a62dc75471fcf8dee6',1,'set_data:&#160;main.c'],['../group___commands.html#ga44bf19ed80e184a62dc75471fcf8dee6',1,'set_data:&#160;main.c'],['../group___commands.html#ga44bf19ed80e184a62dc75471fcf8dee6',1,'set_data:&#160;main.c']]],
+  ['set_5fdata_0',['set_data',['../group___commands.html#ga44bf19ed80e184a62dc75471fcf8dee6',1,'set_data:&#160;main.c'],['../group___commands.html#ga44bf19ed80e184a62dc75471fcf8dee6',1,'set_data:&#160;main.c'],['../group___sensors.html#ga44bf19ed80e184a62dc75471fcf8dee6',1,'set_data:&#160;main.c'],['../group___commands.html#ga44bf19ed80e184a62dc75471fcf8dee6',1,'set_data:&#160;main.c']]],
   ['spi_5fdeinit_1',['spi_deinit',['../structmpu9250__handle__s.html#a9adb2481330acacfd7f6a04ce3310fab',1,'mpu9250_handle_s']]],
   ['spi_5finit_2',['spi_init',['../structmpu9250__handle__s.html#a30df505f4bd8bc8754fc0a36cfbe46d6',1,'mpu9250_handle_s']]],
   ['spi_5fread_3',['spi_read',['../structmpu9250__handle__s.html#a4355763dd3841598f34aea0b059031ce',1,'mpu9250_handle_s']]],

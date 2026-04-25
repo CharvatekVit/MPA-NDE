@@ -91,90 +91,35 @@ $(function(){ initResizable(false); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">sensor_fcn.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="sensor__fcn_8h_source.html">sensor_fcn.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="sensor__fcn__def_8h_source.html">sensor_fcn_def.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="driver__mpu9250__basic_8h_source.html">driver_mpu9250_basic.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 </div>
 <p><a href="sensor__fcn_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a547bccdfee2e7c2df4e9846926bc7bf3" id="r_a547bccdfee2e7c2df4e9846926bc7bf3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a547bccdfee2e7c2df4e9846926bc7bf3">CAL_CYC_NUM</a>&#160;&#160;&#160;100</td></tr>
-<tr class="separator:a547bccdfee2e7c2df4e9846926bc7bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0efd6fb67a1b71743bcc99531f63b720" id="r_a0efd6fb67a1b71743bcc99531f63b720"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0efd6fb67a1b71743bcc99531f63b720">MEAS_TIME</a>&#160;&#160;&#160;10</td></tr>
-<tr class="separator:a0efd6fb67a1b71743bcc99531f63b720"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9b0a6920c332e9897ef83c6c1486099" id="r_ab9b0a6920c332e9897ef83c6c1486099"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9b0a6920c332e9897ef83c6c1486099">CAL_TIME</a>&#160;&#160;&#160;10</td></tr>
-<tr class="separator:ab9b0a6920c332e9897ef83c6c1486099"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a209eff3f6e8c29291c7d3fb7ed233fbf" id="r_a209eff3f6e8c29291c7d3fb7ed233fbf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a209eff3f6e8c29291c7d3fb7ed233fbf">sensor_calibration</a> (float *)</td></tr>
-<tr class="separator:a209eff3f6e8c29291c7d3fb7ed233fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ede588800450c2641a3074b4d8c738a" id="r_a1ede588800450c2641a3074b4d8c738a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ede588800450c2641a3074b4d8c738a">sensor_init</a> (float *gyr_offset)</td></tr>
-<tr class="separator:a1ede588800450c2641a3074b4d8c738a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a188d18ee4906312d79302165d8ffff46" id="r_a188d18ee4906312d79302165d8ffff46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a188d18ee4906312d79302165d8ffff46">sensor_get_value</a> (float *gyr_offset)</td></tr>
-<tr class="separator:a188d18ee4906312d79302165d8ffff46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfec13129fdb422a149488716a69e1bd" id="r_abfec13129fdb422a149488716a69e1bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfec13129fdb422a149488716a69e1bd">sensor_deg_limit</a> (float *p_deg)</td></tr>
-<tr class="separator:abfec13129fdb422a149488716a69e1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ede588800450c2641a3074b4d8c738a" id="r_ga1ede588800450c2641a3074b4d8c738a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___sensors.html#ga1ede588800450c2641a3074b4d8c738a">sensor_init</a> (float *gyr_offset)</td></tr>
+<tr class="memdesc:ga1ede588800450c2641a3074b4d8c738a"><td class="mdescLeft">&#160;</td><td class="mdescRight">It initiates communication with the sensor.  <br /></td></tr>
+<tr class="separator:ga1ede588800450c2641a3074b4d8c738a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga188d18ee4906312d79302165d8ffff46" id="r_ga188d18ee4906312d79302165d8ffff46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___sensors.html#ga188d18ee4906312d79302165d8ffff46">sensor_get_value</a> (float *gyr_offset)</td></tr>
+<tr class="memdesc:ga188d18ee4906312d79302165d8ffff46"><td class="mdescLeft">&#160;</td><td class="mdescRight">It handles reading the value from the sensor.  <br /></td></tr>
+<tr class="separator:ga188d18ee4906312d79302165d8ffff46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabfec13129fdb422a149488716a69e1bd" id="r_gabfec13129fdb422a149488716a69e1bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___sensors.html#gabfec13129fdb422a149488716a69e1bd">sensor_deg_limit</a> (float *p_deg)</td></tr>
+<tr class="memdesc:gabfec13129fdb422a149488716a69e1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">It normalizes the orientation value to the –180° to +180° range.  <br /></td></tr>
+<tr class="separator:gabfec13129fdb422a149488716a69e1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae25e32f0dc9a011d71f821f257304ff3" id="r_ae25e32f0dc9a011d71f821f257304ff3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae25e32f0dc9a011d71f821f257304ff3">sensor_calibration</a> (float *gyr_offset)</td></tr>
+<tr class="separator:ae25e32f0dc9a011d71f821f257304ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a547bccdfee2e7c2df4e9846926bc7bf3" name="a547bccdfee2e7c2df4e9846926bc7bf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a547bccdfee2e7c2df4e9846926bc7bf3">&#9670;&#160;</a></span>CAL_CYC_NUM</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CAL_CYC_NUM&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sensor__fcn_8c_source.html#l00016">16</a> of file <a class="el" href="sensor__fcn_8c_source.html">sensor_fcn.c</a>.</p>
-
-</div>
-</div>
-<a id="ab9b0a6920c332e9897ef83c6c1486099" name="ab9b0a6920c332e9897ef83c6c1486099"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9b0a6920c332e9897ef83c6c1486099">&#9670;&#160;</a></span>CAL_TIME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CAL_TIME&#160;&#160;&#160;10</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sensor__fcn_8c_source.html#l00019">19</a> of file <a class="el" href="sensor__fcn_8c_source.html">sensor_fcn.c</a>.</p>
-
-</div>
-</div>
-<a id="a0efd6fb67a1b71743bcc99531f63b720" name="a0efd6fb67a1b71743bcc99531f63b720"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0efd6fb67a1b71743bcc99531f63b720">&#9670;&#160;</a></span>MEAS_TIME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MEAS_TIME&#160;&#160;&#160;10</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sensor__fcn_8c_source.html#l00018">18</a> of file <a class="el" href="sensor__fcn_8c_source.html">sensor_fcn.c</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a209eff3f6e8c29291c7d3fb7ed233fbf" name="a209eff3f6e8c29291c7d3fb7ed233fbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a209eff3f6e8c29291c7d3fb7ed233fbf">&#9670;&#160;</a></span>sensor_calibration()</h2>
+<a id="ae25e32f0dc9a011d71f821f257304ff3" name="ae25e32f0dc9a011d71f821f257304ff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae25e32f0dc9a011d71f821f257304ff3">&#9670;&#160;</a></span>sensor_calibration()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,64 +141,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sensor__fcn_8c_source.html#l00082">82</a> of file <a class="el" href="sensor__fcn_8c_source.html">sensor_fcn.c</a>.</p>
-
-</div>
-</div>
-<a id="abfec13129fdb422a149488716a69e1bd" name="abfec13129fdb422a149488716a69e1bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfec13129fdb422a149488716a69e1bd">&#9670;&#160;</a></span>sensor_deg_limit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sensor_deg_limit </td>
-          <td>(</td>
-          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>p_deg</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sensor__fcn_8c_source.html#l00073">73</a> of file <a class="el" href="sensor__fcn_8c_source.html">sensor_fcn.c</a>.</p>
-
-</div>
-</div>
-<a id="a188d18ee4906312d79302165d8ffff46" name="a188d18ee4906312d79302165d8ffff46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a188d18ee4906312d79302165d8ffff46">&#9670;&#160;</a></span>sensor_get_value()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sensor_get_value </td>
-          <td>(</td>
-          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>gyr_offset</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sensor__fcn_8c_source.html#l00046">46</a> of file <a class="el" href="sensor__fcn_8c_source.html">sensor_fcn.c</a>.</p>
-
-</div>
-</div>
-<a id="a1ede588800450c2641a3074b4d8c738a" name="a1ede588800450c2641a3074b4d8c738a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ede588800450c2641a3074b4d8c738a">&#9670;&#160;</a></span>sensor_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sensor_init </td>
-          <td>(</td>
-          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>gyr_offset</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sensor__fcn_8c_source.html#l00027">27</a> of file <a class="el" href="sensor__fcn_8c_source.html">sensor_fcn.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor__fcn_8c_source.html#l00102">102</a> of file <a class="el" href="sensor__fcn_8c_source.html">sensor_fcn.c</a>.</p>
 
 </div>
 </div>

@@ -24,5 +24,6 @@ var searchData=
   ['phy_5fwrite_5fto_21',['PHY_WRITE_TO',['../stm32f1xx__hal__conf_8h.html#a474bf13e28d09b667e41b151140ee39d',1,'stm32f1xx_hal_conf.h']]],
   ['prefetch_5fenable_22',['PREFETCH_ENABLE',['../stm32f1xx__hal__conf_8h.html#a13fc0d5e7bb925385c0cc0772ba6a391',1,'stm32f1xx_hal_conf.h']]],
   ['pulse_5fbit_23',['PULSE_BIT',['../main_8h.html#ac70b773fff57d71eefb6472749d86757',1,'main.h']]],
-  ['pulse_5fignore_24',['PULSE_IGNORE',['../loop__fcn_8c.html#a9a13615b230b8aa8abda217a0473a4a7',1,'loop_fcn.c']]]
+  ['pulse_5fignore_24',['PULSE_IGNORE',['../loop__fcn_8c.html#a9a13615b230b8aa8abda217a0473a4a7',1,'loop_fcn.c']]],
+  ['pulse_5frepre_25',['PULSE_REPRE',['../main_8h.html#adeb7c9f055e32aa33ac2bdff61f6c45c',1,'main.h']]]
 ];

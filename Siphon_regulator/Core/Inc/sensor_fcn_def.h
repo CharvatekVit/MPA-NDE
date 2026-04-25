@@ -21,14 +21,27 @@
 #define INC_SENSOR_FCN_DEF_H_
 
 /* Defines ------------------------------------------------*/
-#define CAL_CYC_NUM             100 // How much calibration measurement is performed
-#define MEAS_TIME                10 // how often sensor is readed
-#define CAL_TIME                 10 // how often sensor is readed during calibration
+/** How much calibration measurement is performed. */
+#define CAL_CYC_NUM             100
+
+/** How often sensor is readed in milliseconds. */
+#define MEAS_TIME                10
+
+/** How often sensor is readed during calibration in milliseconds. */
+#define CAL_TIME                 10
 
 /* Static functions declaration ---------------------------*/
 /* Function prototypes ------------------------------------*/
-
-static void sensor_calibration(float *);
+/**
+ * @brief  It performs the computation of the gyroscope offset.
+ * @param  gyr_offset    gyroscope offset obtained repeated measurement
+ *
+ * It measures the angular velocity 100 times with a 10 ms period.
+ * The result is then averaged. During this procedure, the satellite
+ * must remain perfectly stationary.
+ *
+ */
+static void sensor_calibration(float * gyr_offset);
 
 /** @} */
 #endif /* INC_SENSOR_FCN_DEF_H_ */

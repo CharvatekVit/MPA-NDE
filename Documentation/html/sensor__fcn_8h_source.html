@@ -94,34 +94,40 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 <a href="sensor__fcn_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * sensor_fcn.h</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *  Created on: Mar 23, 2026</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *      Author: Antonin Putala</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef INC_SENSOR_FCN_H_</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define INC_SENSOR_FCN_H_</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/* Includes */</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="main_8h.html">main.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/* Extern global variables */</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">extern</span> <a class="code hl_struct" href="structsensor__data__t.html">sensor_data_t</a> <a class="code hl_variable" href="group___commands.html#ga466eacd817dffbddc805f3afada5de81">measured_data</a>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">extern</span> <a class="code hl_struct" href="structsettings__t.html">settings_t</a>    <a class="code hl_variable" href="group___commands.html#ga44bf19ed80e184a62dc75471fcf8dee6">set_data</a>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/* Function prototypes */</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> <a class="code hl_function" href="sensor__fcn_8h.html#abb537e08ffe32d2ef9fc3a1922d97106">sensor_init</a>(<span class="keywordtype">float</span> *);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> <a class="code hl_function" href="sensor__fcn_8h.html#afe370181e172fc04154fd14c2efc9f51">sensor_get_value</a>(<span class="keywordtype">float</span> *);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> <a class="code hl_function" href="sensor__fcn_8h.html#a91436831aa39c65243fbdc853d3a7090">sensor_deg_limit</a>(<span class="keywordtype">float</span> *);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif </span><span class="comment">/* INC_SENSOR_FCN_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="agroup___commands_html_ga44bf19ed80e184a62dc75471fcf8dee6"><div class="ttname"><a href="group___commands.html#ga44bf19ed80e184a62dc75471fcf8dee6">set_data</a></div><div class="ttdeci">settings_t set_data</div><div class="ttdoc">Main system settings.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00059">main.c:59</a></div></div>
-<div class="ttc" id="agroup___commands_html_ga466eacd817dffbddc805f3afada5de81"><div class="ttname"><a href="group___commands.html#ga466eacd817dffbddc805f3afada5de81">measured_data</a></div><div class="ttdeci">sensor_data_t measured_data</div><div class="ttdoc">Current sensor measured data.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00058">main.c:58</a></div></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Command processing library</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * (c) Antonin_Putala 2026</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Developed using STM32CubeIDE</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Tested on BluePill board and STM32F103C8T6, 32 MHz.</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#ifndef INC_SENSOR_FCN_H_</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define INC_SENSOR_FCN_H_</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/* Includes -----------------------------------------------*/</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="main_8h.html">main.h</a>&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">/* Defines ------------------------------------------------*/</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/* Extern global variables --------------------------------*/</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">extern</span> <a class="code hl_struct" href="structsensor__data__t.html">sensor_data_t</a> <a class="code hl_variable" href="group___sensors.html#ga466eacd817dffbddc805f3afada5de81">measured_data</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">extern</span> <a class="code hl_struct" href="structsettings__t.html">settings_t</a>    <a class="code hl_variable" href="group___sensors.html#ga44bf19ed80e184a62dc75471fcf8dee6">set_data</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/* Function prototypes ------------------------------------*/</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___sensors.html#ga1ede588800450c2641a3074b4d8c738a">sensor_init</a>(<span class="keywordtype">float</span> * gyr_offset);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___sensors.html#ga188d18ee4906312d79302165d8ffff46">sensor_get_value</a>(<span class="keywordtype">float</span> * gyr_offset);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___sensors.html#gabfec13129fdb422a149488716a69e1bd">sensor_deg_limit</a>(<span class="keywordtype">float</span> * p_deg);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#endif </span><span class="comment">/* INC_SENSOR_FCN_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="agroup___sensors_html_ga188d18ee4906312d79302165d8ffff46"><div class="ttname"><a href="group___sensors.html#ga188d18ee4906312d79302165d8ffff46">sensor_get_value</a></div><div class="ttdeci">void sensor_get_value(float *gyr_offset)</div><div class="ttdoc">It handles reading the value from the sensor.</div><div class="ttdef"><b>Definition</b> <a href="sensor__fcn_8c_source.html#l00049">sensor_fcn.c:49</a></div></div>
+<div class="ttc" id="agroup___sensors_html_ga1ede588800450c2641a3074b4d8c738a"><div class="ttname"><a href="group___sensors.html#ga1ede588800450c2641a3074b4d8c738a">sensor_init</a></div><div class="ttdeci">void sensor_init(float *gyr_offset)</div><div class="ttdoc">It initiates communication with the sensor.</div><div class="ttdef"><b>Definition</b> <a href="sensor__fcn_8c_source.html#l00024">sensor_fcn.c:24</a></div></div>
+<div class="ttc" id="agroup___sensors_html_ga44bf19ed80e184a62dc75471fcf8dee6"><div class="ttname"><a href="group___sensors.html#ga44bf19ed80e184a62dc75471fcf8dee6">set_data</a></div><div class="ttdeci">settings_t set_data</div><div class="ttdoc">Main system settings.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00059">main.c:59</a></div></div>
+<div class="ttc" id="agroup___sensors_html_ga466eacd817dffbddc805f3afada5de81"><div class="ttname"><a href="group___sensors.html#ga466eacd817dffbddc805f3afada5de81">measured_data</a></div><div class="ttdeci">sensor_data_t measured_data</div><div class="ttdoc">Current sensor measured data.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00058">main.c:58</a></div></div>
+<div class="ttc" id="agroup___sensors_html_gabfec13129fdb422a149488716a69e1bd"><div class="ttname"><a href="group___sensors.html#gabfec13129fdb422a149488716a69e1bd">sensor_deg_limit</a></div><div class="ttdeci">void sensor_deg_limit(float *p_deg)</div><div class="ttdoc">It normalizes the orientation value to the –180° to +180° range.</div><div class="ttdef"><b>Definition</b> <a href="sensor__fcn_8c_source.html#l00088">sensor_fcn.c:88</a></div></div>
 <div class="ttc" id="amain_8h_html"><div class="ttname"><a href="main_8h.html">main.h</a></div><div class="ttdoc">: Header for main.c file. This file contains the common defines of the application.</div></div>
-<div class="ttc" id="asensor__fcn_8h_html_a91436831aa39c65243fbdc853d3a7090"><div class="ttname"><a href="sensor__fcn_8h.html#a91436831aa39c65243fbdc853d3a7090">sensor_deg_limit</a></div><div class="ttdeci">void sensor_deg_limit(float *)</div><div class="ttdef"><b>Definition</b> <a href="sensor__fcn_8c_source.html#l00073">sensor_fcn.c:73</a></div></div>
-<div class="ttc" id="asensor__fcn_8h_html_abb537e08ffe32d2ef9fc3a1922d97106"><div class="ttname"><a href="sensor__fcn_8h.html#abb537e08ffe32d2ef9fc3a1922d97106">sensor_init</a></div><div class="ttdeci">void sensor_init(float *)</div><div class="ttdef"><b>Definition</b> <a href="sensor__fcn_8c_source.html#l00027">sensor_fcn.c:27</a></div></div>
-<div class="ttc" id="asensor__fcn_8h_html_afe370181e172fc04154fd14c2efc9f51"><div class="ttname"><a href="sensor__fcn_8h.html#afe370181e172fc04154fd14c2efc9f51">sensor_get_value</a></div><div class="ttdeci">void sensor_get_value(float *)</div><div class="ttdef"><b>Definition</b> <a href="sensor__fcn_8c_source.html#l00046">sensor_fcn.c:46</a></div></div>
 <div class="ttc" id="astructsensor__data__t_html"><div class="ttname"><a href="structsensor__data__t.html">sensor_data_t</a></div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00039">main.h:39</a></div></div>
 <div class="ttc" id="astructsettings__t_html"><div class="ttname"><a href="structsettings__t.html">settings_t</a></div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00046">main.h:46</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

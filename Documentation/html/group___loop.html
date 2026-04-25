@@ -119,13 +119,16 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga0bb3048113d118c155ecbed062902772"><td class="mdescLeft">&#160;</td><td class="mdescRight">It handles the execution of motion commands.  <br /></td></tr>
 <tr class="separator:ga0bb3048113d118c155ecbed062902772"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae7bca36a406f1830e8c0ac0712ff37cc" id="r_gae7bca36a406f1830e8c0ac0712ff37cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae7bca36a406f1830e8c0ac0712ff37cc">regul_fcn</a> (uint32_t *p_reg, float set_pos)</td></tr>
+<tr class="memdesc:gae7bca36a406f1830e8c0ac0712ff37cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">It handles the regulation of the orientation.  <br /></td></tr>
 <tr class="separator:gae7bca36a406f1830e8c0ac0712ff37cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0a57d824004755d99c89598622cf37be" id="r_ga0a57d824004755d99c89598622cf37be"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0a57d824004755d99c89598622cf37be">valve_close</a> (void)</td></tr>
 <tr class="memdesc:ga0a57d824004755d99c89598622cf37be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes all valves.  <br /></td></tr>
 <tr class="separator:ga0a57d824004755d99c89598622cf37be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga31f7a107b9a4c8e9c2fa93957bce6665" id="r_ga31f7a107b9a4c8e9c2fa93957bce6665"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga31f7a107b9a4c8e9c2fa93957bce6665">regul_stop</a> (uint32_t *p_reg, uint32_t *p_ticks)</td></tr>
+<tr class="memdesc:ga31f7a107b9a4c8e9c2fa93957bce6665"><td class="mdescLeft">&#160;</td><td class="mdescRight">It provides the stopping pulse.  <br /></td></tr>
 <tr class="separator:ga31f7a107b9a4c8e9c2fa93957bce6665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab4768eff84ddaf64257272884ba34c12" id="r_gab4768eff84ddaf64257272884ba34c12"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab4768eff84ddaf64257272884ba34c12">regul_return</a> (uint32_t *p_reg, uint32_t *p_ticks, float set_pos)</td></tr>
+<tr class="memdesc:gab4768eff84ddaf64257272884ba34c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">It initiates the return to the stable orientation.  <br /></td></tr>
 <tr class="separator:gab4768eff84ddaf64257272884ba34c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -281,7 +284,20 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="loop__fcn_8c_source.html#l00173">173</a> of file <a class="el" href="loop__fcn_8c_source.html">loop_fcn.c</a>.</p>
+<p>It handles the regulation of the orientation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves </td></tr>
+    <tr><td class="paramname">set_pos</td><td>the orientation is maintained by the regulation loop.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>If no motion command or regulation method is active, the system checks whether the satellite is moving and whether its orientation remains stable.</p>
+<p>If an angular velocity exceeding the allowed tolerance is detected, a stopping pulse is requested. This is handled by the <a class="el" href="#ga31f7a107b9a4c8e9c2fa93957bce6665" title="It provides the stopping pulse.">regul_stop()</a> function, which sets the REG_BIT flag. While this flag is set, further testing is blocked. After the pulse duration expires, the function closes the valves and clears the REG_BIT flag.</p>
+<p>If the deviation between set_pos and the measured orientation exceeds ANGLE_TOL, a return motion operation is required. This operation is initiated by the <a class="el" href="#gab4768eff84ddaf64257272884ba34c12" title="It initiates the return to the stable orientation.">regul_return()</a> function, which triggers the start pulse. The remaining steps are handled by <a class="el" href="#ga0bb3048113d118c155ecbed062902772" title="It handles the execution of motion commands.">valve_fcn()</a>, to which the execution flow seamlessly transitions.</p>
+<p>The CMD0_BIT flag allows this entire regulation mechanism to be disabled. </p>
+
+<p class="definition">Definition at line <a class="el" href="loop__fcn_8c_source.html#l00182">182</a> of file <a class="el" href="loop__fcn_8c_source.html">loop_fcn.c</a>.</p>
 
 </div>
 </div>
@@ -317,6 +333,17 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>It initiates the return to the stable orientation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves </td></tr>
+    <tr><td class="paramname">p_ticks</td><td>number of ticks until the pulse is stopped </td></tr>
+    <tr><td class="paramname">set_pos</td><td>the orientation is maintained by the regulation loop.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>It triggers the first pulse of the RETURN method. It sets the REG_BIT and RETURN_BIT flags. The appropriate valve is selected so that the correction path is as short as possible. The DIR_BIT flag is also configured to ensure proper stopping behavior.The pulse duration is taken directly from the global variable set_data. The REG_BIT flag ensures that, once the pulse duration expires, the valves are closed. </p>
+
 </div>
 </div>
 <a id="ga31f7a107b9a4c8e9c2fa93957bce6665" name="ga31f7a107b9a4c8e9c2fa93957bce6665"></a>
@@ -345,6 +372,16 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>It provides the stopping pulse. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_reg</td><td>command register, involves information about system state and switching time of valves </td></tr>
+    <tr><td class="paramname">p_ticks</td><td>number of ticks until the pulse is stopped</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Based on the sign of the polarization value, one of the valves is opened: the right valve for a positive value and the left valve for a negative value. The required pulse duration is then computed from the measured angular velocity. Pulses that are too short are ignored. By setting the REG_BIT flag, the system activates the condition that closes the valve once the computed time has elapsed. </p>
 
 </div>
 </div>

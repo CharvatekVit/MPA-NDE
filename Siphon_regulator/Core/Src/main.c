@@ -69,7 +69,15 @@ static void MX_DMA_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_SPI2_Init(void);
 /* USER CODE BEGIN PFP */
+
+/**
+ * @brief Set default values of set_data global variable.
+ */
 void setting_init(void);
+
+/**
+ * @brief Initialize valves. By default close.
+ */
 void valve_init(void);
 
 /* USER CODE END PFP */
@@ -83,14 +91,15 @@ int _write(int file, char const *buf, int n)
 	return n;
 }
 
+
 void setting_init(void)
 {
 	/* Default data */
-	set_data.angle  = 90; // 90 deg
-	set_data.time_a = 10; // 10 * 0.1 = 1 sec
-	set_data.time_l = 20; // 200us
-	set_data.time_r = 20; // 200us
-	set_data.home   =  0; // return position
+	set_data.angle  = 90; ///< 90 deg
+	set_data.time_a = 10; ///< 10 * 0.1 = 1 sec
+	set_data.time_l = 20; ///< 20 * 10 = 200 us
+	set_data.time_r = 20; ///< 20 * 10 = 200 us
+	set_data.home   =  0; ///< default orientation
 }
 
 void valve_init(void)

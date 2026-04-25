@@ -229,8 +229,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">reg = reg &amp; ~(1 &lt;&lt; bit)</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00104">104</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+</div><!-- fragment --><p>Clear single bit in register. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00109">109</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -249,8 +250,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">reg = reg &amp; ~0x00FFFF00</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00108">108</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+</div><!-- fragment --><p>Time data are included in bites 15 to 8 (right valve) and in 23 to 16 (left valve). Set time to null. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00118">118</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -269,8 +271,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">((int16_t)(data_fl*1000))</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00114">114</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+</div><!-- fragment --><p>Float value is converted to integer. For better resolution is multiplied by 100. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00133">133</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -293,8 +296,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">reg &amp; (1 &lt;&lt; bit)</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00102">102</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+</div><!-- fragment --><p>Check value of single bit in register. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00103">103</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -313,8 +317,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">((reg &amp; 0x00FF0000) &gt;&gt; 16)</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00111">111</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+</div><!-- fragment --><p>Read time settings for left valve. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00128">128</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -333,8 +338,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">((reg &amp; 0x0000FF00) &gt;&gt; 8)</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00110">110</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+</div><!-- fragment --><p>Read time settings for right valve. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00125">125</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -353,14 +359,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">reg &amp; ((1 &lt;&lt; <a class="code hl_define" href="#a6dba7924c0a0adf9cb6e38e9656346b4">RUN_BIT</a>) | (1 &lt;&lt; <a class="code hl_define" href="#a87b5e02fe44dfbb292b1901025dd1187">TURN_BIT</a>) | (1 &lt;&lt; <a class="code hl_define" href="#ac70b773fff57d71eefb6472749d86757">PULSE_BIT</a>) | (1 &lt;&lt; <a class="code hl_define" href="#abb1d86f89f686101dccc13e099bfa69d">HOME_BIT</a>) | (1 &lt;&lt; <a class="code hl_define" href="#adb32e9c41bdddeb723c8075a9db8f915">REG_BIT</a>) | (1 &lt;&lt; <a class="code hl_define" href="#a3019082b9b714b416051e3383ac0715b">RETURN_BIT</a>))</div>
-<div class="ttc" id="amain_8h_html_a3019082b9b714b416051e3383ac0715b"><div class="ttname"><a href="#a3019082b9b714b416051e3383ac0715b">RETURN_BIT</a></div><div class="ttdeci">#define RETURN_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00147">main.h:147</a></div></div>
-<div class="ttc" id="amain_8h_html_a6dba7924c0a0adf9cb6e38e9656346b4"><div class="ttname"><a href="#a6dba7924c0a0adf9cb6e38e9656346b4">RUN_BIT</a></div><div class="ttdeci">#define RUN_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00142">main.h:142</a></div></div>
-<div class="ttc" id="amain_8h_html_a87b5e02fe44dfbb292b1901025dd1187"><div class="ttname"><a href="#a87b5e02fe44dfbb292b1901025dd1187">TURN_BIT</a></div><div class="ttdeci">#define TURN_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00145">main.h:145</a></div></div>
-<div class="ttc" id="amain_8h_html_abb1d86f89f686101dccc13e099bfa69d"><div class="ttname"><a href="#abb1d86f89f686101dccc13e099bfa69d">HOME_BIT</a></div><div class="ttdeci">#define HOME_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00148">main.h:148</a></div></div>
-<div class="ttc" id="amain_8h_html_ac70b773fff57d71eefb6472749d86757"><div class="ttname"><a href="#ac70b773fff57d71eefb6472749d86757">PULSE_BIT</a></div><div class="ttdeci">#define PULSE_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00144">main.h:144</a></div></div>
-<div class="ttc" id="amain_8h_html_adb32e9c41bdddeb723c8075a9db8f915"><div class="ttname"><a href="#adb32e9c41bdddeb723c8075a9db8f915">REG_BIT</a></div><div class="ttdeci">#define REG_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00146">main.h:146</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00157">157</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<div class="ttc" id="amain_8h_html_a3019082b9b714b416051e3383ac0715b"><div class="ttname"><a href="#a3019082b9b714b416051e3383ac0715b">RETURN_BIT</a></div><div class="ttdeci">#define RETURN_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00177">main.h:177</a></div></div>
+<div class="ttc" id="amain_8h_html_a6dba7924c0a0adf9cb6e38e9656346b4"><div class="ttname"><a href="#a6dba7924c0a0adf9cb6e38e9656346b4">RUN_BIT</a></div><div class="ttdeci">#define RUN_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00162">main.h:162</a></div></div>
+<div class="ttc" id="amain_8h_html_a87b5e02fe44dfbb292b1901025dd1187"><div class="ttname"><a href="#a87b5e02fe44dfbb292b1901025dd1187">TURN_BIT</a></div><div class="ttdeci">#define TURN_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00171">main.h:171</a></div></div>
+<div class="ttc" id="amain_8h_html_abb1d86f89f686101dccc13e099bfa69d"><div class="ttname"><a href="#abb1d86f89f686101dccc13e099bfa69d">HOME_BIT</a></div><div class="ttdeci">#define HOME_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00180">main.h:180</a></div></div>
+<div class="ttc" id="amain_8h_html_ac70b773fff57d71eefb6472749d86757"><div class="ttname"><a href="#ac70b773fff57d71eefb6472749d86757">PULSE_BIT</a></div><div class="ttdeci">#define PULSE_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00168">main.h:168</a></div></div>
+<div class="ttc" id="amain_8h_html_adb32e9c41bdddeb723c8075a9db8f915"><div class="ttname"><a href="#adb32e9c41bdddeb723c8075a9db8f915">REG_BIT</a></div><div class="ttdeci">#define REG_BIT</div><div class="ttdef"><b>Definition</b> <a href="main_8h_source.html#l00174">main.h:174</a></div></div>
+</div><!-- fragment --><p>Check if any command or method is performed. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00200">200</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -383,8 +390,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">reg = reg | (1 &lt;&lt; bit)</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00103">103</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+</div><!-- fragment --><p>Set single bit in register. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00106">106</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -412,8 +420,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">reg = reg | (time_r &lt;&lt; 8) | (time_l &lt;&lt; 16)</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00109">109</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+</div><!-- fragment --><p>Set open-valve time to the defined values, separately for left and right valve. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00122">122</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -436,8 +445,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">reg = reg ^ (1 &lt;&lt; bit)</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00105">105</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+</div><!-- fragment --><p>Toggle single bit in register. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00112">112</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -452,8 +462,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If active, the automatic message includes the accelerometer reading. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00150">150</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00186">186</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -468,8 +479,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If active, global sending of the automatic reading is enabled. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00149">149</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00183">183</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -484,8 +496,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If active, the automatic message includes the gyroscope reading. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00151">151</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00189">189</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -500,8 +513,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If active, the automatic message includes the orientation data. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00152">152</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00192">192</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -517,7 +531,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00127">127</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00146">146</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -533,7 +547,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00126">126</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00145">145</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -548,8 +562,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Calibration constant, get from comparison required angle for turn and measured </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00161">161</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00204">204</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -564,8 +579,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>0 - disable regulation, 1 - enable regulation </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00164">164</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00208">208</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -580,8 +596,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Reserved </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00165">165</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00211">211</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -596,8 +613,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Reserved </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00166">166</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00214">214</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -612,8 +630,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Reserved </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00167">167</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00217">217</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -628,8 +647,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>0 - left, 1 - right </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00143">143</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00165">165</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -644,8 +664,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If active, the home command is being executed. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00148">148</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00180">180</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -661,7 +682,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00137">137</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00156">156</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -677,7 +698,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00136">136</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00155">155</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -693,7 +714,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00133">133</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00152">152</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -709,7 +730,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00132">132</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00151">151</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -725,7 +746,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00135">135</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00154">154</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -741,7 +762,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00134">134</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00153">153</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -756,8 +777,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If active, the pulse command is being executed. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00144">144</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00168">168</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -772,8 +794,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Valve time is multiplied by 10. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00153">153</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00195">195</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -788,8 +811,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If active, the satellite counteracts external deflection. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00146">146</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00174">174</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -804,8 +828,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If active, the satellite returns to the position prior to deflection. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00147">147</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00177">177</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -820,8 +845,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If active, a new action is requested. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00142">142</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00162">162</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -837,7 +863,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00139">139</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00158">158</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -853,7 +879,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00138">138</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00157">157</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -868,8 +894,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If active, the turn command is being executed. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00145">145</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00171">171</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -885,7 +912,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00131">131</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00150">150</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -901,7 +928,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00130">130</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00149">149</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -917,7 +944,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00129">129</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00148">148</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -933,7 +960,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00128">128</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8h_source.html#l00147">147</a> of file <a class="el" href="main_8h_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -961,7 +988,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00370">370</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00379">379</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 
 </div>
 </div>

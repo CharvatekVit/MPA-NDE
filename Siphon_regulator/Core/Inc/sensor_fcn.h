@@ -30,8 +30,8 @@
 
 
 /* Extern global variables --------------------------------*/
-extern sensor_data_t measured_data;
-extern settings_t    set_data;
+extern sensor_data_t measured_data; ///< Current sensor measured data.
+extern settings_t    set_data;      ///< Main system settings.
 
 /* Function prototypes ------------------------------------*/
 /**

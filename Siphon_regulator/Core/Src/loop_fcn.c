@@ -1,31 +1,33 @@
 /*
- * loop_fcn.c
+ * Loop functions library
+ * (c) Antonin_Putala 2026
  *
- *  Created on: Mar 12, 2026
- *      Author: Antonin Putala
+ * Developed using STM32CubeIDE
+ * Tested on BluePill board and STM32F103C8T6, 32 MHz.
  */
 
-/* Includes */
+/* Includes -----------------------------------------------*/
 #include "loop_fcn.h"
 #include "main.h"
 #include "sensor_fcn.h"
 #include <math.h>
 #include <stdio.h>
 
-/* Defines */
+/* Defines ------------------------------------------------*/
 #define ANGLE_TOL           5   // Precision setting of position
 #define STOP_CONST_LEFT    10   // For stop pulse calculation
 #define STOP_CONST_RIGHT   10
 #define GYR_TOL          1.0f   // Ignored motion
 #define PULSE_IGNORE       50   // Too short pulse
 
-/* Function declaration */
+/* Static functions declaration ---------------------------*/
+/* Function prototypes ------------------------------------*/
 static void valve_close(void);
 static void regul_stop(uint32_t *, uint32_t *);
 static void regul_return(uint32_t *, uint32_t *, float);
 
-/* Global functions */
 
+/* Global functions ---------------------------------------*/
 /* Automatic writing sensor data to serial */
 void autoread_fcn(uint32_t reg)
 {

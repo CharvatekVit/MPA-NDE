@@ -16,7 +16,7 @@ Team members
 2.	Performing controlled orientation changes
 
 > [!WARNING]
-> April 27 will be last progress presentation.
+> May 5 will be final presentation.
 
 ## Task list
 - [ ] System

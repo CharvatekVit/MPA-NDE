@@ -37,7 +37,7 @@ Team members
       - [x] Switching circuit
    * [x] PCB design
    * [x] Soldering
-- [ ]  Pneumatics
+- [x]  Pneumatics
    * [x] Component choice 
       - [x] Valve
       - [x] T-hub
@@ -45,8 +45,8 @@ Team members
    * [x]  Gas bottle construction
    * [x]  Completation pneumatic circuit
    * [x]  Sealing
-   * [ ]  Nozzles
-- [ ] Software
+   * [x]  Nozzles
+- [x] Software
    * [x] Component choice 
        - [x] MCU
        - [x] Wireless module
@@ -57,8 +57,8 @@ Team members
            * [x] Position regulation
        - [x] Command implementation
    * [x] Wireless communication
-   * [ ] Constant tuning
-   * [ ] Testing
+   * [x] Constant tuning
+   * [x] Testing
    * [x] Doxygen
 - [x] Structure
    * [x] Size estimation

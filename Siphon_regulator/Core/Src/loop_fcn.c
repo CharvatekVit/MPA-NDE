@@ -109,9 +109,10 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 				/* Redefine time according to angle speed */
 				_clr_time(*p_reg);
 				uint8_t time[2];
+
 				/* Positive velocity => right rotation => left valve for stop */
-				time[0] = !(_read_BV(*p_reg, DIR_BIT)) ? (uint8_t)(STOP_CONST_LEFT  * fabsf(measured_data.gyr[2])) : set_data.time_l;
-				time[1] = (_read_BV(*p_reg, DIR_BIT))  ? (uint8_t)(STOP_CONST_RIGHT * measured_data.gyr[2]) : set_data.time_r;
+				time[0] = !(_read_BV(*p_reg, DIR_BIT)) ? (uint8_t)(STOP_CONST_LEFT  * (fabsf(measured_data.gyr[2]) - STOP_CONST_OFF_LEFT)) : set_data.time_l;
+				time[1] = (_read_BV(*p_reg, DIR_BIT))  ? (uint8_t)(STOP_CONST_RIGHT * (measured_data.gyr[2] - STOP_CONST_OFF_RIGHT)) : set_data.time_r;
 				_set_time(*p_reg, time[0], time[1]);
 
 				// printf("gyroscope: %d\n", _float2int(measured_data.gyr[2]));
@@ -243,13 +244,13 @@ static void regul_stop(uint32_t * p_reg, uint32_t * p_ticks)
 	if (measured_data.gyr[2] > 0)
 	{
 		HAL_GPIO_WritePin(VALVE_R_GPIO_Port, VALVE_R_Pin, 1);
-		*p_ticks = (uint32_t)(STOP_CONST_RIGHT * measured_data.gyr[2]);
+		*p_ticks = (uint32_t)(STOP_CONST_RIGHT * (measured_data.gyr[2] - STOP_CONST_OFF_RIGHT));
 	}
 	else
 	{
 		HAL_GPIO_WritePin(VALVE_L_GPIO_Port, VALVE_L_Pin, 1);
 		/* Gyroscope data are negative!!! */
-		*p_ticks = (uint32_t)(-1 * STOP_CONST_LEFT * measured_data.gyr[2]);
+		*p_ticks = (uint32_t)(STOP_CONST_LEFT * ((-1 * measured_data.gyr[2]) - STOP_CONST_OFF_LEFT));
 	}
 
 	/* Ignore too short pulses */

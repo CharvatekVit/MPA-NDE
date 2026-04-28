@@ -24,11 +24,17 @@
 /** Precision setting of position. */
 #define ANGLE_TOL           5
 
-/** Constant for stop pulse calculation, left valve. */
-#define STOP_CONST_LEFT    10
+/* Constant for stop pulse calculation - slope, left valve. */
+#define STOP_CONST_LEFT    (1000.0f/7.808f)
 
-/** Constant for stop pulse calculation, right valve. */
-#define STOP_CONST_RIGHT   10
+/* Constant for stop pulse calculation - slope, right valve. */
+#define STOP_CONST_RIGHT   (1000.0f/11.7f)
+
+/* Constant for stop pulse calculation - offset, left valve. */
+#define STOP_CONST_OFF_LEFT    1.552f
+
+/* Constant for stop pulse calculation - offset, right valve. */
+#define STOP_CONST_OFF_RIGHT   0.047f
 
 /** Ignored motion, it accounts for sensor fluctuation. */
 #define GYR_TOL          1.0f

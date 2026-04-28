@@ -106,7 +106,7 @@ void valve_fcn(uint32_t * p_reg, float * p_set_pos)
 				_tog_BV(*p_reg, DIR_BIT);
 				_set_BV(*p_reg, PULSE_BIT);
 
-				/* Redefine time according to angle speed */
+				/* Redefine time according to angle speed  */
 				_clr_time(*p_reg);
 				uint8_t time[2];
 

@@ -73,7 +73,7 @@ Team members
 - [Presentation 3](https://vutbr-my.sharepoint.com/:p:/r/personal/246922_vutbr_cz/_layouts/15/Doc.aspx?sourcedoc=%7Bb8d8ee2d-dea4-4bd7-80e0-b8eedcd8eff3%7D&action=edit&wdPreviousSession=f2da6c50-2410-d63b-7747-ba218f665f97)
 - [Presentation 4](https://vutbr-my.sharepoint.com/:p:/r/personal/246922_vutbr_cz/_layouts/15/Doc.aspx?sourcedoc=%7Bfdc04afe-ad7c-41b7-ba45-5333d5b4e1ec%7D&action=edit&wdPreviousSession=a0a396ff-f194-bd80-6fab-eeac188b319b)
 - [Presentation 5](https://vutbr-my.sharepoint.com/:p:/r/personal/246922_vutbr_cz/_layouts/15/Doc.aspx?sourcedoc=%7B985cec3f-7b48-4ae2-b9dc-034aea59f2ab%7D&action=edit&wdPreviousSession=30f991b1-2b14-5247-71b9-fc82ac9b66c8)
-- [Programming documantation](https://github.com/CharvatekVit/MPA-NDE/blob/main/Documentation/html/index.html)
+- [Programming documantation]([https://github.com/CharvatekVit/MPA-NDE/blob/main/Documentation/html/index.html](https://raw.githubusercontent.com/CharvatekVit/MPA-NDE/main/Documentation/html/index.html)
 
 ## Reference
 1. [Arduino HC-05](https://arduinogetstarted.com/tutorials/arduino-bluetooth#google_vignette)

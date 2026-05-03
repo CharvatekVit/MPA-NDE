@@ -68,7 +68,7 @@ The mechanical frame follows the CubeSat form factor philosophy, optimized for a
 
 ## 5. Software
 The firmware is written in C, focusing on low latency and deterministic control.
-* **Control Loop:** A PID (Proportional-Integral-Derivative) controller tuned for the specific moment of inertia of the 1.9kg assembly.
+* **Control Loop:** An easy controller tuned for the specific moment of inertia of the 1.9kg assembly.
 * **Data Fusion:** Complementary filtering of accelerometer and gyroscope data from the MPU9250.
 * **Interface:** Custom serial protocol over Bluetooth for real-time gain adjustment and state monitoring.
 

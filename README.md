@@ -136,13 +136,16 @@ The firmware is written in C, focusing on low latency and deterministic control.
 
 ## 6. Bibliography
 
-[1] -, Space-Based Astronomy Operations. Online. 2026 NASA. [cit. 2026-04-10]. Available from: https://www.nasa.gov/missions/space-based-astronomy-operations/
+[1] HALLIDAY, David; RESNICK, Robert and JEARL WALKER. Fundamentals of physics, 
+New York: John Wiley, 1986.
+ISBN: 9780470148853.
 
-[2] -, CubeSat Design Specification Rev. 14.1 . Online. 2026 The CubeSat Program, Cal Poly SLO. [cit. 2026-04-10]. Available from: https://www.cubesat.org/resources
+[2] -, Mass Flow Choking. Online. 2026 NASA. [cit. 2026-04-09]. Available from: https://www.grc.nasa.gov/WWW/K-12/airplane/mflchk.html
 
-[3] -, Attitude Determination and Control System (ADCS) . Online. 2026 CubeSatShop. [cit. 2026-04-11]. Available from: https://www.cubesatshop.com/product-category/adcs/
+[3] POVALAČ, A., Nanosatellite Design and Electronics, Brno: Brno University of Technology, 
+Faculty of electrical engineering and communications, 2021.
 
-[4] -, PETG: Material safety data sheet . Online. 2026 Prusa 3D. [cit. 2026-04-12]. Available from: https://www.prusa3d.com/downloads/materials/msds/Prusament_PETG_MSDS.pdf
+[4] -, CubeSat Design Specification. Online. 2026 NASA. [cit. 2026-04-11]. Available from: https://www.nasa.gov/wp-content/uploads/2018/01/cubesatdesignspecificationrev14_12022-02-09.pdf
 
 [5] -, Heat Set Inserts . Online. 2026 Prusa 3D. [cit. 2026-04-12]. Available from: https://www.prusa3d.com/product/threaded-inserts-m2-5-standard-100-pcs/
 

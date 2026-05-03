@@ -19,7 +19,7 @@ The **Jet ADCS with Siphon Cartridge** is an engineering project focused on the 
 ### Core Concept
 The system uses a compressed air as a propellant source. By regulating the pressure and precisely timing the opening of solenoid valves, the system can produce controlled thrust through two nozzles. This thrust creates a mechanical moment that allows the satellite to rotate to a desired angular position or maintain stability.
 
-![Conceptual diagram](MPA-NDE/Pics/flowchart.png)
+![Conceptual diagram](Pics/flowchart.png)
 
 ## Requirements
 1.	Operation on battery supply

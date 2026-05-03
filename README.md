@@ -117,6 +117,8 @@ The firmware is written in C, focusing on low latency and deterministic control.
    * [x] Structural design
    * [x] 3D print
    * [x] Assembly
+     
+---
 
 ## Documents
 - [Part list](https://vutbr-my.sharepoint.com/:x:/r/personal/246858_vutbr_cz/Documents/MPA-NDE%20Part%20List.xlsx?d=wf46451cfd72a41359eeacaa9987770c3&csf=1&web=1&e=Fm6BbQ)
@@ -147,5 +149,3 @@ The firmware is written in C, focusing on low latency and deterministic control.
 [8] -, mpu9250 . Online. 2026 Libdriver. [cit. 2026-04-23]. Available from: https://github.com/libdriver/mpu9250
 
 [9] Khaled Magdy, STM32 Blue Pill Pinout & Programming Guide . Online. 2026 DeepBlue Embedded. [cit. 2026-04-26]. Available from: https://deepbluembedded.com/stm32-blue-pill-pinout-programming-guide/
-11. [C Compiler online](https://www.programiz.com/c-programming/online-compiler/)
-12. [Nanosatellites Design and Electronics](https://moodle.vut.cz/pluginfile.php/1264520/mod_resource/content/1/SPACE_NDE_Povalac_202203.pdf)

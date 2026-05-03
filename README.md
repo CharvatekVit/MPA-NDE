@@ -16,10 +16,10 @@ Team members
 ## 1. Project Overview
 The **Jet ADCS with Siphon Cartridge** is an engineering project focused on the design and implementation of a single-axis orientation control system for nanosatellites (CubeSats). While traditional CubeSats rely on reaction wheels or magnetorquers, this project explores the use of compressed air to generate torque.
 
+![Finished](Pics/cube_comp.png)
+
 ### Core Concept
 The system uses a compressed air as a propellant source. By regulating the pressure and precisely timing the opening of solenoid valves, the system can produce controlled thrust through two nozzles. This thrust creates a mechanical moment that allows the satellite to rotate to a desired angular position or maintain stability.
-
-![Conceptual diagram](Pics/flowchart.png)
 
 ## Requirements
 1.	Operation on battery supply
@@ -36,6 +36,8 @@ The operational logic follows this flow:
 2. **Processing:** The STM32 microcontroller calculates the error between the desired and current state via a PID algorithm.
 3. **Actuation:** Solenoid valves release precise bursts of air through nozzles to correct the orientation.
 4. **Monitoring:** Data is sent wirelessly via Bluetooth to a ground station for real-time analysis.
+
+![Conceptual diagram](Pics/flowchart.png)
 
 ---
 

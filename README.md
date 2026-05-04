@@ -131,6 +131,7 @@ The firmware is written in C, focusing on low latency and deterministic control.
 - [Presentation 3](https://vutbr-my.sharepoint.com/:p:/r/personal/246922_vutbr_cz/_layouts/15/Doc.aspx?sourcedoc=%7Bb8d8ee2d-dea4-4bd7-80e0-b8eedcd8eff3%7D&action=edit&wdPreviousSession=f2da6c50-2410-d63b-7747-ba218f665f97)
 - [Presentation 4](https://vutbr-my.sharepoint.com/:p:/r/personal/246922_vutbr_cz/_layouts/15/Doc.aspx?sourcedoc=%7Bfdc04afe-ad7c-41b7-ba45-5333d5b4e1ec%7D&action=edit&wdPreviousSession=a0a396ff-f194-bd80-6fab-eeac188b319b)
 - [Presentation 5](https://vutbr-my.sharepoint.com/:p:/r/personal/246922_vutbr_cz/_layouts/15/Doc.aspx?sourcedoc=%7B985cec3f-7b48-4ae2-b9dc-034aea59f2ab%7D&action=edit&wdPreviousSession=30f991b1-2b14-5247-71b9-fc82ac9b66c8)
+- [Presentation final](https://vutbr-my.sharepoint.com/:p:/r/personal/246922_vutbr_cz/_layouts/15/Doc.aspx?sourcedoc=%7B42430507-dd15-4af2-abc7-cf61c1f6daa9%7D&action=edit&wdPreviousSession=ab6cd07b-cc64-2478-b330-78e72e13d1b7)
 - [Programming documantation](https://raw.githack.com/CharvatekVit/MPA-NDE/main/Documentation/html/index.html)
 - [Documentation](https://vutbr-my.sharepoint.com/:f:/g/personal/246922_vutbr_cz/IgBKQASchL7PSJfr07Y2DRViAZgop-J1y6nprSuAsayNgWo?e=VgrZa8)
 
